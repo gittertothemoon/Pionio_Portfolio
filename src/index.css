@@ -1,0 +1,54 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: #306b4d;
+  --color-forest-50: #f1f8f3;
+  --color-forest-100: #ddeee3;
+  --color-forest-200: #beddcb;
+  --color-forest-300: #91c4a8;
+  --color-forest-400: #62a481;
+  --color-forest-500: #408764;
+  --color-forest-600: #306b4d;
+  --color-forest-700: #275640;
+  --color-forest-800: #214635;
+  --color-forest-900: #1d3a2d;
+  --color-forest-950: #0f2019;
+  
+  /* Required by High-agency specs */
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --background: #09090b; /* Zinc 950 */
+    --foreground: #fafafa; /* Zinc 50 */
+    --card: #09090b;
+    --card-foreground: #fafafa;
+    --border: rgba(255, 255, 255, 0.1);
+    
+    color-scheme: dark;
+  }
+
+  /* Force dark mode globally per premium aesthetic */
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Base kinetic energy override: always use transform over physical flow */
+    overflow-x: hidden;
+  }
+
+  /* Utility classes required for the specific High-Agency features */
+  .perpetual-micro-interactions {
+    will-change: transform, opacity;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
