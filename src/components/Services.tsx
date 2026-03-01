@@ -9,17 +9,20 @@ export function Services() {
         {
             id: "01",
             title: t('service_1_title'),
-            description: t('service_1_desc')
+            description: t('service_1_desc'),
+            image: "/images/frontend_architecture.png"
         },
         {
             id: "02",
             title: t('service_2_title'),
-            description: t('service_2_desc')
+            description: t('service_2_desc'),
+            image: "/images/interaction_design.png"
         },
         {
             id: "03",
             title: t('service_3_title'),
-            description: t('service_3_desc')
+            description: t('service_3_desc'),
+            image: "/images/art_direction.png"
         }
     ];
     return (
@@ -98,20 +101,30 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
             transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="group relative flex flex-col justify-between min-h-[400px] p-8 md:p-12 rounded-[2rem] bg-zinc-900 border border-white/5 overflow-hidden will-change-transform"
         >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 overflow-hidden mix-blend-luminosity opacity-30 group-hover:opacity-100 transition-opacity duration-1000 ease-[0.16,1,0.3,1]">
+                <div className="absolute inset-0 bg-zinc-950/80 group-hover:bg-zinc-950/20 transition-colors duration-700 z-10" />
+                <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-[1.5s] ease-[0.16,1,0.3,1]"
+                />
+            </div>
+
             {/* Liquid Glass Overlay Effect on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-b from-forest-500/0 via-transparent to-forest-500/0 group-hover:from-forest-500/10 transition-colors duration-1000 ease-out pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-forest-500/0 via-transparent to-forest-500/0 group-hover:from-forest-500/10 transition-colors duration-1000 ease-out z-10 pointer-events-none" />
 
             {/* Top Number */}
-            <div style={{ transform: "translateZ(30px)" }} className="text-zinc-700 font-mono text-5xl md:text-6xl font-light tracking-tighter">
-                {service.number}
+            <div style={{ transform: "translateZ(30px)" }} className="relative z-20 text-zinc-600 group-hover:text-forest-400/80 transition-colors duration-500 font-mono text-5xl md:text-6xl font-light tracking-tighter">
+                {service.id || service.number}
             </div>
 
             {/* Content */}
-            <div style={{ transform: "translateZ(40px)" }} className="flex flex-col gap-6 mt-16">
-                <h3 className="text-2xl md:text-3xl font-sans tracking-tight text-white group-hover:text-forest-400 transition-colors duration-500">
+            <div style={{ transform: "translateZ(40px)" }} className="relative z-20 flex flex-col gap-6 mt-16">
+                <h3 className="text-2xl md:text-3xl font-sans tracking-tight text-white group-hover:text-forest-300 transition-colors duration-500 drop-shadow-md">
                     {service.title}
                 </h3>
-                <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
+                <p className="text-zinc-400 group-hover:text-zinc-200 transition-colors duration-500 text-sm md:text-base leading-relaxed font-light drop-shadow-md">
                     {service.description}
                 </p>
             </div>

@@ -64,38 +64,43 @@ export const dict: Dictionary = {
     works_label: { en: 'Selected Works', it: 'Lavori Selezionati' },
     works_headline: { en: 'Visual Engineering.', it: 'Ingegneria Visiva.' },
     works_view_case: { en: 'View Case Study', it: 'Vedi Case Study' },
-    work_nexora_cat: { en: 'E-commerce Architecture', it: 'Architettura E-commerce' },
-    work_nexora_desc: {
-        en: 'A headless e-commerce storefront engineered for sub-second load times. Re-architected the entire global state to synchronize carts across multiple tabs using BroadcastChannel edge technology.',
-        it: 'Uno storefront e-commerce headless progettato per tempi di caricamento inferiori al secondo. Ristrutturazione dello stato globale per sincronizzare i carrelli su più schede utilizzando la tecnologia BroadcastChannel.'
+    work_w2b_cat: { en: 'Community App', it: 'App Community' },
+    work_w2b_desc: {
+        en: 'A geolocation app for beaches allowing the community to report crowds, water quality, and beach cleanliness.',
+        it: "Un'app per geolocalizzare le spiagge e permettere alla community di segnalare la folla, la qualità dell'acqua e la pulizia."
     },
-    work_aura_cat: { en: 'SaaS Dashboard', it: 'Dashboard SaaS' },
-    work_aura_desc: {
-        en: 'Complex data visualization dashboard for high-frequency traders. Implemented a custom charting library using WebGL to render millions of data points smoothly without freezing the main React thread.',
-        it: 'Dashboard complessa di visualizzazione dati per trader ad alta frequenza. Implementazione di una libreria di grafici personalizzata in WebGL per far girare milioni di punti dati a 60fps senza bloccare React.'
+    work_antonela_cat: { en: 'Art Portfolio', it: "Portfolio d'Arte" },
+    work_antonela_desc: {
+        en: 'An art portfolio for an artist who paints on acrylic canvas.',
+        it: "Portfolio d'arte per un artista che dipinge quadri su tele in acrilico."
     },
-    work_verve_cat: { en: 'Creative Portfolio', it: 'Portfolio Creativo' },
-    work_verve_desc: {
-        en: 'A hyper-aesthetic portfolio for an NYC branding agency. Built entirely around Framer Motion physics springs, ensuring every scroll and hover feels weighty, magnetic, and physically accurate.',
-        it: 'Un portfolio iper-estetico per un\'agenzia di branding di NYC. Costruito interamente con le molle fisiche di Framer Motion, per garantire che ogni scroll e hover sia magnetico e fisicamente appagante.'
+    work_smoky_cat: { en: 'E-commerce', it: 'E-commerce' },
+    work_smoky_desc: {
+        en: 'An e-commerce platform for artisanal soy candles made in Italy.',
+        it: 'E-commerce di candele artigianali di soia made in Italy.'
+    },
+    work_arena_cat: { en: 'Local Business', it: 'Attività Locale' },
+    work_arena_desc: {
+        en: 'A digital presence for a barbershop located in Switzerland.',
+        it: 'Presenza digitale per un barber shop situato in Svizzera.'
     },
 
     // Experience
     exp_label: { en: 'Experience', it: 'Esperienza' },
-    exp_1_role: { en: 'Independent Digital Designer & Developer', it: 'Designer & Sviluppatore Digitale Indipendente' },
+    exp_1_role: { en: 'Independent Frontend Developer', it: 'Sviluppatore Frontend Indipendente' },
     exp_1_desc: {
-        en: 'Bridging the gap between hyper-aesthetic design and robust frontend architecture for high-profile clients globally. Specializing in WebGL, Framer Motion, and radical UI paradigms.',
-        it: 'Colmare il divario tra design iper-estetico e architettura frontend per clienti di alto profilo. Specializzato in WebGL, Framer Motion e paradigmi UI non convenzionali.'
+        en: 'Crafting modern, performant web applications with a strong focus on UI/UX. Delivering tailored digital experiences using React and the React ecosystem.',
+        it: "Sviluppo di applicazioni web moderne e performanti con una forte attenzione alla UI/UX. Realizzazione di esperienze digitali su misura utilizzando React e il suo ecosistema."
     },
-    exp_2_role: { en: 'Senior UI/UX Engineer', it: 'Senior UI/UX Engineer' },
+    exp_2_role: { en: 'Web Developer', it: 'Sviluppatore Web' },
     exp_2_desc: {
-        en: 'Led the comprehensive redesign of the core trading application. Engineered complex React dashboards ensuring 60fps performance and WCAG compliant accessibility standards.',
-        it: 'Guida della riprogettazione completa dell\'applicazione di trading principale. Sviluppo di dashboard React complesse garantendo prestazioni a 60fps e accessibilità WCAG.'
+        en: 'Collaborated on the development of full-stack projects, building responsive interfaces and optimizing frontend architectures for better performance and accessibility.',
+        it: "Collaborazione allo sviluppo di progetti full-stack, creando interfacce responsive e ottimizzando l'architettura frontend per migliorare performance e accessibilità."
     },
-    exp_3_role: { en: 'Frontend Developer', it: 'Sviluppatore Frontend' },
+    exp_3_role: { en: 'Frontend Intern / Junior Developer', it: 'Sviluppatore Frontend Junior / Tirocinante' },
     exp_3_desc: {
-        en: 'Developed award-winning marketing campaigns and interactive landing pages. Pioneered the adoption of headless CMS architectures and modern Jamstack workflows.',
-        it: 'Sviluppo di campagne di marketing pluripremiate e landing page interattive. Introduzione di architetture CMS headless e flussi di lavoro Jamstack moderni.'
+        en: 'Started the professional journey creating interactive landing pages and learning modern JavaScript frameworks, translating design mockups into functional code.',
+        it: 'Inizio del percorso professionale creando landing page interattive e apprendendo i moderni framework JavaScript, trasformando i mockup grafici in codice funzionale.'
     },
 
     // Contact

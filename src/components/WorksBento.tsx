@@ -8,31 +8,40 @@ export function WorksBento() {
     const { t } = useLanguage();
     const projects = [
         {
-            id: 'nexora',
-            title: 'Nexora Storefront',
-            category: t('work_nexora_cat'),
-            year: '2023',
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
-            description: t('work_nexora_desc'),
-            span: 'col-span-12 md:col-span-8',
+            id: 'w2b',
+            title: 'Where2Beach',
+            category: t('work_w2b_cat'),
+            year: '2024',
+            image: '/images/where2beach.png',
+            description: t('work_w2b_desc'),
+            span: 'md:col-span-2',
         },
         {
-            id: 'aura',
-            title: 'Aura Dashboard',
-            category: t('work_aura_cat'),
-            year: '2023',
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-            description: t('work_aura_desc'),
-            span: 'col-span-12 md:col-span-4'
+            id: 'antonela',
+            title: "Antonela's Paintings",
+            category: t('work_antonela_cat'),
+            year: '2024',
+            image: '/images/antonela.png',
+            description: t('work_antonela_desc'),
+            span: 'md:col-span-1'
         },
         {
-            id: 'verve',
-            title: 'Verve Studio',
-            category: t('work_verve_cat'),
-            year: '2022',
-            image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
-            description: t('work_verve_desc'),
-            span: 'col-span-12 md:col-span-12'
+            id: 'smoky',
+            title: 'Smoky Candle',
+            category: t('work_smoky_cat'),
+            year: '2024',
+            image: '/images/smoky.png',
+            description: t('work_smoky_desc'),
+            span: 'md:col-span-1'
+        },
+        {
+            id: 'arena',
+            title: 'Arena Barbershop',
+            category: t('work_arena_cat'),
+            year: '2024',
+            image: '/images/arena.png',
+            description: t('work_arena_desc'),
+            span: 'md:col-span-2'
         }
     ];
 
@@ -142,7 +151,7 @@ export function WorksBento() {
                             layoutId={`card-${work.id}`}
                             onClick={() => setActiveWork(work)}
                             variants={itemVariants}
-                            className="relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+                            className={`${work.span ? work.span : ''} relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
                             <motion.div layoutId={`image-${work.id}`} className="absolute inset-0 bg-zinc-800">
                                 <img src={work.image} alt={work.title} className="w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000 ease-out will-change-transform" />
