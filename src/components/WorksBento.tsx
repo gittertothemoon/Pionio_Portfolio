@@ -4,16 +4,30 @@ import { ArrowUpRight, X } from '@phosphor-icons/react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
+type Project = {
+    id: string;
+    title: string;
+    category: string;
+    year: string;
+    image: string;
+    description: string;
+    span: string;
+    url?: string;
+    imageFit?: 'contain' | 'cover';
+};
+
 export function WorksBento() {
     const { t } = useLanguage();
-    const projects = [
+    const projects: Project[] = [
         {
             id: 'w2b',
             title: 'Where2Beach',
             category: t('work_w2b_cat'),
             year: '2024',
-            image: '/images/where2beach.png',
+            image: '/images/w2b-logo.png',
             description: t('work_w2b_desc'),
+            url: 'https://www.where2beach.com',
+            imageFit: 'contain',
             span: 'md:col-span-2',
         },
         {
@@ -42,10 +56,20 @@ export function WorksBento() {
             image: '/images/arena.png',
             description: t('work_arena_desc'),
             span: 'md:col-span-2'
+        },
+        {
+            id: 'flow',
+            title: 'FLOW Pilates Studio',
+            category: t('work_flow_cat'),
+            year: '2026',
+            image: '/images/flow.jpg',
+            description: t('work_flow_desc'),
+            url: 'https://flow-pilates-studio-bo.vercel.app',
+            span: 'md:col-span-3'
         }
     ];
 
-    const [activeWork, setActiveWork] = useState<typeof projects[0] | null>(null);
+    const [activeWork, setActiveWork] = useState<Project | null>(null);
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -114,7 +138,7 @@ export function WorksBento() {
                         className="md:col-span-2 relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]"
                     >
                         <motion.div layoutId={`image-${projects[0].id}`} className="absolute inset-0 bg-zinc-800">
-                            <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
+                            <img src={projects[0].image} alt={projects[0].title} className={`w-full h-full ${projects[0].imageFit === 'contain' ? 'object-contain p-12 md:p-16' : 'object-cover'} opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
                             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
                         </motion.div>
 
@@ -203,7 +227,7 @@ export function WorksBento() {
                             </button>
 
                             <motion.div layoutId={`image-${activeWork.id}`} className="w-full h-[40vh] md:h-[50vh] relative bg-zinc-900 shrink-0">
-                                <img src={activeWork.image} alt={activeWork.title} className="w-full h-full object-cover" />
+                                <img src={activeWork.image} alt={activeWork.title} className={`w-full h-full ${activeWork.imageFit === 'contain' ? 'object-contain p-12' : 'object-cover'}`} />
                                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />
                             </motion.div>
 
@@ -227,6 +251,20 @@ export function WorksBento() {
                                 >
                                     {activeWork.description}
                                 </motion.p>
+
+                                {activeWork.url && (
+                                    <motion.a
+                                        href={activeWork.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3, duration: 0.5 }}
+                                        className="self-start inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-forest-500/20 hover:border-forest-500/30 text-white font-mono text-xs uppercase tracking-widest transition-colors duration-300"
+                                    >
+                                        {t('works_visit_site')} <ArrowUpRight weight="bold" />
+                                    </motion.a>
+                                )}
                             </div>
                         </motion.article>
                     </motion.div>

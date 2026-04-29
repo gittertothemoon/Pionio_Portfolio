@@ -64,6 +64,7 @@ export const dict: Dictionary = {
     works_label: { en: 'Selected Works', it: 'Lavori Selezionati' },
     works_headline: { en: 'Visual Engineering.', it: 'Ingegneria Visiva.' },
     works_view_case: { en: 'View Case Study', it: 'Vedi Case Study' },
+    works_visit_site: { en: 'Visit Site', it: 'Visita il Sito' },
     work_w2b_cat: { en: 'Community App', it: 'App Community' },
     work_w2b_desc: {
         en: 'A geolocation app for beaches allowing the community to report crowds, water quality, and beach cleanliness.',
@@ -83,6 +84,11 @@ export const dict: Dictionary = {
     work_arena_desc: {
         en: 'A digital presence for a barbershop located in Switzerland.',
         it: 'Presenza digitale per un barber shop situato in Svizzera.'
+    },
+    work_flow_cat: { en: 'Landing Page', it: 'Landing Page' },
+    work_flow_desc: {
+        en: 'Mobile-first landing page validating a boutique Pilates Reformer studio in San Giorgio di Piano, Bologna. Premium design with a lead-capture form connected to Supabase.',
+        it: 'Landing page mobile-first per la validazione di uno studio boutique di Pilates Reformer a San Giorgio di Piano, Bologna. Design premium con form di raccolta lead collegato a Supabase.'
     },
 
     // Experience
