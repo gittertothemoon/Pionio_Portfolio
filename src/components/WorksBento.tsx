@@ -15,6 +15,7 @@ type Project = {
     url?: string;
     imageFit?: 'contain' | 'cover';
     theme?: 'dark' | 'light';
+    bgClass?: string;
 };
 
 export function WorksBento() {
@@ -58,8 +59,12 @@ export function WorksBento() {
             title: 'Smoky Candle',
             category: t('work_smoky_cat'),
             year: '2024',
-            image: '/images/smokycandle.jpg',
+            image: '/images/smokycandle-logo.png',
             description: t('work_smoky_desc'),
+            url: 'https://smoky-candle.vercel.app',
+            imageFit: 'contain',
+            theme: 'light',
+            bgClass: 'bg-[#F5F0EB]',
             span: 'md:col-span-1'
         },
         {
@@ -187,15 +192,16 @@ export function WorksBento() {
                     {projects.slice(1).map((work) => {
                         const isLight = work.theme === 'light';
                         const isContain = work.imageFit === 'contain';
+                        const lightBg = work.bgClass ?? 'bg-[#FAF7F2]';
                         return (
                         <motion.article
                             key={work.id}
                             layoutId={`card-${work.id}`}
                             onClick={() => setActiveWork(work)}
                             variants={itemVariants}
-                            className={`${work.span ? work.span : ''} relative rounded-[2.5rem] ${isLight ? 'bg-[#FAF7F2] border-zinc-200/60' : 'bg-zinc-900 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
+                            className={`${work.span ? work.span : ''} relative rounded-[2.5rem] ${isLight ? `${lightBg} border-zinc-200/60` : 'bg-zinc-900 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
-                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? 'bg-[#FAF7F2]' : 'bg-zinc-800'}`}>
+                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'}`}>
                                 <img src={work.image} alt={work.title} className={`w-full h-full ${isContain ? 'object-contain p-10' : 'object-cover'} ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
                                 {!isLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />}
                             </motion.div>
@@ -245,7 +251,7 @@ export function WorksBento() {
                                 <X size={24} />
                             </button>
 
-                            <motion.div layoutId={`image-${activeWork.id}`} className={`w-full h-[40vh] md:h-[50vh] relative ${activeWork.theme === 'light' ? 'bg-[#FAF7F2]' : 'bg-zinc-900'} shrink-0`}>
+                            <motion.div layoutId={`image-${activeWork.id}`} className={`w-full h-[40vh] md:h-[50vh] relative ${activeWork.theme === 'light' ? (activeWork.bgClass ?? 'bg-[#FAF7F2]') : 'bg-zinc-900'} shrink-0`}>
                                 <img src={activeWork.image} alt={activeWork.title} className={`w-full h-full ${activeWork.imageFit === 'contain' ? 'object-contain p-12' : 'object-cover'}`} />
                                 {activeWork.theme !== 'light' && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />}
                             </motion.div>
