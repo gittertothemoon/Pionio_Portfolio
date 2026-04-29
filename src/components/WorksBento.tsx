@@ -29,6 +29,7 @@ export function WorksBento() {
             description: t('work_w2b_desc'),
             url: 'https://www.where2beach.com',
             imageFit: 'contain',
+            theme: 'light',
             span: 'md:col-span-2',
         },
         {
@@ -134,42 +135,53 @@ export function WorksBento() {
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[400px]"
                 >
                     {/* Main Hero Card */}
+                    {(() => {
+                        const hero = projects[0];
+                        const heroLight = hero.theme === 'light';
+                        const heroContain = hero.imageFit === 'contain';
+                        return (
                     <motion.article
-                        layoutId={`card-${projects[0].id}`}
-                        onClick={() => setActiveWork(projects[0])}
+                        layoutId={`card-${hero.id}`}
+                        onClick={() => setActiveWork(hero)}
                         variants={itemVariants}
-                        className="md:col-span-2 relative rounded-[2.5rem] bg-zinc-800 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+                        className={`md:col-span-2 relative rounded-[2.5rem] ${heroLight ? 'bg-[#E8F4FD] border-sky-200/60' : 'bg-zinc-800 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]`}
                     >
-                        <motion.div layoutId={`image-${projects[0].id}`} className="absolute inset-0 bg-zinc-700">
-                            <img src={projects[0].image} alt={projects[0].title} className={`w-full h-full ${projects[0].imageFit === 'contain' ? 'object-contain p-12 md:p-16' : 'object-cover'} opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-800/80 via-zinc-800/20 to-transparent" />
+                        <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-start justify-center pt-10 md:pt-14 px-12' : ''}`}>
+                            {heroContain ? (
+                                <img src={hero.image} alt={hero.title} className={`max-h-[120px] md:max-h-[150px] w-auto max-w-full object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                            ) : (
+                                <img src={hero.image} alt={hero.title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
+                            )}
+                            {!heroLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-800/80 via-zinc-800/20 to-transparent" />}
                         </motion.div>
 
                         <div className="absolute inset-0 bg-gradient-to-br from-forest-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-overlay pointer-events-none" />
 
                         <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between pointer-events-none">
                             <div className="flex justify-between items-start">
-                                <motion.span layoutId={`category-${projects[0].id}`} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-zinc-300 font-mono text-xs uppercase tracking-widest">
-                                    {projects[0].category}
+                                <motion.span layoutId={`category-${hero.id}`} className={`px-4 py-2 rounded-full backdrop-blur-md font-mono text-xs uppercase tracking-widest ${heroLight ? 'border border-zinc-300/70 bg-white/50 text-zinc-700' : 'border border-white/10 bg-white/5 text-zinc-300'}`}>
+                                    {hero.category}
                                 </motion.span>
                             </div>
 
                             <div className="flex flex-col gap-2 relative z-10">
-                                <motion.h3 layoutId={`title-${projects[0].id}`} className="text-3xl md:text-5xl font-sans tracking-tight text-white">
-                                    {projects[0].title}
+                                <motion.h3 layoutId={`title-${hero.id}`} className={`text-3xl md:text-5xl font-sans tracking-tight ${heroLight ? 'text-zinc-900' : 'text-white'}`}>
+                                    {hero.title}
                                 </motion.h3>
-                                <div className="flex items-center gap-4 text-zinc-400 font-mono text-sm">
-                                    <span>{projects[0].year}</span>
+                                <div className={`flex items-center gap-4 font-mono text-sm ${heroLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
+                                    <span>{hero.year}</span>
                                 </div>
                             </div>
                         </div>
                         {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-forest-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <div className={`absolute inset-0 ${heroLight ? 'bg-sky-900/40' : 'bg-forest-900/60'} opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none`}>
                             <span className="px-6 py-3 bg-white text-zinc-950 rounded-full font-mono text-xs tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
                                 {t('works_view_case')} <ArrowUpRight weight="bold" />
                             </span>
                         </div>
                     </motion.article>
+                        );
+                    })()}
 
                     {/* Secondary Cards */}
                     {projects.slice(1).map((work) => {
