@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { GithubLogo } from '@phosphor-icons/react';
+import { GithubLogo, InstagramLogo } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 
 const socials = [
     { name: 'GitHub', href: 'https://github.com/gittertothemoon', icon: GithubLogo },
+    { name: 'Instagram', href: 'https://instagram.com/pionio.dev', icon: InstagramLogo },
 ];
 
 export function Footer() {
