@@ -11,13 +11,60 @@ type ContactPayload = {
   come_trovato?: string | null;
 };
 
+const MAX_LENGTHS = {
+  nome: 100,
+  email: 254,
+  tipo_progetto: 100,
+  budget: 100,
+  messaggio: 5000,
+  come_trovato: 200,
+} as const;
+
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const rateLimitStore = new Map<string, number[]>();
+
+const checkRateLimit = (ip: string): boolean => {
+  const now = Date.now();
+  const recent = (rateLimitStore.get(ip) ?? []).filter(
+    (t) => now - t < RATE_LIMIT_WINDOW_MS,
+  );
+  if (recent.length >= RATE_LIMIT_MAX) {
+    rateLimitStore.set(ip, recent);
+    return false;
+  }
+  recent.push(now);
+  rateLimitStore.set(ip, recent);
+
+  if (rateLimitStore.size > 1000) {
+    for (const [key, value] of rateLimitStore) {
+      const fresh = value.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+      if (fresh.length === 0) rateLimitStore.delete(key);
+      else rateLimitStore.set(key, fresh);
+    }
+  }
+  return true;
+};
+
+const getClientIp = (req: Request): string => {
+  const xff = req.headers.get("x-forwarded-for");
+  if (xff) return xff.split(",")[0]!.trim();
+  return req.headers.get("x-real-ip") || "unknown";
+};
+
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
   );
 
 const isValidEmail = (s: string) =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+  s.length <= MAX_LENGTHS.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+
+const json = (status: number, body: unknown, extraHeaders: Record<string, string> = {}) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { "content-type": "application/json", ...extraHeaders },
+  });
 
 const row = (label: string, value: string | null | undefined) => {
   const display =
@@ -36,43 +83,60 @@ export default async function handler(req: Request): Promise<Response> {
     return new Response("Method not allowed", { status: 405 });
   }
 
+  const contentType = req.headers.get("content-type") || "";
+  if (!contentType.includes("application/json")) {
+    return json(415, { ok: false, error: "Unsupported Media Type" });
+  }
+
+  const ip = getClientIp(req);
+  if (!checkRateLimit(ip)) {
+    return json(429, { ok: false, error: "Too many requests" }, { "retry-after": "60" });
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.NOTIFICATION_EMAIL;
 
   if (!apiKey || !to) {
-    return new Response(
-      JSON.stringify({ ok: false, error: "Notification not configured" }),
-      { status: 503, headers: { "content-type": "application/json" } },
-    );
+    return json(503, { ok: false, error: "Notification not configured" });
   }
 
   let payload: ContactPayload;
   try {
     payload = (await req.json()) as ContactPayload;
   } catch {
-    return new Response(JSON.stringify({ ok: false, error: "Invalid JSON" }), {
-      status: 400,
-      headers: { "content-type": "application/json" },
-    });
+    return json(400, { ok: false, error: "Invalid JSON" });
+  }
+
+  if (!payload || typeof payload !== "object") {
+    return json(400, { ok: false, error: "Invalid payload" });
   }
 
   const nome = (payload.nome || "").trim();
   const email = (payload.email || "").trim();
+  const messaggio = (payload.messaggio || "").trim();
+  const tipo_progetto = (payload.tipo_progetto || "").trim();
+  const budget = (payload.budget || "").trim();
+  const come_trovato = (payload.come_trovato || "").trim();
 
   if (!nome || !email) {
-    return new Response(
-      JSON.stringify({ ok: false, error: "Nome ed email sono obbligatori" }),
-      { status: 400, headers: { "content-type": "application/json" } },
-    );
+    return json(400, { ok: false, error: "Nome ed email sono obbligatori" });
+  }
+  if (
+    nome.length > MAX_LENGTHS.nome ||
+    email.length > MAX_LENGTHS.email ||
+    messaggio.length > MAX_LENGTHS.messaggio ||
+    tipo_progetto.length > MAX_LENGTHS.tipo_progetto ||
+    budget.length > MAX_LENGTHS.budget ||
+    come_trovato.length > MAX_LENGTHS.come_trovato
+  ) {
+    return json(400, { ok: false, error: "Campi troppo lunghi" });
   }
   if (!isValidEmail(email)) {
-    return new Response(
-      JSON.stringify({ ok: false, error: "Email non valida" }),
-      { status: 400, headers: { "content-type": "application/json" } },
-    );
+    return json(400, { ok: false, error: "Email non valida" });
   }
 
-  const subject = `Nuovo contatto Portfolio - ${nome}`;
+  const safeNome = nome.replace(/[\r\n]+/g, " ");
+  const subject = `Nuovo contatto Portfolio - ${safeNome}`;
   const timestamp = new Date().toLocaleString("it-IT", {
     timeZone: "Europe/Rome",
     dateStyle: "long",
@@ -88,12 +152,12 @@ export default async function handler(req: Request): Promise<Response> {
         <h1 style="margin:10px 0 0 0;font-size:22px;font-weight:500;letter-spacing:-0.01em;color:#fafafa;">Nuovo contatto dal sito</h1>
       </div>
       <table role="presentation" style="width:100%;border-collapse:collapse;background:#18181b;">
-        ${row("Nome", payload.nome)}
-        ${row("Email", payload.email)}
-        ${row("Tipo di progetto", payload.tipo_progetto ?? null)}
-        ${row("Budget", payload.budget ?? null)}
-        ${row("Messaggio", payload.messaggio ?? null)}
-        ${row("Come ti ha trovato", payload.come_trovato ?? null)}
+        ${row("Nome", nome)}
+        ${row("Email", email)}
+        ${row("Tipo di progetto", tipo_progetto)}
+        ${row("Budget", budget)}
+        ${row("Messaggio", messaggio)}
+        ${row("Come ti ha trovato", come_trovato)}
         ${row("Ricevuto", timestamp)}
       </table>
       <div style="padding:18px 32px;background:#0a0a0b;color:#52525b;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-family:'SF Mono','Menlo',monospace;border-top:1px solid #27272a;">
@@ -120,14 +184,9 @@ export default async function handler(req: Request): Promise<Response> {
 
   if (!resp.ok) {
     const detail = await resp.text();
-    return new Response(
-      JSON.stringify({ ok: false, status: resp.status, detail }),
-      { status: 502, headers: { "content-type": "application/json" } },
-    );
+    console.error("Resend error", { status: resp.status, detail });
+    return json(502, { ok: false, error: "send_failed" });
   }
 
-  return new Response(JSON.stringify({ ok: true }), {
-    status: 200,
-    headers: { "content-type": "application/json" },
-  });
+  return json(200, { ok: true });
 }

@@ -15,7 +15,6 @@
     "@tailwindcss/vite": "^4.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "convert-svg-to-png": "^0.7.1",
     "framer-motion": "^12.34.3",
     "geist": "^1.7.0",
     "lucide-react": "^0.575.0",
