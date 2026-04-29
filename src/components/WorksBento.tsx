@@ -76,8 +76,12 @@ export function WorksBento() {
             title: 'Arena Barbershop',
             category: t('work_arena_cat'),
             year: '2024',
-            image: '/images/arena.png',
+            image: '/images/arena-logo.png',
             description: t('work_arena_desc'),
+            url: 'https://arena-barbershop.vercel.app',
+            imageFit: 'contain',
+            theme: 'light',
+            bgClass: 'bg-[#F5F5F5]',
             span: 'md:col-span-1'
         }
     ];
