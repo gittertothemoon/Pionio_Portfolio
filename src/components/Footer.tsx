@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
-import { GithubLogo, LinkedinLogo, TwitterLogo, DribbbleLogo } from '@phosphor-icons/react';
+import { GithubLogo } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 
 const socials = [
-    { name: 'GitHub', href: '#', icon: GithubLogo },
-    { name: 'LinkedIn', href: '#', icon: LinkedinLogo },
-    { name: 'Twitter', href: '#', icon: TwitterLogo },
-    { name: 'Dribbble', href: '#', icon: DribbbleLogo },
+    { name: 'GitHub', href: 'https://github.com/gittertothemoon', icon: GithubLogo },
 ];
 
 export function Footer() {
@@ -26,6 +23,8 @@ export function Footer() {
                             <a
                                 key={social.name}
                                 href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-zinc-500 hover:text-forest-400 hover:-translate-y-1 transition-all duration-300"
                                 aria-label={social.name}
                             >
