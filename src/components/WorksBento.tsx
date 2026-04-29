@@ -48,7 +48,7 @@ export function WorksBento() {
             title: "Antonela's Paintings",
             category: t('work_antonela_cat'),
             year: '2024',
-            image: '/images/antonela.png',
+            image: '/images/antonela.jpg',
             description: t('work_antonela_desc'),
             span: 'md:col-span-1'
         },
@@ -57,7 +57,7 @@ export function WorksBento() {
             title: 'Smoky Candle',
             category: t('work_smoky_cat'),
             year: '2024',
-            image: '/images/smoky.png',
+            image: '/images/smokycandle.jpg',
             description: t('work_smoky_desc'),
             span: 'md:col-span-1'
         },
@@ -138,11 +138,11 @@ export function WorksBento() {
                         layoutId={`card-${projects[0].id}`}
                         onClick={() => setActiveWork(projects[0])}
                         variants={itemVariants}
-                        className="md:col-span-2 relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+                        className="md:col-span-2 relative rounded-[2.5rem] bg-zinc-800 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]"
                     >
-                        <motion.div layoutId={`image-${projects[0].id}`} className="absolute inset-0 bg-zinc-800">
+                        <motion.div layoutId={`image-${projects[0].id}`} className="absolute inset-0 bg-zinc-700">
                             <img src={projects[0].image} alt={projects[0].title} className={`w-full h-full ${projects[0].imageFit === 'contain' ? 'object-contain p-12 md:p-16' : 'object-cover'} opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-800/80 via-zinc-800/20 to-transparent" />
                         </motion.div>
 
                         <div className="absolute inset-0 bg-gradient-to-br from-forest-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-overlay pointer-events-none" />
