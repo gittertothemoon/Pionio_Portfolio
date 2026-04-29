@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 const socials = [
     { name: 'GitHub', href: 'https://github.com/gittertothemoon', icon: GithubLogo },
-    { name: 'Instagram', href: 'https://instagram.com/pionio.dev', icon: InstagramLogo },
+    { name: 'Instagram', href: 'https://www.instagram.com/pionio_dev', icon: InstagramLogo },
 ];
 
 export function Footer() {
