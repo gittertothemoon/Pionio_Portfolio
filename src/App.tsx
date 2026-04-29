@@ -42,9 +42,7 @@ function App() {
         <Experience />
       </div>
 
-      <div id="contact">
-        <ContactCTA />
-      </div>
+      <ContactCTA />
 
       <Footer />
       <NavBar />

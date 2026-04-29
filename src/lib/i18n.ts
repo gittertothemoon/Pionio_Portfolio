@@ -116,7 +116,51 @@ export const dict: Dictionary = {
         en: "I am currently accepting new freelance projects. Drop your email below and I'll reach out within 24 hours.",
         it: "Attualmente accetto nuovi progetti freelance. Inserisci la tua email qui sotto e ti contatterò entro 24 ore."
     },
-    contact_form_button_idle: { en: 'Start', it: 'Inizia' },
+    contact_form_button_idle: { en: 'Send message', it: 'Invia messaggio' },
+    contact_form_button_loading: { en: 'Sending…', it: 'Invio in corso…' },
+    contact_form_success_title: { en: 'Message sent', it: 'Messaggio inviato' },
+    contact_form_success_body: {
+        en: "I'll get back to you within 24 hours.",
+        it: 'Ti risponderò entro 24 ore.'
+    },
+    contact_form_send_another: { en: 'Send another', it: 'Invia un altro messaggio' },
+    contact_form_error: {
+        en: 'Something went wrong. Please try again or email me directly.',
+        it: 'Qualcosa è andato storto. Riprova o scrivimi direttamente via email.'
+    },
+
+    contact_field_nome: { en: 'Name', it: 'Nome' },
+    contact_field_email: { en: 'Email', it: 'Email' },
+    contact_field_tipo: { en: 'Project type', it: 'Tipo di progetto' },
+    contact_field_budget: { en: 'Budget', it: 'Budget indicativo' },
+    contact_field_messaggio: { en: 'Message', it: 'Messaggio' },
+    contact_field_messaggio_placeholder: {
+        en: 'Tell me about your project, goals, and timeline…',
+        it: 'Raccontami il progetto, gli obiettivi e i tempi…'
+    },
+    contact_field_trovato: { en: 'How did you find me?', it: 'Come mi hai trovato?' },
+    contact_field_optional: { en: 'optional', it: 'opzionale' },
+    contact_field_required_hint: { en: '* required', it: '* campi obbligatori' },
+    contact_select_placeholder: { en: 'Select an option', it: 'Seleziona un\'opzione' },
+
+    contact_tipo_web: { en: 'Website / Landing page', it: 'Sito web / Landing page' },
+    contact_tipo_ecommerce: { en: 'E-commerce', it: 'E-commerce' },
+    contact_tipo_app: { en: 'Mobile app', it: 'App mobile' },
+    contact_tipo_branding: { en: 'Branding / Logo', it: 'Branding / Logo' },
+    contact_tipo_altro: { en: 'Other', it: 'Altro' },
+
+    contact_budget_low: { en: '< €1,000', it: '< €1.000' },
+    contact_budget_mid: { en: '€1,000 – €3,000', it: '€1.000 – €3.000' },
+    contact_budget_high: { en: '€3,000 – €5,000', it: '€3.000 – €5.000' },
+    contact_budget_top: { en: '> €5,000', it: '> €5.000' },
+    contact_budget_tbd: { en: 'To be defined', it: 'Da definire' },
+
+    contact_trovato_instagram: { en: 'Instagram', it: 'Instagram' },
+    contact_trovato_linkedin: { en: 'LinkedIn', it: 'LinkedIn' },
+    contact_trovato_portfolio: { en: 'Portfolio', it: 'Portfolio' },
+    contact_trovato_passaparola: { en: 'Word of mouth', it: 'Passaparola' },
+    contact_trovato_google: { en: 'Google', it: 'Google' },
+    contact_trovato_altro: { en: 'Other', it: 'Altro' },
 
     // Footer
     footer_rights: { en: 'All Rights Reserved.', it: 'Tutti i Diritti Riservati.' },
