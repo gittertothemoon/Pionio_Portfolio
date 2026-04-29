@@ -50,8 +50,12 @@ export function WorksBento() {
             title: "Antonela's Paintings",
             category: t('work_antonela_cat'),
             year: '2024',
-            image: '/images/antonela.jpg',
+            image: '/images/antonela-logo.png',
             description: t('work_antonela_desc'),
+            url: 'https://sito-arte.vercel.app',
+            imageFit: 'contain',
+            theme: 'light',
+            bgClass: 'bg-[#F3EFF5]',
             span: 'md:col-span-1'
         },
         {
