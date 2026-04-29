@@ -114,7 +114,7 @@ export function WorksBento() {
                         className="md:col-span-2 relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]"
                     >
                         <motion.div layoutId={`image-${projects[0].id}`} className="absolute inset-0 bg-zinc-800">
-                            <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-105 group-hover:opacity-80 transition-all duration-1000 ease-out will-change-transform" />
+                            <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
                             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
                         </motion.div>
 
@@ -154,7 +154,7 @@ export function WorksBento() {
                             className={`${work.span ? work.span : ''} relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
                             <motion.div layoutId={`image-${work.id}`} className="absolute inset-0 bg-zinc-800">
-                                <img src={work.image} alt={work.title} className="w-full h-full object-cover opacity-40 mix-blend-overlay group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000 ease-out will-change-transform" />
+                                <img src={work.image} alt={work.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
                             </motion.div>
 
@@ -203,7 +203,7 @@ export function WorksBento() {
                             </button>
 
                             <motion.div layoutId={`image-${activeWork.id}`} className="w-full h-[40vh] md:h-[50vh] relative bg-zinc-900 shrink-0">
-                                <img src={activeWork.image} alt={activeWork.title} className="w-full h-full object-cover opacity-80 mix-blend-overlay" />
+                                <img src={activeWork.image} alt={activeWork.title} className="w-full h-full object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />
                             </motion.div>
 
