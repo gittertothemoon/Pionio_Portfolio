@@ -14,6 +14,7 @@ type Project = {
     span: string;
     url?: string;
     imageFit?: 'contain' | 'cover';
+    theme?: 'dark' | 'light';
 };
 
 export function WorksBento() {
@@ -23,12 +24,24 @@ export function WorksBento() {
             id: 'w2b',
             title: 'Where2Beach',
             category: t('work_w2b_cat'),
-            year: '2024',
+            year: '2025',
             image: '/images/w2b-logo.png',
             description: t('work_w2b_desc'),
             url: 'https://www.where2beach.com',
             imageFit: 'contain',
             span: 'md:col-span-2',
+        },
+        {
+            id: 'flow',
+            title: 'FLOW Pilates Studio',
+            category: t('work_flow_cat'),
+            year: '2026',
+            image: '/images/flow-logo.png',
+            description: t('work_flow_desc'),
+            url: 'https://flow-pilates-studio-bo.vercel.app',
+            imageFit: 'contain',
+            theme: 'light',
+            span: 'md:col-span-1'
         },
         {
             id: 'antonela',
@@ -55,17 +68,7 @@ export function WorksBento() {
             year: '2024',
             image: '/images/arena.png',
             description: t('work_arena_desc'),
-            span: 'md:col-span-2'
-        },
-        {
-            id: 'flow',
-            title: 'FLOW Pilates Studio',
-            category: t('work_flow_cat'),
-            year: '2026',
-            image: '/images/flow.jpg',
-            description: t('work_flow_desc'),
-            url: 'https://flow-pilates-studio-bo.vercel.app',
-            span: 'md:col-span-3'
+            span: 'md:col-span-1'
         }
     ];
 
@@ -169,38 +172,42 @@ export function WorksBento() {
                     </motion.article>
 
                     {/* Secondary Cards */}
-                    {projects.slice(1).map((work) => (
+                    {projects.slice(1).map((work) => {
+                        const isLight = work.theme === 'light';
+                        const isContain = work.imageFit === 'contain';
+                        return (
                         <motion.article
                             key={work.id}
                             layoutId={`card-${work.id}`}
                             onClick={() => setActiveWork(work)}
                             variants={itemVariants}
-                            className={`${work.span ? work.span : ''} relative rounded-[2.5rem] bg-zinc-900 border border-white/5 overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
+                            className={`${work.span ? work.span : ''} relative rounded-[2.5rem] ${isLight ? 'bg-[#FAF7F2] border-zinc-200/60' : 'bg-zinc-900 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
-                            <motion.div layoutId={`image-${work.id}`} className="absolute inset-0 bg-zinc-800">
-                                <img src={work.image} alt={work.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? 'bg-[#FAF7F2]' : 'bg-zinc-800'}`}>
+                                <img src={work.image} alt={work.title} className={`w-full h-full ${isContain ? 'object-contain p-10' : 'object-cover'} ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
+                                {!isLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />}
                             </motion.div>
 
                             <div className={`absolute inset-0 bg-gradient-to-br bg-forest-500/20 opacity-0 group-hover:opacity-50 transition-opacity duration-1000 pointer-events-none`} />
 
                             <div className="absolute inset-0 p-8 flex flex-col justify-between pointer-events-none">
                                 <div className="flex justify-between items-start">
-                                    <motion.span layoutId={`category-${work.id}`} className="text-forest-400 font-mono text-xs uppercase tracking-widest">
+                                    <motion.span layoutId={`category-${work.id}`} className={`${isLight ? 'text-forest-700' : 'text-forest-400'} font-mono text-xs uppercase tracking-widest`}>
                                         {work.category}
                                     </motion.span>
-                                    <ArrowUpRight className="text-white/50 group-hover:text-white transition-colors duration-300" size={24} />
+                                    <ArrowUpRight className={`${isLight ? 'text-zinc-500 group-hover:text-zinc-900' : 'text-white/50 group-hover:text-white'} transition-colors duration-300`} size={24} />
                                 </div>
 
                                 <div className="flex flex-col gap-1 relative z-10">
-                                    <motion.h3 layoutId={`title-${work.id}`} className="text-2xl font-sans tracking-tight text-white mb-1">
+                                    <motion.h3 layoutId={`title-${work.id}`} className={`text-2xl font-sans tracking-tight ${isLight ? 'text-zinc-900' : 'text-white'} mb-1`}>
                                         {work.title}
                                     </motion.h3>
-                                    <span className="text-zinc-500 font-mono text-xs">{work.year}</span>
+                                    <span className={`${isLight ? 'text-zinc-600' : 'text-zinc-500'} font-mono text-xs`}>{work.year}</span>
                                 </div>
                             </div>
                         </motion.article>
-                    ))}
+                        );
+                    })}
                 </motion.div>
             </div>
 
@@ -226,9 +233,9 @@ export function WorksBento() {
                                 <X size={24} />
                             </button>
 
-                            <motion.div layoutId={`image-${activeWork.id}`} className="w-full h-[40vh] md:h-[50vh] relative bg-zinc-900 shrink-0">
+                            <motion.div layoutId={`image-${activeWork.id}`} className={`w-full h-[40vh] md:h-[50vh] relative ${activeWork.theme === 'light' ? 'bg-[#FAF7F2]' : 'bg-zinc-900'} shrink-0`}>
                                 <img src={activeWork.image} alt={activeWork.title} className={`w-full h-full ${activeWork.imageFit === 'contain' ? 'object-contain p-12' : 'object-cover'}`} />
-                                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />
+                                {activeWork.theme !== 'light' && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />}
                             </motion.div>
 
                             <div className="p-8 md:p-12 overflow-y-auto flex flex-col gap-8">
