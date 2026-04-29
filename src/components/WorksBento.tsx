@@ -209,8 +209,12 @@ export function WorksBento() {
                             variants={itemVariants}
                             className={`${work.span ? work.span : ''} relative rounded-[2.5rem] ${isLight ? `${lightBg} border-zinc-200/60` : 'bg-zinc-900 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
-                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'}`}>
-                                <img src={work.image} alt={work.title} className={`w-full h-full ${isContain ? 'object-contain p-10' : 'object-cover'} ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
+                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'} ${isContain ? 'flex items-center justify-center p-12 md:p-16' : ''}`}>
+                                {isContain ? (
+                                    <img src={work.image} alt={work.title} className={`max-h-[80px] md:max-h-[100px] w-auto max-w-full object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                ) : (
+                                    <img src={work.image} alt={work.title} className={`w-full h-full object-cover ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
+                                )}
                                 {!isLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />}
                             </motion.div>
 
