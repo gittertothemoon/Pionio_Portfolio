@@ -159,9 +159,9 @@ export function WorksBento() {
                         variants={itemVariants}
                         className={`md:col-span-2 relative rounded-[2.5rem] ${heroLight ? 'bg-[#E8F4FD] border-sky-200/60' : 'bg-zinc-800 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]`}
                     >
-                        <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-center justify-center p-12 md:p-16' : ''}`}>
+                        <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]' : ''}`}>
                             {heroContain ? (
-                                <img src={hero.image} alt={hero.title} className={`max-h-[120px] md:max-h-[150px] w-auto max-w-full object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                <img src={hero.image} alt={hero.title} className={`w-[40%] h-auto object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                             ) : (
                                 <img src={hero.image} alt={hero.title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
                             )}
@@ -209,9 +209,9 @@ export function WorksBento() {
                             variants={itemVariants}
                             className={`${work.span ? work.span : ''} relative rounded-[2.5rem] ${isLight ? `${lightBg} border-zinc-200/60` : 'bg-zinc-900 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]`}
                         >
-                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'} ${isContain ? 'flex items-center justify-center p-12 md:p-16' : ''}`}>
+                            <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'} ${isContain ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]' : ''}`}>
                                 {isContain ? (
-                                    <img src={work.image} alt={work.title} className={`max-h-[80px] md:max-h-[100px] w-auto max-w-full object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                    <img src={work.image} alt={work.title} className={`w-[60%] h-auto object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                                 ) : (
                                     <img src={work.image} alt={work.title} className={`w-full h-full object-cover ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
                                 )}
