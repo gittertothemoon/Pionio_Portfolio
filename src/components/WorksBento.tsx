@@ -146,7 +146,7 @@ export function WorksBento() {
                         variants={itemVariants}
                         className={`md:col-span-2 relative rounded-[2.5rem] ${heroLight ? 'bg-[#E8F4FD] border-sky-200/60' : 'bg-zinc-800 border-white/5'} border overflow-hidden group cursor-pointer shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_20px_40px_-15px_rgba(0,0,0,0.5)]`}
                     >
-                        <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-start justify-center pt-10 md:pt-14 px-12' : ''}`}>
+                        <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-center justify-center p-12 md:p-16' : ''}`}>
                             {heroContain ? (
                                 <img src={hero.image} alt={hero.title} className={`max-h-[120px] md:max-h-[150px] w-auto max-w-full object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                             ) : (
