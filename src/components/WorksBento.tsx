@@ -211,7 +211,7 @@ export function WorksBento() {
                         >
                             <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'} ${isContain ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]' : ''}`}>
                                 {isContain ? (
-                                    <img src={work.image} alt={work.title} className={`w-[60%] h-auto object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                    <img src={work.image} alt={work.title} className={`w-[42%] h-auto object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                                 ) : (
                                     <img src={work.image} alt={work.title} className={`w-full h-full object-cover ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
                                 )}

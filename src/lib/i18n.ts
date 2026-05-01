@@ -39,6 +39,8 @@ export const dict: Dictionary = {
         it: 'Sfruttando motori fisici moderni e sistemi di colori su misura, realizzo interfacce "ad alta intensità" che coinvolgono attivamente gli utenti anziché limitarsi a mostrare dati.'
     },
 
+    about_cta: { en: 'Start a project', it: 'Inizia un progetto' },
+
     // Services
     services_label: { en: 'Capabilities', it: 'Competenze' },
     services_headline_1: { en: 'Designing systems that ', it: 'Sistemi progettati per ' },
@@ -59,6 +61,8 @@ export const dict: Dictionary = {
         en: 'Elevating brand perception through uncompromising visual taste. Curating typography, tailored color systems, and asymmetric layouts to guarantee a premium digital footprint.',
         it: "Elevare la percezione del brand attraverso un gusto visivo estremo. Cura della tipografia, palette di colori personalizzate e layout asimmetrici per un'impronta digitale premium."
     },
+
+    services_cta: { en: 'Have a project in mind?', it: 'Hai un progetto in mente?' },
 
     // Works Bento
     works_label: { en: 'Selected Works', it: 'Lavori Selezionati' },
@@ -108,6 +112,8 @@ export const dict: Dictionary = {
         en: 'Started the professional journey creating interactive landing pages and learning modern JavaScript frameworks, translating design mockups into functional code.',
         it: 'Inizio del percorso professionale creando landing page interattive e apprendendo i moderni framework JavaScript, trasformando i mockup grafici in codice funzionale.'
     },
+
+    exp_cta: { en: "Let's work together", it: 'Lavoriamo insieme' },
 
     // Contact
     contact_label: { en: 'Get In Touch', it: 'Mettiamoci In Contatto' },

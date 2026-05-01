@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { MagneticButton } from './MagneticButton';
 
 export function About() {
     const { t } = useLanguage();
@@ -42,6 +44,21 @@ export function About() {
                     >
                         <p>{t('about_p1')}</p>
                         <p>{t('about_p2')}</p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="mt-16"
+                    >
+                        <MagneticButton
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-transparent border border-white/10 hover:border-forest-500/50 hover:bg-forest-500/10 text-white"
+                        >
+                            {t('about_cta')} <ArrowRight size={18} weight="bold" />
+                        </MagneticButton>
                     </motion.div>
                 </div>
 

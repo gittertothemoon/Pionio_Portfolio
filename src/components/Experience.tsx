@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { MagneticButton } from './MagneticButton';
 
 export function Experience() {
     const { t } = useLanguage();
@@ -71,6 +73,20 @@ export function Experience() {
                             </p>
                         </motion.div>
                     ))}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="pt-8"
+                    >
+                        <MagneticButton
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-transparent border border-forest-500/30 hover:border-forest-500 hover:bg-forest-500/10 text-forest-400"
+                        >
+                            {t('exp_cta')} <ArrowRight size={18} weight="bold" />
+                        </MagneticButton>
+                    </motion.div>
                 </div>
 
             </div>

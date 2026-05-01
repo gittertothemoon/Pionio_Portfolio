@@ -10,7 +10,7 @@ const socials = [
 export function Footer() {
     const { t } = useLanguage();
     return (
-        <footer className="relative w-full bg-zinc-950 pt-24 pb-8 md:pb-12 px-6 md:px-12 overflow-hidden border-t border-white/5">
+        <footer className="relative w-full bg-zinc-950 pt-24 pb-56 md:pb-52 px-6 md:px-12 overflow-hidden border-t border-white/5">
             <div className="max-w-[1400px] mx-auto flex flex-col items-center">
 
                 {/* Top Section: Links & Copyright */}

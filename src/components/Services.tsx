@@ -1,6 +1,8 @@
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { MagneticButton } from './MagneticButton';
 
 export function Services() {
     const { t } = useLanguage();
@@ -54,6 +56,20 @@ export function Services() {
                         <ServiceCard key={index} service={service} index={index} />
                     ))}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                    className="flex justify-center pt-8"
+                >
+                    <MagneticButton
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                        {t('services_cta')} <ArrowRight size={18} weight="bold" />
+                    </MagneticButton>
+                </motion.div>
 
             </div>
         </section>
