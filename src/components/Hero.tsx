@@ -88,10 +88,8 @@ export function Hero() {
                 </motion.div>
             </div>
 
-            {/* Right Visual Half — kept as a subtle frame; the shader fills the whole hero */}
-            <div className="flex-1 relative hidden md:block border-l border-white/5 z-10 pointer-events-none">
-                <div className="absolute inset-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]" />
-            </div>
+            {/* Spacer to preserve the asymmetric layout (shader fills full hero) */}
+            <div className="flex-1 hidden md:block pointer-events-none" />
         </section>
     );
 }
