@@ -118,8 +118,8 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
             className="group relative flex flex-col justify-between min-h-[400px] p-8 md:p-12 rounded-[2rem] bg-zinc-900 border border-white/5 overflow-hidden will-change-transform"
         >
             {/* Background Image */}
-            <div className="absolute inset-0 z-0 overflow-hidden mix-blend-luminosity opacity-30 group-hover:opacity-100 transition-opacity duration-1000 ease-[0.16,1,0.3,1]">
-                <div className="absolute inset-0 bg-zinc-950/80 group-hover:bg-zinc-950/20 transition-colors duration-700 z-10" />
+            <div className="absolute inset-0 z-0 overflow-hidden mix-blend-luminosity opacity-55 md:opacity-30 group-hover:opacity-100 transition-opacity duration-1000 ease-[0.16,1,0.3,1]">
+                <div className="absolute inset-0 bg-zinc-950/65 md:bg-zinc-950/80 group-hover:bg-zinc-950/20 transition-colors duration-700 z-10" />
                 <img
                     src={service.image}
                     alt={service.title}
