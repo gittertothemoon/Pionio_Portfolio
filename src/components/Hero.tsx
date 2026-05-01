@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
+import { ShaderBackground } from './ShaderBackground';
 
 export function Hero() {
     const { t, locale, setLocale } = useLanguage();
@@ -12,10 +13,12 @@ export function Hero() {
 
     return (
         <section className="relative min-h-[100dvh] w-full bg-background overflow-hidden flex flex-col md:flex-row">
-            {/* Decorative ambient background */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-forest-900/40 rounded-full blur-[120px] mix-blend-screen" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[40%] bg-forest-900/30 rounded-full blur-[100px] mix-blend-screen" />
+            {/* Animated WebGL shader background */}
+            <div className="absolute inset-0 z-0">
+                <ShaderBackground />
+                {/* Readability overlay: keep text crisp on the left half */}
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent md:via-background/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
             </div>
 
             {/* Language Selector Toggle */}
@@ -85,23 +88,9 @@ export function Hero() {
                 </motion.div>
             </div>
 
-            {/* Right Visual Half (Asymmetric split) */}
-            <div className="flex-1 relative hidden md:block border-l border-white/5 bg-zinc-950/50">
-                <div className="absolute inset-0 overflow-hidden">
-                    {/* Using a creative unsplash placeholder as mandated by rules */}
-                    <motion.img
-                        initial={{ scale: 1.1, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 0.8 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
-                        alt="Abstract digital geometry"
-                        className="w-full h-full object-cover mix-blend-luminosity opacity-80"
-                    />
-
-                    {/* Liquid glass overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-black/20 to-transparent" />
-                    <div className="absolute inset-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/5 backdrop-blur-[2px]" />
-                </div>
+            {/* Right Visual Half — kept as a subtle frame; the shader fills the whole hero */}
+            <div className="flex-1 relative hidden md:block border-l border-white/5 z-10 pointer-events-none">
+                <div className="absolute inset-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]" />
             </div>
         </section>
     );
