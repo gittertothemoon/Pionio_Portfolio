@@ -89,7 +89,7 @@ export function NavBar() {
 
     const itemClasses = (isActive: boolean) =>
         cn(
-            'relative px-3 md:px-4 py-3 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
+            'relative px-3 md:px-4 py-3 max-xs:py-2 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
             isActive ? 'text-forest-100' : 'text-zinc-500 hover:text-zinc-300'
         );
 
@@ -99,7 +99,7 @@ export function NavBar() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                className="pointer-events-auto flex items-center p-2 rounded-full bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] max-w-[95vw] overflow-x-auto"
+                className="pointer-events-auto flex items-center p-2 max-xs:p-1.5 rounded-full bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] max-w-[95vw] overflow-x-auto"
             >
                 <ul className="flex items-center gap-0.5 md:gap-1 relative">
                     {navItems.map((item) => {
