@@ -1,6 +1,9 @@
 {
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/google79b694d2f0e7429c.html", "destination": "/google79b694d2f0e7429c" }
+  ],
   "redirects": [
     {
       "source": "/:path*",
