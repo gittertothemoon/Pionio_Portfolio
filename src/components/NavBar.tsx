@@ -9,19 +9,31 @@ import {
     Wrench,
     Article,
 } from '@phosphor-icons/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { useLanguage } from '../context/LanguageContext';
 
-type NavItem =
-    | { name: string; href: string; icon: typeof User; type: 'anchor'; tKey: string }
-    | { name: string; to: string; icon: typeof User; type: 'route'; tKey: string };
+type AnchorItem = {
+    name: string;
+    hash: string;
+    icon: typeof User;
+    type: 'anchor';
+    tKey: string;
+};
+type RouteItem = {
+    name: string;
+    to: string;
+    icon: typeof User;
+    type: 'route';
+    tKey: string;
+};
+type NavItem = AnchorItem | RouteItem;
 
 const navItems: NavItem[] = [
-    { name: 'About', href: '#about', icon: User, type: 'anchor', tKey: 'nav_about' },
-    { name: 'Capabilities', href: '#services', icon: Lightning, type: 'anchor', tKey: 'nav_capabilities' },
-    { name: 'Works', href: '#works', icon: GridFour, type: 'anchor', tKey: 'nav_works' },
-    { name: 'Experience', href: '#experience', icon: Briefcase, type: 'anchor', tKey: 'nav_experience' },
+    { name: 'About', hash: 'about', icon: User, type: 'anchor', tKey: 'nav_about' },
+    { name: 'Capabilities', hash: 'services', icon: Lightning, type: 'anchor', tKey: 'nav_capabilities' },
+    { name: 'Works', hash: 'works', icon: GridFour, type: 'anchor', tKey: 'nav_works' },
+    { name: 'Experience', hash: 'experience', icon: Briefcase, type: 'anchor', tKey: 'nav_experience' },
     { name: 'Servizi', to: '/servizi', icon: Wrench, type: 'route', tKey: 'nav_servizi' },
     { name: 'Blog', to: '/blog', icon: Article, type: 'route', tKey: 'nav_blog' },
     { name: 'Contatti', to: '/contatti', icon: EnvelopeSimple, type: 'route', tKey: 'nav_contatti' },
@@ -29,36 +41,49 @@ const navItems: NavItem[] = [
 
 export function NavBar() {
     const { t } = useLanguage();
+    const location = useLocation();
+    const navigate = useNavigate();
     const [activeSection, setActiveSection] = useState<string>('');
 
+    const isHome = location.pathname === '/';
+
     useEffect(() => {
-        const anchors = navItems.filter((i): i is Extract<NavItem, { type: 'anchor' }> => i.type === 'anchor');
+        if (!isHome) {
+            setActiveSection('');
+            return;
+        }
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        setActiveSection(`#${entry.target.id}`);
+                        setActiveSection(entry.target.id);
                     }
                 });
             },
             { rootMargin: '-20% 0px -80% 0px' }
         );
 
-        const sections = anchors
-            .map((item) => document.querySelector(item.href))
-            .filter((el): el is Element => Boolean(el));
+        const sections = navItems
+            .filter((i): i is AnchorItem => i.type === 'anchor')
+            .map((item) => document.getElementById(item.hash))
+            .filter((el): el is HTMLElement => Boolean(el));
         sections.forEach((section) => observer.observe(section));
 
         return () => {
             sections.forEach((section) => observer.unobserve(section));
         };
-    }, []);
+    }, [isHome, location.pathname]);
 
-    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+        if (isHome) {
+            e.preventDefault();
+            const target = document.getElementById(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            e.preventDefault();
+            navigate(`/#${hash}`);
         }
     };
 
@@ -73,17 +98,21 @@ export function NavBar() {
             <motion.nav
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
                 className="pointer-events-auto flex items-center p-2 rounded-full bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] max-w-[95vw] overflow-x-auto"
             >
                 <ul className="flex items-center gap-0.5 md:gap-1 relative">
                     {navItems.map((item) => {
-                        const isActive = item.type === 'anchor' && activeSection === item.href;
+                        const isAnchorActive =
+                            item.type === 'anchor' && isHome && activeSection === item.hash;
+                        const isRouteActive =
+                            item.type === 'route' && location.pathname.startsWith(item.to);
+                        const isActive = isAnchorActive || isRouteActive;
                         const label = t(item.tKey);
                         const inner = (
                             <>
                                 <item.icon weight="duotone" className="w-5 h-5 md:hidden relative z-10" />
-                                <span className="hidden md:block text-sm font-mono tracking-wider relative z-10">
+                                <span className="hidden md:block text-sm font-mono tracking-wider relative z-10 whitespace-nowrap">
                                     {label}
                                 </span>
                                 {isActive && (
@@ -98,11 +127,12 @@ export function NavBar() {
                         );
 
                         if (item.type === 'anchor') {
+                            const href = isHome ? `#${item.hash}` : `/#${item.hash}`;
                             return (
                                 <li key={item.name} className="relative">
                                     <a
-                                        href={item.href}
-                                        onClick={(e) => handleAnchorClick(e, item.href)}
+                                        href={href}
+                                        onClick={(e) => handleAnchorClick(e, item.hash)}
                                         className={itemClasses(isActive)}
                                         aria-label={label}
                                         title={label}
@@ -115,7 +145,12 @@ export function NavBar() {
 
                         return (
                             <li key={item.name} className="relative">
-                                <Link to={item.to} className={itemClasses(false)} aria-label={label} title={label}>
+                                <Link
+                                    to={item.to}
+                                    className={itemClasses(isActive)}
+                                    aria-label={label}
+                                    title={label}
+                                >
                                     {inner}
                                 </Link>
                             </li>

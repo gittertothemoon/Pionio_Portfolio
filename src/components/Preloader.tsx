@@ -2,36 +2,39 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
+const PRELOADER_KEY = 'pionio-preloader-shown';
+
 export function Preloader() {
-    const [loading, setLoading] = useState(true);
-    const [progress, setProgress] = useState(0);
+    const alreadyShown =
+        typeof window !== 'undefined' && sessionStorage.getItem(PRELOADER_KEY) === '1';
+    const [loading, setLoading] = useState(!alreadyShown);
+    const [progress, setProgress] = useState(alreadyShown ? 100 : 0);
     const { t } = useLanguage();
 
     useEffect(() => {
-        // Disable scrolling while loading
+        if (!loading) return;
         document.body.style.overflow = 'hidden';
 
-        // Simulate loading progress
         let currentProgress = 0;
         const interval = setInterval(() => {
             currentProgress += Math.floor(Math.random() * 15) + 5;
             if (currentProgress >= 100) {
                 currentProgress = 100;
                 clearInterval(interval);
-                // Short delay at 100% before finishing
                 setTimeout(() => {
                     setLoading(false);
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    document.body.style.overflow = 'auto';
+                    sessionStorage.setItem(PRELOADER_KEY, '1');
                 }, 800);
             }
             setProgress(currentProgress);
-        }, 150); // Speed of the counter
+        }, 150);
 
         return () => {
             clearInterval(interval);
             document.body.style.overflow = 'auto';
         };
-    }, []);
+    }, [loading]);
 
     return (
         <AnimatePresence>
