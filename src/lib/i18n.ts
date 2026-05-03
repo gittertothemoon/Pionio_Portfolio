@@ -14,6 +14,9 @@ export const dict: Dictionary = {
     nav_works: { en: 'Works', it: 'Progetti' },
     nav_experience: { en: 'Experience', it: 'Esperienza' },
     nav_contact: { en: 'Contact', it: 'Contatti' },
+    nav_servizi: { en: 'Services', it: 'Servizi' },
+    nav_blog: { en: 'Blog', it: 'Blog' },
+    nav_contatti: { en: 'Contact', it: 'Contatti' },
 
     // Hero
     hero_title: { en: 'Digital\nCraft &\nEngineering.', it: 'Artigianato\nDigitale &\nIngegneria.' },
