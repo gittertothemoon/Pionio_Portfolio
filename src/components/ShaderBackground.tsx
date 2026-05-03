@@ -41,7 +41,7 @@ float fbm(vec2 p) {
 
 void main() {
     vec2 uv = (gl_FragCoord.xy - 0.5 * u_res.xy) / u_res.y;
-    float t = u_time * 0.08;
+    float t = u_time * 0.18;
 
     // Single domain-warp pass (was double) for that liquid feel at half the cost
     vec2 q = vec2(fbm(uv + vec2(0.0, t)),
