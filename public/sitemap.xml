@@ -14,50 +14,70 @@
       <image:loc>https://pionio.it/og-image.png</image:loc>
       <image:title>PIONIO — Senior UI/UX Engineer &amp; Frontend Architect</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pionio.it/projects/where2beach</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/where2beach" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/projects/where2beach" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/where2beach" />
     <image:image>
       <image:loc>https://pionio.it/images/w2b-logo.png</image:loc>
-      <image:title>Where2Beach</image:title>
+      <image:title>Where2Beach — Community App</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pionio.it/projects/flow-pilates</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/flow-pilates" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/projects/flow-pilates" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/flow-pilates" />
     <image:image>
       <image:loc>https://pionio.it/images/flow-logo.png</image:loc>
-      <image:title>FLOW Pilates Studio</image:title>
+      <image:title>FLOW Pilates Studio — Landing Page</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pionio.it/projects/antonela-paintings</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/antonela-paintings" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/projects/antonela-paintings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/antonela-paintings" />
     <image:image>
       <image:loc>https://pionio.it/images/antonela-logo.png</image:loc>
-      <image:title>Antonela's Paintings</image:title>
+      <image:title>Antonela's Paintings — Art Portfolio</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pionio.it/projects/smoky-candle</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/smoky-candle" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/projects/smoky-candle" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/smoky-candle" />
     <image:image>
       <image:loc>https://pionio.it/images/smokycandle-logo.png</image:loc>
-      <image:title>Smoky Candle</image:title>
+      <image:title>Smoky Candle — E-commerce</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pionio.it/projects/arena-barbershop</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/arena-barbershop" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/projects/arena-barbershop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/arena-barbershop" />
     <image:image>
       <image:loc>https://pionio.it/images/arena-logo.png</image:loc>
-      <image:title>Arena Barbershop</image:title>
+      <image:title>Arena Barbershop — Local Business</image:title>
     </image:image>
-  </url>
-  <url>
-    <loc>https://pionio.it/#about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://pionio.it/#services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://pionio.it/#works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://pionio.it/#experience</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://pionio.it/#contact</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
