@@ -191,32 +191,16 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
 
         const start = performance.now();
 
-        if (reduceMotion) {
-            // Static frame for users who opted out of motion
-            renderFrame(0);
-            return () => {
-                window.removeEventListener('resize', scheduleResize);
-                window.removeEventListener('orientationchange', scheduleResize);
-                if (!isCoarsePointer) window.removeEventListener('mousemove', onMove);
-                document.removeEventListener('visibilitychange', onVisibility);
-                io.disconnect();
-                window.clearTimeout(resizeTimer);
-            };
-        }
-
-        // Cap to ~30fps on mobile — visually plenty for a slow plasma and halves GPU work.
-        const minFrameMs = isCoarsePointer ? 33 : 0;
-        let lastFrame = 0;
+        // Slow the animation (not freeze it) for users who prefer reduced motion.
+        const timeScale = reduceMotion ? 0.25 : 1;
 
         const tick = (now: number) => {
             rafRef.current = requestAnimationFrame(tick);
             if (!visible) return;
-            if (now - lastFrame < minFrameMs) return;
-            lastFrame = now;
 
             mouse.x += (mouse.tx - mouse.x) * 0.05;
             mouse.y += (mouse.ty - mouse.y) * 0.05;
-            renderFrame((now - start) / 1000);
+            renderFrame(((now - start) / 1000) * timeScale);
         };
         rafRef.current = requestAnimationFrame(tick);
 
@@ -231,16 +215,8 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         };
     }, []);
 
-    return (
-        <canvas
-            ref={canvasRef}
-            className={`block w-full h-full ${className}`}
-            style={{
-                // Promote to its own GPU layer so scrolling doesn't repaint the canvas
-                transform: 'translateZ(0)',
-                backfaceVisibility: 'hidden',
-                willChange: 'transform',
-            }}
-        />
-    );
+    // Note: do NOT apply transform/will-change directly to the <canvas> on iOS Safari —
+    // it freezes the canvas as a static texture in the compositor. The wrapper
+    // (in Hero.tsx) is the layer-promoted element instead.
+    return <canvas ref={canvasRef} className={`block w-full h-full ${className}`} />;
 }
