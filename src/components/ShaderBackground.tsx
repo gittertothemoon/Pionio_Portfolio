@@ -6,12 +6,11 @@ void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
 `;
 
 const FRAG = `
-precision highp float;
+precision mediump float;
 uniform vec2 u_res;
 uniform float u_time;
 uniform vec2 u_mouse;
 
-// 2D simplex-ish hash + value noise
 vec2 hash(vec2 p) {
     p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
     return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
@@ -32,7 +31,7 @@ float noise(vec2 p) {
 float fbm(vec2 p) {
     float v = 0.0;
     float a = 0.5;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         v += a * noise(p);
         p *= 2.02;
         a *= 0.5;
@@ -44,14 +43,11 @@ void main() {
     vec2 uv = (gl_FragCoord.xy - 0.5 * u_res.xy) / u_res.y;
     float t = u_time * 0.08;
 
-    // Domain warp for that liquid 3D feel
+    // Single domain-warp pass (was double) for that liquid feel at half the cost
     vec2 q = vec2(fbm(uv + vec2(0.0, t)),
                   fbm(uv + vec2(5.2, t * 1.3)));
 
-    vec2 r = vec2(fbm(uv + 4.0 * q + vec2(1.7 + t, 9.2)),
-                  fbm(uv + 4.0 * q + vec2(8.3 - t, 2.8)));
-
-    float f = fbm(uv + 4.0 * r);
+    float f = fbm(uv + 3.0 * q + vec2(1.7 + t, 9.2));
 
     // Mouse parallax pull
     vec2 m = (u_mouse - 0.5) * 0.4;
@@ -59,27 +55,22 @@ void main() {
     float glow = smoothstep(0.9, 0.0, mDist) * 0.25;
 
     // Forest palette
-    vec3 deep   = vec3(0.012, 0.024, 0.018);   // near-black green
-    vec3 mid    = vec3(0.039, 0.137, 0.094);   // forest-900-ish
-    vec3 accent = vec3(0.094, 0.353, 0.212);   // forest-600
-    vec3 hi     = vec3(0.392, 0.682, 0.475);   // forest-400 highlight
+    vec3 deep   = vec3(0.012, 0.024, 0.018);
+    vec3 mid    = vec3(0.039, 0.137, 0.094);
+    vec3 accent = vec3(0.094, 0.353, 0.212);
+    vec3 hi     = vec3(0.392, 0.682, 0.475);
 
     vec3 col = deep;
     col = mix(col, mid, smoothstep(-0.2, 0.6, f));
     col = mix(col, accent, smoothstep(0.3, 0.85, f) * 0.85);
     col = mix(col, hi, pow(smoothstep(0.55, 0.95, f), 3.0) * 0.6);
 
-    // Mouse glow
     col += vec3(0.05, 0.18, 0.11) * glow;
 
-    // Subtle vignette
     float vig = smoothstep(1.4, 0.2, length(uv));
     col *= mix(0.55, 1.0, vig);
 
-    // Filmic-ish tone + slight grain
     col = pow(col, vec3(0.95));
-    float grain = (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 0.025;
-    col += grain;
 
     gl_FragColor = vec4(col, 1.0);
 }
@@ -103,7 +94,22 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const gl = canvas.getContext('webgl', { antialias: false, alpha: false, premultipliedAlpha: false });
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+        // On mobile/low-end the shader is the bottleneck; cap DPR aggressively
+        // and fall back to a very low resolution that still looks fine when blurred.
+        const dprCap = isCoarsePointer ? 1 : 1.5;
+        const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
+        // Internal render scale: drawing at 75% of the canvas size on mobile
+        // halves fragment work while staying invisible behind the dark overlay.
+        const renderScale = isCoarsePointer ? 0.75 : 1;
+
+        const gl = canvas.getContext('webgl', {
+            antialias: false,
+            alpha: false,
+            premultipliedAlpha: false,
+            powerPreference: 'low-power',
+        });
         if (!gl) return;
 
         const prog = gl.createProgram()!;
@@ -123,55 +129,118 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         const uTime = gl.getUniformLocation(prog, 'u_time');
         const uMouse = gl.getUniformLocation(prog, 'u_mouse');
 
-        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
 
-        const resize = () => {
-            const w = canvas.clientWidth;
-            const h = canvas.clientHeight;
-            canvas.width = Math.floor(w * dpr);
-            canvas.height = Math.floor(h * dpr);
-            gl.viewport(0, 0, canvas.width, canvas.height);
+        let lastW = 0;
+        let lastH = 0;
+        const applyResize = () => {
+            const w = Math.floor(canvas.clientWidth * dpr * renderScale);
+            const h = Math.floor(canvas.clientHeight * dpr * renderScale);
+            // Ignore sub-pixel jitter from mobile URL-bar show/hide so we don't
+            // reallocate the framebuffer mid-scroll (which was the main flicker source).
+            if (Math.abs(w - lastW) < 4 && Math.abs(h - lastH) < 64) return;
+            lastW = w;
+            lastH = h;
+            canvas.width = w;
+            canvas.height = h;
+            gl.viewport(0, 0, w, h);
         };
-        resize();
+        applyResize();
 
-        const ro = new ResizeObserver(resize);
-        ro.observe(canvas);
+        let resizeTimer = 0;
+        const scheduleResize = () => {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(applyResize, 180);
+        };
+        // Use window resize + orientationchange instead of ResizeObserver to avoid
+        // firing on every URL-bar pixel change during scroll.
+        window.addEventListener('resize', scheduleResize);
+        window.addEventListener('orientationchange', scheduleResize);
 
         const onMove = (e: MouseEvent) => {
             const rect = canvas.getBoundingClientRect();
             mouse.tx = (e.clientX - rect.left) / rect.width;
             mouse.ty = 1 - (e.clientY - rect.top) / rect.height;
         };
-        window.addEventListener('mousemove', onMove);
+        // Skip mouse tracking on touch devices — saves layout reads + a uniform update
+        if (!isCoarsePointer) {
+            window.addEventListener('mousemove', onMove, { passive: true });
+        }
 
         let visible = true;
-        const io = new IntersectionObserver((entries) => {
-            visible = entries[0].isIntersecting;
-        });
+        const io = new IntersectionObserver(
+            (entries) => {
+                visible = entries[0].isIntersecting;
+            },
+            { rootMargin: '50px' },
+        );
         io.observe(canvas);
 
+        const onVisibility = () => {
+            if (document.hidden) visible = false;
+            else visible = true;
+        };
+        document.addEventListener('visibilitychange', onVisibility);
+
+        const renderFrame = (timeSec: number) => {
+            gl.uniform2f(uRes, canvas.width, canvas.height);
+            gl.uniform1f(uTime, timeSec);
+            gl.uniform2f(uMouse, mouse.x, mouse.y);
+            gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+
         const start = performance.now();
-        const tick = () => {
-            if (visible) {
-                mouse.x += (mouse.tx - mouse.x) * 0.05;
-                mouse.y += (mouse.ty - mouse.y) * 0.05;
-                gl.uniform2f(uRes, canvas.width, canvas.height);
-                gl.uniform1f(uTime, (performance.now() - start) / 1000);
-                gl.uniform2f(uMouse, mouse.x, mouse.y);
-                gl.drawArrays(gl.TRIANGLES, 0, 3);
-            }
+
+        if (reduceMotion) {
+            // Static frame for users who opted out of motion
+            renderFrame(0);
+            return () => {
+                window.removeEventListener('resize', scheduleResize);
+                window.removeEventListener('orientationchange', scheduleResize);
+                if (!isCoarsePointer) window.removeEventListener('mousemove', onMove);
+                document.removeEventListener('visibilitychange', onVisibility);
+                io.disconnect();
+                window.clearTimeout(resizeTimer);
+            };
+        }
+
+        // Cap to ~30fps on mobile — visually plenty for a slow plasma and halves GPU work.
+        const minFrameMs = isCoarsePointer ? 33 : 0;
+        let lastFrame = 0;
+
+        const tick = (now: number) => {
             rafRef.current = requestAnimationFrame(tick);
+            if (!visible) return;
+            if (now - lastFrame < minFrameMs) return;
+            lastFrame = now;
+
+            mouse.x += (mouse.tx - mouse.x) * 0.05;
+            mouse.y += (mouse.ty - mouse.y) * 0.05;
+            renderFrame((now - start) / 1000);
         };
         rafRef.current = requestAnimationFrame(tick);
 
         return () => {
             cancelAnimationFrame(rafRef.current);
-            window.removeEventListener('mousemove', onMove);
-            ro.disconnect();
+            window.removeEventListener('resize', scheduleResize);
+            window.removeEventListener('orientationchange', scheduleResize);
+            if (!isCoarsePointer) window.removeEventListener('mousemove', onMove);
+            document.removeEventListener('visibilitychange', onVisibility);
             io.disconnect();
+            window.clearTimeout(resizeTimer);
         };
     }, []);
 
-    return <canvas ref={canvasRef} className={`block w-full h-full ${className}`} />;
+    return (
+        <canvas
+            ref={canvasRef}
+            className={`block w-full h-full ${className}`}
+            style={{
+                // Promote to its own GPU layer so scrolling doesn't repaint the canvas
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+                willChange: 'transform',
+            }}
+        />
+    );
 }

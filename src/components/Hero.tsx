@@ -14,7 +14,10 @@ export function Hero() {
     return (
         <section className="relative min-h-[100dvh] w-full bg-background overflow-hidden flex flex-col md:flex-row">
             {/* Animated WebGL shader background */}
-            <div className="absolute inset-0 z-0">
+            <div
+                className="absolute inset-0 z-0"
+                style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'paint' }}
+            >
                 <ShaderBackground />
                 {/* Readability overlay: keep text crisp on the left half */}
                 <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent md:via-background/60" />
