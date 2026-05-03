@@ -43,9 +43,9 @@ export function Footer() {
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full flex justify-center w-full"
                 >
-                    <h1 className="text-[20vw] md:text-[15vw] leading-none font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-zinc-800 to-zinc-950 select-none pointer-events-none">
+                    <p aria-hidden="true" className="text-[20vw] md:text-[15vw] leading-none font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-zinc-800 to-zinc-950 select-none pointer-events-none m-0">
                         PIONIO
-                    </h1>
+                    </p>
                 </motion.div>
 
             </div>

@@ -48,9 +48,9 @@ export function Preloader() {
                     {/* Central content */}
                     <div className="flex flex-col items-center gap-8 relative z-10">
                         {/* Morphing Number Counter */}
-                        <h1 className="text-8xl md:text-[10rem] font-mono tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 tabular-nums">
+                        <div role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress} aria-label="Loading" className="text-8xl md:text-[10rem] font-mono tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 tabular-nums">
                             {progress}
-                        </h1>
+                        </div>
 
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-zinc-500 font-mono text-sm uppercase tracking-[0.3em]">

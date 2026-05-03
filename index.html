@@ -1,30 +1,229 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary Meta Tags -->
+  <title>PIONIO — Senior UI/UX Engineer & Frontend Architect | Sviluppatore Web Italiano</title>
+  <meta name="title" content="PIONIO — Senior UI/UX Engineer & Frontend Architect | Sviluppatore Web Italiano" />
+  <meta name="description"
+    content="Portfolio di PIONIO, sviluppatore web italiano. Unisco design senza compromessi e architettura frontend robusta in React. Esperienze web premium per brand, e-commerce e startup." />
+  <meta name="author" content="PIONIO" />
+  <meta name="keywords"
+    content="PIONIO, sviluppatore web, frontend developer, React developer, UI UX engineer, frontend architect, sviluppatore freelance Italia, web designer Italia, portfolio sviluppatore, Bologna, framer motion, tailwind, typescript" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Canonical & Alternates -->
+  <link rel="canonical" href="https://pionio.it/" />
+  <link rel="alternate" hreflang="it" href="https://pionio.it/" />
+  <link rel="alternate" hreflang="en" href="https://pionio.it/" />
+  <link rel="alternate" hreflang="x-default" href="https://pionio.it/" />
+
+  <!-- Icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PIONIO | Senior UI/UX Engineer & Frontend Architect</title>
-  <meta name="description"
-    content="Portfolio of PIONIO, bridging the gap between uncompromising design and robust frontend architecture. Crafting high-agency, tailored web experiences." />
+  <link rel="mask-icon" href="/logo.svg" color="#09090b" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="PIONIO | Senior UI/UX Engineer" />
-  <meta property="og:description"
-    content="Portfolio of PIONIO, bridging the gap between uncompromising design and robust frontend architecture." />
-
-  <!-- Theme Configuration -->
+  <!-- Theme & PWA -->
   <meta name="theme-color" content="#09090b" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="application-name" content="PIONIO" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="PIONIO" />
+  <meta name="mobile-web-app-capable" content="yes" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
-    rel="stylesheet">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PIONIO" />
+  <meta property="og:url" content="https://pionio.it/" />
+  <meta property="og:title" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+  <meta property="og:description"
+    content="Sviluppatore web italiano. Unisco design senza compromessi e architettura frontend robusta. Esperienze web premium in React per brand, e-commerce e startup." />
+  <meta property="og:image" content="https://pionio.it/og-image.png" />
+  <meta property="og:image:secure_url" content="https://pionio.it/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://pionio.it/" />
+  <meta name="twitter:title" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+  <meta name="twitter:description"
+    content="Sviluppatore web italiano. Design senza compromessi e architettura frontend robusta in React." />
+  <meta name="twitter:image" content="https://pionio.it/og-image.png" />
+  <meta name="twitter:image:alt" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+  <meta name="twitter:creator" content="@pionio_dev" />
+  <meta name="twitter:site" content="@pionio_dev" />
+
+  <!-- Performance: Preconnect / DNS-prefetch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <!-- Fonts (preload + non-blocking load) -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" />
+  </noscript>
+
+  <!-- JSON-LD: Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://pionio.it/#person",
+      "name": "PIONIO",
+      "alternateName": "Pionio Dev",
+      "url": "https://pionio.it/",
+      "image": "https://pionio.it/og-image.png",
+      "jobTitle": "Senior UI/UX Engineer & Frontend Architect",
+      "description": "Sviluppatore web freelance italiano specializzato in React, TypeScript, design system e architettura frontend.",
+      "knowsAbout": [
+        "Frontend Architecture",
+        "React",
+        "TypeScript",
+        "UI/UX Engineering",
+        "Interaction Design",
+        "Art Direction",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Web Performance",
+        "Accessibility"
+      ],
+      "knowsLanguage": ["it", "en"],
+      "nationality": { "@type": "Country", "name": "Italy" },
+      "address": { "@type": "PostalAddress", "addressCountry": "IT" },
+      "sameAs": [
+        "https://github.com/gittertothemoon",
+        "https://www.instagram.com/pionio_dev"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "PIONIO",
+        "url": "https://pionio.it/"
+      }
+    }
+  </script>
+
+  <!-- JSON-LD: WebSite + SearchAction -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://pionio.it/#website",
+      "url": "https://pionio.it/",
+      "name": "PIONIO",
+      "description": "Portfolio di PIONIO — Senior UI/UX Engineer & Frontend Architect.",
+      "inLanguage": ["it-IT", "en-US"],
+      "publisher": { "@id": "https://pionio.it/#person" },
+      "author": { "@id": "https://pionio.it/#person" }
+    }
+  </script>
+
+  <!-- JSON-LD: ProfessionalService -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://pionio.it/#service",
+      "name": "PIONIO — Frontend Engineering & UI/UX",
+      "url": "https://pionio.it/",
+      "image": "https://pionio.it/og-image.png",
+      "description": "Servizi freelance di sviluppo frontend, design system e interaction design. Siti web premium, e-commerce e landing page in React.",
+      "areaServed": [
+        { "@type": "Country", "name": "Italy" },
+        { "@type": "Place", "name": "Worldwide (remote)" }
+      ],
+      "provider": { "@id": "https://pionio.it/#person" },
+      "serviceType": [
+        "Frontend Architecture",
+        "Interaction Design",
+        "Art Direction",
+        "Web Development"
+      ]
+    }
+  </script>
+
+  <!-- JSON-LD: Portfolio (CollectionPage with CreativeWork projects) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://pionio.it/#works",
+      "url": "https://pionio.it/#works",
+      "name": "Selected Works — PIONIO",
+      "description": "Una selezione di progetti realizzati: e-commerce, portfolio d'arte, landing page e applicazioni community.",
+      "isPartOf": { "@id": "https://pionio.it/#website" },
+      "author": { "@id": "https://pionio.it/#person" },
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Where2Beach",
+          "url": "https://www.where2beach.com",
+          "image": "https://pionio.it/images/w2b-logo.png",
+          "dateCreated": "2025",
+          "creator": { "@id": "https://pionio.it/#person" },
+          "about": "Community App — geolocalizzazione spiagge e segnalazione affollamento e qualità dell'acqua."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "FLOW Pilates Studio",
+          "url": "https://flow-pilates-studio-bo.vercel.app",
+          "image": "https://pionio.it/images/flow-logo.png",
+          "dateCreated": "2026",
+          "creator": { "@id": "https://pionio.it/#person" },
+          "about": "Landing page mobile-first per uno studio Pilates Reformer a Bologna."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Antonela's Paintings",
+          "url": "https://sito-arte.vercel.app",
+          "image": "https://pionio.it/images/antonela-logo.png",
+          "dateCreated": "2024",
+          "creator": { "@id": "https://pionio.it/#person" },
+          "about": "Portfolio d'arte per artista che dipinge su tela in acrilico."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smoky Candle",
+          "url": "https://smoky-candle.vercel.app",
+          "image": "https://pionio.it/images/smokycandle-logo.png",
+          "dateCreated": "2024",
+          "creator": { "@id": "https://pionio.it/#person" },
+          "about": "E-commerce di candele artigianali di soia made in Italy."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Arena Barbershop",
+          "url": "https://arena-barbershop.vercel.app",
+          "image": "https://pionio.it/images/arena-logo.png",
+          "dateCreated": "2024",
+          "creator": { "@id": "https://pionio.it/#person" },
+          "about": "Presenza digitale per un barber shop in Svizzera."
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>

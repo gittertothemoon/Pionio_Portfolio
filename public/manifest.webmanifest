@@ -1,0 +1,38 @@
+{
+  "name": "PIONIO — Senior UI/UX Engineer & Frontend Architect",
+  "short_name": "PIONIO",
+  "description": "Portfolio di PIONIO, sviluppatore web italiano. Design senza compromessi e architettura frontend robusta in React.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "lang": "it",
+  "dir": "ltr",
+  "categories": ["portfolio", "design", "developer", "business"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

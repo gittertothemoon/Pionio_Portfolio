@@ -161,9 +161,9 @@ export function WorksBento() {
                     >
                         <motion.div layoutId={`image-${hero.id}`} className={`absolute inset-0 ${heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'} ${heroContain ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]' : ''}`}>
                             {heroContain ? (
-                                <img src={hero.image} alt={hero.title} className={`w-[40%] h-auto object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                <img src={hero.image} alt={`${hero.title} — ${hero.category} project by PIONIO`} loading="lazy" decoding="async" width="800" height="600" className={`w-[40%] h-auto object-contain ${heroLight ? 'opacity-100' : 'opacity-90'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                             ) : (
-                                <img src={hero.image} alt={hero.title} className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
+                                <img src={hero.image} alt={`${hero.title} — ${hero.category} project by PIONIO`} loading="lazy" decoding="async" width="800" height="600" className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform" />
                             )}
                             {!heroLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-800/80 via-zinc-800/20 to-transparent" />}
                         </motion.div>
@@ -211,9 +211,9 @@ export function WorksBento() {
                         >
                             <motion.div layoutId={`image-${work.id}`} className={`absolute inset-0 ${isLight ? lightBg : 'bg-zinc-800'} ${isContain ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]' : ''}`}>
                                 {isContain ? (
-                                    <img src={work.image} alt={work.title} className={`w-[42%] h-auto object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
+                                    <img src={work.image} alt={`${work.title} — ${work.category} project by PIONIO`} loading="lazy" decoding="async" width="600" height="600" className={`w-[42%] h-auto object-contain ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`} />
                                 ) : (
-                                    <img src={work.image} alt={work.title} className={`w-full h-full object-cover ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
+                                    <img src={work.image} alt={`${work.title} — ${work.category} project by PIONIO`} loading="lazy" decoding="async" width="800" height="600" className={`w-full h-full object-cover ${isLight ? 'opacity-100' : 'opacity-80'} group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`} />
                                 )}
                                 {!isLight && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />}
                             </motion.div>
@@ -264,7 +264,7 @@ export function WorksBento() {
                             </button>
 
                             <motion.div layoutId={`image-${activeWork.id}`} className={`w-full h-[40vh] md:h-[50vh] relative ${activeWork.theme === 'light' ? (activeWork.bgClass ?? 'bg-[#FAF7F2]') : 'bg-zinc-900'} shrink-0`}>
-                                <img src={activeWork.image} alt={activeWork.title} className={`w-full h-full ${activeWork.imageFit === 'contain' ? 'object-contain p-12' : 'object-cover'}`} />
+                                <img src={activeWork.image} alt={`${activeWork.title} — ${activeWork.category} project by PIONIO`} decoding="async" className={`w-full h-full ${activeWork.imageFit === 'contain' ? 'object-contain p-12' : 'object-cover'}`} />
                                 {activeWork.theme !== 'light' && <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />}
                             </motion.div>
 

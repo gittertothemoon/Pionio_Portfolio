@@ -1,0 +1,36 @@
+# https://pionio.it/robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Block AI scraper bots that don't respect attribution (opt-out)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Allow major search engines explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://pionio.it/sitemap.xml
+Host: https://pionio.it

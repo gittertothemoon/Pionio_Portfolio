@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { dict } from '../lib/i18n';
 import type { Locale } from '../lib/i18n';
@@ -12,14 +12,23 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    // Try to read from local storage or default to English
+    // Try to read from local storage, then browser language, default to Italian (site is .it)
     const [locale, setLocaleState] = useState<Locale>(() => {
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem('pionio-locale') as Locale;
             if (saved === 'it' || saved === 'en') return saved;
+            const nav = navigator.language?.toLowerCase() ?? '';
+            if (nav.startsWith('it')) return 'it';
+            if (nav.startsWith('en')) return 'en';
         }
-        return 'en';
+        return 'it';
     });
+
+    useEffect(() => {
+        if (typeof document !== 'undefined') {
+            document.documentElement.lang = locale;
+        }
+    }, [locale]);
 
     const setLocale = (lang: Locale) => {
         setLocaleState(lang);
