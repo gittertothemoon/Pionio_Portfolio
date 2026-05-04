@@ -10,127 +10,127 @@ type Dictionary = {
 export const dict: Dictionary = {
     // Navigation
     nav_about: { en: 'About', it: 'Chi Sono' },
-    nav_capabilities: { en: 'Capabilities', it: 'Competenze' },
+    nav_capabilities: { en: 'What I Do', it: 'Cosa Faccio' },
     nav_works: { en: 'Works', it: 'Progetti' },
-    nav_experience: { en: 'Experience', it: 'Esperienza' },
+    nav_experience: { en: 'Process', it: 'Processo' },
     nav_contact: { en: 'Contact', it: 'Contatti' },
     nav_servizi: { en: 'Services', it: 'Servizi' },
     nav_blog: { en: 'Blog', it: 'Blog' },
     nav_contatti: { en: 'Contact', it: 'Contatti' },
 
-    // Hero
-    hero_title: { en: 'Digital\nCraft &\nEngineering.', it: 'Artigianato\nDigitale &\nIngegneria.' },
+    // Hero — conversion-first, client language
+    hero_title: { en: 'Websites\nthat make your\nbusiness grow.', it: 'Siti web\nche fanno crescere\nil tuo business.' },
     hero_subtitle: {
-        en: "I'm PIONIO. I bridge the gap between uncompromising design and robust frontend architecture. Crafting high-agency, tailored web experiences.",
-        it: "Sono PIONIO. Unisco un design senza compromessi a un'architettura frontend robusta. Creo esperienze web su misura ad alta intensità."
+        en: "I'm PIONIO. I design and build premium websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers.",
+        it: 'Sono PIONIO. Progetto e sviluppo siti web premium per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali.'
     },
-    hero_cta_works: { en: 'View Selected Works', it: 'Vedi i Progetti' },
-    hero_cta_contact: { en: 'Start a project', it: 'Inizia un progetto' },
-    hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
+    hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
+    hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
+    hero_availability: { en: 'Accepting 2 new projects', it: 'Disponibile per 2 nuovi progetti' },
 
-    // About
-    about_label: { en: 'Philosophy', it: 'Filosofia' },
-    about_headline_1: { en: 'I build digital experiences that refuse to be ', it: 'Costruisco esperienze digitali che si rifiutano di essere ' },
-    about_headline_highlight: { en: 'ignored', it: 'ignorate' },
-    about_headline_3: { en: '.', it: '.' },
+    // About — speak to the client, not the dev
+    about_label: { en: 'Why PIONIO', it: 'Perché PIONIO' },
+    about_headline_1: { en: 'A website should ', it: 'Il tuo sito deve ' },
+    about_headline_highlight: { en: 'work for you', it: 'lavorare per te' },
+    about_headline_3: { en: ', every day.', it: ', ogni giorno.' },
     about_p1: {
-        en: "I believe that great engineering is invisible, while great design is unforgettable. My process bridges the gap between rigorous frontend architectures and uncompromising visual aesthetics.",
-        it: "Credo che la grande ingegneria sia invisibile, mentre il grande design è indimenticabile. Il mio processo colma il divario tra rigorose architetture frontend e un'estetica visiva senza compromessi."
+        en: 'Most websites are pretty pictures that nobody finds and nobody acts on. Mine are designed to do one job: bring you the right clients and convince them to choose you.',
+        it: 'La maggior parte dei siti sono solo bei disegni che nessuno trova e che non portano clienti. I miei sono progettati per fare una cosa: portarti le persone giuste e convincerle a scegliere te.'
     },
     about_p2: {
-        en: 'By leveraging modern physics engines and tailored color systems, I craft "high-agency" interfaces that actively engage users rather than passively serving data.',
-        it: 'Sfruttando motori fisici moderni e sistemi di colori su misura, realizzo interfacce "ad alta intensità" che coinvolgono attivamente gli utenti anziché limitarsi a mostrare dati.'
+        en: 'Premium design, fast loading, mobile-first, optimized for Google. You get a digital storefront that builds trust on the first scroll — without the agency price tag and without the technical headaches.',
+        it: 'Design premium, caricamento veloce, mobile-first, ottimizzato per Google. Ottieni una vetrina digitale che ispira fiducia al primo scroll — senza il costo di un\'agenzia e senza grattacapi tecnici.'
     },
 
-    about_cta: { en: 'Start a project', it: 'Inizia un progetto' },
+    about_cta: { en: 'Start your project', it: 'Inizia il tuo progetto' },
 
-    // Services
-    services_label: { en: 'Capabilities', it: 'Competenze' },
-    services_headline_1: { en: 'Designing systems that ', it: 'Sistemi progettati per ' },
-    services_headline_highlight: { en: 'scale', it: 'scalare' },
+    // Services — translate tech jargon into client benefits
+    services_label: { en: 'What I Do', it: 'Cosa Faccio Per Te' },
+    services_headline_1: { en: 'Three things, ', it: 'Tre cose, ' },
+    services_headline_highlight: { en: 'done seriously', it: 'fatte sul serio' },
     services_headline_3: { en: '.', it: '.' },
-    service_1_title: { en: 'Frontend Architecture', it: 'Architettura Frontend' },
+    service_1_title: { en: 'Websites that convert', it: 'Siti web che convertono' },
     service_1_desc: {
-        en: 'Engineering resilient, scalable React applications. Focusing on Server Components, optimized bundles, and flawless 60fps rendering across all modern viewports.',
-        it: 'Ingegnerizzazione di applicazioni React resilienti e scalabili. Fissazione per Server Components, bundle ottimizzati e un rendering impeccabile a 60fps su tutti i dispositivi.'
+        en: 'Showcase, e-commerce or landing page — built to load instantly, work flawlessly on every phone, and guide your visitor toward one clear action: contacting you or buying.',
+        it: 'Sito vetrina, e-commerce o landing page — costruito per caricarsi all\'istante, funzionare alla perfezione su ogni telefono e guidare il visitatore verso un\'unica azione chiara: contattarti o comprare.'
     },
-    service_2_title: { en: 'Interaction Design', it: 'Design Interattivo' },
+    service_2_title: { en: 'Design that earns trust', it: 'Design che ispira fiducia' },
     service_2_desc: {
-        en: 'Breathing life into static pixels. From complex WebGL shaders to micro-physics using Framer Motion, creating interfaces that feel physically tactile and alive.',
-        it: 'Dare vita ai pixel statici. Da complessi shader WebGL (3D) alla micro-fisica con Framer Motion, per creare interfacce che risultano tattili e vive.'
+        en: 'Smooth animations, refined typography, premium feel. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
+        it: 'Animazioni fluide, tipografia curata, sensazione premium. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
     },
-    service_3_title: { en: 'Art Direction', it: 'Direzione Artistica' },
+    service_3_title: { en: 'Found on Google', it: 'Visibile su Google' },
     service_3_desc: {
-        en: 'Elevating brand perception through uncompromising visual taste. Curating typography, tailored color systems, and asymmetric layouts to guarantee a premium digital footprint.',
-        it: "Elevare la percezione del brand attraverso un gusto visivo estremo. Cura della tipografia, palette di colori personalizzate e layout asimmetrici per un'impronta digitale premium."
+        en: 'Technical SEO, fast Core Web Vitals, clean structured data. Your website is built to be found by the people already searching for what you offer.',
+        it: 'SEO tecnica, Core Web Vitals veloci, dati strutturati puliti. Il tuo sito è costruito per essere trovato dalle persone che stanno già cercando ciò che offri.'
     },
 
-    services_cta: { en: 'Have a project in mind?', it: 'Hai un progetto in mente?' },
+    services_cta: { en: 'Tell me about your project', it: 'Parlami del tuo progetto' },
 
     // Works Bento
-    works_label: { en: 'Selected Works', it: 'Lavori Selezionati' },
-    works_headline: { en: 'Visual Engineering.', it: 'Ingegneria Visiva.' },
-    works_view_case: { en: 'View Case Study', it: 'Vedi Case Study' },
-    works_visit_site: { en: 'Visit Site', it: 'Visita il Sito' },
+    works_label: { en: 'Real Projects, Real Clients', it: 'Progetti Reali, Clienti Reali' },
+    works_headline: { en: 'Selected work.', it: 'Lavori selezionati.' },
+    works_view_case: { en: 'See details', it: 'Vedi dettagli' },
+    works_visit_site: { en: 'Visit site', it: 'Visita il sito' },
     work_w2b_cat: { en: 'Community App', it: 'App Community' },
     work_w2b_desc: {
-        en: 'A geolocation app for beaches allowing the community to report crowds, water quality, and beach cleanliness.',
-        it: "Un'app per geolocalizzare le spiagge e permettere alla community di segnalare la folla, la qualità dell'acqua e la pulizia."
+        en: 'Geolocation app for the Italian coast — live beach reports from a real community of users.',
+        it: 'App di geolocalizzazione per la costa italiana — segnalazioni live delle spiagge da una community di utenti reali.'
     },
     work_antonela_cat: { en: 'Art Portfolio', it: "Portfolio d'Arte" },
     work_antonela_desc: {
-        en: 'An art portfolio for an artist who paints on acrylic canvas.',
-        it: "Portfolio d'arte per un artista che dipinge quadri su tele in acrilico."
+        en: 'A digital gallery for an emerging painter — quiet, premium, lets the artwork do the talking.',
+        it: "Una galleria digitale per un'artista emergente — silenziosa, premium, lascia parlare le opere."
     },
     work_smoky_cat: { en: 'E-commerce', it: 'E-commerce' },
     work_smoky_desc: {
-        en: 'An e-commerce platform for artisanal soy candles made in Italy.',
-        it: 'E-commerce di candele artigianali di soia made in Italy.'
+        en: 'Online shop for an Italian artisan candle brand — short checkout, premium feel, online sales from day one.',
+        it: 'Shop online per un brand italiano di candele artigianali — checkout breve, sensazione premium, vendite dal primo giorno.'
     },
     work_arena_cat: { en: 'Local Business', it: 'Attività Locale' },
     work_arena_desc: {
-        en: 'A digital presence for a barbershop located in Switzerland.',
-        it: 'Presenza digitale per un barber shop situato in Svizzera.'
+        en: 'Digital presence for a Swiss barbershop — clear info, one-tap booking, instant load on mobile.',
+        it: 'Presenza digitale per un barber shop svizzero — info chiare, prenotazione in un tap, caricamento istantaneo su mobile.'
     },
     work_flow_cat: { en: 'Landing Page', it: 'Landing Page' },
     work_flow_desc: {
-        en: 'Mobile-first landing page validating a boutique Pilates Reformer studio in San Giorgio di Piano, Bologna. Premium design with a lead-capture form connected to Supabase.',
-        it: 'Landing page mobile-first per la validazione di uno studio boutique di Pilates Reformer a San Giorgio di Piano, Bologna. Design premium con form di raccolta lead collegato a Supabase.'
+        en: 'Mobile-first landing page for a new Pilates studio near Bologna — built to validate demand and capture real leads before launch.',
+        it: 'Landing page mobile-first per un nuovo studio di Pilates vicino Bologna — costruita per validare la domanda e raccogliere lead reali prima del lancio.'
     },
 
-    // Experience
-    exp_label: { en: 'Experience', it: 'Esperienza' },
-    exp_1_role: { en: 'Independent Frontend Developer', it: 'Sviluppatore Frontend Indipendente' },
+    // Experience → Process (results-focused, not CV)
+    exp_label: { en: 'How We Work Together', it: 'Come Lavoriamo Insieme' },
+    exp_1_role: { en: '01 — We talk about your goal', it: '01 — Parliamo del tuo obiettivo' },
     exp_1_desc: {
-        en: 'Crafting modern, performant web applications with a strong focus on UI/UX. Delivering tailored digital experiences using React and the React ecosystem.',
-        it: "Sviluppo di applicazioni web moderne e performanti con una forte attenzione alla UI/UX. Realizzazione di esperienze digitali su misura utilizzando React e il suo ecosistema."
+        en: 'A free 30-minute call. You tell me what your business does, who your clients are, and what you want the website to actually achieve. No tech jargon — just clarity.',
+        it: 'Una call gratuita di 30 minuti. Mi racconti cosa fa la tua attività, chi sono i tuoi clienti e cosa vuoi davvero ottenere dal sito. Niente gergo tecnico — solo chiarezza.'
     },
-    exp_2_role: { en: 'Web Developer', it: 'Sviluppatore Web' },
+    exp_2_role: { en: '02 — I design and build', it: '02 — Progetto e sviluppo' },
     exp_2_desc: {
-        en: 'Collaborated on the development of full-stack projects, building responsive interfaces and optimizing frontend architectures for better performance and accessibility.',
-        it: "Collaborazione allo sviluppo di progetti full-stack, creando interfacce responsive e ottimizzando l'architettura frontend per migliorare performance e accessibilità."
+        en: 'Within 2–4 weeks I deliver a premium, fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
+        it: 'In 2–4 settimane consegno un sito premium, veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
     },
-    exp_3_role: { en: 'Frontend Intern / Junior Developer', it: 'Sviluppatore Frontend Junior / Tirocinante' },
+    exp_3_role: { en: '03 — You go live and grow', it: '03 — Vai online e cresci' },
     exp_3_desc: {
-        en: 'Started the professional journey creating interactive landing pages and learning modern JavaScript frameworks, translating design mockups into functional code.',
-        it: 'Inizio del percorso professionale creando landing page interattive e apprendendo i moderni framework JavaScript, trasformando i mockup grafici in codice funzionale.'
+        en: "We launch, I hand over a clean, easy-to-update site, and I'm still there if something needs to evolve. Your website becomes an asset that works for you for years.",
+        it: 'Lanciamo, ti consegno un sito pulito e facile da aggiornare, e resto a disposizione se qualcosa deve evolvere. Il tuo sito diventa un asset che lavora per te per anni.'
     },
 
-    exp_cta: { en: "Let's work together", it: 'Lavoriamo insieme' },
+    exp_cta: { en: "Let's start", it: 'Iniziamo' },
 
-    // Contact
-    contact_label: { en: 'Get In Touch', it: 'Mettiamoci In Contatto' },
-    contact_headline: { en: "Let's build something bold.", it: 'Costruiamo qualcosa di audace.' },
+    // Contact — direct CTA
+    contact_label: { en: 'Get In Touch', it: 'Parliamone' },
+    contact_headline: { en: "Ready when you are.", it: 'Pronto quando lo sei tu.' },
     contact_description: {
-        en: "I am currently accepting new freelance projects. Drop your email below and I'll reach out within 24 hours.",
-        it: "Attualmente accetto nuovi progetti freelance. Inserisci la tua email qui sotto e ti contatterò entro 24 ore."
+        en: 'Tell me about your project in 2 minutes. I reply personally within 24 hours with a clear answer: realistic timeline, transparent quote, no hard sell.',
+        it: 'Raccontami il tuo progetto in 2 minuti. Ti rispondo personalmente entro 24 ore con una risposta chiara: tempi realistici, preventivo trasparente, zero pressioni commerciali.'
     },
-    contact_form_button_idle: { en: 'Send message', it: 'Invia messaggio' },
+    contact_form_button_idle: { en: 'Send my request', it: 'Invia la mia richiesta' },
     contact_form_button_loading: { en: 'Sending…', it: 'Invio in corso…' },
-    contact_form_success_title: { en: 'Message sent', it: 'Messaggio inviato' },
+    contact_form_success_title: { en: 'Got it — thanks', it: 'Ricevuto — grazie' },
     contact_form_success_body: {
-        en: "I'll get back to you within 24 hours.",
-        it: 'Ti risponderò entro 24 ore.'
+        en: "I'll get back to you personally within 24 hours.",
+        it: 'Ti rispondo personalmente entro 24 ore.'
     },
     contact_form_send_another: { en: 'Send another', it: 'Invia un altro messaggio' },
     contact_form_error: {
@@ -142,10 +142,10 @@ export const dict: Dictionary = {
     contact_field_email: { en: 'Email', it: 'Email' },
     contact_field_tipo: { en: 'Project type', it: 'Tipo di progetto' },
     contact_field_budget: { en: 'Budget', it: 'Budget indicativo' },
-    contact_field_messaggio: { en: 'Message', it: 'Messaggio' },
+    contact_field_messaggio: { en: 'Tell me more', it: 'Raccontami di più' },
     contact_field_messaggio_placeholder: {
-        en: 'Tell me about your project, goals, and timeline…',
-        it: 'Raccontami il progetto, gli obiettivi e i tempi…'
+        en: 'What does your business do? What do you want the website to achieve? When would you like to launch?',
+        it: 'Cosa fa la tua attività? Cosa vuoi ottenere dal sito? Quando vorresti lanciare?'
     },
     contact_field_trovato: { en: 'How did you find me?', it: 'Come mi hai trovato?' },
     contact_field_optional: { en: 'optional', it: 'opzionale' },
@@ -176,4 +176,24 @@ export const dict: Dictionary = {
 
     // Preloader
     preloader_init: { en: 'Initializing', it: 'Inizializzazione' },
+
+    // Mockup showcase sections — short, evocative, conversion-first
+    mockup_phone_label: { en: 'Mobile-first by default', it: 'Mobile-first di default' },
+    mockup_phone_title: { en: 'Looks perfect in your client\'s pocket.', it: 'Perfetto nella tasca del tuo cliente.' },
+    mockup_phone_desc: {
+        en: 'Over 70% of your visitors arrive on a phone. Every project I deliver is designed for that screen first — premium, instant, easy to thumb through.',
+        it: 'Oltre il 70% dei visitatori arriva da telefono. Ogni progetto che consegno è pensato prima per quello schermo — premium, istantaneo, facile da scorrere col pollice.'
+    },
+    mockup_laptop_label: { en: 'Desktop, refined', it: 'Desktop, rifinito' },
+    mockup_laptop_title: { en: 'A digital storefront that earns trust at first glance.', it: 'Una vetrina digitale che ispira fiducia al primo sguardo.' },
+    mockup_laptop_desc: {
+        en: 'Generous typography, considered spacing, smooth animation. The visual quality of an agency, without the agency overhead.',
+        it: 'Tipografia generosa, spaziature pensate, animazioni fluide. La qualità visiva di un\'agenzia, senza il sovrapprezzo di un\'agenzia.'
+    },
+    mockup_tablet_label: { en: 'Every device, every detail', it: 'Ogni device, ogni dettaglio' },
+    mockup_tablet_title: { en: 'One website, perfectly tuned to every screen.', it: 'Un sito, perfetto su ogni schermo.' },
+    mockup_tablet_desc: {
+        en: 'Phone, tablet, laptop, ultrawide — your site looks intentional everywhere. No broken layouts, no awkward zooms, no excuses.',
+        it: 'Telefono, tablet, laptop, ultrawide — il tuo sito appare voluto ovunque. Niente layout rotti, niente zoom strani, nessuna scusa.'
+    },
 };

@@ -10,28 +10,29 @@ import { Experience } from '../components/Experience';
 import { TechStack } from '../components/TechStack';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
+import { PhoneShowcase, LaptopShowcase, MultiDeviceShowcase } from '../components/MockupShowcase';
 
 export default function Home() {
     return (
         <div className="w-full bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased -webkit-font-smoothing-antialiased">
             <Head>
-                <title>PIONIO — Senior UI/UX Engineer & Frontend Architect | Sviluppatore Web Italiano</title>
+                <title>PIONIO — Siti web premium che fanno crescere il tuo business</title>
                 <meta
                     name="description"
-                    content="Portfolio di PIONIO, sviluppatore web italiano. Unisco design senza compromessi e architettura frontend robusta in React. Esperienze web premium per brand, e-commerce e startup."
+                    content="Sviluppatore web freelance italiano. Progetto siti web, e-commerce e landing page premium per imprenditori e brand. Design che ispira fiducia, veloce su mobile, ottimizzato per Google."
                 />
                 <link rel="canonical" href="https://pionio.it/" />
                 <meta property="og:url" content="https://pionio.it/" />
-                <meta property="og:title" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+                <meta property="og:title" content="PIONIO — Siti web premium che fanno crescere il tuo business" />
                 <meta
                     property="og:description"
-                    content="Sviluppatore web italiano. Unisco design senza compromessi e architettura frontend robusta. Esperienze web premium in React per brand, e-commerce e startup."
+                    content="Sviluppatore web freelance italiano. Siti web, e-commerce e landing page premium per imprenditori e brand. Veloci, mobile-first, ottimizzati per Google."
                 />
                 <meta name="twitter:url" content="https://pionio.it/" />
-                <meta name="twitter:title" content="PIONIO — Senior UI/UX Engineer & Frontend Architect" />
+                <meta name="twitter:title" content="PIONIO — Siti web premium che fanno crescere il tuo business" />
                 <meta
                     name="twitter:description"
-                    content="Sviluppatore web italiano. Design senza compromessi e architettura frontend robusta in React."
+                    content="Sviluppatore web freelance italiano. Siti premium che attirano clienti e ispirano fiducia. Veloci, mobile-first, ottimizzati per Google."
                 />
             </Head>
             <Preloader />
@@ -59,15 +60,21 @@ export default function Home() {
                     <About />
                 </div>
 
+                <PhoneShowcase />
+
                 <div id="services">
                     <Services />
                 </div>
+
+                <LaptopShowcase />
 
                 <TechStack />
 
                 <div id="works">
                     <WorksBento />
                 </div>
+
+                <MultiDeviceShowcase />
 
                 <div id="experience">
                     <Experience />
