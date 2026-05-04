@@ -32,10 +32,12 @@ def vertical_gradient(size, top_color, bottom_color):
     return grad.resize(size, Image.BILINEAR)
 
 
-def rounded_mask(size, radius):
+def rounded_mask(size, radius, corners=(True, True, True, True)):
+    """Rounded-rect alpha mask. ``corners`` lets callers round only some of the
+    four corners — order is (top_left, top_right, bottom_right, bottom_left)."""
     mask = Image.new("L", size, 0)
     ImageDraw.Draw(mask).rounded_rectangle(
-        (0, 0, size[0] - 1, size[1] - 1), radius=radius, fill=255
+        (0, 0, size[0] - 1, size[1] - 1), radius=radius, fill=255, corners=corners
     )
     return mask
 
@@ -102,19 +104,33 @@ def make_iphone(shot_path: Path, out_path: Path, width: int = 600) -> None:
     )
     frame.alpha_composite(highlight)
 
-    # Screen area
+    # Screen area + iOS-style safe areas: a top status-bar zone where the
+    # Dynamic Island sits, and a thin home-indicator zone at the bottom.
+    # The website screenshot is fitted to the *content* area only, so logos at
+    # the very top of the page aren't covered by the island, and chat bubbles
+    # at the bottom don't kiss the bezel.
     iw, ih = W - 2 * bezel, H - 2 * bezel
+    top_safe = int(58 * ss)
+    bottom_safe = int(22 * ss)
+    content_h = ih - top_safe - bottom_safe
+    content_w = iw
+
     shot = Image.open(shot_path).convert("RGB")
-    shot = cover_fit(shot, iw, ih).convert("RGBA")
-    shot.putalpha(rounded_mask((iw, ih), inner_r))
+    shot = cover_fit(shot, content_w, content_h).convert("RGBA")
+    # Round the bottom corners of the screenshot to match the screen radius so
+    # content doesn't poke past the rounded screen onto the titanium frame.
+    # Top corners stay square — they sit inside the flat status-bar zone.
+    shot.putalpha(
+        rounded_mask((content_w, content_h), inner_r, corners=(False, False, True, True))
+    )
 
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     canvas.alpha_composite(frame)
-    # Pure black inner first (so masked corners stay perfect black even if shot has alpha)
+    # Pure black inner first (status bar + home indicator zones stay black)
     inner_black = Image.new("RGBA", (iw, ih), (0, 0, 0, 0))
     inner_black.paste((0, 0, 0, 255), (0, 0), rounded_mask((iw, ih), inner_r))
     canvas.alpha_composite(inner_black, (bezel, bezel))
-    canvas.alpha_composite(shot, (bezel, bezel))
+    canvas.alpha_composite(shot, (bezel, bezel + top_safe))
 
     # Dynamic Island
     di_w, di_h = int(96 * ss), int(30 * ss)
@@ -288,9 +304,19 @@ def make_ipad(shot_path: Path, out_path: Path, width: int = 800) -> None:
     frame.alpha_composite(stroke)
 
     iw, ih = W - 2 * bezel, H - 2 * bezel
+    # Smaller iPad safe areas (the bezel itself is uniform, but we still want a
+    # tiny breathing strip top and bottom so logos and chat dots don't kiss
+    # the rounded screen corners).
+    top_safe = int(20 * ss)
+    bottom_safe = int(16 * ss)
+    content_h = ih - top_safe - bottom_safe
+    content_w = iw
+
     shot = Image.open(shot_path).convert("RGB")
-    shot = cover_fit(shot, iw, ih).convert("RGBA")
-    shot.putalpha(rounded_mask((iw, ih), inner_r))
+    shot = cover_fit(shot, content_w, content_h).convert("RGBA")
+    shot.putalpha(
+        rounded_mask((content_w, content_h), inner_r, corners=(False, False, True, True))
+    )
 
     inner_black = Image.new("RGBA", (iw, ih), (0, 0, 0, 0))
     inner_black.paste((0, 0, 0, 255), (0, 0), rounded_mask((iw, ih), inner_r))
@@ -298,7 +324,7 @@ def make_ipad(shot_path: Path, out_path: Path, width: int = 800) -> None:
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     canvas.alpha_composite(frame)
     canvas.alpha_composite(inner_black, (bezel, bezel))
-    canvas.alpha_composite(shot, (bezel, bezel))
+    canvas.alpha_composite(shot, (bezel, bezel + top_safe))
 
     # Front camera (top center, portrait)
     cam_d = int(7 * ss)

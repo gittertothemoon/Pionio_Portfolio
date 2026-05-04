@@ -105,7 +105,9 @@ async function captureOne(browser, t) {
                 } catch { /* keep trying */ }
             }
 
-            // Hard-hide any leftover consent / chat overlays as a fallback.
+            // Hard-hide any leftover consent / chat / floating overlays. Cast a
+            // wide net — chat widgets, banners and "powered by" footers love to
+            // float over the bottom of the viewport.
             await page.addStyleTag({
                 content: `
                     [class*="iubenda"], [id*="iubenda"],
@@ -113,13 +115,47 @@ async function captureOne(browser, t) {
                     [class*="cookie"], [id*="cookie"],
                     [class*="consent"], [id*="consent"],
                     [class*="cmp-"], [id*="cmp-"],
-                    [class*="intercom"], [class*="hs-chat"],
-                    iframe[src*="iubenda"]
-                    { display: none !important; visibility: hidden !important; }
+                    [class*="intercom"], [id*="intercom"],
+                    [class*="crisp"], [id*="crisp"],
+                    [class*="hs-chat"], [id*="hubspot-messages"],
+                    [class*="tidio"], [id*="tidio"],
+                    [class*="drift"], [id*="drift"],
+                    [class*="zopim"], [class*="zendesk"],
+                    [class*="freshchat"], [id*="freshchat"],
+                    [class*="livechat"], [id*="livechat"],
+                    [class*="Toaster"], [class*="toast"],
+                    [class*="badge"][class*="vercel"], [data-nextjs-toast],
+                    [class*="banner"][class*="bottom"],
+                    [aria-label*="chat"], [aria-label*="Chat"],
+                    iframe[src*="iubenda"], iframe[src*="onetrust"],
+                    iframe[src*="usercentrics"], iframe[src*="cookie"],
+                    iframe[title*="hat"], iframe[title*="essag"],
+                    iframe[id*="webpack-dev-server"], iframe[title*="vercel"]
+                    { display: none !important; visibility: hidden !important; pointer-events: none !important; }
                 `,
             }).catch(() => {});
 
-            await page.waitForTimeout(500);
+            // Strip any element fixed/sticky to the bottom of the viewport that
+            // sneaks past the class/id allowlist (chat bubbles, "Built with…"
+            // footers, language pickers).
+            await page.evaluate(() => {
+                const vh = window.innerHeight;
+                document.querySelectorAll('body *').forEach((el) => {
+                    const cs = window.getComputedStyle(el);
+                    if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
+                    const r = el.getBoundingClientRect();
+                    // Hide things anchored near the bottom (last 30% of viewport)
+                    // unless they span the full width — those are likely real
+                    // fixed headers/footers and we leave them alone.
+                    if (r.bottom > vh * 0.7 && r.width < window.innerWidth * 0.85) {
+                        el.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }).catch(() => {});
+
+            // Force scroll back to top after any DOM mutation.
+            await page.evaluate(() => window.scrollTo(0, 0));
+            await page.waitForTimeout(800);
             // Hard wait for splash / preloader / fonts.
             await page.waitForTimeout(t.wait);
             // Force scroll to top to avoid hash-anchored landings.
