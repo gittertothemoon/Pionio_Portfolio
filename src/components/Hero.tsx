@@ -36,7 +36,7 @@ export function Hero() {
             </div>
 
             {/* Left Content Half */}
-            <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20 z-10">
+            <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:py-20 z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -56,11 +56,11 @@ export function Hero() {
                         {t('hero_availability')}
                     </motion.div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter leading-[0.9] font-medium text-foreground mb-6 whitespace-pre-line">
+                    <h1 className="text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter leading-[0.95] md:leading-[0.9] font-medium text-foreground mb-5 md:mb-6 whitespace-pre-line">
                         {t('hero_title')}
                     </h1>
 
-                    <p className="text-lg md:text-xl text-zinc-400 max-w-[45ch] leading-relaxed mb-10 font-sans">
+                    <p className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-[45ch] leading-relaxed mb-8 md:mb-10 font-sans">
                         {t('hero_subtitle')}
                     </p>
 
