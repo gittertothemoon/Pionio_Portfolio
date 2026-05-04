@@ -19,9 +19,10 @@ export function Hero() {
                 style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'paint' }}
             >
                 <ShaderBackground />
-                {/* Readability overlay: keep text crisp on the left half */}
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent md:via-background/60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
+                {/* Readability overlay: keep text crisp on the left half while
+                    letting more plasma bleed through on the right. */}
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/45" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/25" />
             </div>
 
             {/* Language Selector Toggle */}

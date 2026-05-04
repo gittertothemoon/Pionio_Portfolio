@@ -5,6 +5,8 @@ attribute vec2 a_pos;
 void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
 `;
 
+// Plasma fragment shader. Tuned for a more dynamic/fluid feel while keeping
+// fragment cost equivalent to the previous version (still 4-octave fbm).
 const FRAG = `
 precision mediump float;
 uniform vec2 u_res;
@@ -41,36 +43,43 @@ float fbm(vec2 p) {
 
 void main() {
     vec2 uv = (gl_FragCoord.xy - 0.5 * u_res.xy) / u_res.y;
-    float t = u_time * 0.18;
+    float t = u_time * 0.32;
 
-    // Single domain-warp pass (was double) for that liquid feel at half the cost
-    vec2 q = vec2(fbm(uv + vec2(0.0, t)),
-                  fbm(uv + vec2(5.2, t * 1.3)));
+    // Slow swirl rotates the warp field over time -> obvious continuous motion.
+    float ca = cos(t * 0.25);
+    float sa = sin(t * 0.25);
+    vec2 swirl = mat2(ca, -sa, sa, ca) * uv;
 
-    float f = fbm(uv + 3.0 * q + vec2(1.7 + t, 9.2));
+    // Single domain-warp pass (still 1 fbm-pair) but with stronger amplitude
+    // and time-varying offsets for a more liquid look.
+    vec2 q = vec2(fbm(swirl + vec2(0.0, t)),
+                  fbm(swirl + vec2(5.2, t * 1.3)));
+
+    float f = fbm(uv + 4.0 * q + vec2(1.7 + t * 0.8, 9.2));
 
     // Mouse parallax pull
     vec2 m = (u_mouse - 0.5) * 0.4;
     float mDist = length(uv - m);
-    float glow = smoothstep(0.9, 0.0, mDist) * 0.25;
+    float glow = smoothstep(0.9, 0.0, mDist) * 0.35;
 
-    // Forest palette
+    // Forest palette — slightly brighter mid+accent so plasma is more visible.
     vec3 deep   = vec3(0.012, 0.024, 0.018);
-    vec3 mid    = vec3(0.039, 0.137, 0.094);
-    vec3 accent = vec3(0.094, 0.353, 0.212);
-    vec3 hi     = vec3(0.392, 0.682, 0.475);
+    vec3 mid    = vec3(0.055, 0.180, 0.122);
+    vec3 accent = vec3(0.125, 0.420, 0.260);
+    vec3 hi     = vec3(0.470, 0.780, 0.555);
 
     vec3 col = deep;
-    col = mix(col, mid, smoothstep(-0.2, 0.6, f));
-    col = mix(col, accent, smoothstep(0.3, 0.85, f) * 0.85);
-    col = mix(col, hi, pow(smoothstep(0.55, 0.95, f), 3.0) * 0.6);
+    col = mix(col, mid, smoothstep(-0.3, 0.6, f));
+    col = mix(col, accent, smoothstep(0.2, 0.85, f) * 0.95);
+    col = mix(col, hi, pow(smoothstep(0.5, 0.95, f), 2.5) * 0.75);
 
-    col += vec3(0.05, 0.18, 0.11) * glow;
+    col += vec3(0.07, 0.22, 0.14) * glow;
 
-    float vig = smoothstep(1.4, 0.2, length(uv));
-    col *= mix(0.55, 1.0, vig);
+    // Softer vignette so plasma reads further out from the centre.
+    float vig = smoothstep(1.55, 0.15, length(uv));
+    col *= mix(0.7, 1.05, vig);
 
-    col = pow(col, vec3(0.95));
+    col = pow(col, vec3(0.92));
 
     gl_FragColor = vec4(col, 1.0);
 }
@@ -97,12 +106,12 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
         // On mobile/low-end the shader is the bottleneck; cap DPR aggressively
-        // and fall back to a very low resolution that still looks fine when blurred.
+        // and fall back to a low resolution that still looks fine when blurred.
         const dprCap = isCoarsePointer ? 1 : 1.5;
         const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-        // Internal render scale: drawing at 75% of the canvas size on mobile
-        // halves fragment work while staying invisible behind the dark overlay.
-        const renderScale = isCoarsePointer ? 0.75 : 1;
+        // Internal render scale: drawing at 65% on mobile keeps fragment work
+        // bounded; the plasma is low-frequency so this is invisible behind the overlay.
+        const renderScale = isCoarsePointer ? 0.65 : 1;
 
         const gl = canvas.getContext('webgl', {
             antialias: false,
@@ -152,8 +161,6 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
             window.clearTimeout(resizeTimer);
             resizeTimer = window.setTimeout(applyResize, 180);
         };
-        // Use window resize + orientationchange instead of ResizeObserver to avoid
-        // firing on every URL-bar pixel change during scroll.
         window.addEventListener('resize', scheduleResize);
         window.addEventListener('orientationchange', scheduleResize);
 
@@ -162,7 +169,6 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
             mouse.tx = (e.clientX - rect.left) / rect.width;
             mouse.ty = 1 - (e.clientY - rect.top) / rect.height;
         };
-        // Skip mouse tracking on touch devices — saves layout reads + a uniform update
         if (!isCoarsePointer) {
             window.addEventListener('mousemove', onMove, { passive: true });
         }
@@ -177,8 +183,7 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         io.observe(canvas);
 
         const onVisibility = () => {
-            if (document.hidden) visible = false;
-            else visible = true;
+            visible = !document.hidden;
         };
         document.addEventListener('visibilitychange', onVisibility);
 
@@ -190,17 +195,43 @@ export function ShaderBackground({ className = '' }: { className?: string }) {
         };
 
         const start = performance.now();
-
-        // Slow the animation (not freeze it) for users who prefer reduced motion.
         const timeScale = reduceMotion ? 0.25 : 1;
+
+        // Frame-rate target. Mobile / coarse-pointer is capped at 30fps by default
+        // (looks smooth for low-frequency plasma, halves GPU work). Desktop runs full.
+        // Adaptive: if avg frame interval grows past 22ms over a 1.5s window we
+        // demote to 30fps, eliminating jank on weaker GPUs.
+        let minFrameMs = isCoarsePointer ? 32 : 0;
+        let lastDraw = 0;
+
+        // Adaptive perf monitor — desktop only. We sample the first ~1.5s of frames
+        // and demote to 30fps if performance is poor. Cheap: ints + early-exit.
+        let monitorActive = !isCoarsePointer && !reduceMotion;
+        let monitorFrames = 0;
+        let monitorStart = 0;
 
         const tick = (now: number) => {
             rafRef.current = requestAnimationFrame(tick);
             if (!visible) return;
 
+            // Frame throttle for mobile / demoted desktop.
+            if (minFrameMs > 0 && now - lastDraw < minFrameMs - 1) return;
+            lastDraw = now;
+
             mouse.x += (mouse.tx - mouse.x) * 0.05;
             mouse.y += (mouse.ty - mouse.y) * 0.05;
             renderFrame(((now - start) / 1000) * timeScale);
+
+            if (monitorActive) {
+                if (monitorStart === 0) monitorStart = now;
+                monitorFrames++;
+                const elapsed = now - monitorStart;
+                if (elapsed > 1500) {
+                    const avgMs = elapsed / monitorFrames;
+                    if (avgMs > 22) minFrameMs = 32; // demote to ~30fps
+                    monitorActive = false;
+                }
+            }
         };
         rafRef.current = requestAnimationFrame(tick);
 
