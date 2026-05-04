@@ -10,7 +10,6 @@ import { Experience } from '../components/Experience';
 import { TechStack } from '../components/TechStack';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
-import { PhoneShowcase, LaptopShowcase, MultiDeviceShowcase } from '../components/MockupShowcase';
 
 export default function Home() {
     return (
@@ -60,21 +59,15 @@ export default function Home() {
                     <About />
                 </div>
 
-                <PhoneShowcase />
-
                 <div id="services">
                     <Services />
                 </div>
-
-                <LaptopShowcase />
 
                 <TechStack />
 
                 <div id="works">
                     <WorksBento />
                 </div>
-
-                <MultiDeviceShowcase />
 
                 <div id="experience">
                     <Experience />

@@ -176,24 +176,4 @@ export const dict: Dictionary = {
 
     // Preloader
     preloader_init: { en: 'Initializing', it: 'Inizializzazione' },
-
-    // Mockup showcase sections — short, evocative, conversion-first
-    mockup_phone_label: { en: 'Mobile-first by default', it: 'Mobile-first di default' },
-    mockup_phone_title: { en: 'Looks perfect in your client\'s pocket.', it: 'Perfetto nella tasca del tuo cliente.' },
-    mockup_phone_desc: {
-        en: 'Over 70% of your visitors arrive on a phone. Every project I deliver is designed for that screen first — premium, instant, easy to thumb through.',
-        it: 'Oltre il 70% dei visitatori arriva da telefono. Ogni progetto che consegno è pensato prima per quello schermo — premium, istantaneo, facile da scorrere col pollice.'
-    },
-    mockup_laptop_label: { en: 'Desktop, refined', it: 'Desktop, rifinito' },
-    mockup_laptop_title: { en: 'A digital storefront that earns trust at first glance.', it: 'Una vetrina digitale che ispira fiducia al primo sguardo.' },
-    mockup_laptop_desc: {
-        en: 'Generous typography, considered spacing, smooth animation. The visual quality of an agency, without the agency overhead.',
-        it: 'Tipografia generosa, spaziature pensate, animazioni fluide. La qualità visiva di un\'agenzia, senza il sovrapprezzo di un\'agenzia.'
-    },
-    mockup_tablet_label: { en: 'Every device, every detail', it: 'Ogni device, ogni dettaglio' },
-    mockup_tablet_title: { en: 'One website, perfectly tuned to every screen.', it: 'Un sito, perfetto su ogni schermo.' },
-    mockup_tablet_desc: {
-        en: 'Phone, tablet, laptop, ultrawide — your site looks intentional everywhere. No broken layouts, no awkward zooms, no excuses.',
-        it: 'Telefono, tablet, laptop, ultrawide — il tuo sito appare voluto ovunque. Niente layout rotti, niente zoom strani, nessuna scusa.'
-    },
 };
