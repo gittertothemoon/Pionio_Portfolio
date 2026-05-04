@@ -127,10 +127,10 @@ export function Footer() {
                             ))}
                             <li>
                                 <a
-                                    href="mailto:hello@pionio.it"
+                                    href="mailto:pionio.dev@gmail.com"
                                     className="text-zinc-300 hover:text-forest-400 font-sans text-sm transition-colors"
                                 >
-                                    hello@pionio.it
+                                    pionio.dev@gmail.com
                                 </a>
                             </li>
                         </ul>

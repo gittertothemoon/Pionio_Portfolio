@@ -17,7 +17,7 @@ const localBusinessJsonLd = {
     name: 'PIONIO',
     image: 'https://pionio.it/og-image.png',
     url: 'https://pionio.it/',
-    email: 'mailto:hello@pionio.it',
+    email: 'mailto:pionio.dev@gmail.com',
     description:
         'Studio digitale freelance specializzato in web design, sviluppo web, e-commerce, applicazioni web e ottimizzazione SEO per il mercato italiano.',
     priceRange: '€€-€€€',
@@ -39,7 +39,7 @@ const localBusinessJsonLd = {
     contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'sales',
-        email: 'hello@pionio.it',
+        email: 'pionio.dev@gmail.com',
         availableLanguage: ['Italian', 'English'],
         areaServed: 'IT',
     },
@@ -118,13 +118,13 @@ export default function ContactPage() {
                         className="grid md:grid-cols-3 gap-4"
                     >
                         <a
-                            href="mailto:hello@pionio.it"
+                            href="mailto:pionio.dev@gmail.com"
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <EnvelopeSimple weight="duotone" className="text-forest-400" size={28} />
                             <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Email</span>
                             <span className="text-white font-sans text-lg group-hover:text-forest-100 transition-colors">
-                                hello@pionio.it
+                                pionio.dev@gmail.com
                             </span>
                         </a>
                         <a
