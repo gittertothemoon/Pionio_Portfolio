@@ -10,7 +10,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC_DIR = ROOT / "public" / "images"
+# Fresh per-device-aspect screenshots captured by screenshots.mjs.
+SRC_DIR = ROOT / "public" / "mockups" / "src"
 OUT_DIR = ROOT / "public" / "mockups"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -316,9 +317,9 @@ def make_ipad(shot_path: Path, out_path: Path, width: int = 800) -> None:
 def main():
     print("Generating mockups...")
     make_iphone(SRC_DIR / "where2beach.png", OUT_DIR / "iphone-where2beach.webp", width=560)
-    make_macbook(SRC_DIR / "flow.jpg",        OUT_DIR / "macbook-flow.webp",       width=1400)
-    make_ipad(SRC_DIR / "smokycandle.jpg",    OUT_DIR / "ipad-smoky.webp",         width=780)
-    make_iphone(SRC_DIR / "antonela.jpg",     OUT_DIR / "iphone-antonela.webp",    width=420)
+    make_macbook(SRC_DIR / "flow.png",       OUT_DIR / "macbook-flow.webp",       width=1400)
+    make_ipad(SRC_DIR / "smoky.png",         OUT_DIR / "ipad-smoky.webp",         width=780)
+    make_iphone(SRC_DIR / "antonela.png",    OUT_DIR / "iphone-antonela.webp",    width=420)
     print("Done.")
 
 
