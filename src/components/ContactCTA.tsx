@@ -119,9 +119,10 @@ export function ContactCTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="flex justify-center items-center gap-4 mb-12"
+                    className="flex justify-center items-center gap-4 mb-16"
                 >
                     <div className="h-[1px] w-12 bg-forest-500/50" />
+                    <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_contact')}</span>
                     <span className="text-forest-400 font-mono text-sm uppercase tracking-widest">
                         {t('contact_label')}
                     </span>

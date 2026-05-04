@@ -7,6 +7,7 @@ import { Hero } from '../components/Hero';
 import { About } from '../components/About';
 import { Services } from '../components/Services';
 import { WorksBento } from '../components/WorksBento';
+import { Guarantees } from '../components/Guarantees';
 import { Experience } from '../components/Experience';
 import { TechStack } from '../components/TechStack';
 import { ContactCTA } from '../components/ContactCTA';
@@ -79,6 +80,10 @@ export default function Home() {
 
                 <div id="works">
                     <WorksBento />
+                </div>
+
+                <div id="garanzie">
+                    <Guarantees />
                 </div>
 
                 <div id="experience">

@@ -28,6 +28,58 @@ export const dict: Dictionary = {
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
     hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
 
+    // Section numbers (vittoriohalfon-style progressive numbering)
+    section_num_about: { en: '01', it: '01' },
+    section_num_services: { en: '02', it: '02' },
+    section_num_techstack: { en: '03', it: '03' },
+    section_num_works: { en: '04', it: '04' },
+    section_num_garanzie: { en: '05', it: '05' },
+    section_num_experience: { en: '06', it: '06' },
+    section_num_contact: { en: '07', it: '07' },
+
+    // TechStack
+    techstack_label: { en: 'Tech Stack', it: 'Tech Stack' },
+
+    // Garanzie — risk reversal section
+    garanzie_label: { en: 'Guarantees', it: 'Garanzie' },
+    garanzie_headline_1: { en: 'The risk ', it: 'Il rischio ' },
+    garanzie_headline_highlight: { en: 'is mine', it: 'è mio' },
+    garanzie_headline_3: { en: '.', it: '.' },
+    garanzie_intro: {
+        en: 'When you choose PIONIO, you don\'t take risks. You see the project before you commit, you know exactly what you\'re paying for, and you\'re never alone after launch.',
+        it: 'Quando scegli PIONIO, non rischi. Vedi il progetto prima di confermare, sai esattamente cosa stai pagando e dopo il lancio non resti mai da solo.'
+    },
+    garanzie_1_title: { en: 'Free mockup before you commit', it: 'Mockup gratuito prima di confermare' },
+    garanzie_1_desc: {
+        en: 'Before you pay anything, I show you a real preview of your website. If it doesn\'t convince you, you walk away — no costs, no obligations.',
+        it: 'Prima di pagare un euro, ti mostro un\'anteprima reale del tuo sito. Se non ti convince, te ne vai — zero costi, zero obblighi.'
+    },
+    garanzie_2_title: { en: 'Unlimited revisions included', it: 'Revisioni illimitate incluse' },
+    garanzie_2_desc: {
+        en: 'We work together until the result genuinely reflects you. No "extra rounds" charged separately, no surprises on the final invoice.',
+        it: 'Lavoriamo insieme finché il risultato non ti rappresenta davvero. Niente "round extra" fatturati a parte, niente sorprese sulla fattura finale.'
+    },
+    garanzie_3_title: { en: 'No hidden costs', it: 'Nessun costo nascosto' },
+    garanzie_3_desc: {
+        en: 'Transparent quote signed before we start. The price you agree on is the price you pay. Period.',
+        it: 'Preventivo trasparente firmato prima di iniziare. Il prezzo concordato è il prezzo che paghi. Punto.'
+    },
+    garanzie_4_title: { en: 'Post-launch support', it: 'Assistenza post-lancio' },
+    garanzie_4_desc: {
+        en: '30 days of free support after going live. Bugs, fixes, small tweaks — all included. Then optional maintenance, never forced.',
+        it: '30 giorni di assistenza gratuita dopo il go-live. Bug, fix, piccoli aggiustamenti — tutto incluso. Dopo, manutenzione opzionale, mai imposta.'
+    },
+    garanzie_5_title: { en: 'You own everything', it: 'Tutto è di tua proprietà' },
+    garanzie_5_desc: {
+        en: 'Code, domain, hosting, accounts: it all stays in your name. No lock-in, no leverage. The website is yours from day one.',
+        it: 'Codice, dominio, hosting, account: tutto resta intestato a te. Nessun lock-in, nessuna leva. Il sito è tuo dal primo giorno.'
+    },
+    garanzie_6_title: { en: 'Fixed delivery date', it: 'Data di consegna fissa' },
+    garanzie_6_desc: {
+        en: 'Agreed timeline written in the contract. If I miss it for reasons that are on me, you get a discount. Simple.',
+        it: 'Tempistica concordata e scritta nel contratto. Se sforo per cause mie, ti riconosco uno sconto. Semplice.'
+    },
+
     // About — speak to the client, not the dev
     about_label: { en: 'Why PIONIO', it: 'Perché PIONIO' },
     about_headline_1: { en: 'A website should ', it: 'Il tuo sito deve ' },

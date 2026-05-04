@@ -28,8 +28,8 @@ export function Experience() {
     ];
 
     return (
-        <section className="relative w-full py-32 bg-zinc-950 px-6 md:px-12 border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-6">
+        <section className="relative w-full py-40 md:py-48 bg-zinc-950 px-6 md:px-12 border-t border-white/5">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10">
 
                 {/* Left Column - Minimal Label */}
                 <div className="md:col-span-4 flex flex-col justify-start mb-16 md:mb-0">
@@ -40,13 +40,14 @@ export function Experience() {
                         transition={{ duration: 0.8 }}
                         className="flex items-center gap-4 sticky top-32"
                     >
-                        <div className="h-[1px] w-12 bg-forest-500/50" />
+                        <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_experience')}</span>
+                        <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('exp_label')}</span>
                     </motion.div>
                 </div>
 
                 {/* Right Column - Timeline */}
-                <div className="md:col-span-8 md:col-start-5 flex flex-col gap-16 md:gap-24">
+                <div className="md:col-span-8 md:col-start-5 flex flex-col gap-20 md:gap-32">
                     {timeline.map((exp, index) => (
                         <motion.div
                             key={index}

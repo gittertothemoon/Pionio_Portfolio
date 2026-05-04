@@ -28,8 +28,8 @@ export function Services() {
         }
     ];
     return (
-        <section className="relative w-full py-32 md:py-48 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
+        <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-32">
 
                 {/* Header */}
                 <motion.div
@@ -37,21 +37,22 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col gap-6"
+                    className="flex flex-col gap-8"
                 >
-                    <div className="flex items-center gap-4 mb-8">
-                        <div className="h-[1px] w-12 bg-forest-500/50" />
+                    <div className="flex items-center gap-4 mb-12">
+                        <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_services')}</span>
+                        <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('services_label')}</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-white mb-16 leading-[1.1]">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-white mb-20 leading-[1.1]">
                         {t('services_headline_1')}<br />
                         <span className="text-forest-500 italic font-serif">{t('services_headline_highlight')}</span>{t('services_headline_3')}
                     </h2>
                 </motion.div>
 
                 {/* Services List - Parallax Tilt Cards style but clean */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     {services.map((service, index) => (
                         <ServiceCard key={index} service={service} index={index} />
                     ))}

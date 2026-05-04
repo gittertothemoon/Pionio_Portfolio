@@ -31,17 +31,18 @@ export function WorksBento() {
     const heroContain = hero.imageFit === 'contain';
 
     return (
-        <section className="w-full py-24 px-6 md:px-12 lg:px-24 bg-zinc-950">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-16">
+        <section className="w-full py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-zinc-950">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col gap-6 w-full md:w-1/3"
+                    className="flex flex-col gap-8 w-full md:w-1/3"
                 >
                     <div className="flex items-center gap-4">
-                        <div className="h-[1px] w-12 bg-forest-500/50" />
+                        <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_works')}</span>
+                        <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
                             {t('works_label')}
                         </span>
@@ -56,7 +57,7 @@ export function WorksBento() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, margin: '-100px' }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] md:auto-rows-[400px]"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[300px] md:auto-rows-[400px]"
                 >
                     <motion.div variants={itemVariants} className="md:col-span-2 h-full">
                         <Link
