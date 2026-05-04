@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { PhoneMockup, LaptopMockup, TabletMockup, FloatingDevice } from './DeviceMockup';
+import { MockupImage, FloatingDevice } from './DeviceMockup';
 
 function SectionLabel({ label }: { label: string }) {
     return (
@@ -40,10 +40,12 @@ export function PhoneShowcase() {
 
                 <div className="lg:col-span-6 flex justify-center">
                     <FloatingDevice>
-                        <PhoneMockup
-                            src="/images/where2beach.png"
+                        <MockupImage
+                            src="/mockups/iphone-where2beach.webp"
                             alt="Where2Beach app on iPhone"
-                            className="scale-90 sm:scale-100"
+                            width={780}
+                            height={1433}
+                            className="w-[260px] sm:w-[300px] md:w-[340px]"
                         />
                     </FloatingDevice>
                 </div>
@@ -80,7 +82,13 @@ export function LaptopShowcase() {
                 </div>
 
                 <FloatingDevice className="w-full flex justify-center">
-                    <LaptopMockup src="/images/flow.jpg" alt="FLOW Pilates Studio website on MacBook" />
+                    <MockupImage
+                        src="/mockups/macbook-flow.webp"
+                        alt="FLOW Pilates Studio website on MacBook"
+                        width={1680}
+                        height={1210}
+                        className="w-full max-w-[960px]"
+                    />
                 </FloatingDevice>
             </div>
         </section>
@@ -114,22 +122,27 @@ export function MultiDeviceShowcase() {
                     </motion.p>
                 </div>
 
-                <div className="lg:col-span-7 lg:order-1 relative flex justify-center items-end min-h-[460px] sm:min-h-[520px]">
-                    <FloatingDevice delay={0} className="relative">
-                        <TabletMockup src="/images/smoky.png" alt="Smoky Candle e-commerce on iPad" className="scale-90 sm:scale-100" />
+                <div className="lg:col-span-7 lg:order-1 relative flex justify-center items-center min-h-[480px] sm:min-h-[560px]">
+                    <FloatingDevice>
+                        <MockupImage
+                            src="/mockups/ipad-smoky.webp"
+                            alt="Smoky Candle e-commerce on iPad"
+                            width={1020}
+                            height={1280}
+                            className="w-[300px] sm:w-[400px] md:w-[460px]"
+                        />
                     </FloatingDevice>
                     <FloatingDevice
                         delay={0.15}
                         className="absolute"
-                        style={{
-                            right: '0%',
-                            bottom: '-3%',
-                        }}
+                        style={{ right: '4%', bottom: '0%' }}
                     >
-                        <PhoneMockup
-                            src="/images/antonela.jpg"
+                        <MockupImage
+                            src="/mockups/iphone-antonela.webp"
                             alt="Antonela art portfolio on iPhone"
-                            className="scale-75 sm:scale-90"
+                            width={640}
+                            height={1129}
+                            className="w-[140px] sm:w-[180px] md:w-[210px]"
                         />
                     </FloatingDevice>
                 </div>
