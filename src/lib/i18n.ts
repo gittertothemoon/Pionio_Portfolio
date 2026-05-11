@@ -26,7 +26,7 @@ export const dict: Dictionary = {
     },
     hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
-    hero_availability: { en: 'Accepting 2 new projects', it: 'Disponibile per 2 nuovi progetti' },
+    hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
 
     // About — speak to the client, not the dev
     about_label: { en: 'Why PIONIO', it: 'Perché PIONIO' },

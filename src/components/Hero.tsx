@@ -47,7 +47,7 @@ export function Hero() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-forest-500/30 bg-forest-900/20 text-forest-300 text-sm font-mono tracking-tight"
+                        className="md:hidden inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-forest-500/30 bg-forest-900/20 text-forest-300 text-sm font-mono tracking-tight"
                     >
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-forest-400 opacity-75"></span>
