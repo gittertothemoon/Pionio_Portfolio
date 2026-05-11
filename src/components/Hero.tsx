@@ -36,7 +36,7 @@ export function Hero() {
             </div>
 
             {/* Left Content Half */}
-            <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:py-20 z-10">
+            <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-48 z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
