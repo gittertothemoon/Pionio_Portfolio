@@ -11,6 +11,8 @@ type Props = {
 // breaks vite-react-ssg because customElements isn't defined during build).
 export function Hero3D({ className = '', interactive = false, tilt = false, float = false }: Props) {
     const [ready, setReady] = useState(false);
+    // Tilt is applied to an INNER wrapper so the outer `className`
+    // (translate-x, size, max-w, …) is never clobbered by our JS transform.
     const tiltRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -23,8 +25,6 @@ export function Hero3D({ className = '', interactive = false, tilt = false, floa
         };
     }, []);
 
-    // Magnetic cursor-tilt: when the cursor moves anywhere on the page, ease
-    // the wrapper's rotation toward the cursor. Damped via a RAF loop.
     useEffect(() => {
         if (!tilt || !ready) return;
         let raf = 0;
@@ -32,7 +32,7 @@ export function Hero3D({ className = '', interactive = false, tilt = false, floa
         let targetY = 0;
         let currentX = 0;
         let currentY = 0;
-        const MAX = 9; // degrees
+        const MAX = 10; // degrees
 
         function onMove(e: MouseEvent) {
             const el = tiltRef.current;
@@ -40,15 +40,14 @@ export function Hero3D({ className = '', interactive = false, tilt = false, floa
             const r = el.getBoundingClientRect();
             const cx = r.left + r.width / 2;
             const cy = r.top + r.height / 2;
-            // -1..1 across half a viewport from the wrapper center.
             const dx = (e.clientX - cx) / (window.innerWidth / 2);
             const dy = (e.clientY - cy) / (window.innerHeight / 2);
             targetX = Math.max(-1, Math.min(1, dx));
             targetY = Math.max(-1, Math.min(1, dy));
         }
         function tick() {
-            currentX += (targetX - currentX) * 0.06;
-            currentY += (targetY - currentY) * 0.06;
+            currentX += (targetX - currentX) * 0.07;
+            currentY += (targetY - currentY) * 0.07;
             const el = tiltRef.current;
             if (el) {
                 el.style.transform = `perspective(1400px) rotateY(${currentX * MAX}deg) rotateX(${-currentY * MAX}deg)`;
@@ -72,29 +71,35 @@ export function Hero3D({ className = '', interactive = false, tilt = false, floa
         : { 'interaction-prompt': 'none' as const };
 
     return (
-        <div ref={tiltRef} className={`${className} ${tilt ? 'transition-transform duration-100 ease-out' : ''}`}>
-            <div className={`w-full h-full ${float ? 'animate-hero-float' : ''}`}>
-                <model-viewer
-                    src="/models/pionio-3d.glb?v=3"
-                    alt="Pionio — P mark in 3D"
-                    auto-rotate
-                    auto-rotate-delay="0"
-                    rotation-per-second="14deg"
-                    shadow-intensity="0"
-                    exposure="1.5"
-                    environment-image="neutral"
-                    tone-mapping="commerce"
-                    field-of-view="22deg"
-                    loading="lazy"
-                    reveal="auto"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: 'transparent',
-                        ['--poster-color' as string]: 'transparent',
-                    }}
-                    {...interactiveProps}
-                />
+        <div className={className}>
+            <div
+                ref={tiltRef}
+                className="w-full h-full"
+                style={tilt ? { transition: 'transform 80ms linear', willChange: 'transform' } : undefined}
+            >
+                <div className={`w-full h-full ${float ? 'animate-hero-float' : ''}`}>
+                    <model-viewer
+                        src="/models/pionio-3d.glb?v=4"
+                        alt="Pionio — P mark in 3D"
+                        auto-rotate
+                        auto-rotate-delay="0"
+                        rotation-per-second="14deg"
+                        shadow-intensity="0"
+                        exposure="1.0"
+                        environment-image="neutral"
+                        tone-mapping="neutral"
+                        field-of-view="22deg"
+                        loading="lazy"
+                        reveal="auto"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: 'transparent',
+                            ['--poster-color' as string]: 'transparent',
+                        }}
+                        {...interactiveProps}
+                    />
+                </div>
             </div>
         </div>
     );
