@@ -1,25 +1,42 @@
 import { m } from 'framer-motion';
 import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { useIsRestrictedWebView } from '../lib/ua';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
 import { Hero3D } from './Hero3D';
 
 export function Hero() {
     const { t, locale, setLocale } = useLanguage();
+    // Instagram/Facebook/Threads/TikTok in-app browsers: skip the WebGL
+    // pieces (aurora + 3D). 100svh instead of 100dvh stabilizes the hero
+    // height against the in-app browser's collapsing nav bar.
+    const restricted = useIsRestrictedWebView();
 
     const toggleLanguage = () => {
         setLocale(locale === 'en' ? 'it' : 'en');
     };
 
     return (
-        <section className="relative min-h-[100dvh] w-full bg-background overflow-hidden flex flex-col md:flex-row">
-            {/* Animated WebGL shader background */}
+        <section className="relative min-h-[100svh] md:min-h-[100dvh] w-full bg-background overflow-hidden flex flex-col md:flex-row">
+            {/* Background: animated WebGL aurora, or a static CSS gradient
+                fallback when running inside a social in-app browser. */}
             <div
                 className="absolute inset-0 z-0"
                 style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'paint' }}
             >
-                <AuroraBackground />
+                {restricted ? (
+                    <div
+                        aria-hidden
+                        className="absolute inset-0"
+                        style={{
+                            background:
+                                'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(48,107,77,0.35), transparent 70%), #09090b',
+                        }}
+                    />
+                ) : (
+                    <AuroraBackground />
+                )}
                 {/* Readability overlay: keep text crisp on the left half while
                     letting more plasma bleed through on the right. */}
                 <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/45" />
@@ -101,7 +118,7 @@ export function Hero() {
             {/* Desktop: 3D positioned absolutely at viewport center; the
                 h1 on the left is capped at max-w-2xl so the model has
                 space without overlap. */}
-            <div className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none z-10">
+            <div className={`${restricted ? 'hidden' : 'hidden md:flex'} absolute inset-0 items-center justify-center pointer-events-none z-10`}>
                 <Hero3D
                     className="pointer-events-auto w-full max-w-[640px] aspect-square"
                     interactive

@@ -5,6 +5,7 @@ import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
 import { Hero3D } from '../components/Hero3D';
 import { About } from '../components/About';
+import { useIsRestrictedWebView } from '../lib/ua';
 import { Services } from '../components/Services';
 import { WorksBento } from '../components/WorksBento';
 import { Guarantees } from '../components/Guarantees';
@@ -15,6 +16,7 @@ import { Footer } from '../components/Footer';
 
 export default function Home() {
     const { t } = useLanguage();
+    const restricted = useIsRestrictedWebView();
 
     return (
         <div className="w-full bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased -webkit-font-smoothing-antialiased">
@@ -67,8 +69,10 @@ export default function Home() {
                     <Hero />
                 </div>
 
-                {/* Mobile-only: standalone interactive 3D showcase. */}
-                <section className="md:hidden w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10">
+                {/* Mobile-only: standalone interactive 3D showcase.
+                    Skipped inside Instagram / Facebook / Threads / TikTok
+                    in-app browsers — model-viewer + WebGL barely run there. */}
+                <section className={`${restricted ? 'hidden' : 'md:hidden'} w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10`}>
                     <div className="flex items-center gap-4">
                         <span className="text-forest-500 font-mono text-xs tracking-widest">PIONIO</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
