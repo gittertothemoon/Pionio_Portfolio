@@ -151,7 +151,10 @@ export default function AuroraBackground({
     });
     if (!gl) return;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The aurora is a slow decorative flow (no strobe, no high-frequency
+    // changes), so we always animate — even when the user has
+    // prefers-reduced-motion enabled. A static frame on mobile was unintended.
+    const reduceMotion = false;
 
     // ── Compile + link ───────────────────────────────────────────────────────
     function compile(type: number, src: string) {
