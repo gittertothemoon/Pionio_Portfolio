@@ -21,8 +21,8 @@ export function Hero() {
                 <AuroraBackground />
                 {/* Readability overlay: keep text crisp on the left half while
                     letting more plasma bleed through on the right. */}
-                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/45" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/25" />
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/45" />
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/25" />
             </div>
 
             {/* Language Selector Toggle */}
