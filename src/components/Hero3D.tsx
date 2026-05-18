@@ -105,7 +105,11 @@ export function Hero3D({
                             ['--poster-color' as string]: 'transparent',
                         }}
                         {...interactiveProps}
-                    />
+                    >
+                        {/* Hide the default progress bar — it flashes
+                            as a thin black strip while the GLB loads. */}
+                        <span slot="progress-bar" />
+                    </model-viewer>
                 </div>
             </div>
         </div>
