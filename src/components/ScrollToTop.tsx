@@ -24,7 +24,7 @@ export function ScrollToTop() {
             return;
         }
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
-        // Re-assert after a frame in case browser/Preloader/layout shifts the scroll
+        // Re-assert after a frame in case browser/layout shifts the scroll
         const r1 = requestAnimationFrame(() => window.scrollTo(0, 0));
         const r2 = setTimeout(() => window.scrollTo(0, 0), 50);
         return () => {

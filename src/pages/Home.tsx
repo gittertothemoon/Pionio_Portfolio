@@ -1,7 +1,6 @@
 import { Head } from 'vite-react-ssg';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { Preloader } from '../components/Preloader';
 import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
@@ -38,7 +37,6 @@ export default function Home() {
                     content="Sviluppatore web freelance italiano. Siti premium che attirano clienti e ispirano fiducia. Veloci, mobile-first, ottimizzati per Google."
                 />
             </Head>
-            <Preloader />
             <a
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"

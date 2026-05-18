@@ -225,7 +225,4 @@ export const dict: Dictionary = {
 
     // Footer
     footer_rights: { en: 'All Rights Reserved.', it: 'Tutti i Diritti Riservati.' },
-
-    // Preloader
-    preloader_init: { en: 'Initializing', it: 'Inizializzazione' },
 };
