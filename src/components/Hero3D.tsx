@@ -33,7 +33,7 @@ export function Hero3D({ className = '', interactive = false }: Props) {
 
     return (
         <model-viewer
-            src="/models/pionio-3d.glb"
+            src="/models/pionio-3d.glb?v=2"
             alt="Pionio — P mark in 3D"
             auto-rotate
             auto-rotate-delay="0"
