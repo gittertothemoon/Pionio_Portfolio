@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
-import { ShaderBackground } from './ShaderBackground';
+import AuroraBackground from './AuroraBackground';
 
 export function Hero() {
     const { t, locale, setLocale } = useLanguage();
@@ -18,7 +18,7 @@ export function Hero() {
                 className="absolute inset-0 z-0"
                 style={{ transform: 'translateZ(0)', willChange: 'transform', contain: 'paint' }}
             >
-                <ShaderBackground />
+                <AuroraBackground />
                 {/* Readability overlay: keep text crisp on the left half while
                     letting more plasma bleed through on the right. */}
                 <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/45" />
