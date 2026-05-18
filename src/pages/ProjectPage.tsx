@@ -191,7 +191,7 @@ export default function ProjectPage() {
                             decoding="async"
                             className={`w-full h-full ${
                                 project.imageFit === 'contain' ? 'object-contain p-12 md:p-20' : 'object-cover'
-                            }`}
+                            } ${project.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''}`}
                         />
                     </motion.div>
 
@@ -280,7 +280,9 @@ export default function ProjectPage() {
                                                 alt={p.title}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="w-[60%] h-auto object-contain"
+                                                className={`w-[60%] h-auto object-contain ${
+                                                    p.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''
+                                                }`}
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">

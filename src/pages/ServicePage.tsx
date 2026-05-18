@@ -269,7 +269,9 @@ export default function ServicePage() {
                                                 alt={p.title}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="w-[60%] h-auto object-contain"
+                                                className={`w-[60%] h-auto object-contain ${
+                                                    p.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''
+                                                }`}
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">
