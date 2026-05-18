@@ -84,7 +84,7 @@ export function WorksBento() {
                                         decoding="async"
                                         width="800"
                                         height="600"
-                                        className={`w-[32%] h-auto object-contain ${
+                                        className={`w-[22%] md:w-[32%] h-auto object-contain ${
                                             heroLight ? 'opacity-100' : 'opacity-95'
                                         } ${hero.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                     />
