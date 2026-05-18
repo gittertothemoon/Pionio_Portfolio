@@ -24,11 +24,27 @@ export function Hero3D({
 
     useEffect(() => {
         let mounted = true;
-        import('@google/model-viewer').then(() => {
-            if (mounted) setReady(true);
-        });
+        // Defer the (~1 MB) @google/model-viewer chunk until the browser
+        // is idle so it never competes with first paint / hydration.
+        const startImport = () => {
+            import('@google/model-viewer').then(() => {
+                if (mounted) setReady(true);
+            });
+        };
+        type IdleWin = typeof window & {
+            requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+        };
+        const w = window as IdleWin;
+        const handle =
+            typeof w.requestIdleCallback === 'function'
+                ? w.requestIdleCallback(startImport, { timeout: 2500 })
+                : window.setTimeout(startImport, 200);
         return () => {
             mounted = false;
+            type IdleCancelWin = typeof window & { cancelIdleCallback?: (h: number) => void };
+            const c = window as IdleCancelWin;
+            if (typeof c.cancelIdleCallback === 'function') c.cancelIdleCallback(handle as number);
+            else window.clearTimeout(handle as number);
         };
     }, []);
 
