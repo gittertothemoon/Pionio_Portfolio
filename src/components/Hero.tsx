@@ -96,14 +96,15 @@ export function Hero() {
             {/* Desktop: 3D P-mark sits near page center. Wrapper is
                 pointer-events-none so the aurora reacts around the model;
                 only the model-viewer itself catches events for camera
-                drag. */}
+                drag. Mobile gets its own dedicated section after the hero
+                (see Home.tsx). */}
             <div className="pointer-events-none flex-1 hidden md:flex items-center justify-start relative z-10">
-                <Hero3D className="pointer-events-auto w-full max-w-[520px] aspect-square -translate-x-8 lg:-translate-x-16" interactive />
-            </div>
-
-            {/* Mobile: smaller 3D P-mark below the CTAs */}
-            <div className="md:hidden w-full h-[280px] mt-10 mb-6 relative z-10">
-                <Hero3D className="w-full h-full" />
+                <Hero3D
+                    className="pointer-events-auto w-full max-w-[520px] aspect-square -translate-x-8 lg:-translate-x-16"
+                    interactive
+                    tilt
+                    float
+                />
             </div>
         </section>
     );

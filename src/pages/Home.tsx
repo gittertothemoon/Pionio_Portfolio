@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
+import { Hero3D } from '../components/Hero3D';
 import { About } from '../components/About';
 import { Services } from '../components/Services';
 import { WorksBento } from '../components/WorksBento';
@@ -65,6 +66,21 @@ export default function Home() {
                 <div id="hero">
                     <Hero />
                 </div>
+
+                {/* Mobile-only: standalone interactive 3D showcase. */}
+                <section className="md:hidden w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10">
+                    <div className="flex items-center gap-4">
+                        <span className="text-forest-500 font-mono text-xs tracking-widest">PIONIO</span>
+                        <div className="h-[1px] w-8 bg-forest-500/50" />
+                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">P mark</span>
+                    </div>
+                    <div className="w-full h-[380px] max-w-md">
+                        <Hero3D className="w-full h-full" interactive float />
+                    </div>
+                    <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
+                        Trascina per ruotare
+                    </p>
+                </section>
 
                 <div id="about">
                     <About />
