@@ -23,6 +23,7 @@ type ModelViewerAttributes = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTML
     loading?: 'auto' | 'lazy' | 'eager';
     reveal?: 'auto' | 'interaction' | 'manual';
     poster?: string;
+    'touch-action'?: 'none' | 'pan-x' | 'pan-y';
 };
 
 // React 19 keeps JSX inside the `react` module. Augment it there.

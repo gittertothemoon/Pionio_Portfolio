@@ -98,6 +98,7 @@ export function Hero3D({
                         field-of-view="22deg"
                         loading="lazy"
                         reveal="auto"
+                        touch-action="pan-y"
                         style={{
                             width: '100%',
                             height: '100%',
