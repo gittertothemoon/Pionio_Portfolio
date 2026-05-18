@@ -5,11 +5,18 @@ type Props = {
     interactive?: boolean;
     tilt?: boolean;
     float?: boolean;
+    src?: string;
 };
 
 // Lazy-load @google/model-viewer on the client (importing at module level
 // breaks vite-react-ssg because customElements isn't defined during build).
-export function Hero3D({ className = '', interactive = false, tilt = false, float = false }: Props) {
+export function Hero3D({
+    className = '',
+    interactive = false,
+    tilt = false,
+    float = false,
+    src = '/models/pionio-3d.glb?v=4',
+}: Props) {
     const [ready, setReady] = useState(false);
     // Tilt is applied to an INNER wrapper so the outer `className`
     // (translate-x, size, max-w, …) is never clobbered by our JS transform.
@@ -79,7 +86,7 @@ export function Hero3D({ className = '', interactive = false, tilt = false, floa
             >
                 <div className={`w-full h-full ${float ? 'animate-hero-float' : ''}`}>
                     <model-viewer
-                        src="/models/pionio-3d.glb?v=4"
+                        src={src}
                         alt="Pionio — P mark in 3D"
                         auto-rotate
                         auto-rotate-delay="0"

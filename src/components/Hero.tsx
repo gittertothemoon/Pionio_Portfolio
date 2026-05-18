@@ -98,9 +98,9 @@ export function Hero() {
                 only the model-viewer itself catches events for camera
                 drag. Mobile gets its own dedicated section after the hero
                 (see Home.tsx). */}
-            <div className="pointer-events-none flex-1 hidden md:flex items-center justify-start relative z-10">
+            <div className="pointer-events-none flex-1 hidden md:flex items-center justify-center relative z-10">
                 <Hero3D
-                    className="pointer-events-auto w-full max-w-[520px] aspect-square -translate-x-8 lg:-translate-x-16"
+                    className="pointer-events-auto w-full max-w-[640px] aspect-square"
                     interactive
                     tilt
                     float

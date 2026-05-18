@@ -75,7 +75,12 @@ export default function Home() {
                         <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">P mark</span>
                     </div>
                     <div className="w-full h-[380px] max-w-md">
-                        <Hero3D className="w-full h-full" interactive float />
+                        <Hero3D
+                            className="w-full h-full"
+                            interactive
+                            float
+                            src="/models/pionio-3d-color.glb?v=1"
+                        />
                     </div>
                     <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
                         Trascina per ruotare
