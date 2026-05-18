@@ -1,0 +1,132 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v4.3.0",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 802170
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 336412,
+      "max": [
+        0.1768646240234375,
+        0.489776611328125,
+        0.402740478515625
+      ],
+      "min": [
+        -0.1769866943359375,
+        -0.489990234375,
+        -0.40264892578125
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 336412
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 336412
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 969173
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "textures": [
+    {
+      "source": 0,
+      "sampler": 0
+    }
+  ],
+  "images": [
+    {
+      "name": "tripo_image_0fb57651-d566-4d71-81a4-b31d5f446d26_0",
+      "mimeType": "image/jpeg",
+      "uri": "pionio-3d-mobile-base.jpg"
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "pionio-3d-mobile.bin",
+      "byteLength": 969173
+    }
+  ],
+  "materials": [
+    {
+      "name": "tripo_mat_0fb57651-d566-4d71-81a4-b31d5f446d26",
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.55,
+        "metallicFactor": 0,
+        "baseColorTexture": {
+          "index": 0
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "tripo_mesh_0fb57651-d566-4d71-81a4-b31d5f446d26",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2,
+            "TEXCOORD_0": 3
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 0,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "tripo_node_0fb57651-d566-4d71-81a4-b31d5f446d26",
+      "mesh": 0
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression"
+  ]
+}
