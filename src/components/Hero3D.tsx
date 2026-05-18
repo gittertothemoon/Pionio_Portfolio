@@ -39,9 +39,9 @@ export function Hero3D({ className = '', interactive = false }: Props) {
             auto-rotate-delay="0"
             rotation-per-second="18deg"
             shadow-intensity="0"
-            exposure="1.1"
+            exposure="1.4"
             environment-image="neutral"
-            tone-mapping="neutral"
+            tone-mapping="commerce"
             field-of-view="22deg"
             loading="lazy"
             reveal="auto"
@@ -50,10 +50,6 @@ export function Hero3D({ className = '', interactive = false }: Props) {
                 width: '100%',
                 height: '100%',
                 backgroundColor: 'transparent',
-                // Force the WebGL canvas to render as a pure black silhouette;
-                // transparent pixels stay transparent so the aurora behind
-                // shows through.
-                filter: 'brightness(0)',
                 ['--poster-color' as string]: 'transparent',
             }}
             {...interactiveProps}
