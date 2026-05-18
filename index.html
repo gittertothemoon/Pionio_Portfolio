@@ -13,11 +13,16 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    if (!location.hash) {
-      window.addEventListener('beforeunload', function () {
+    function pionioForceTop() {
+      if (!location.hash) {
         try { window.scrollTo(0, 0); } catch (e) {}
-      });
+      }
     }
+    document.addEventListener('DOMContentLoaded', pionioForceTop);
+    window.addEventListener('load', pionioForceTop);
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) pionioForceTop();
+    });
   </script>
 
   <!-- Primary Meta Tags (per-route title/description injected by router) -->

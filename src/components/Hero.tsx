@@ -98,7 +98,10 @@ export function Hero() {
                 only the model-viewer itself catches events for camera
                 drag. Mobile gets its own dedicated section after the hero
                 (see Home.tsx). */}
-            <div className="pointer-events-none flex-1 hidden md:flex items-center justify-center relative z-10">
+            {/* Desktop: 3D positioned absolutely at viewport center; the
+                h1 on the left is capped at max-w-2xl so the model has
+                space without overlap. */}
+            <div className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none z-10">
                 <Hero3D
                     className="pointer-events-auto w-full max-w-[640px] aspect-square"
                     interactive
