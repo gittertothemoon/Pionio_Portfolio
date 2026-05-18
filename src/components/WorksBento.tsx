@@ -69,10 +69,10 @@ export function WorksBento() {
                         >
                             <div
                                 className={`absolute inset-0 ${
-                                    heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-700'
+                                    heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-800'
                                 } ${
                                     heroContain
-                                        ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]'
+                                        ? 'flex items-start justify-end pt-10 pr-10 md:pt-14 md:pr-14 min-h-[140px] md:min-h-[160px]'
                                         : ''
                                 }`}
                             >
@@ -84,9 +84,9 @@ export function WorksBento() {
                                         decoding="async"
                                         width="800"
                                         height="600"
-                                        className={`w-[40%] h-auto object-contain ${
-                                            heroLight ? 'opacity-100' : 'opacity-90'
-                                        } group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
+                                        className={`w-[28%] h-auto object-contain ${
+                                            heroLight ? 'opacity-100' : 'opacity-95'
+                                        } ${hero.invertLogo ? 'invert brightness-110' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                     />
                                 ) : (
                                     <img
@@ -184,8 +184,8 @@ export function WorksBento() {
                                                 width="600"
                                                 height="600"
                                                 className={`w-[60%] h-auto object-contain ${
-                                                    isLight ? 'opacity-100' : 'opacity-80'
-                                                } group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
+                                                    isLight ? 'opacity-100' : 'opacity-95'
+                                                } ${work.invertLogo ? 'invert brightness-110' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                             />
                                         ) : (
                                             <img

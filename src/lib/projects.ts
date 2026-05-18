@@ -13,6 +13,8 @@ export type Project = {
     imageFit?: 'contain' | 'cover';
     theme?: 'dark' | 'light';
     bgClass?: string;
+    // Black/dark logos need to be inverted to white when shown on a dark card.
+    invertLogo?: boolean;
     span: string;
     tech: string[];
 };
@@ -35,7 +37,7 @@ export const projects: Project[] = [
         },
         url: 'https://www.where2beach.com',
         imageFit: 'contain',
-        theme: 'light',
+        theme: 'dark',
         span: 'md:col-span-2',
         tech: ['React', 'TypeScript', 'Geolocation', 'Real-time'],
     },
@@ -56,7 +58,8 @@ export const projects: Project[] = [
         },
         url: 'https://flow-pilates-studio-bo.vercel.app',
         imageFit: 'contain',
-        theme: 'light',
+        theme: 'dark',
+        invertLogo: true,
         span: 'md:col-span-1',
         tech: ['React', 'Tailwind', 'Supabase', 'Mobile-first'],
     },
@@ -77,8 +80,8 @@ export const projects: Project[] = [
         },
         url: 'https://sito-arte.vercel.app',
         imageFit: 'contain',
-        theme: 'light',
-        bgClass: 'bg-[#F3EFF5]',
+        theme: 'dark',
+        invertLogo: true,
         span: 'md:col-span-1',
         tech: ['React', 'Tailwind', 'CMS-ready'],
     },
@@ -99,8 +102,8 @@ export const projects: Project[] = [
         },
         url: 'https://smoky-candle.vercel.app',
         imageFit: 'contain',
-        theme: 'light',
-        bgClass: 'bg-[#F5F0EB]',
+        theme: 'dark',
+        invertLogo: true,
         span: 'md:col-span-1',
         tech: ['React', 'E-commerce', 'Tailwind'],
     },
@@ -121,8 +124,8 @@ export const projects: Project[] = [
         },
         url: 'https://arena-barbershop.vercel.app',
         imageFit: 'contain',
-        theme: 'light',
-        bgClass: 'bg-[#F5F5F5]',
+        theme: 'dark',
+        invertLogo: true,
         span: 'md:col-span-1',
         tech: ['React', 'Tailwind', 'Local SEO'],
     },
