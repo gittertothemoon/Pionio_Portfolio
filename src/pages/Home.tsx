@@ -53,7 +53,7 @@ export default function Home() {
                     <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto">
                         <Logo className="h-40 md:h-56 lg:h-64 w-auto object-cover object-left-top -mt-10 md:-mt-16 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
                     </Link>
-                    <span className="hidden md:inline-flex pointer-events-auto items-center gap-2 px-3 py-1 rounded-full border border-forest-500/30 bg-forest-900/20 text-forest-300 text-sm font-mono tracking-tight -ml-12 lg:-ml-14">
+                    <span className="hidden md:inline-flex pointer-events-auto items-center gap-2 px-3 py-1 rounded-full border border-forest-500/50 bg-forest-900/40 text-forest-200 text-sm font-mono tracking-tight">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-forest-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-forest-500"></span>
