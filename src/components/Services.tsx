@@ -12,19 +12,19 @@ export function Services() {
             id: "01",
             title: t('service_1_title'),
             description: t('service_1_desc'),
-            image: "/images/frontend_architecture.png"
+            image: "/images/frontend_architecture.webp"
         },
         {
             id: "02",
             title: t('service_2_title'),
             description: t('service_2_desc'),
-            image: "/images/interaction_design.png"
+            image: "/images/interaction_design.webp"
         },
         {
             id: "03",
             title: t('service_3_title'),
             description: t('service_3_desc'),
-            image: "/images/art_direction.png"
+            image: "/images/art_direction.webp"
         }
     ];
     return (
@@ -124,6 +124,10 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
                 <img
                     src={service.image}
                     alt={service.title}
+                    width={640}
+                    height={640}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-[1.5s] ease-[0.16,1,0.3,1]"
                 />
             </div>
