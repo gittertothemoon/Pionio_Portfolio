@@ -1,5 +1,43 @@
 @import 'tailwindcss';
 
+/* Self-hosted Geist + Geist Mono. font-display: swap so text shows
+   immediately in the system fallback while the WOFF2 streams in. */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Geist-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Geist-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Geist-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/GeistMono-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/GeistMono-Bold.woff2') format('woff2');
+}
+
 @theme {
   --breakpoint-xs: 25rem;
   --color-accent: #306b4d;
