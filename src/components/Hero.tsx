@@ -93,9 +93,12 @@ export function Hero() {
                 </motion.div>
             </div>
 
-            {/* Desktop: 3D P-mark fills the right half */}
-            <div className="flex-1 hidden md:flex items-center justify-center relative z-10 pr-6 lg:pr-12">
-                <Hero3D className="w-full max-w-[560px] aspect-square" interactive />
+            {/* Desktop: 3D P-mark sits near page center. Wrapper is
+                pointer-events-none so the aurora reacts around the model;
+                only the model-viewer itself catches events for camera
+                drag. */}
+            <div className="pointer-events-none flex-1 hidden md:flex items-center justify-start relative z-10">
+                <Hero3D className="pointer-events-auto w-full max-w-[520px] aspect-square -translate-x-8 lg:-translate-x-16" interactive />
             </div>
 
             {/* Mobile: smaller 3D P-mark below the CTAs */}
