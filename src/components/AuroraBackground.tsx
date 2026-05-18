@@ -156,6 +156,15 @@ export default function AuroraBackground({
     // prefers-reduced-motion enabled. A static frame on mobile was unintended.
     const reduceMotion = false;
 
+    // Disable pointer capture on touch-only devices so the page can scroll
+    // through the hero. Mobile keeps the ambient animation, just no vortex.
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    const effectiveInteractive = interactive && hasHover;
+    if (!effectiveInteractive) {
+      canvas.style.touchAction = 'auto';
+      canvas.style.cursor = 'default';
+    }
+
     // ── Compile + link ───────────────────────────────────────────────────────
     function compile(type: number, src: string) {
       const sh = gl!.createShader(type)!;
@@ -206,8 +215,11 @@ export default function AuroraBackground({
       canvas!.height = Math.floor(h * dpr);
       gl!.viewport(0, 0, canvas!.width, canvas!.height);
     }
-    const ro = new ResizeObserver(resize);
-    ro.observe(canvas);
+    // Listen on window.resize instead of ResizeObserver(canvas): on iOS
+    // Safari the address bar dismissal during scroll changes 100dvh and would
+    // continuously fire ro, causing visible flicker. window.resize fires on
+    // orientation/window change only.
+    window.addEventListener('resize', resize);
     resize();
 
     // ── Pointer handlers (mouse + touch via pointer events) ─────────────────
@@ -243,7 +255,7 @@ export default function AuroraBackground({
       if (!isDown) { tmx = 0.5; tmy = 0.5; }
     }
 
-    if (interactive) {
+    if (effectiveInteractive) {
       canvas.addEventListener('pointermove', onMove, { passive: true });
       canvas.addEventListener('pointerdown', onDown);
       canvas.addEventListener('pointerup', endPress);
@@ -292,7 +304,7 @@ export default function AuroraBackground({
 
     return () => {
       cancelAnimationFrame(raf);
-      ro.disconnect();
+      window.removeEventListener('resize', resize);
       canvas.removeEventListener('pointermove', onMove);
       canvas.removeEventListener('pointerdown', onDown);
       canvas.removeEventListener('pointerup', endPress);
