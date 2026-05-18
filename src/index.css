@@ -63,3 +63,10 @@
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-14px); }
 }
+
+/* Suppress model-viewer's default loading bar without touching its
+   internal lifecycle. */
+model-viewer::part(default-progress-bar),
+model-viewer::part(default-progress-mask) {
+  display: none !important;
+}

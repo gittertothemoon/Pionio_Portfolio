@@ -79,7 +79,7 @@ export default function Home() {
                             className="w-full h-full"
                             interactive
                             float
-                            src="/models/pionio-3d-mobile.glb?v=3"
+                            src="/models/pionio-3d-mobile.glb?v=4"
                         />
                     </div>
                     <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
