@@ -154,7 +154,7 @@ export function WorksBento() {
                                             isLight ? lightBg : 'bg-zinc-800'
                                         } ${
                                             isContain
-                                                ? 'flex items-center justify-center p-6 min-h-[140px] md:min-h-[160px]'
+                                                ? 'flex items-start justify-center pt-12 md:pt-14 pb-32 px-6 min-h-[140px] md:min-h-[160px]'
                                                 : ''
                                         }`}
                                     >
@@ -166,7 +166,7 @@ export function WorksBento() {
                                                 decoding="async"
                                                 width="600"
                                                 height="600"
-                                                className={`w-[60%] h-auto object-contain ${
+                                                className={`max-h-[120px] md:max-h-[160px] w-auto object-contain ${
                                                     isLight ? 'opacity-100' : 'opacity-95'
                                                 } ${work.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                             />
