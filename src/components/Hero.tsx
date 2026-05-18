@@ -3,6 +3,7 @@ import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
+import { Hero3D } from './Hero3D';
 
 export function Hero() {
     const { t, locale, setLocale } = useLanguage();
@@ -92,8 +93,15 @@ export function Hero() {
                 </motion.div>
             </div>
 
-            {/* Spacer to preserve the asymmetric layout (shader fills full hero) */}
-            <div className="flex-1 hidden md:block pointer-events-none" />
+            {/* Desktop: 3D P-mark fills the right half */}
+            <div className="flex-1 hidden md:flex items-center justify-center relative z-10 pr-6 lg:pr-12">
+                <Hero3D className="w-full max-w-[560px] aspect-square" interactive />
+            </div>
+
+            {/* Mobile: smaller 3D P-mark below the CTAs */}
+            <div className="md:hidden w-full h-[280px] mt-10 mb-6 relative z-10">
+                <Hero3D className="w-full h-full" />
+            </div>
         </section>
     );
 }
