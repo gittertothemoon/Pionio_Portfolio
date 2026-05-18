@@ -72,7 +72,7 @@ export function WorksBento() {
                                     heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-800'
                                 } ${
                                     heroContain
-                                        ? 'flex items-start justify-end pt-10 pr-10 md:pt-14 md:pr-14 min-h-[140px] md:min-h-[160px]'
+                                        ? 'flex items-center justify-end pr-10 md:pr-14 min-h-[140px] md:min-h-[160px]'
                                         : ''
                                 }`}
                             >
@@ -84,9 +84,9 @@ export function WorksBento() {
                                         decoding="async"
                                         width="800"
                                         height="600"
-                                        className={`w-[28%] h-auto object-contain ${
+                                        className={`w-[32%] h-auto object-contain ${
                                             heroLight ? 'opacity-100' : 'opacity-95'
-                                        } ${hero.invertLogo ? 'invert brightness-110' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
+                                        } ${hero.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                     />
                                 ) : (
                                     <img
@@ -99,7 +99,7 @@ export function WorksBento() {
                                         className="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform"
                                     />
                                 )}
-                                {!heroLight && (
+                                {!heroLight && !heroContain && (
                                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-800/80 via-zinc-800/20 to-transparent" />
                                 )}
                             </div>
@@ -108,43 +108,26 @@ export function WorksBento() {
 
                             <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between pointer-events-none">
                                 <div className="flex justify-between items-start">
-                                    <span
-                                        className={`px-4 py-2 rounded-full backdrop-blur-md font-mono text-xs uppercase tracking-widest ${
-                                            heroLight
-                                                ? 'border border-zinc-300/70 bg-white/50 text-zinc-700'
-                                                : 'border border-white/10 bg-white/5 text-zinc-300'
-                                        }`}
-                                    >
+                                    <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">
                                         {projectCategory(hero, locale)}
                                     </span>
+                                    <ArrowUpRight
+                                        className="text-white/50 group-hover:text-white transition-colors duration-300"
+                                        size={28}
+                                    />
                                 </div>
 
-                                <div className="flex flex-col gap-2 relative z-10">
-                                    <h3
-                                        className={`text-3xl md:text-5xl font-sans tracking-tight ${
-                                            heroLight ? 'text-zinc-900' : 'text-white'
-                                        }`}
-                                    >
+                                <div className="flex flex-col gap-3 max-w-[60%] relative z-10">
+                                    <h3 className="text-3xl md:text-5xl font-sans tracking-tight text-white leading-[1.05]">
                                         {hero.title}
                                     </h3>
-                                    <div
-                                        className={`flex items-center gap-4 font-mono text-sm ${
-                                            heroLight ? 'text-zinc-600' : 'text-zinc-400'
-                                        }`}
-                                    >
-                                        <span>{hero.year}</span>
-                                    </div>
+                                    <p className="hidden md:block text-zinc-400 text-sm md:text-base leading-relaxed">
+                                        {hero.description[locale]}
+                                    </p>
+                                    <span className="font-mono text-xs text-zinc-500 tracking-widest mt-1">
+                                        {hero.year}
+                                    </span>
                                 </div>
-                            </div>
-
-                            <div
-                                className={`absolute inset-0 ${
-                                    heroLight ? 'bg-sky-900/40' : 'bg-forest-900/60'
-                                } opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none`}
-                            >
-                                <span className="px-6 py-3 bg-white text-zinc-950 rounded-full font-mono text-xs tracking-widest uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                                    {t('works_view_case')} <ArrowUpRight weight="bold" />
-                                </span>
                             </div>
                         </Link>
                     </motion.div>
@@ -185,7 +168,7 @@ export function WorksBento() {
                                                 height="600"
                                                 className={`w-[60%] h-auto object-contain ${
                                                     isLight ? 'opacity-100' : 'opacity-95'
-                                                } ${work.invertLogo ? 'invert brightness-110' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
+                                                } ${work.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                             />
                                         ) : (
                                             <img
@@ -200,7 +183,7 @@ export function WorksBento() {
                                                 } group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out will-change-transform`}
                                             />
                                         )}
-                                        {!isLight && (
+                                        {!isLight && !isContain && (
                                             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
                                         )}
                                     </div>

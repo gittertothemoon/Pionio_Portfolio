@@ -122,7 +122,6 @@ export const dict: Dictionary = {
     // Works Bento
     works_label: { en: 'Real Projects, Real Clients', it: 'Progetti Reali, Clienti Reali' },
     works_headline: { en: 'Selected work.', it: 'Lavori selezionati.' },
-    works_view_case: { en: 'See details', it: 'Vedi dettagli' },
     works_visit_site: { en: 'Visit site', it: 'Visita il sito' },
     work_w2b_cat: { en: 'Community App', it: 'App Community' },
     work_w2b_desc: {
