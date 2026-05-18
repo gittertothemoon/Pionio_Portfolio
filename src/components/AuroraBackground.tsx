@@ -145,11 +145,58 @@ export default function AuroraBackground({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Defer WebGL bring-up until the browser is idle so we don't compete
+    // with first paint / hydration. The hero is briefly black instead of
+    // animated, but LCP drops considerably.
+    let cancelled = false;
+    type IdleWin = typeof window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (h: number) => void;
+    };
+    const w = window as IdleWin;
+    let teardown = () => {};
+    const init = () => {
+      if (cancelled) return;
+      teardown = startAurora(canvas, interactive);
+    };
+    const handle =
+      typeof w.requestIdleCallback === 'function'
+        ? w.requestIdleCallback(init, { timeout: 800 })
+        : window.setTimeout(init, 50);
+    return () => {
+      cancelled = true;
+      if (typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(handle as number);
+      else window.clearTimeout(handle as number);
+      teardown();
+    };
+  }, [interactive]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden
+      className={className}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        touchAction: interactive ? 'none' : 'auto',
+        cursor: interactive ? 'crosshair' : 'default',
+        background: '#09090b',
+        ...style,
+      }}
+    />
+  );
+}
+
+function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => void {
     const gl = canvas.getContext('webgl', {
       antialias: false,
       premultipliedAlpha: false,
     });
-    if (!gl) return;
+    if (!gl) return () => {};
 
     // The aurora is a slow decorative flow (no strobe, no high-frequency
     // changes), so we always animate — even when the user has
@@ -315,24 +362,4 @@ export default function AuroraBackground({
       gl.deleteShader(fs);
       gl.deleteBuffer(buf);
     };
-  }, [interactive]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden
-      className={className}
-      style={{
-        position: 'absolute',
-        inset: 0,
-        width: '100%',
-        height: '100%',
-        display: 'block',
-        touchAction: interactive ? 'none' : 'auto',
-        cursor: interactive ? 'crosshair' : 'default',
-        background: '#09090b',
-        ...style,
-      }}
-    />
-  );
 }

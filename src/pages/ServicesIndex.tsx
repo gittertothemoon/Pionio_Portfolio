@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from '@phosphor-icons/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { services } from '../lib/services';
@@ -69,7 +69,7 @@ export default function ServicesIndex() {
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1200px] mx-auto flex flex-col gap-20">
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
@@ -88,11 +88,11 @@ export default function ServicesIndex() {
                             Web design, sviluppo, e-commerce, web app e SEO tecnica. Ogni servizio è pensato per chi
                             vuole un partner unico dal concept al lancio, senza intermediari e senza scuse.
                         </p>
-                    </motion.section>
+                    </m.section>
 
                     <section className="grid md:grid-cols-2 gap-6">
                         {services.map((s, i) => (
-                            <motion.div
+                            <m.div
                                 key={s.slug}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function ServicesIndex() {
                                         />
                                     </div>
                                 </Link>
-                            </motion.div>
+                            </m.div>
                         ))}
                     </section>
 

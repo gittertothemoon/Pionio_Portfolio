@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { GithubLogo, InstagramLogo } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -157,7 +157,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '100px' }}
@@ -170,7 +170,7 @@ export function Footer() {
                     >
                         PIONIO
                     </p>
-                </motion.div>
+                </m.div>
             </div>
         </footer>
     );

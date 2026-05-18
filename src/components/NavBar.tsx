@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import {
     User,
@@ -95,7 +95,7 @@ export function NavBar() {
 
     return (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-full flex justify-center px-4">
-            <motion.nav
+            <m.nav
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
@@ -116,7 +116,7 @@ export function NavBar() {
                                     {label}
                                 </span>
                                 {isActive && (
-                                    <motion.div
+                                    <m.div
                                         layoutId="activeNavIndicator"
                                         className="absolute inset-0 rounded-full bg-forest-500/20 border border-forest-500/30"
                                         initial={false}
@@ -157,7 +157,7 @@ export function NavBar() {
                         );
                     })}
                 </ul>
-            </motion.nav>
+            </m.nav>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ export function WorksBento() {
     return (
         <section className="w-full py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-zinc-950">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
@@ -50,16 +50,16 @@ export function WorksBento() {
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-sans tracking-tight text-white leading-none">
                         {t('works_headline')}
                     </h2>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, margin: '-100px' }}
                     className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[300px] md:auto-rows-[400px]"
                 >
-                    <motion.div variants={itemVariants} className="md:col-span-2 h-full">
+                    <m.div variants={itemVariants} className="md:col-span-2 h-full">
                         <Link
                             to={`/projects/${hero.slug}`}
                             aria-label={`${hero.title} — ${projectCategory(hero, locale)}`}
@@ -130,14 +130,14 @@ export function WorksBento() {
                                 </div>
                             </div>
                         </Link>
-                    </motion.div>
+                    </m.div>
 
                     {projects.slice(1).map((work) => {
                         const isLight = work.theme === 'light';
                         const isContain = work.imageFit === 'contain';
                         const lightBg = work.bgClass ?? 'bg-[#FAF7F2]';
                         return (
-                            <motion.div
+                            <m.div
                                 key={work.slug}
                                 variants={itemVariants}
                                 className={work.span ? `${work.span} h-full` : 'h-full'}
@@ -227,10 +227,10 @@ export function WorksBento() {
                                         </div>
                                     </div>
                                 </Link>
-                            </motion.div>
+                            </m.div>
                         );
                     })}
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );

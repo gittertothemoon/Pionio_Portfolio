@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowUpRight, ArrowLeft } from '@phosphor-icons/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { Logo } from '../components/Logo';
 import { Footer } from '../components/Footer';
@@ -145,7 +145,7 @@ export default function ProjectPage() {
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1100px] mx-auto flex flex-col gap-12">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -156,9 +156,9 @@ export default function ProjectPage() {
                         >
                             <ArrowLeft weight="bold" /> {locale === 'it' ? 'Tutti i progetti' : 'All projects'}
                         </Link>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.05 }}
@@ -173,9 +173,9 @@ export default function ProjectPage() {
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight text-white leading-[0.95]">
                             {project.title}
                         </h1>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.97 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.7, delay: 0.15 }}
@@ -193,9 +193,9 @@ export default function ProjectPage() {
                                 project.imageFit === 'contain' ? 'object-contain p-12 md:p-20' : 'object-cover'
                             } ${project.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''}`}
                         />
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.25 }}
@@ -249,9 +249,9 @@ export default function ProjectPage() {
                                 </ul>
                             </div>
                         </aside>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.35 }}
@@ -296,7 +296,7 @@ export default function ProjectPage() {
                                     </Link>
                                 ))}
                         </div>
-                    </motion.section>
+                    </m.section>
                 </div>
             </main>
 

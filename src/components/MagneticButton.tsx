@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { m, useMotionValue, useSpring } from 'framer-motion';
 import type { HTMLMotionProps } from 'framer-motion';
 import { cn } from '../lib/utils';
 
@@ -56,7 +56,7 @@ export const MagneticButton = React.forwardRef<HTMLButtonElement, MagneticButton
         };
 
         return (
-            <motion.button
+            <m.button
                 ref={setRefs}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
@@ -75,13 +75,13 @@ export const MagneticButton = React.forwardRef<HTMLButtonElement, MagneticButton
                 </span>
 
                 {/* Subtle hover glow that follows the mouse (simplified for performance, hidden when not hovered) */}
-                <motion.div
+                <m.div
                     className="absolute inset-0 z-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: isHovered ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
                 />
-            </motion.button>
+            </m.button>
         );
     }
 );

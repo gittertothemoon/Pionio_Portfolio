@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { PaperPlaneRight, CheckCircle, ArrowClockwise } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -105,7 +105,7 @@ export function ContactCTA() {
         >
             {/* Mesh Gradient Background */}
             <div className="absolute inset-0 pointer-events-none z-0 opacity-40">
-                <motion.div
+                <m.div
                     animate={{ x: ['-5%', '5%', '-5%'], y: ['-5%', '5%', '-5%'] }}
                     transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
                     className="absolute top-[20%] right-[-10%] w-[60%] h-[60%] bg-forest-900/40 rounded-full blur-[120px] mix-blend-screen"
@@ -114,7 +114,7 @@ export function ContactCTA() {
             </div>
 
             <div className="max-w-3xl mx-auto relative z-10">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -127,9 +127,9 @@ export function ContactCTA() {
                         {t('contact_label')}
                     </span>
                     <div className="h-[1px] w-12 bg-forest-500/50" />
-                </motion.div>
+                </m.div>
 
-                <motion.h2
+                <m.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -137,9 +137,9 @@ export function ContactCTA() {
                     className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter text-white mb-12 leading-[1.1] max-w-4xl mx-auto text-center"
                 >
                     {t('contact_headline')}
-                </motion.h2>
+                </m.h2>
 
-                <motion.p
+                <m.p
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
@@ -147,11 +147,11 @@ export function ContactCTA() {
                     className="text-zinc-400 text-center text-lg md:text-xl max-w-xl mx-auto mb-16 font-sans"
                 >
                     {t('contact_description')}
-                </motion.p>
+                </m.p>
 
                 <AnimatePresence mode="wait">
                     {status === 'success' ? (
-                        <motion.div
+                        <m.div
                             key="success"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -174,9 +174,9 @@ export function ContactCTA() {
                                 <ArrowClockwise weight="bold" />
                                 {t('contact_form_send_another')}
                             </button>
-                        </motion.div>
+                        </m.div>
                     ) : (
-                        <motion.form
+                        <m.form
                             key="form"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -308,7 +308,7 @@ export function ContactCTA() {
                                     <span className="text-zinc-600 font-mono text-xs uppercase tracking-widest">
                                         {t('contact_field_required_hint')}
                                     </span>
-                                    <motion.button
+                                    <m.button
                                         type="submit"
                                         disabled={
                                             status === 'loading' ||
@@ -321,7 +321,7 @@ export function ContactCTA() {
                                     >
                                         {status === 'loading' ? (
                                             <>
-                                                <motion.span
+                                                <m.span
                                                     animate={{ rotate: 360 }}
                                                     transition={{
                                                         repeat: Infinity,
@@ -338,11 +338,11 @@ export function ContactCTA() {
                                                 <PaperPlaneRight weight="bold" />
                                             </>
                                         )}
-                                    </motion.button>
+                                    </m.button>
                                 </div>
 
                                 {status === 'error' && (
-                                    <motion.p
+                                    <m.p
                                         initial={{ opacity: 0, y: -8 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         role="alert"
@@ -354,10 +354,10 @@ export function ContactCTA() {
                                                 {errorMsg}
                                             </span>
                                         ) : null}
-                                    </motion.p>
+                                    </m.p>
                                 )}
                             </div>
-                        </motion.form>
+                        </m.form>
                     )}
                 </AnimatePresence>
             </div>

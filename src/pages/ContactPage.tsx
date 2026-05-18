@@ -1,5 +1,5 @@
 import { Head } from 'vite-react-ssg';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { EnvelopeSimple, InstagramLogo, GithubLogo } from '@phosphor-icons/react';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
@@ -90,7 +90,7 @@ export default function ContactPage() {
 
             <main id="main" className="pt-40 md:pt-48 pb-12 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1200px] mx-auto flex flex-col gap-16">
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
@@ -109,9 +109,9 @@ export default function ContactPage() {
                             Raccontami il tuo progetto, anche solo per linee generali. Ti rispondo entro 48 ore con
                             una valutazione realistica, i prossimi passi e una stima trasparente.
                         </p>
-                    </motion.section>
+                    </m.section>
 
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
@@ -153,7 +153,7 @@ export default function ContactPage() {
                                 gittertothemoon
                             </span>
                         </a>
-                    </motion.section>
+                    </m.section>
 
                     <ContactCTA />
                 </div>

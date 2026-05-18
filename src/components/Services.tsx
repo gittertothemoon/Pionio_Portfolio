@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { m, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -32,7 +32,7 @@ export function Services() {
             <div className="max-w-[1400px] mx-auto flex flex-col gap-32">
 
                 {/* Header */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -49,7 +49,7 @@ export function Services() {
                         {t('services_headline_1')}<br />
                         <span className="text-forest-500 italic font-serif">{t('services_headline_highlight')}</span>{t('services_headline_3')}
                     </h2>
-                </motion.div>
+                </m.div>
 
                 {/* Services List - Parallax Tilt Cards style but clean */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -58,7 +58,7 @@ export function Services() {
                     ))}
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -70,7 +70,7 @@ export function Services() {
                     >
                         {t('services_cta')} <ArrowRight size={18} weight="bold" />
                     </MagneticButton>
-                </motion.div>
+                </m.div>
 
             </div>
         </section>
@@ -107,7 +107,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
     };
 
     return (
-        <motion.div
+        <m.div
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -149,6 +149,6 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
                     {service.description}
                 </p>
             </div>
-        </motion.div>
+        </m.div>
     );
 }

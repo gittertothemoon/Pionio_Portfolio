@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { ShieldCheck, Eye, ArrowClockwise, CurrencyEur, Lifebuoy, Key, Calendar } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -31,7 +31,7 @@ export function Guarantees() {
         <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
                 {/* Header */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
@@ -53,10 +53,10 @@ export function Guarantees() {
                     <p className="text-zinc-400 text-lg md:text-xl leading-relaxed font-light max-w-2xl">
                         {t('garanzie_intro')}
                     </p>
-                </motion.div>
+                </m.div>
 
                 {/* Cards Grid */}
-                <motion.div
+                <m.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="show"
@@ -66,7 +66,7 @@ export function Guarantees() {
                     {guarantees.map((g, idx) => {
                         const Icon = ICONS[idx % ICONS.length];
                         return (
-                            <motion.div
+                            <m.div
                                 key={g.id}
                                 variants={itemVariants}
                                 className="group relative flex flex-col gap-8 p-10 rounded-[2rem] bg-zinc-900/60 border border-white/5 hover:border-forest-500/40 hover:bg-zinc-900 transition-all duration-500 backdrop-blur-sm"
@@ -88,13 +88,13 @@ export function Guarantees() {
                                         {g.desc}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         );
                     })}
-                </motion.div>
+                </m.div>
 
                 {/* Trust seal footer */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
@@ -103,7 +103,7 @@ export function Guarantees() {
                 >
                     <ShieldCheck size={20} weight="duotone" className="text-forest-500/70" />
                     <span className="font-mono text-xs uppercase tracking-widest">PIONIO — {t('garanzie_label')}</span>
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FileCode, FileCss, Graph, Lightning, Atom, FrameCorners } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -20,7 +20,7 @@ export function TechStack() {
     return (
         <section className="relative w-full py-40 bg-zinc-950 border-y border-white/5 overflow-hidden flex flex-col items-center gap-16">
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}
@@ -30,19 +30,19 @@ export function TechStack() {
                 <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_techstack')}</span>
                 <div className="h-[1px] w-8 bg-forest-500/50" />
                 <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('techstack_label')}</span>
-            </motion.div>
+            </m.div>
 
             {/* Edge Gradients to blend the marquee fading out */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-zinc-950 via-transparent to-zinc-950 z-10 w-full" />
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
                 className="w-full flex overflow-hidden"
             >
-                <motion.div
+                <m.div
                     animate={{ x: ["0%", "-33.333%"] }} // Scroll one full set of the original 6 items
                     transition={{
                         repeat: Infinity,
@@ -57,8 +57,8 @@ export function TechStack() {
                             <span className="font-mono text-xl md:text-2xl uppercase tracking-widest">{item.name}</span>
                         </div>
                     ))}
-                </motion.div>
-            </motion.div>
+                </m.div>
+            </m.div>
         </section>
     );
 }

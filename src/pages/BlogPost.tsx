@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { getPost, posts } from '../lib/blog';
@@ -111,7 +111,7 @@ export default function BlogPost() {
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <article className="max-w-[760px] mx-auto flex flex-col gap-12">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -122,9 +122,9 @@ export default function BlogPost() {
                         >
                             <ArrowLeft weight="bold" /> Tutti gli articoli
                         </Link>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.header
+                    <m.header
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.05 }}
@@ -146,9 +146,9 @@ export default function BlogPost() {
                         <h1 className="text-4xl md:text-6xl font-sans tracking-tight text-white leading-[1.05]">
                             {post.title}
                         </h1>
-                    </motion.header>
+                    </m.header>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.15 }}
@@ -218,9 +218,9 @@ export default function BlogPost() {
                                     );
                             }
                         })}
-                    </motion.div>
+                    </m.div>
 
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-100px' }}
@@ -251,10 +251,10 @@ export default function BlogPost() {
                                 Esplora i servizi
                             </Link>
                         </div>
-                    </motion.section>
+                    </m.section>
 
                     {otherPosts.length > 0 && (
-                        <motion.section
+                        <m.section
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-100px' }}
@@ -283,7 +283,7 @@ export default function BlogPost() {
                                     </Link>
                                 ))}
                             </div>
-                        </motion.section>
+                        </m.section>
                     )}
                 </article>
             </main>

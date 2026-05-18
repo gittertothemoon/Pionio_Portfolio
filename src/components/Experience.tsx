@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -33,7 +33,7 @@ export function Experience() {
 
                 {/* Left Column - Minimal Label */}
                 <div className="md:col-span-4 flex flex-col justify-start mb-16 md:mb-0">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -43,13 +43,13 @@ export function Experience() {
                         <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_experience')}</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('exp_label')}</span>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 {/* Right Column - Timeline */}
                 <div className="md:col-span-8 md:col-start-5 flex flex-col gap-20 md:gap-32">
                     {timeline.map((exp, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -72,9 +72,9 @@ export function Experience() {
                             <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-light max-w-2xl">
                                 {exp.description}
                             </p>
-                        </motion.div>
+                        </m.div>
                     ))}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -87,7 +87,7 @@ export function Experience() {
                         >
                             {t('exp_cta')} <ArrowRight size={18} weight="bold" />
                         </MagneticButton>
-                    </motion.div>
+                    </m.div>
                 </div>
 
             </div>

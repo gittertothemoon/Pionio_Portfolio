@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -11,7 +11,7 @@ export function About() {
 
                 {/* Left Column - Minimal Label */}
                 <div className="md:col-span-4 flex flex-col justify-start">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -21,12 +21,12 @@ export function About() {
                         <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_about')}</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('about_label')}</span>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 {/* Right Column - Oversized Asymmetric Text */}
                 <div className="md:col-span-8 md:col-start-5">
-                    <motion.h2
+                    <m.h2
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -34,9 +34,9 @@ export function About() {
                         className="text-3xl md:text-5xl lg:text-7xl font-sans tracking-tight text-white leading-[1.1]"
                     >
                         {t('about_headline_1')}<span className="text-zinc-500 italic">{t('about_headline_highlight')}</span>{t('about_headline_3')}
-                    </motion.h2>
+                    </m.h2>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -45,9 +45,9 @@ export function About() {
                     >
                         <p>{t('about_p1')}</p>
                         <p>{t('about_p2')}</p>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -60,7 +60,7 @@ export function About() {
                         >
                             {t('about_cta')} <ArrowRight size={18} weight="bold" />
                         </MagneticButton>
-                    </motion.div>
+                    </m.div>
                 </div>
 
             </div>

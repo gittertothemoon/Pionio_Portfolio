@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Check } from '@phosphor-icons/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { getService, services } from '../lib/services';
@@ -127,7 +127,7 @@ export default function ServicePage() {
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1100px] mx-auto flex flex-col gap-20">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -138,9 +138,9 @@ export default function ServicePage() {
                         >
                             <ArrowLeft weight="bold" /> Tutti i servizi
                         </Link>
-                    </motion.div>
+                    </m.div>
 
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.05 }}
@@ -158,9 +158,9 @@ export default function ServicePage() {
                         <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light max-w-3xl">
                             {service.intro}
                         </p>
-                    </motion.section>
+                    </m.section>
 
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-100px' }}
@@ -172,7 +172,7 @@ export default function ServicePage() {
                                 {p}
                             </p>
                         ))}
-                    </motion.section>
+                    </m.section>
 
                     <section className="flex flex-col gap-10">
                         <div className="flex items-center gap-4">
@@ -185,7 +185,7 @@ export default function ServicePage() {
                         </h2>
                         <ul className="grid md:grid-cols-2 gap-6">
                             {service.includes.map((item, i) => (
-                                <motion.li
+                                <m.li
                                     key={i}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ export default function ServicePage() {
                                     <Check weight="bold" className="text-forest-400" size={20} />
                                     <h3 className="text-white font-sans text-xl">{item.title}</h3>
                                     <p className="text-zinc-400 leading-relaxed">{item.description}</p>
-                                </motion.li>
+                                </m.li>
                             ))}
                         </ul>
                     </section>
@@ -212,7 +212,7 @@ export default function ServicePage() {
                         </h2>
                         <ol className="flex flex-col gap-6">
                             {service.process.map((step, i) => (
-                                <motion.li
+                                <m.li
                                     key={i}
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -225,7 +225,7 @@ export default function ServicePage() {
                                         <h3 className="text-white font-sans text-xl md:text-2xl">{step.title}</h3>
                                         <p className="text-zinc-400 leading-relaxed">{step.description}</p>
                                     </div>
-                                </motion.li>
+                                </m.li>
                             ))}
                         </ol>
                     </section>
@@ -295,7 +295,7 @@ export default function ServicePage() {
                         </h2>
                         <div className="flex flex-col gap-4">
                             {service.faq.map((f, i) => (
-                                <motion.details
+                                <m.details
                                     key={i}
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +310,7 @@ export default function ServicePage() {
                                         </span>
                                     </summary>
                                     <p className="text-zinc-400 leading-relaxed mt-4">{f.a}</p>
-                                </motion.details>
+                                </m.details>
                             ))}
                         </div>
                     </section>

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { MagneticButton } from './MagneticButton';
@@ -39,13 +39,13 @@ export function Hero() {
 
             {/* Left Content Half */}
             <div className="pointer-events-none flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-48 z-10">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="max-w-2xl"
                 >
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
@@ -56,7 +56,7 @@ export function Hero() {
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-forest-500"></span>
                         </span>
                         {t('hero_availability')}
-                    </motion.div>
+                    </m.div>
 
                     <h1 className="text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter leading-[0.95] md:leading-[0.9] font-medium text-foreground mb-5 md:mb-6 whitespace-pre-line">
                         {t('hero_title')}
@@ -90,7 +90,7 @@ export function Hero() {
                             {t('hero_cta_contact')}
                         </MagneticButton>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
 
             {/* Desktop: 3D P-mark sits near page center. Wrapper is

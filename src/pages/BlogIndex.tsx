@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from '@phosphor-icons/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { posts } from '../lib/blog';
@@ -76,7 +76,7 @@ export default function BlogIndex() {
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1100px] mx-auto flex flex-col gap-20">
-                    <motion.section
+                    <m.section
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
@@ -93,11 +93,11 @@ export default function BlogIndex() {
                             Guide pratiche, opinioni argomentate e numeri reali sul mestiere di costruire siti e
                             applicazioni web. Scritto per il mercato italiano, senza fuffa.
                         </p>
-                    </motion.section>
+                    </m.section>
 
                     <section className="flex flex-col gap-8">
                         {sorted.map((post, i) => (
-                            <motion.article
+                            <m.article
                                 key={post.slug}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function BlogIndex() {
                                         </div>
                                     </div>
                                 </Link>
-                            </motion.article>
+                            </m.article>
                         ))}
                     </section>
                 </div>
