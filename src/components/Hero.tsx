@@ -26,7 +26,7 @@ export function Hero() {
             </div>
 
             {/* Language Selector Toggle */}
-            <div className="absolute top-6 right-6 md:top-8 md:right-12 z-50">
+            <div className="pointer-events-none absolute top-6 right-6 md:top-8 md:right-12 z-50">
                 <button
                     onClick={toggleLanguage}
                     className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-zinc-400 hover:text-white transition-colors duration-300 pointer-events-auto"
@@ -37,7 +37,7 @@ export function Hero() {
             </div>
 
             {/* Left Content Half */}
-            <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-48 z-10">
+            <div className="pointer-events-none flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-48 z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export function Hero() {
                                 e.preventDefault();
                                 document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
+                            className="pointer-events-auto bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
                         >
                             <span className="flex items-center gap-2">
                                 {t('hero_cta_works')}
@@ -84,7 +84,7 @@ export function Hero() {
                                 e.preventDefault();
                                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"
+                            className="pointer-events-auto bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"
                         >
                             {t('hero_cta_contact')}
                         </MagneticButton>
