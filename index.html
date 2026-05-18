@@ -5,6 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+  <!-- Disable the browser's automatic scroll restoration BEFORE any other
+       script can run; otherwise a refresh jumps to the section the user
+       last scrolled to. React's ScrollToTop component handles deep links
+       via the URL hash itself. -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (!location.hash) {
+      window.addEventListener('beforeunload', function () {
+        try { window.scrollTo(0, 0); } catch (e) {}
+      });
+    }
+  </script>
+
   <!-- Primary Meta Tags (per-route title/description injected by router) -->
   <meta name="author" content="PIONIO" />
   <meta name="keywords"
