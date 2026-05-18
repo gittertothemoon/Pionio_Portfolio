@@ -72,7 +72,7 @@ export function WorksBento() {
                                     heroLight ? 'bg-[#E8F4FD]' : 'bg-zinc-800'
                                 } ${
                                     heroContain
-                                        ? 'flex items-center justify-end pr-10 md:pr-14 min-h-[140px] md:min-h-[160px]'
+                                        ? 'flex items-center justify-center md:justify-end md:pr-14 min-h-[140px] md:min-h-[160px]'
                                         : ''
                                 }`}
                             >
@@ -84,7 +84,7 @@ export function WorksBento() {
                                         decoding="async"
                                         width="800"
                                         height="600"
-                                        className={`w-[22%] md:w-[32%] h-auto object-contain ${
+                                        className={`w-[40%] md:w-[32%] h-auto object-contain ${
                                             heroLight ? 'opacity-100' : 'opacity-95'
                                         } ${hero.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                     />
