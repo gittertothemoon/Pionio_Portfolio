@@ -78,7 +78,7 @@ export const projects: Project[] = [
             en: 'A digital portfolio for an emerging painter working on acrylic canvas. The site frames each piece like a gallery wall, with quiet typography and generous whitespace so the work itself stays the focus. Built to be effortless to update as new collections are produced.',
             it: 'Portfolio digitale per un\'artista emergente che lavora su tela in acrilico. Il sito incornicia ogni opera come una parete di galleria, con tipografia discreta e spazi ampi perché il lavoro resti al centro. Progettato per essere aggiornato senza sforzo all\'arrivo di nuove collezioni.',
         },
-        url: 'https://sito-arte.vercel.app',
+        url: 'https://antonela-maliqi.vercel.app',
         imageFit: 'contain',
         theme: 'dark',
         invertLogo: true,
