@@ -54,7 +54,7 @@ export default function Home() {
                     <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto">
                         <Logo className="h-40 md:h-56 lg:h-64 w-auto object-cover object-left-top -mt-10 md:-mt-16 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
                     </Link>
-                    <span className="hidden lg:inline-flex pointer-events-auto items-center gap-2 px-3 py-1 lg:-mt-16 rounded-full border border-forest-500/50 bg-forest-900/40 text-forest-200 text-sm font-mono tracking-tight">
+                    <span className="hidden xl:inline-flex pointer-events-auto items-center gap-2 px-3 py-1 xl:-mt-16 rounded-full border border-forest-500/50 bg-forest-900/40 text-forest-200 text-sm font-mono tracking-tight">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-forest-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-forest-500"></span>
@@ -72,7 +72,7 @@ export default function Home() {
                 {/* Mobile-only: standalone interactive 3D showcase.
                     Skipped inside Instagram / Facebook / Threads / TikTok
                     in-app browsers — model-viewer + WebGL barely run there. */}
-                <section className={`${restricted ? 'hidden' : 'lg:hidden'} w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10`}>
+                <section className={`${restricted ? 'hidden' : 'xl:hidden'} w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10`}>
                     <div className="flex items-center gap-4">
                         <span className="text-forest-500 font-mono text-xs tracking-widest">PIONIO</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
