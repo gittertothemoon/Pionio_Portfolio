@@ -100,7 +100,7 @@ export const projects: Project[] = [
             en: 'An e-commerce storefront for a small Italian maker of artisanal soy candles. The product pages emphasize material, scent and craft over volume, and the checkout is short and frictionless. The whole experience is tuned for trust — exactly what a premium hand-poured product needs.',
             it: 'E-commerce per un piccolo produttore italiano di candele artigianali in soia. Le schede prodotto valorizzano materia, profumo e artigianalità più che il volume, e il checkout è breve e senza attriti. Tutta l\'esperienza è calibrata per generare fiducia — esattamente ciò che serve a un prodotto premium fatto a mano.',
         },
-        url: 'https://smoky-candle.vercel.app',
+        url: 'https://smokycandle.com',
         imageFit: 'contain',
         theme: 'dark',
         invertLogo: true,
