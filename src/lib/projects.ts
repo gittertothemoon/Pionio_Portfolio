@@ -66,7 +66,7 @@ export const projects: Project[] = [
     {
         slug: 'antonela-paintings',
         id: 'antonela',
-        title: "Antonelamaliqi",
+        title: "Antonela's Paintings",
         category: { en: 'Art Portfolio', it: "Portfolio d'Arte" },
         year: '2024',
         image: '/images/antonela-logo.png',
