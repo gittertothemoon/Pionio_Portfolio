@@ -21,23 +21,23 @@ export default function Home() {
     return (
         <div className="w-full bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased -webkit-font-smoothing-antialiased">
             <Head>
-                <title>PIONIO — Siti web premium che fanno crescere il tuo business</title>
+                <title>Pionio · Web Design Studio</title>
                 <meta
                     name="description"
-                    content="Sviluppatore web freelance italiano. Progetto siti web, e-commerce e landing page premium per imprenditori e brand. Design che ispira fiducia, veloce su mobile, ottimizzato per Google."
+                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
                 <link rel="canonical" href="https://pionio.it/" />
                 <meta property="og:url" content="https://pionio.it/" />
-                <meta property="og:title" content="PIONIO — Siti web premium che fanno crescere il tuo business" />
+                <meta property="og:title" content="Pionio · Web Design Studio" />
                 <meta
                     property="og:description"
-                    content="Sviluppatore web freelance italiano. Siti web, e-commerce e landing page premium per imprenditori e brand. Veloci, mobile-first, ottimizzati per Google."
+                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
                 <meta name="twitter:url" content="https://pionio.it/" />
-                <meta name="twitter:title" content="PIONIO — Siti web premium che fanno crescere il tuo business" />
+                <meta name="twitter:title" content="Pionio · Web Design Studio" />
                 <meta
                     name="twitter:description"
-                    content="Sviluppatore web freelance italiano. Siti premium che attirano clienti e ispirano fiducia. Veloci, mobile-first, ottimizzati per Google."
+                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
             </Head>
             <a
