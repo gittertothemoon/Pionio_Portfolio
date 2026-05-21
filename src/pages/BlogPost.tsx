@@ -48,7 +48,7 @@ export default function BlogPost() {
         mainEntityOfPage: { '@type': 'WebPage', '@id': url },
         headline: post.title,
         description: post.seoDescription,
-        image: 'https://pionio.it/og-image.png',
+        image: 'https://pionio.it/og-image-v2.png',
         datePublished: post.datePublished,
         dateModified: post.dateModified,
         inLanguage: 'it-IT',
@@ -84,7 +84,7 @@ export default function BlogPost() {
                 <meta property="og:url" content={url} />
                 <meta property="og:title" content={post.seoTitle} />
                 <meta property="og:description" content={post.seoDescription} />
-                <meta property="og:image" content="https://pionio.it/og-image.png" />
+                <meta property="og:image" content="https://pionio.it/og-image-v2.png" />
                 <meta property="article:published_time" content={post.datePublished} />
                 <meta property="article:modified_time" content={post.dateModified} />
                 <meta property="article:author" content="PIONIO" />
@@ -95,7 +95,7 @@ export default function BlogPost() {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={post.seoTitle} />
                 <meta name="twitter:description" content={post.seoDescription} />
-                <meta name="twitter:image" content="https://pionio.it/og-image.png" />
+                <meta name="twitter:image" content="https://pionio.it/og-image-v2.png" />
                 <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
                 <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
             </Head>
