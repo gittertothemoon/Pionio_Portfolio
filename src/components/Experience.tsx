@@ -1,10 +1,11 @@
 import { m } from 'framer-motion';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 
 export function Experience() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
 
     const timeline = [
         {
@@ -82,7 +83,10 @@ export function Experience() {
                         className="pt-8"
                     >
                         <MagneticButton
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => {
+                                track('cta_contact_click', { source: 'experience', locale });
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             className="bg-transparent border border-forest-500/30 hover:border-forest-500 hover:bg-forest-500/10 text-forest-400"
                         >
                             {t('exp_cta')} <ArrowRight size={18} weight="bold" />

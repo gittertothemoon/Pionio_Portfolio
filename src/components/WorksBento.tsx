@@ -4,6 +4,7 @@ import { ArrowUpRight } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { projects, projectCategory } from '../lib/projects';
+import { track } from '../lib/analytics';
 
 export function WorksBento() {
     const { t, locale } = useLanguage();
@@ -62,6 +63,7 @@ export function WorksBento() {
                     <m.div variants={itemVariants} className="md:col-span-2 h-full">
                         <Link
                             to={`/projects/${hero.slug}`}
+                            onClick={() => track('project_click', { slug: hero.slug, position: 'hero', locale })}
                             aria-label={`${hero.title} — ${projectCategory(hero, locale)}`}
                             className={`block relative rounded-[2.5rem] ${
                                 heroLight ? 'bg-[#E8F4FD] border-sky-200/60' : 'bg-zinc-800 border-white/5'
@@ -144,6 +146,7 @@ export function WorksBento() {
                             >
                                 <Link
                                     to={`/projects/${work.slug}`}
+                                    onClick={() => track('project_click', { slug: work.slug, position: 'grid', locale })}
                                     aria-label={`${work.title} — ${projectCategory(work, locale)}`}
                                     className={`block relative rounded-[2.5rem] ${
                                         isLight ? `${lightBg} border-zinc-200/60` : 'bg-zinc-900 border-white/5'

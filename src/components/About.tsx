@@ -1,10 +1,11 @@
 import { m } from 'framer-motion';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 
 export function About() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
     return (
         <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden">
             <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10">
@@ -55,7 +56,10 @@ export function About() {
                         className="mt-20"
                     >
                         <MagneticButton
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => {
+                                track('cta_contact_click', { source: 'about', locale });
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             className="bg-transparent border border-white/10 hover:border-forest-500/50 hover:bg-forest-500/10 text-white"
                         >
                             {t('about_cta')} <ArrowRight size={18} weight="bold" />

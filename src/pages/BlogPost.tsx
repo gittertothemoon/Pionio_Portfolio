@@ -1,10 +1,12 @@
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { getPost, posts } from '../lib/blog';
+import { track } from '../lib/analytics';
 
 export function getStaticPaths() {
     return posts.map((p) => `blog/${p.slug}`);
@@ -17,6 +19,24 @@ export function Component() {
 export default function BlogPost() {
     const { slug } = useParams<{ slug: string }>();
     const post = slug ? getPost(slug) : undefined;
+
+    useEffect(() => {
+        if (!post || typeof window === 'undefined') return;
+        const locale = document.documentElement.lang === 'en' ? 'en' : 'it';
+        track('blog_post_open', { slug: post.slug, locale });
+        const start = Date.now();
+        const onLeave = () => {
+            const seconds = Math.round((Date.now() - start) / 1000);
+            if (seconds >= 30) {
+                track('blog_read_complete', { slug: post.slug, seconds, locale });
+            }
+        };
+        window.addEventListener('pagehide', onLeave);
+        return () => {
+            window.removeEventListener('pagehide', onLeave);
+            onLeave();
+        };
+    }, [post]);
 
     if (!post) {
         return (

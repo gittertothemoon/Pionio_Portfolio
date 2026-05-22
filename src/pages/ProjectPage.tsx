@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Logo } from '../components/Logo';
 import { Footer } from '../components/Footer';
 import { getProject, projects, projectCategory, projectLongDescription } from '../lib/projects';
+import { track } from '../lib/analytics';
 
 export function getStaticPaths() {
     return projects.map((p) => `projects/${p.slug}`);
@@ -213,6 +214,7 @@ export default function ProjectPage() {
                                     href={project.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => track('project_visit_external', { slug: project.slug, locale })}
                                     className="self-start mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-forest-500/30 bg-forest-500/10 hover:bg-forest-500/20 text-forest-100 font-mono text-xs uppercase tracking-widest transition-colors duration-300"
                                 >
                                     {locale === 'it' ? 'Visita il sito' : 'Visit site'} <ArrowUpRight weight="bold" />
@@ -268,6 +270,7 @@ export default function ProjectPage() {
                                     <Link
                                         key={p.slug}
                                         to={`/projects/${p.slug}`}
+                                        onClick={() => track('project_click', { slug: p.slug, position: 'related', locale })}
                                         className="group flex flex-col gap-3 p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all duration-300"
                                     >
                                         <div

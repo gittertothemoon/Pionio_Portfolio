@@ -2,6 +2,7 @@ import { m } from 'framer-motion';
 import { GithubLogo, InstagramLogo } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 import { services } from '../lib/services';
 import { posts } from '../lib/blog';
 
@@ -11,7 +12,7 @@ const socials = [
 ];
 
 export function Footer() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
     const recentPosts = [...posts]
         .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
         .slice(0, 4);
@@ -118,6 +119,7 @@ export function Footer() {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => track('social_click', { network: social.name.toLowerCase(), locale })}
                                         className="inline-flex items-center gap-2 text-zinc-300 hover:text-forest-400 font-sans text-sm transition-colors"
                                     >
                                         <social.icon size={16} weight="duotone" />
@@ -128,6 +130,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="mailto:pionio.dev@gmail.com"
+                                    onClick={() => track('email_click', { source: 'footer', locale })}
                                     className="text-zinc-300 hover:text-forest-400 font-sans text-sm transition-colors"
                                 >
                                     pionio.dev@gmail.com

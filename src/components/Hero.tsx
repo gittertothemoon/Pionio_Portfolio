@@ -2,6 +2,7 @@ import { m } from 'framer-motion';
 import { Globe, ArrowDown } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { useIsRestrictedWebView } from '../lib/ua';
+import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
 import { Hero3D } from './Hero3D';
@@ -14,7 +15,9 @@ export function Hero() {
     const restricted = useIsRestrictedWebView();
 
     const toggleLanguage = () => {
-        setLocale(locale === 'en' ? 'it' : 'en');
+        const next = locale === 'en' ? 'it' : 'en';
+        track('lang_switch', { from: locale, to: next, location: 'hero' });
+        setLocale(next);
     };
 
     return (

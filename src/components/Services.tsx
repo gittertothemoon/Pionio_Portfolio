@@ -2,10 +2,11 @@ import { m, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 
 export function Services() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
 
     const services = [
         {
@@ -66,7 +67,10 @@ export function Services() {
                     className="flex justify-center pt-8"
                 >
                     <MagneticButton
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => {
+                            track('cta_contact_click', { source: 'services', locale });
+                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
                     >
                         {t('services_cta')} <ArrowRight size={18} weight="bold" />
                     </MagneticButton>

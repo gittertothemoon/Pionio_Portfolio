@@ -4,6 +4,7 @@ import { EnvelopeSimple, InstagramLogo, GithubLogo } from '@phosphor-icons/react
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { ContactCTA } from '../components/ContactCTA';
+import { track } from '../lib/analytics';
 
 const url = 'https://pionio.it/contatti';
 const title = 'Contatti — Richiedi un Preventivo o una Consulenza | PIONIO';
@@ -119,6 +120,7 @@ export default function ContactPage() {
                     >
                         <a
                             href="mailto:pionio.dev@gmail.com"
+                            onClick={() => track('email_click', { source: 'contact_page', locale: document.documentElement.lang || 'it' })}
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <EnvelopeSimple weight="duotone" className="text-forest-400" size={28} />
@@ -131,6 +133,7 @@ export default function ContactPage() {
                             href="https://www.instagram.com/pionio_dev"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => track('social_click', { network: 'instagram', locale: document.documentElement.lang || 'it' })}
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <InstagramLogo weight="duotone" className="text-forest-400" size={28} />
@@ -145,6 +148,7 @@ export default function ContactPage() {
                             href="https://github.com/gittertothemoon"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => track('social_click', { network: 'github', locale: document.documentElement.lang || 'it' })}
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <GithubLogo weight="duotone" className="text-forest-400" size={28} />
