@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
 import { Hero3D } from '../components/Hero3D';
+import { Pionio3DInfo } from '../components/Pionio3DInfo';
 import { About } from '../components/About';
 import { useIsRestrictedWebView } from '../lib/ua';
 import { Services } from '../components/Services';
@@ -86,9 +87,13 @@ export default function Home() {
                             src="/models/pionio-3d-mobile.gltf"
                         />
                     </div>
-                    <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
-                        Trascina per ruotare
-                    </p>
+                    <div className="flex items-center gap-4 flex-wrap justify-center">
+                        <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
+                            Trascina per ruotare
+                        </p>
+                        <span className="text-zinc-700">·</span>
+                        <Pionio3DInfo variant="inline" />
+                    </div>
                 </section>
 
                 <div id="about">

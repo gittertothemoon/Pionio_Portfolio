@@ -28,3 +28,14 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Claude Code local cache (worktrees, scratch)
+.claude/
+
+# Sibling projects living alongside portfolio-pionio (own repos / not tracked here)
+feet-platform/
+reels/
+
+# YouTube OAuth
+.youtube-oauth.json
+.youtube-token.json

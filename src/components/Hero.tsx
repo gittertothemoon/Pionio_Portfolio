@@ -6,6 +6,7 @@ import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
 import { Hero3D } from './Hero3D';
+import { Pionio3DInfo } from './Pionio3DInfo';
 
 export function Hero() {
     const { t, locale, setLocale } = useLanguage();
@@ -122,12 +123,18 @@ export function Hero() {
                 h1 on the left is capped at max-w-2xl so the model has
                 space without overlap. */}
             <div className={`${restricted ? 'hidden' : 'hidden xl:flex'} absolute inset-0 items-center justify-center pointer-events-none z-10`}>
-                <Hero3D
-                    className="pointer-events-auto w-full max-w-[640px] aspect-square"
-                    interactive
-                    tilt
-                    float
-                />
+                <div className="pointer-events-auto w-full max-w-[640px] aspect-square relative">
+                    <Hero3D
+                        className="w-full h-full"
+                        interactive
+                        tilt
+                        float
+                    />
+                    {/* Easter egg build-in-public: scopri il peso del P 3D */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+                        <Pionio3DInfo variant="pill" />
+                    </div>
+                </div>
             </div>
         </section>
     );
