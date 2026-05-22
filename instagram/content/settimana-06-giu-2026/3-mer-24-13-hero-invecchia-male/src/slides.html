@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Hero · Il sito che invecchia male parla di te</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; overflow: hidden; }
+
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; }
+
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; opacity: 0.55; }
+
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,9,11,0.4) 0%, rgba(9,9,11,0.85) 60%, rgba(9,9,11,0.95) 100%); }
+
+  .header { position: absolute; top: 100px; left: 110px; right: 110px; display: flex; align-items: center; justify-content: space-between; z-index: 3; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .main { position: absolute; left: 110px; right: 110px; bottom: 240px; z-index: 3; display: flex; flex-direction: column; gap: 32px; }
+  .hero-kicker { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; }
+  .hero-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 88px; line-height: 1.0; letter-spacing: -0.04em; color: var(--text); max-width: 880px; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-family: "Geist", sans-serif; font-weight: 400; font-size: 30px; line-height: 1.4; color: var(--muted); max-width: 760px; }
+
+  .footer { position: absolute; left: 110px; right: 110px; bottom: 100px; display: flex; align-items: flex-end; justify-content: space-between; z-index: 3; }
+  .footer-url, .footer-tag { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+</style>
+</head>
+<body data-gramm="false">
+
+<section class="slide" id="s1">
+  <img class="hero-img" src="../assets/hero-raw.png" alt="" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+
+  <div class="header">
+    <div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div>
+    <div class="eyebrow">LIFECYCLE · L'INVECCHIAMENTO</div>
+  </div>
+
+  <div class="main">
+    <div class="hero-kicker">NON SI ROMPE. PEGGIORA.</div>
+    <h1 class="hero-title">Il sito che <em>invecchia male</em> parla di te.</h1>
+    <p class="hero-sub">Non si vede dall'esterno. Si vede da dentro — nelle scelte di tre anni fa che oggi non racconti più.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-url">pionio.it</div>
+    <div class="footer-tag">PIONIO · WEB DESIGN STUDIO</div>
+  </div>
+</section>
+
+</body>
+</html>
