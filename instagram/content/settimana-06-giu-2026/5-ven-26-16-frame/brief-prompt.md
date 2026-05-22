@@ -10,7 +10,7 @@ Editorial photograph of a raw concrete wall fragment with visible cast-in seams 
 
 ## Note
 - Mood "scheletro/cemento" — la struttura sotto la finitura, allude a "rifare dalla base"
-- Coerente con caso studio Ven 26 ("si rifa la base, non l'identità")
+- Coerente con caso studio Ven 26 ("si rifà la base, non l'identità")
 - Genera 4-6 varianti, scegli quella con quadrante basso-destra calmo (per il logo)
 - Salva PNG in `assets/frame-raw.png`
 - `cd src && node render.cjs`
