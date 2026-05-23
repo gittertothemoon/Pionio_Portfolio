@@ -13,19 +13,26 @@ OUT_CSV = WEEK_DIR / "settimana-07-publer-bulk.csv"
 
 # (folder, date, time)
 POSTS = [
+    ("1-lun-29-08-morning-no",                  "2026-06-29", "08:30"),
     ("1-lun-29-13-educational-cinque-tipi-no", "2026-06-29", "13:00"),
     ("1-lun-29-19-manifesto-nicchia-igiene",   "2026-06-29", "19:30"),
+    ("2-mar-30-08-morning-identita",            "2026-06-30", "08:30"),
     ("2-mar-30-13-pillola-scegliere-non-sei",  "2026-06-30", "13:00"),
     ("2-mar-30-16-frame",                       "2026-06-30", "16:00"),
     ("2-mar-30-19-reactive-designer-fa-tutto", "2026-06-30", "19:30"),
+    ("3-mer-1-08-morning-cornice",              "2026-07-01", "08:30"),
     ("3-mer-1-13-hero-non-faccio",              "2026-07-01", "13:00"),
     ("3-mer-1-19-bts-checklist-accetto",        "2026-07-01", "19:30"),
+    ("4-gio-2-08-morning-tre",                  "2026-07-02", "08:30"),
     ("4-gio-2-19-metodo-tre-domande",           "2026-07-02", "19:30"),
+    ("5-ven-3-08-morning-rifiuto",              "2026-07-03", "08:30"),
     ("5-ven-3-13-caso-studio-quando-ho-detto-no","2026-07-03", "13:00"),
     ("5-ven-3-16-frame",                        "2026-07-03", "16:00"),
     ("5-ven-3-19-riflessione-dicendo-no",       "2026-07-03", "19:30"),
+    ("6-sab-4-08-morning-confini",              "2026-07-04", "08:30"),
     ("6-sab-4-13-mark-nicchia-ti-sceglie",      "2026-07-04", "13:00"),
     ("6-sab-4-19-saved-company-of-one",         "2026-07-04", "19:30"),
+    ("7-dom-5-08-morning-contatto",             "2026-07-05", "08:30"),
     ("7-dom-5-13-brief-settimana-8",            "2026-07-05", "13:00"),
     ("7-dom-5-19-question-ultimo-no",           "2026-07-05", "19:30"),
 ]

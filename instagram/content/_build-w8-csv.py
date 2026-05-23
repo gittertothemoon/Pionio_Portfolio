@@ -11,19 +11,26 @@ WEEK_DIR = Path(__file__).parent / WEEK_SLUG
 OUT_CSV = WEEK_DIR / "settimana-08-publer-bulk.csv"
 
 POSTS = [
+    ("1-lun-6-08-morning-mail",                   "2026-07-06", "08:30"),
     ("1-lun-6-13-educational-cinque-cose-mail",  "2026-07-06", "13:00"),
     ("1-lun-6-19-manifesto-mail-bella",          "2026-07-06", "19:30"),
+    ("2-mar-7-08-morning-voce",                   "2026-07-07", "08:30"),
     ("2-mar-7-13-pillola-call-vale-piu",         "2026-07-07", "13:00"),
     ("2-mar-7-16-frame",                          "2026-07-07", "16:00"),
     ("2-mar-7-19-reactive-mail-morta",           "2026-07-07", "19:30"),
+    ("3-mer-8-08-morning-settimana",              "2026-07-08", "08:30"),
     ("3-mer-8-13-hero-primi-sette-giorni",        "2026-07-08", "13:00"),
     ("3-mer-8-19-bts-mood-call",                  "2026-07-08", "19:30"),
+    ("4-gio-9-08-morning-trascrizione",           "2026-07-09", "08:30"),
     ("4-gio-9-19-metodo-trascrizione",            "2026-07-09", "19:30"),
+    ("5-ven-10-08-morning-inizio",                "2026-07-10", "08:30"),
     ("5-ven-10-13-caso-studio-mail-diventata-sito","2026-07-10", "13:00"),
     ("5-ven-10-16-frame",                         "2026-07-10", "16:00"),
     ("5-ven-10-19-riflessione-sette-giorni",      "2026-07-10", "19:30"),
+    ("6-sab-11-08-morning-carta",                 "2026-07-11", "08:30"),
     ("6-sab-11-13-mark-primo-contatto-progetto",  "2026-07-11", "13:00"),
     ("6-sab-11-19-saved-design-is-a-job",         "2026-07-11", "19:30"),
+    ("7-dom-12-08-morning-discovery",             "2026-07-12", "08:30"),
     ("7-dom-12-13-brief-settimana-9",             "2026-07-12", "13:00"),
     ("7-dom-12-19-question-tempo-primo-si",       "2026-07-12", "19:30"),
 ]
