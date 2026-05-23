@@ -1,27 +1,30 @@
 #!/usr/bin/env python3
-"""Rigenera tutte le slides.html dei post Saved (W1-W10) con il template
-2-colonne: contenuto a sinistra, asset (logo/cover) in card bianca a destra.
+"""Rigenera tutte le slides.html dei post Saved (W1-W10) con layout 2-colonne:
+contenuto a sinistra, asset (logo/cover) a destra SENZA card bianca.
 
-Legge title/url/body/week dal file esistente, trova l'asset in assets/<name>-asset.<ext>,
-scrive il nuovo HTML e logga ognuno.
+Per loghi monocromi neri (Are.na, Linear simple-icons, Stripe simple-icons, Gov.uk crest)
+applica `filter: brightness(0) invert(1)` per renderli bianchi su nero.
+
+I libri (cover) sono mostrati come-sono, senza filtro.
 """
 import re
 from pathlib import Path
 
 CONTENT = Path(__file__).parent
 
-# Saved folders to process — (week_slug, folder_name)
+# Saved folders to process — (week_slug, folder_name, invert?, type)
+# type: "logo" or "cover"
 SAVED = [
-    ("settimana-01-mag-2026", "6-sab-23-19-saved-arena"),
-    ("settimana-02-mag-2026", "6-sab-30-19-saved-linear"),
-    ("settimana-03-giu-2026", "6-sab-06-19-saved-stripe"),
-    ("settimana-04-giu-2026", "6-sab-13-19-saved-plausible-live"),
-    ("settimana-05-giu-2026", "6-sab-20-19-saved-govuk"),
-    ("settimana-06-giu-2026", "6-sab-27-19-saved-wayback"),
-    ("settimana-07-giu-2026", "6-sab-4-19-saved-company-of-one"),
-    ("settimana-08-lug-2026", "6-sab-11-19-saved-design-is-a-job"),
-    ("settimana-09-lug-2026", "6-sab-18-19-saved-mom-test"),
-    ("settimana-10-lug-2026", "6-sab-25-19-saved-refactoring-ui"),
+    ("settimana-01-mag-2026", "6-sab-23-19-saved-arena",            True,  "logo"),
+    ("settimana-02-mag-2026", "6-sab-30-19-saved-linear",           True,  "logo"),
+    ("settimana-03-giu-2026", "6-sab-06-19-saved-stripe",           True,  "logo"),
+    ("settimana-04-giu-2026", "6-sab-13-19-saved-plausible-live",   False, "logo"),
+    ("settimana-05-giu-2026", "6-sab-20-19-saved-govuk",            True,  "logo"),
+    ("settimana-06-giu-2026", "6-sab-27-19-saved-wayback",          False, "logo"),
+    ("settimana-07-giu-2026", "6-sab-4-19-saved-company-of-one",    False, "cover"),
+    ("settimana-08-lug-2026", "6-sab-11-19-saved-design-is-a-job",  False, "cover"),
+    ("settimana-09-lug-2026", "6-sab-18-19-saved-mom-test",         False, "cover"),
+    ("settimana-10-lug-2026", "6-sab-25-19-saved-refactoring-ui",   False, "cover"),
 ]
 
 TEMPLATE = '''<!doctype html>
@@ -44,7 +47,7 @@ TEMPLATE = '''<!doctype html>
   .logo img {{ width: 100%; height: 100%; object-fit: contain; }}
   .eyebrow {{ font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }}
 
-  .main {{ display: grid; grid-template-columns: 1fr 340px; gap: 50px; align-items: center; }}
+  .main {{ display: grid; grid-template-columns: 1fr 340px; gap: 60px; align-items: center; }}
   .main-text {{ display: flex; flex-direction: column; gap: 32px; }}
   .saved-kicker {{ font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.18em; text-transform: uppercase; }}
   .saved-title {{ font-family: "Geist", sans-serif; font-weight: 700; font-size: 64px; line-height: 1.04; letter-spacing: -0.035em; color: var(--text); }}
@@ -55,10 +58,10 @@ TEMPLATE = '''<!doctype html>
   .saved-body {{ font-family: "Geist", sans-serif; font-weight: 400; font-size: 24px; line-height: 1.5; color: var(--muted); }}
   .saved-body em {{ font-style: italic; color: var(--text); font-weight: 500; }}
 
-  .asset-card {{ width: 340px; height: 480px; background: #fafafa; border-radius: 4px; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }}
-  .asset-card.cover {{ padding: 0; }}
-  .asset-card img {{ width: 100%; height: auto; max-height: 100%; object-fit: contain; }}
-  .asset-card.cover img {{ width: 100%; height: 100%; object-fit: cover; }}
+  .asset {{ width: 340px; height: 480px; display: flex; align-items: center; justify-content: center; }}
+  .asset img {{ max-width: 100%; max-height: 100%; object-fit: contain; }}
+  .asset.invert img {{ filter: invert(1); }}
+  .asset.cover img {{ width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }}
 
   .footer {{ display: flex; align-items: flex-end; justify-content: space-between; }}
   .footer-url, .footer-tag {{ font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }}
@@ -82,7 +85,7 @@ TEMPLATE = '''<!doctype html>
         {body}
       </p>
     </div>
-    <div class="asset-card{card_class}">
+    <div class="asset{asset_class}">
       <img src="../assets/{asset_filename}" alt="">
     </div>
   </div>
@@ -95,11 +98,10 @@ TEMPLATE = '''<!doctype html>
 </html>
 '''
 
-for week_slug, folder in SAVED:
+for week_slug, folder, invert, kind in SAVED:
     post_dir = CONTENT / week_slug / folder
     src_html = (post_dir / "src" / "slides.html").read_text()
 
-    # Extract fields from existing HTML
     title_m = re.search(r'<h1 class="saved-title">(.+?)</h1>', src_html, re.S)
     url_m = re.search(r'<span class="url">(.+?)</span>', src_html)
     body_m = re.search(r'<p class="saved-body">\s*(.+?)\s*</p>', src_html, re.S)
@@ -110,23 +112,27 @@ for week_slug, folder in SAVED:
     body = body_m.group(1).strip()
     week_num = week_m.group(1)
 
-    # Find asset file
     assets_dir = post_dir / "assets"
     asset_files = [f for f in assets_dir.iterdir() if f.name.endswith(("-asset.png", "-asset.jpg", "-asset.svg"))]
     if not asset_files:
         print(f"SKIP {folder}: no asset found")
         continue
     asset_filename = asset_files[0].name
-    is_cover = asset_filename.startswith("cover-")
-    card_class = " cover" if is_cover else ""
+
+    classes = []
+    if kind == "cover":
+        classes.append("cover")
+    if invert:
+        classes.append("invert")
+    asset_class = (" " + " ".join(classes)) if classes else ""
 
     new_html = TEMPLATE.format(
         week_num=week_num,
         title=title,
         url=url,
         body=body,
-        card_class=card_class,
+        asset_class=asset_class,
         asset_filename=asset_filename,
     )
     (post_dir / "src" / "slides.html").write_text(new_html)
-    print(f"OK {folder} (week {week_num}, asset {asset_filename}, cover={is_cover})")
+    print(f"OK {folder} (week {week_num}, asset {asset_filename}, kind={kind}, invert={invert})")
