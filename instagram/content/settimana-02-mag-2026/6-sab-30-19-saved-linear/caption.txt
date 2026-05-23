@@ -1,0 +1,7 @@
+Saved this week — la pagina changelog di Linear.
+
+In una webapp il changelog è quasi sempre una lista di numeri di versione e bullet point. Linear lo tratta come la sezione editoriale del sito: ogni release ha la sua piccola animazione, la sua micro-storia, la sua identità visiva. Non è un cambiamento di copy, è un cambiamento di approccio — il design fa parte del prodotto, non lo decora alla fine.
+
+Se devi mostrare progresso ai tuoi utenti, vale la pena guardarla.
+
+Hai un'idea? Parliamone. pionio.it
