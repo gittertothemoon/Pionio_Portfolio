@@ -1,11 +1,11 @@
-Quando Michelangelo descriveva il proprio metodo, parlava di una figura già contenuta nel marmo. Il suo lavoro era togliere il superfluo, non aggiungere materia. La frase è retorica abbastanza da essere stata abusata. Resta una delle migliori descrizioni del design che conosca.
+Quando Michelangelo descriveva il proprio metodo, parlava di una figura già contenuta nel marmo. Il suo lavoro era togliere il superfluo, non aggiungere materia. La frase è retorica, e abusata. Resta la descrizione del design che uso ancora.
 
 Per anni ho lavorato pensando che il design fosse aggiungere. Sezioni, contrasti, decorazioni, micro-interazioni. È divertente, gratifica subito, ha qualcosa da mostrare al cliente a fine giornata. Ma quasi mai migliora il sito.
 
 A un certo punto ho cominciato a tenere una lista parallela ai progetti: la lista di cosa togliere. Sezioni che non producono niente. Voci di menù che nessuno apre. Link che disperdono attenzione. Headline che ripetono in altre parole un titolo precedente.
 
-Quella lista è il vero documento di design. È più dura del moodboard. Le decisioni dentro sono tutte impopolari — perché ogni cosa tolta era stata pensata da qualcuno, e disfare ha un costo politico.
+Quella lista è il vero documento di design. È più dura del moodboard. Le decisioni dentro sono tutte impopolari — qualcuno aveva pensato a quella cosa, e disfarla costa fatica.
 
-Il design è la lista di cosa togliere. Si vede solo nel tempo. Ma quando si vede, dura.
+Il design è la lista di cosa togliere. Si vede solo nel tempo.
 
 Hai un'idea? Parliamone. pionio.it

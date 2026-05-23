@@ -6,7 +6,7 @@ Tema della settimana: velocità e SEO tecnico.
 
 7 giorni dentro Core Web Vitals, immagini ottimizzate, JavaScript pesante, indicizzazione, mobile-first reale. Tutto quello che il visitatore non vede ma sente: la pagina che si carica subito, il bottone che risponde al primo tap, il sito che esiste su Google senza dover pregare l'algoritmo.
 
-Il design senza performance è una bella stanza sigillata. La performance senza design è un magazzino bello in ordine. I siti che funzionano davvero hanno entrambi.
+Un sito ben disegnato che si carica in cinque secondi non lo vede nessuno. Un sito veloce ma confuso non lo capisce nessuno. Servono entrambe.
 
 Si parte lunedì con 5 cose da ottimizzare prima del lancio.
 

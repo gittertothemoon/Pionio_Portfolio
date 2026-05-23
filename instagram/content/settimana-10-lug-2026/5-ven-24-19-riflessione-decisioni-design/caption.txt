@@ -1,10 +1,10 @@
-5 giorni dentro il tema "decisioni di design". 3 cose che mi porto via.
+5 giorni dentro il tema "decisioni di design". Tre cose restano.
 
 Prima: la gerarchia decide tutto, e la decidi prima del colore. La frase del primo secondo è il documento di design più importante della homepage — più della palette, più dei font, più della struttura responsive. Si scrive su un taccuino, non in Figma.
 
-Seconda: togliere è la mossa più costosa e quella che paga meglio. Costa di più disegnare il taglio che disegnare l'aggiunta, perché ogni cosa tolta era stata pensata da qualcuno. Ma quando si paga, paga il triplo — in conversioni, in tempo di lettura, in chiarezza.
+Seconda: togliere costa fatica e paga in chiarezza. Disegnare il taglio costa più che disegnare l'aggiunta. Ma il sito che ne esce è più veloce da leggere, più chiaro, più memorabile.
 
-Terza: la sezione che chiede al visitatore di fare 2 cose ne ottiene zero. È una regola dura, vera in 9 casi su 10. Una sezione, un messaggio, un invito. Tutto il resto è cosmetica — bella o brutta che sia.
+Terza: la sezione che chiede al visitatore di fare due cose ne ottiene zero. Una sezione, un messaggio, un invito. Tutto il resto è cosmetica — bella o brutta che sia.
 
 5 giorni di decisioni. Settimana che chiude un piccolo arco sul "come progettare bene".
 
