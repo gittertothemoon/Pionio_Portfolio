@@ -6,7 +6,7 @@ import csv
 import os
 from pathlib import Path
 
-COMMIT = "8a29a51aba8a7520e40ad84228694c248727b8c6"
+COMMIT = "6c14b5193bed0bcbd731bf1a2c4002620675bdfa"
 REPO = "gittertothemoon/Pionio_Portfolio"
 WEEK_DIR = Path(__file__).parent / "settimana-07-giu-2026"
 OUT_CSV = WEEK_DIR / "settimana-07-publer-bulk.csv"
