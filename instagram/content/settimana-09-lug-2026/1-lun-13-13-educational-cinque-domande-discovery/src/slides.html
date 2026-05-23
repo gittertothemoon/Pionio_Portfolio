@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Educational · 5 domande di discovery</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; --accent-dark: #306b4d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; }
+  body { font-family: "Geist", system-ui, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; display: block; }
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; display: grid; grid-template-rows: 160px 1fr 120px; padding: 100px 110px; margin: 0 auto; }
+  .slide.is-hidden { display: none !important; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .footer-url { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+  .main { display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+  .hook-kicker { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .hook-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 92px; line-height: 1.02; letter-spacing: -0.035em; color: var(--text); }
+  .hook-title em { font-style: normal; color: var(--accent); }
+  .hook-sub { font-family: "Geist", sans-serif; font-weight: 400; font-size: 34px; line-height: 1.35; color: var(--muted); max-width: 760px; margin-top: 24px; }
+  .hook-sub .arrow { color: var(--accent); font-family: "Geist Mono", monospace; }
+  .punto-num { font-family: "Geist Mono", monospace; font-weight: 700; font-size: 180px; line-height: 0.9; color: var(--accent); letter-spacing: -0.04em; }
+  .punto-label { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 12px; }
+  .punto-question { font-family: "Geist", sans-serif; font-weight: 700; font-style: italic; font-size: 56px; line-height: 1.05; color: var(--accent); margin-top: 22px; max-width: 880px; letter-spacing: -0.025em; }
+  .punto-body { font-family: "Geist", sans-serif; font-weight: 400; font-size: 28px; line-height: 1.45; color: var(--muted); max-width: 840px; margin-top: 18px; }
+  .cta { margin-top: 28px; display: inline-flex; align-items: baseline; gap: 14px; padding: 22px 30px; border: 1px solid var(--accent-dark); border-radius: 4px; background: rgba(48, 107, 77, 0.08); width: max-content; }
+  .cta-label { font-family: "Geist", sans-serif; font-weight: 500; font-size: 28px; color: var(--text); }
+  .cta-arrow, .cta-url { font-family: "Geist Mono", monospace; font-size: 28px; color: var(--accent); }
+</style>
+</head>
+<body data-gramm="false">
+
+<section class="slide" id="s1">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">TIP</div></div>
+  <div class="main">
+    <div class="hook-kicker">Discovery · capire prima di disegnare.</div>
+    <h1 class="hook-title">5 domande di <em>discovery</em> che quasi nessuno fa.</h1>
+    <p class="hook-sub">Non sono le domande del brief Notion gratuito. Sono quelle che spostano davvero il progetto — e che ho imparato a fare a forza di sbagli. <span class="arrow">→</span></p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">DOMANDA #1</div></div>
+  <div class="main">
+    <div class="punto-num">01</div>
+    <div class="punto-label">Il test del vuoto</div>
+    <p class="punto-question">"Cosa rimane se togliamo il sito?"</p>
+    <p class="punto-body">Misura cosa il sito sta davvero portando. Se rimane un'azienda solida, il sito è uno strumento. Se senza sito non rimane molto, prima si lavora a quello che dovrebbe esserci sotto. La risposta orienta tutto.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">DOMANDA #2</div></div>
+  <div class="main">
+    <div class="punto-num">02</div>
+    <div class="punto-label">Le resistenze nascoste</div>
+    <p class="punto-question">"Chi vince se il sito non viene fatto?"</p>
+    <p class="punto-body">Quasi sempre c'è qualcuno — un'altra divisione, un consulente esterno, un cugino designer — che ha interesse a che il progetto non parta. Estrarre il nome a voce evita tre mesi di sabotaggi passivi.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">DOMANDA #3</div></div>
+  <div class="main">
+    <div class="punto-num">03</div>
+    <div class="punto-label">Orizzonte lungo</div>
+    <p class="punto-question">"Quale frase vorresti leggere sul tuo sito tra tre anni?"</p>
+    <p class="punto-body">Sposta il focus da "cosa vendere ora" a "chi vuole essere l'azienda". Filosofica all'apparenza, pratica nei fatti — perché ogni decisione di design oggi è anche un piccolo voto su quella frase futura.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">DOMANDA #4</div></div>
+  <div class="main">
+    <div class="punto-num">04</div>
+    <div class="punto-label">Strumento o cosmetica</div>
+    <p class="punto-question">"Cosa farai col sito che non puoi fare adesso?"</p>
+    <p class="punto-body">Risposte vaghe ("comunicare meglio", "sembrare più moderni") segnalano un progetto cosmetico. Risposte specifiche ("ricevere richieste qualificate senza chiamarmi", "vendere il pacchetto X") segnalano uno strumento di lavoro vero.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">DOMANDA #5</div></div>
+  <div class="main">
+    <div class="punto-num">05</div>
+    <div class="punto-label">Conflitto interno</div>
+    <p class="punto-question">"Chi nella tua azienda non vorrebbe questo cambiamento?"</p>
+    <p class="punto-body">La resistenza interna esiste sempre, dichiararla quasi mai. Estrarla nella mood call ti dà nomi e ragioni, non ipotesi. Il progetto che ignora il dissenso interno finisce sempre con una riunione complicata al sessantesimo giorno.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">RIASSUMENDO</div></div>
+  <div class="main">
+    <div class="hook-kicker">Cinque domande, due ore di discovery.</div>
+    <h2 class="punto-question" style="margin-top:0;color:var(--text);font-style:normal;font-size:60px">Si pagano da sole nei <em style="color:var(--accent);font-style:normal">due mesi</em> successivi.</h2>
+    <p class="punto-body">Non sono domande da brief — sono domande da conversazione. Si fanno a voce, con calma, lasciando rispondere senza correggere. Il loro valore non sta nelle risposte: sta nelle pause che le precedono.</p>
+    <div class="cta">
+      <span class="cta-label">Hai un progetto da raccontarmi?</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-url">pionio.it</span>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+</body>
+</html>

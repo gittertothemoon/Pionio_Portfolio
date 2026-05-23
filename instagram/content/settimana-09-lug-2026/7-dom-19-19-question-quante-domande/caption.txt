@@ -1,0 +1,12 @@
+Domanda #8.
+
+Pensa all'ultimo progetto che hai cominciato. Quante domande hai fatto al cliente prima di aprire Figma o di mettere mano al primo file?
+
+Meno di 5: probabilmente hai disegnato di pancia, lo stile l'ha preso ciò che pensavi giusto tu.
+5-15: media bassa. Hai capito i fondamentali, ma hai dato per scontato tante cose.
+Quindici-30: discovery normale, decisioni di design ben fondate.
+Oltre 30: discovery seria. Il sito che esce sarà difficile da contestare al cliente, perché ogni decisione ha una motivazione tracciabile.
+
+E quante volte sei tornato indietro durante il progetto a chiedere ancora qualcosa? Rispondimi nei commenti.
+
+pionio.it
