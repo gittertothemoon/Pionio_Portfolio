@@ -6,7 +6,7 @@ Focus: una sola cosa per sezione. Se chiede al visitatore di fare 2 cose, ne fa 
 Intenzione: 2-3 azioni chiave che il sito deve far compiere. Tutto il design serve quelle azioni.
 Sotto la piega: cosa c'è dopo il primo scroll. Metà del traffico non lo vedrà mai. Va fatto bene lo stesso.
 
-Sono decisioni dure. Non si tornano indietro facilmente — perché ogni elemento del sito le presuppone. Prese male, il sito si difende a fatica. Prese bene, l'esecuzione è la parte facile.
+Sono decisioni dure. Non si torna indietro facilmente — perché ogni elemento del sito le presuppone. Prese male, il sito si difende a fatica. Prese bene, l'esecuzione è la parte facile.
 
 Curioso il fatto che la parola "design" venga da "designare" — proprio "decidere". Il primo significato del mestiere è quello: decidere prima di disegnare.
 
