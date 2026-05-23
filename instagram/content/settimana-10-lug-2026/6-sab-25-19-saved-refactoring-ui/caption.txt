@@ -6,7 +6,7 @@ Tratta tutto il "come" del design quotidiano: gerarchia visiva, contrasto, spazi
 
 Scritto dai 2 autori di Tailwind CSS, è pensato per chi conosce il codice meglio delle teorie del Bauhaus. È il libro che do da leggere agli sviluppatori che stanno cominciando a fare design, e che mi salva quando un cliente mi chiede "perché funziona meglio così" e devo dare una risposta non vaga.
 
-Quarantacinque dollari, 60 ore di lettura attiva e mille riconsultazioni.
+Novantanove dollari, 60 ore di lettura attiva e mille riconsultazioni.
 
 → refactoringui.com
 
