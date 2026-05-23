@@ -1,0 +1,15 @@
+Una homepage che aveva 14 sezioni. Ne è uscita con 6. Le conversioni sono più che raddoppiate in 90 giorni.
+
+Il caso è didattico — replicabile su qualsiasi sito che parte dalla pretesa di completezza. Ed è il taglio più formativo che faccio in un progetto: quello che insegna al cliente che togliere costa più di aggiungere, ma paga molto meglio.
+
+Il metodo è semplice nei passaggi, durissimo da praticare. Censimento di tutte le sezioni con dati Analytics, niente opinioni. Conto delle conversioni reali: di solito 3 sezioni portano l'80%, le altre fanno rumore. Lista delle candidate al taglio divise in 3 categorie: togliere subito, accorpare, spostare in pagine interne. Workshop col cliente di 90 minuti — una domanda per sezione: la teniamo? perché? cosa perdiamo se la togliamo?
+
+La risposta a quest'ultima domanda è quasi sempre la stessa: niente.
+
+La nuova homepage si scorre in 60 secondi senza fretta. Hero, 2 servizi principali, un caso studio, prove sociali, contatto. Tutto il resto vive in pagine interne più adatte.
+
+In numeri: più 145% di conversioni, più 40% di tempo in pagina (paradosso: meno sezioni, più lette), meno 20% di bounce rate. Una pagina sola, meglio progettata.
+
+Sottrarre è sempre la mossa più costosa. Ma quando si paga, paga il triplo.
+
+Hai un'idea? Parliamone. pionio.it

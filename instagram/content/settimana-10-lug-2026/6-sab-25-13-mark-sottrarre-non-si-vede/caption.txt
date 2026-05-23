@@ -1,0 +1,11 @@
+Settimana #10, sabato.
+
+C'è una trappola del design di cui si parla poco. Le decisioni di addizione si vedono subito — un colore più contrastato, una sezione in più, un'animazione, un badge. Le decisioni di sottrazione no: se fatte bene, sembra solo che il sito "respiri di più", e quasi nessuno collega quel respiro al lavoro che ci è voluto per ottenerlo.
+
+Per questo i siti tendono a gonfiarsi nel tempo, e quasi mai a sgonfiarsi. Aggiungere è il default — togliere è una pratica.
+
+Sottrarre richiede coraggio davanti a qualcosa che dall'esterno apparirà come niente. È la parte del mestiere che si paga peggio e che produce di più. Si paga peggio perché un cliente che vede meno cose, naturalmente, pensa di aver pagato per meno lavoro. Produce di più perché il sito che ne esce è più chiaro, più veloce, più memorabile.
+
+È un disallineamento strutturale tra quello che si percepisce e quello che si ottiene davvero. Si attraversa solo accettandolo, e provando a spiegarlo ogni volta.
+
+pionio.it

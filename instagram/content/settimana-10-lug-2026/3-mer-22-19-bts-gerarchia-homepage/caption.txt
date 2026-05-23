@@ -1,0 +1,11 @@
+Quando comincio una homepage, non apro Figma per primo. Apro una pagina di taccuino vuota e scrivo una frase. Una sola. La frase del primo secondo.
+
+Quella frase è il punto di partenza di tutta la gerarchia. Risponde alla domanda "se il visitatore leggesse solo questo, cosa vorrei che gli rimanesse?". Ci metto fino a 2 ore — meno spesso di più. Provo 5-6 versioni, le scrivo a mano, le rileggo a voce alta, ne scelgo una.
+
+Solo dopo apro Figma. La sezione hero si disegna in 30 minuti — perché la decisione difficile è già stata presa. Tutta la pagina si organizza in funzione di quella frase: cosa c'è subito dopo, cosa supporta la frase, cosa risponde alla domanda che il visitatore si fa dopo averla letta.
+
+Cambiare la frase a metà progetto significa rifare la homepage. Per questo le 2 ore di lavoro all'inizio fanno risparmiare giorni dopo.
+
+Una frase, poi tutto il resto. È il metodo che uso da quando ho smesso di partire dal colore.
+
+Hai un'idea? Parliamone. pionio.it

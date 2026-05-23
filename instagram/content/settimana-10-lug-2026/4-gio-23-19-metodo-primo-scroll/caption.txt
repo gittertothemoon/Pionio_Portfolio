@@ -1,0 +1,13 @@
+La regola del primo scroll è la più dura del mestiere. Sopra la piega — il primo viewport che il visitatore vede senza scorrere — devono diventare chiare 3 cose in 6 secondi.
+
+Chi sei. Cosa fai. Perché contattarti.
+
+Non devono essere tutte e 3 simultaneamente in vista come 3 cartelli paralleli. Devono emergere come 3 risposte da una lettura veloce. La frase principale risponde a "cosa fai", il sotto-titolo a "chi sei", il pulsante o la frase di chiusura a "perché contattarti".
+
+6 secondi è il tempo medio prima del primo scroll, o del primo abbandono. Sotto i 6 secondi, il visitatore decide se andare avanti. Se in quei 6 secondi le 3 cose non sono diventate chiare, lo scroll successivo è praticamente perso.
+
+È matematico, non opinabile. Apri Analytics: il bounce rate sotto i 10 secondi è quasi sempre il sintomo di un primo scroll mal progettato.
+
+3 cose, 6 secondi. Tutto il resto della homepage serve a chi è andato avanti.
+
+Hai un'idea? Parliamone. pionio.it
