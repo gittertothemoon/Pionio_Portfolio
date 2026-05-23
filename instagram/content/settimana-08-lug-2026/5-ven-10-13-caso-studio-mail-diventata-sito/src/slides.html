@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Caso studio · Una mail che è diventata un sito</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; --accent-dark: #306b4d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; }
+  body { font-family: "Geist", system-ui, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; display: grid; grid-template-rows: 160px 1fr 120px; padding: 100px 110px; margin: 0 auto; }
+  .slide.is-hidden { display: none !important; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .footer-url { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+  .main { display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+  .step-label { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.18em; text-transform: uppercase; }
+  .step-headline { font-family: "Geist", sans-serif; font-weight: 700; font-size: 70px; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); max-width: 880px; }
+  .step-headline em { font-style: italic; color: var(--accent); }
+  .step-body { font-family: "Geist", sans-serif; font-weight: 400; font-size: 30px; line-height: 1.45; color: var(--muted); max-width: 820px; }
+  .hero-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 110px; line-height: 0.96; letter-spacing: -0.04em; color: var(--text); }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-tagline { font-family: "Geist", sans-serif; font-weight: 400; font-size: 32px; line-height: 1.4; color: var(--muted); max-width: 800px; margin-top: 16px; }
+  .cta { margin-top: 28px; display: inline-flex; align-items: baseline; gap: 14px; padding: 22px 30px; border: 1px solid var(--accent-dark); border-radius: 4px; background: rgba(48, 107, 77, 0.08); width: max-content; }
+  .cta-label { font-family: "Geist", sans-serif; font-weight: 500; font-size: 28px; color: var(--text); }
+  .cta-arrow, .cta-url { font-family: "Geist Mono", monospace; font-size: 28px; color: var(--accent); }
+</style>
+</head>
+<body data-gramm="false">
+
+<section class="slide" id="s1">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CASO STUDIO · METODO</div></div>
+  <div class="main">
+    <h1 class="hero-title">Una <em>mail</em> che è diventata un sito.</h1>
+    <p class="hero-tagline">Cosa succede nei sette giorni tra una richiesta in arrivo e un progetto firmato. Passi precisi, ore reali, in ordine.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 0</div></div>
+  <div class="main">
+    <div class="step-label">ORA ZERO · LA MAIL ARRIVA</div>
+    <h2 class="step-headline">Non rispondo <em>subito</em>.</h2>
+    <p class="step-body">La risposta istintiva è quasi sempre sbagliata, in un senso o nell'altro: troppo aperta, troppo chiusa, troppo veloce. Aspetto qualche ora, almeno fino a sera. La pausa fa parte del metodo.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 0 · SERA</div></div>
+  <div class="main">
+    <div class="step-label">LETTURA CON METODO</div>
+    <h2 class="step-headline">Cinque segnali, <em>due minuti</em>.</h2>
+    <p class="step-body">Apertura, ragione precisa, contesto del progetto, proposta di follow-up, tono. Tre segnali su cinque: rispondo con una call. Meno di tre: rispondo in tre righe e lascio la palla al cliente.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 1</div></div>
+  <div class="main">
+    <div class="step-label">LA RISPOSTA · 30 MINUTI</div>
+    <h2 class="step-headline">Tre paragrafi, <em>una call</em> proposta.</h2>
+    <p class="step-body">Primo paragrafo: ho letto, ho capito. Secondo: due-tre domande precise sul progetto. Terzo: proposta di una call concreta con tre orari. Niente preventivo, niente pricing, niente vendita. Solo l'apertura del passo successivo.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 2-3</div></div>
+  <div class="main">
+    <div class="step-label">TEMPO DI RISPOSTA · SEGNALE</div>
+    <h2 class="step-headline">Quanto ci mette a <em>rispondermi</em>.</h2>
+    <p class="step-body">Sotto le 24 ore: progetto pronto, cliente presente. Tra 24-72 ore: normale, ma da seguire. Oltre cinque giorni: ricalibro le aspettative o do per chiuso. Il tempo di risposta è il primo indicatore di disponibilità reale.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 3</div></div>
+  <div class="main">
+    <div class="step-label">MOOD CALL · 45 MINUTI</div>
+    <h2 class="step-headline">Cinque blocchi, <em>una decisione</em>.</h2>
+    <p class="step-body">Dieci minuti sul perché. Dieci sul chi parla a chi. Dieci sul cosa rimane se togliamo il sito. Dieci sui tempi e il decisore. Cinque sul budget di scoperta. La call non vende — fa decidere a me se accettare.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 4</div></div>
+  <div class="main">
+    <div class="step-label">TRASCRIZIONE · 90 MINUTI</div>
+    <h2 class="step-headline">Riascolto, <em>scrivo a mano</em>.</h2>
+    <p class="step-body">Registrazione con consenso. Riascolto la call in due passaggi, scrivo un documento di due pagine. Non un riassunto: punti decisionali, contraddizioni, cose dette tra le righe. La trascrizione vale due call.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 5</div></div>
+  <div class="main">
+    <div class="step-label">MAIL DI SINTESI</div>
+    <h2 class="step-headline">Cosa ho capito, cosa <em>mi manca</em>.</h2>
+    <p class="step-body">Mail al cliente in tre paragrafi: cosa ho capito del progetto, due-tre cose che mi servirebbero ancora, proposta di prossimo passo (preventivo o seconda call). Il cliente sente di essere stato ascoltato — e di solito risponde entro un giorno.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">GIORNO 6-7</div></div>
+  <div class="main">
+    <div class="step-label">IL PREVENTIVO</div>
+    <h2 class="step-headline">Solo <em>dopo</em>, mai prima.</h2>
+    <p class="step-body">Tempi, costo, processo, milestone. Mai prima della trascrizione e della sintesi: il preventivo dato troppo presto è sempre sbagliato, di solito di due-tre volte. La decisione del cliente arriva di solito entro tre-cinque giorni.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CHIUSURA</div></div>
+  <div class="main">
+    <div class="step-label">IN UNA RIGA</div>
+    <h2 class="step-headline">Sette giorni per decidere, <em>sei mesi</em> per costruire.</h2>
+    <p class="step-body">I sette giorni del primo contatto sono il dieci percento del tempo del progetto, e decidono il novanta percento della sua qualità. Tutto quello che farò nei sei mesi successivi nasce da come ho ascoltato in questi sette.</p>
+    <div class="cta">
+      <span class="cta-label">Hai un'idea? Parliamone.</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-url">pionio.it</span>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+</body>
+</html>
