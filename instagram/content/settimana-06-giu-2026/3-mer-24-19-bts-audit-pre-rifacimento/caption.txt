@@ -2,7 +2,7 @@ Quando un cliente mi chiede un preventivo per "rifare il sito", non rispondo sub
 
 La prima è Lighthouse: performance, accessibilità, SEO tecnico. 10 minuti di scroll dei warning.
 La seconda è Wayback Machine: come era il sito 3 anni fa, 2, 1. Si vede subito cosa è cambiato e cosa no.
-La terza è Search Console del cliente, se ha. Cosa rankerebbe se non ranknesse male.
+La terza è Search Console del cliente, se ce l'ha. Vedo cosa sta già funzionando su Google e cosa è a un passo dal funzionare.
 La quarta è il file dello stack — package.json, dipendenze, framework. Capisco se si patcha o si butta.
 
 Quaranta minuti, 4 tab. Solo dopo apro il documento del preventivo. La diagnosi viene prima della cifra — sempre.
