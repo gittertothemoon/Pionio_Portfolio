@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Frame</title>
+<style>
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #09090b; margin: 0; padding: 0; overflow: hidden; }
+  .frame { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: #09090b; }
+  .frame__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .frame__logo { position: absolute; right: 64px; bottom: 56px; height: 88px; z-index: 2; filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7)); opacity: 0.96; }
+  .frame__logo img { height: 100%; width: auto; display: block; }
+</style>
+</head>
+<body>
+<section class="frame" id="s1">
+  <img class="frame__img" src="../assets/frame-raw.png" alt="">
+  <div class="frame__logo">
+    <img src="./logo-tight.svg" alt="Pionio · Web Design Studio">
+  </div>
+</section>
+</body>
+</html>

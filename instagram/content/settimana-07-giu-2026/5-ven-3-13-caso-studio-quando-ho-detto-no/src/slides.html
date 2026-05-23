@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Caso studio · Quando ho detto no</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; --accent-dark: #306b4d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; }
+  body { font-family: "Geist", system-ui, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; display: grid; grid-template-rows: 160px 1fr 120px; padding: 100px 110px; margin: 0 auto; }
+  .slide.is-hidden { display: none !important; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .footer-url { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+  .main { display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+  .step-label { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.18em; text-transform: uppercase; }
+  .step-headline { font-family: "Geist", sans-serif; font-weight: 700; font-size: 72px; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); max-width: 880px; }
+  .step-headline em { font-style: italic; color: var(--accent); }
+  .step-body { font-family: "Geist", sans-serif; font-weight: 400; font-size: 30px; line-height: 1.45; color: var(--muted); max-width: 820px; }
+  .hero-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 120px; line-height: 0.96; letter-spacing: -0.04em; color: var(--text); }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-tagline { font-family: "Geist", sans-serif; font-weight: 400; font-size: 32px; line-height: 1.4; color: var(--muted); max-width: 800px; margin-top: 16px; }
+  .cta { margin-top: 28px; display: inline-flex; align-items: baseline; gap: 14px; padding: 22px 30px; border: 1px solid var(--accent-dark); border-radius: 4px; background: rgba(48, 107, 77, 0.08); width: max-content; }
+  .cta-label { font-family: "Geist", sans-serif; font-weight: 500; font-size: 28px; color: var(--text); }
+  .cta-arrow, .cta-url { font-family: "Geist Mono", monospace; font-size: 28px; color: var(--accent); }
+</style>
+</head>
+<body data-gramm="false">
+
+<section class="slide" id="s1">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CASO STUDIO · METODO</div></div>
+  <div class="main">
+    <h1 class="hero-title">Quando ho detto: <em>no</em>.</h1>
+    <p class="hero-tagline">Anatomia di un rifiuto. I tre-quattro giorni che separano una richiesta da un no detto bene — e che cosa cambia, per entrambi.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">PUNTO DI PARTENZA</div></div>
+  <div class="main">
+    <div class="step-label">COSA NON È</div>
+    <h2 class="step-headline">Il no non è una <em>reazione</em>.</h2>
+    <p class="step-body">Non è "no grazie" detto al volo né "abbiamo l'agenda piena" come uscita comoda. È una posizione che si costruisce in tre-quattro giorni, con un metodo. Solo a quel punto si chiama no.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 1</div></div>
+  <div class="main">
+    <div class="step-label">LA RICHIESTA IN ALLERTA</div>
+    <h2 class="step-headline">Quattro segnali che mi <em>frenano</em>.</h2>
+    <p class="step-body">Prezzo chiesto prima del brief. Deadline scollegata da una ragione. Riferimenti solo ai competitor. Nessuna disponibilità a fare discovery. Quando ne vedo tre su quattro, non chiudo: apro una valutazione di tre giorni.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 2</div></div>
+  <div class="main">
+    <div class="step-label">PRE-DISCOVERY · 30 MINUTI</div>
+    <h2 class="step-headline">Quattro domande, una <em>call gratuita</em>.</h2>
+    <p class="step-body">Perché ora. Chi parla a chi. Cosa rimane se togliamo il sito. Chi decide internamente. Trenta minuti, gratis. Le risposte dicono in modo molto chiaro se è un cliente Pionio o no — meglio di qualsiasi brief scritto.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 3</div></div>
+  <div class="main">
+    <div class="step-label">PAUSA · 24 ORE</div>
+    <h2 class="step-headline">Lascio passare un <em>giorno</em>.</h2>
+    <p class="step-body">Non rispondo subito. Le decisioni prese a caldo nei primi quindici minuti dopo una call sono sbagliate metà delle volte. Dormo sopra alla richiesta, la rileggo al mattino. Solo a quel punto formo il sì o il no.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 4</div></div>
+  <div class="main">
+    <div class="step-label">IL NO SCRITTO · TRE PARAGRAFI</div>
+    <h2 class="step-headline">Mai in chat. Mail, <em>tre paragrafi</em>.</h2>
+    <p class="step-body">Primo paragrafo: cosa ho capito del progetto. Secondo: perché non sono io a farlo. Terzo: una o due persone che lo fanno meglio di me. Il no senza redirizione è una porta chiusa, il no con redirizione è una porta aperta su un altro corridoio.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 5</div></div>
+  <div class="main">
+    <div class="step-label">COSA SUCCEDE AL CLIENTE</div>
+    <h2 class="step-headline">Il <em>novanta percento</em> ringrazia.</h2>
+    <p class="step-body">Il restante dieci insiste — e l'insistenza è il segnale finale. Chi continua a chiedere dopo un no chiaro non sta cercando te, sta cercando un esecutore qualunque. A quel punto il no diventa fermo, e non c'è altro da spiegare.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 6</div></div>
+  <div class="main">
+    <div class="step-label">COSA SUCCEDE A ME</div>
+    <h2 class="step-headline">Lo spazio chiama <em>spazio simile</em>.</h2>
+    <p class="step-body">Liberato il calendario, altri progetti più allineati arrivano nel giro di due-tre settimane. Non è magia: è che il tempo non si distrae più sulla richiesta sbagliata, e diventa visibile a quelle giuste. Statistica, non fortuna.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">QUANTO COSTA</div></div>
+  <div class="main">
+    <div class="step-label">NUMERI · ULTIMI SEI MESI</div>
+    <h2 class="step-headline">Quattro <em>no</em> su dieci richieste.</h2>
+    <p class="step-body">Dieci richieste arrivate, sei accettate. Tre erano già pronte da subito, tre dopo il pre-discovery. Quattro no, mai pentito di uno solo. Il dato è abbastanza stabile da diventare il mio normale, non un'eccezione.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CHIUSURA</div></div>
+  <div class="main">
+    <div class="step-label">IN UNA RIGA</div>
+    <h2 class="step-headline">Il <em>no</em> è una forma di disegno.</h2>
+    <p class="step-body">Quando dico no, sto disegnando il calendario, lo studio, il tipo di lavoro che voglio fare nei prossimi sei mesi. Disegnare per sottrazione è meno visibile di disegnare per addizione — ed è quasi sempre più formativo.</p>
+    <div class="cta">
+      <span class="cta-label">Hai un'idea? Parliamone.</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-url">pionio.it</span>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+</body>
+</html>
