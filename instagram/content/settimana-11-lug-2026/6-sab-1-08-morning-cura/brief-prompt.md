@@ -1,11 +1,11 @@
 # Morning Image · 1 AGO · CURA
 
-Foto editoriale per la parola "cura" — gesto di precisione, attenzione invisibile.
+Foto editoriale per la parola "cura" — gesto di precisione tecnica, attenzione invisibile.
 
 ## Prompt AI
 
 ```
-Editorial macro photograph of weathered craftsman's hands gently brushing fine dust off a polished dark wooden surface, the cloth still visible mid-motion. Cool side light from camera-left highlighting the texture of the wood grain. Forest-green hint in the deep shadows. Shallow depth of field, focused on the hands, museum-grade detail. Mood: care, restraint, attention to invisible details. Style: editorial documentary photography, restrained palette, pure black surrounding void. Avoid: faces, modern objects, jewelry, text, oversaturation.
+Editorial macro photograph of a watchmaker's hands using fine brass tweezers to position a small golden gear inside the open mechanism of a vintage pocket watch, the rest of the movement visible beneath, springs and tiny screws in soft focus. Cool side light from camera-left grazing the brass parts. Subtle forest-green reflection on the dark workbench underneath. Steady, focused gesture mid-motion. Shallow depth of field, museum-grade detail, fine grain. Mood: care, precision, the discipline of invisible work. Pure black surrounding void at the edges. Style: editorial documentary photography, restrained palette. Avoid: faces, modern objects, branded jewelry, text, oversaturation.
 ```
 
 ## Pipeline
