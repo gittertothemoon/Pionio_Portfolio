@@ -1,0 +1,13 @@
+Questa settimana ho salvato: Squoosh.
+
+Image compressor in browser di Google Chrome Labs. Drag and drop, niente account, niente upload sul cloud. Tutto avviene localmente sulla macchina di chi lo usa — privacy by design.
+
+Comprime in AVIF, WebP, MozJPEG, OxiPNG. Per ogni formato puoi regolare la qualità in tempo reale e vedere il prima/dopo affiancati. Una foto da 800 KB diventa 60-80 KB senza differenza visibile per l'occhio umano.
+
+Lo uso in ogni progetto Pionio, su ogni foto, prima di metterla online. Non è un'esagerazione: ogni asset visivo del sito passa da qui. È una delle ragioni per cui un sito Pionio di solito pesa un terzo della media del settore.
+
+Gratis, open source, sviluppato da Google. Una rarità nel panorama dei tool web — niente abbonamento, niente limite, niente catch.
+
+→ squoosh.app
+
+pionio.it

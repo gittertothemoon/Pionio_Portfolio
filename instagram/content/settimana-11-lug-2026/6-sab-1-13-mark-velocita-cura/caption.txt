@@ -1,0 +1,13 @@
+Settimana #11, sabato.
+
+Quando un sito si apre subito, il visitatore non lo nota — sente solo che funziona. Quando si apre piano, anche se è bello, qualcosa si rompe. Si rompe la fiducia, si rompe la pazienza, si rompe l'attenzione. Non si rompe in modo drammatico: si crepa, e quella crepa diventa la prima ragione per cui chiudere.
+
+La velocità non è una caratteristica tecnica. È la prima cosa che il sito comunica prima ancora di mostrare un pixel. È la promessa silenziosa che dietro c'è qualcuno che si è preso il tempo.
+
+Per anni ho considerato la performance come "lavoro di rifinitura" — qualcosa da fare alla fine, dopo il design. Adesso la considero parte del design dal giorno zero. Decidere quale libreria usare è una decisione di design. Scegliere il formato delle immagini è una decisione di design. Tagliare uno script perché pesa è una decisione di design.
+
+Un sito veloce è il primo segnale che qualcuno ci ha lavorato davvero. Nessuno applaude per i tre secondi risparmiati, ma tutti ne beneficiano. È un investimento silenzioso che paga ogni singola visita.
+
+La velocità è una forma di cura. Forse la più discreta, e la più decisiva.
+
+pionio.it

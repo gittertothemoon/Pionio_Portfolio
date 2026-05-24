@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Sunday Brief · 26 lug</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; --accent-dark: #306b4d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; overflow-x: hidden; }
+  body { font-family: "Geist", system-ui, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; display: grid; grid-template-rows: 160px 1fr 120px; padding: 100px 110px; margin: 0 auto; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .main { display: flex; flex-direction: column; justify-content: flex-start; gap: 28px; padding-top: 24px; }
+  .brief-kicker { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.18em; text-transform: uppercase; }
+  .brief-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 64px; line-height: 1.02; letter-spacing: -0.035em; color: var(--text); max-width: 880px; }
+  .brief-title em { font-style: normal; color: var(--accent); }
+  .brief-lead { font-family: "Geist", sans-serif; font-weight: 400; font-size: 24px; line-height: 1.45; color: var(--muted); max-width: 780px; }
+  .brief-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 0; }
+  .brief-list li { display: grid; grid-template-columns: 110px 1fr; gap: 28px; align-items: baseline; }
+  .brief-list .day { font-family: "Geist Mono", monospace; font-size: 20px; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; }
+  .brief-list .topic { font-family: "Geist", sans-serif; font-weight: 500; font-size: 25px; line-height: 1.3; color: var(--text); }
+  .brief-list .topic em { font-style: italic; color: var(--muted); font-weight: 400; }
+  .brief-list .topic .frame { color: var(--accent); font-style: normal; font-weight: 600; }
+  .footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .footer-url, .footer-tag { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+</style>
+</head>
+<body data-gramm="false">
+<section class="slide" id="s1">
+  <div class="header">
+    <div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div>
+    <div class="eyebrow">SUNDAY BRIEF · 2 AGO</div>
+  </div>
+  <div class="main">
+    <div class="brief-kicker">SETTIMANA #12 · IN ARRIVO</div>
+    <h1 class="brief-title">Ventidue post, <em>tema della settimana</em>: lanciare bene.</h1>
+    <p class="brief-lead">
+      Il sito è pronto. Pubblicarlo non è la fine — è l'inizio. Sette giorni dentro la checklist di lancio, l'annuncio fatto bene, il debug delle prime 24 ore, l'analytics che si guarda subito e quello che si aspetta a leggere.
+    </p>
+    <ul class="brief-list">
+      <li><span class="day">Lun 3</span><span class="topic">Cinque cose da fare il giorno del lancio. <em>+ "Lanciare è il primo giorno, non l'ultimo."</em></span></li>
+      <li><span class="day">Mar 4</span><span class="topic">Pillola "Si lancia mercoledì, mai venerdì". <em>+ <span class="frame">Frame</span> + reactive.</em></span></li>
+      <li><span class="day">Mer 5</span><span class="topic">Hero "Le 24 ore dopo il lancio". <em>+ BTS sulla mia checklist.</em></span></li>
+      <li><span class="day">Gio 6</span><span class="topic">Reel + metodo "Come annuncio un sito senza far cringe". <em></em></span></li>
+      <li><span class="day">Ven 7</span><span class="topic">Caso studio "Lancio andato male, recuperato in 48 ore". <em>+ <span class="frame">Frame</span> + riflessione.</em></span></li>
+      <li><span class="day">Sab 8</span><span class="topic">Saturday Mark. <em>+ Saved this week.</em></span></li>
+      <li><span class="day">Dom 9</span><span class="topic">Sunday Brief #13. <em>+ Sunday Question.</em></span></li>
+    </ul>
+  </div>
+  <div class="footer">
+    <div class="footer-url">pionio.it</div>
+    <div class="footer-tag">PIONIO · WEB DESIGN STUDIO</div>
+  </div>
+</section>
+</body>
+</html>

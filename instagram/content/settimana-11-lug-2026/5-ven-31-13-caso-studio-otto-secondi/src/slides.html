@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Pionio · Caso studio · Da otto secondi a uno e mezzo</title>
+<style>
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Geist"; src: url("../../../../../brand-assets/fonts/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
+  @font-face { font-family: "Geist Mono"; src: url("../../../../../brand-assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; }
+  :root { --bg: #09090b; --text: #fafafa; --muted: #d4d4d8; --muted-dim: #71717a; --accent: #62a481; --accent-dark: #306b4d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); margin: 0; padding: 0; }
+  body { font-family: "Geist", system-ui, sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden; display: grid; grid-template-rows: 160px 1fr 120px; padding: 100px 110px; margin: 0 auto; }
+  .slide.is-hidden { display: none !important; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { width: 64px; height: 64px; }
+  .logo img { width: 100%; height: 100%; object-fit: contain; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-weight: 400; font-size: 22px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+  .footer { display: flex; align-items: flex-end; justify-content: space-between; }
+  .footer-url { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.06em; }
+  .main { display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+  .step-label { font-family: "Geist Mono", monospace; font-size: 22px; color: var(--muted-dim); letter-spacing: 0.18em; text-transform: uppercase; }
+  .step-headline { font-family: "Geist", sans-serif; font-weight: 700; font-size: 70px; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); max-width: 880px; }
+  .step-headline em { font-style: italic; color: var(--accent); }
+  .step-body { font-family: "Geist", sans-serif; font-weight: 400; font-size: 30px; line-height: 1.45; color: var(--muted); max-width: 820px; }
+  .hero-title { font-family: "Geist", sans-serif; font-weight: 700; font-size: 110px; line-height: 0.96; letter-spacing: -0.04em; color: var(--text); }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-tagline { font-family: "Geist", sans-serif; font-weight: 400; font-size: 32px; line-height: 1.4; color: var(--muted); max-width: 800px; margin-top: 16px; }
+  .cta { margin-top: 28px; display: inline-flex; align-items: baseline; gap: 14px; padding: 22px 30px; border: 1px solid var(--accent-dark); border-radius: 4px; background: rgba(48, 107, 77, 0.08); width: max-content; }
+  .cta-label { font-family: "Geist", sans-serif; font-weight: 500; font-size: 28px; color: var(--text); }
+  .cta-arrow, .cta-url { font-family: "Geist Mono", monospace; font-size: 28px; color: var(--accent); }
+</style>
+</head>
+<body data-gramm="false">
+
+<section class="slide" id="s1">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CASO STUDIO · METODO</div></div>
+  <div class="main">
+    <h1 class="hero-title">Da <em>otto secondi</em> a uno e mezzo.</h1>
+    <p class="hero-tagline">Anatomia di un sito riscritto in performance. Quattro interventi, due settimane, peso pagina ridotto del 78%.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">PUNTO DI PARTENZA</div></div>
+  <div class="main">
+    <div class="step-label">SITO BELLO, LENTISSIMO</div>
+    <h2 class="step-headline">Sette megabyte per la <em>homepage</em>.</h2>
+    <p class="step-body">Design curato, contenuto pulito, percentuale di bounce al 68%. Il proprietario non capiva il perché. Il perché era nel network panel: 7 MB di peso, 8 secondi al LCP, 4 secondi prima del primo pixel visibile. Su mobile in 4G, il sito non esisteva.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 1</div></div>
+  <div class="main">
+    <div class="step-label">AUDIT · DEVTOOLS + WEBPAGETEST</div>
+    <h2 class="step-headline">Capire dove sta il peso, <em>davvero</em>.</h2>
+    <p class="step-body">Network panel di DevTools per misurare ogni richiesta. WebPageTest da 3G simulato per il caso reale. La diagnosi: 5 MB di immagini non ottimizzate, 1,2 MB di JavaScript per uno slider, 600 KB di font caricati tutti in una volta. Tre colpevoli identificati prima di toccare il codice.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 2</div></div>
+  <div class="main">
+    <div class="step-label">IMMAGINI · -85%</div>
+    <h2 class="step-headline">Cinque mega che diventano <em>settecentocinquanta</em>.</h2>
+    <p class="step-body">Tutte le immagini ricompresse in AVIF con fallback WebP, qualità 70. Srcset con tre dimensioni per ogni immagine. Lazy loading per quelle sotto la piega. Da 5 MB a 750 KB senza differenza visibile. È il singolo intervento più impattante.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 3</div></div>
+  <div class="main">
+    <div class="step-label">JAVASCRIPT · -73%</div>
+    <h2 class="step-headline">Slider riscritto in <em>quaranta righe</em>.</h2>
+    <p class="step-body">Lo slider era costruito su una libreria da 1,2 MB. Riscritto da zero in JS vanilla (CSS transforms + un piccolo controller di indice): 40 righe, 4 KB. Stessa funzionalità, identica esperienza, peso ridotto del 99,7%. Una serata di lavoro.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 4</div></div>
+  <div class="main">
+    <div class="step-label">FONT · -65%</div>
+    <h2 class="step-headline">Tre pesi invece di <em>nove</em>.</h2>
+    <p class="step-body">Il sito caricava nove pesi di font (regular, italic, medium, semibold, bold per due famiglie). Ne usava effettivamente tre. Eliminati gli altri, aggiunto font-display: swap per evitare il flash invisibile. Da 600 KB a 210 KB.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">STEP 5</div></div>
+  <div class="main">
+    <div class="step-label">CACHE + COMPRESSIONE · SERVER</div>
+    <h2 class="step-headline">Brotli, <em>cache, CDN</em>.</h2>
+    <p class="step-body">Compressione Brotli sui file di testo (HTML, CSS, JS): un terzo del peso in meno gratis. Cache headers corretti per gli asset statici (un anno). CDN davanti al server per servire da nodi vicini al visitatore. Lavoro di mezza giornata sul server, beneficio su ogni richiesta successiva.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">QUANTO È CAMBIATO</div></div>
+  <div class="main">
+    <div class="step-label">NUMERI · MOBILE 4G REALE</div>
+    <h2 class="step-headline">Da otto a <em>uno e mezzo</em>.</h2>
+    <p class="step-body">LCP sceso da 8,1 secondi a 1,5. Peso pagina da 7 MB a 1,5 MB. PageSpeed mobile da 41 a 96. Bounce rate dal 68% al 31% nei trenta giorni successivi. Tutto misurato, non opinato.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">COSA NON SI VEDE</div></div>
+  <div class="main">
+    <div class="step-label">IL LAVORO INVISIBILE</div>
+    <h2 class="step-headline">Il design <em>non si è toccato</em>.</h2>
+    <p class="step-body">Stesso layout, stessi colori, stessi contenuti. L'unica cosa cambiata è il modo in cui il sito arriva al visitatore. Il cliente all'inizio era preoccupato di "perderci in bellezza" — non è successo. È successo che il sito ha cominciato a esistere anche per chi prima lo chiudeva prima di vederlo.</p>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="header"><div class="logo"><img src="../../../../../design-system/assets/pionio-p-mark.png" alt="P"></div><div class="eyebrow">CHIUSURA</div></div>
+  <div class="main">
+    <div class="step-label">IN UNA RIGA</div>
+    <h2 class="step-headline">La velocità è un <em>intervento di mestiere</em>.</h2>
+    <p class="step-body">Non magia, non rocket science. Quattro mosse fatte con metodo, due settimane di lavoro, sito riscritto in performance senza toccare un pixel di design. Si può fare su qualsiasi sito, sempre.</p>
+    <div class="cta">
+      <span class="cta-label">Hai un sito lento? Parliamone.</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-url">pionio.it</span>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-url">pionio.it</div></div>
+</section>
+
+</body>
+</html>

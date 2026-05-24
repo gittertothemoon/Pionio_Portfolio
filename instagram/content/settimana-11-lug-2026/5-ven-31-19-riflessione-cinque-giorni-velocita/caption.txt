@@ -1,0 +1,11 @@
+Cinque giorni dentro il tema "velocità e SEO tecnico". Tre cose restano.
+
+Prima: tre secondi sono il limite vero, sotto cui un sito esiste. Sopra, esiste solo per chi ha pazienza — e nel 2026 quella pazienza non c'è più. È il numero che vorrei imparassero clienti, designer, project manager. Sotto tre, sopra il niente.
+
+Seconda: le immagini sono il 70% del peso, e quasi sempre il primo intervento utile. Prima ancora di toccare lo script, prima di pensare al server, prima di tutto. AVIF + srcset + lazy loading: tre tecniche, mezza giornata, sito dimezzato.
+
+Terza: Lighthouse è un test, non la realtà mobile. Va guardato come termometro, mai come voto. La verità sta in WebPageTest da rete vera o nei Core Web Vitals di Search Console — raccolti dai visitatori veri, non dal simulatore.
+
+Cinque giorni di velocità. Settimana che chiude la coppia "design + funzionamento" — da lunedì si parla di lancio.
+
+Hai un progetto da raccontarmi? Parliamone. pionio.it

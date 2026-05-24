@@ -1,0 +1,11 @@
+Le immagini sono il vero peso del web. In media il 70% di quanto pesa una pagina. Più del JavaScript, più dei font, più del CSS. È quasi sempre il primo intervento utile su un sito lento.
+
+Per anni ho lavorato pensando che la velocità si guadagnasse al server, sulla cache, sulla compressione. Tutto vero, ma marginale. Il singolo intervento che muove davvero il numero è ricomprimere le immagini in modo decente.
+
+AVIF al posto di JPG, qualità 65-75. Una foto da 800 KB diventa 60-80 KB senza differenza visibile a occhio nudo. Srcset che serve la dimensione giusta a ogni schermo — non spedire un'immagine da 1920px a un telefono che ne mostra 480. Lazy loading per le immagini sotto la piega, in HTML puro, senza librerie.
+
+Tre tecniche, mezza giornata di lavoro per un sito di media complessità. E la pagina si dimezza.
+
+Il visitatore non vede questo lavoro. Vede solo che il sito si apre subito.
+
+Hai un sito pesante? Parliamone. pionio.it
