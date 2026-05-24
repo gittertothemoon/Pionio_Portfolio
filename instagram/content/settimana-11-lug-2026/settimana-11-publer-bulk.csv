@@ -1,0 +1,167 @@
+"Date - Intl. format or prompt","Text","Link(s) - Separated by comma for FB carousels","Media URL(s) - Separated by comma","Title - For the video, pin, PDF ..","Label(s) - Separated by comma","Alt text(s) - Separated by ||","Comment(s) - Separated by ||","Pin board, FB album, or Google category","Post subtype - I.e. story, reel, PDF ..","CTA - For Facebook links or Google","Reminder - For stories, reels, shorts, and TikToks"
+"2026-07-27 08:30","Veloce.
+
+Tre secondi prima che il visitatore decida.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-08-morning-veloce/out/morning.png","","","","","","","",""
+"2026-07-27 13:00","Cinque cose da fare prima di consegnare un sito. Non sono opzionali — sono quelle che separano un sito che esiste da uno che no.
+
+Core Web Vitals: LCP sotto 2,5 secondi (quanto ci mette ad apparire l'elemento principale), CLS sotto 0,1 (quanto la pagina sobbalza mentre carica). Sono i due numeri che Google misura davvero. Sopra questi limiti, paghi in indicizzazione e conversioni.
+
+Immagini: AVIF con fallback WebP, srcset con tre dimensioni, lazy loading sotto la piega. È il 70% del peso medio di una pagina. Mezza giornata di lavoro e il sito è dimezzato.
+
+JavaScript: meno librerie, più codice pulito. Rimuovi le dipendenze usate per un solo componente, sposta script non critici a fine body, usa import dinamici. Tagli il 40-60% del peso JS.
+
+Indicizzazione: Search Console aperta dal giorno uno. Sitemap, robots, meta title e description per ogni pagina, dati strutturati. Aspettare un mese vuol dire perdere un mese di visibilità.
+
+Mobile-first reale: WebPageTest su 3G simulato, DevTools con CPU 4x slowdown. Se funziona nel caso peggiore, funziona per tutti. Lighthouse desktop non basta — il 70% del traffico è mobile.
+
+Sotto i tre secondi, esisti. Sopra, no. È così semplice.
+
+Hai un sito da lanciare? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-01.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-02.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-03.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-04.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-05.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-06.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-13-educational-cinque-da-ottimizzare/out/slide-07.png","","","","","","","",""
+"2026-07-27 19:30","Se il sito non si carica in tre secondi, per metà dei visitatori non esiste. Non lo vedono nemmeno aprirsi: vedono uno schermo bianco, mezza secondo di attesa di troppo, e tornano indietro.
+
+Quel comportamento ha un nome tecnico — bounce — e un nome più onesto: chiusura. Il visitatore non ha chiuso il tuo sito perché non gli piaceva. L'ha chiuso perché non lo ha mai visto.
+
+Per anni ho pensato che la velocità fosse una caratteristica tecnica, qualcosa che si ""ottimizza dopo"". Adesso la considero la prima decisione di design — prima del colore, prima del font, prima della struttura. Un sito lento è un sito che parla solo a chi ha la pazienza di aspettare. E nel 2026, quella pazienza non c'è più.
+
+Tre secondi non è una metafora. È il numero sotto cui la metà del tuo pubblico ti vede esistere. Sopra, no.
+
+Hai un'idea? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/1-lun-27-19-manifesto-tre-secondi/out/manifesto.png","","","","","","","",""
+"2026-07-28 08:30","Peso.
+
+Il JavaScript medio del web del 2026 pesa più di Doom intero.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/2-mar-28-08-morning-peso/out/morning.png","","","","","","","",""
+"2026-07-28 13:00","Il JavaScript è il piombo del web. Non si vede, non si pesa in mano, e poi appesantisce ogni pagina.
+
+Ogni libreria importata pesa decine, a volte centinaia, di kilobyte. Pesi che il browser deve scaricare, parsare, eseguire — prima ancora di mostrare un solo pixel utile. Una homepage di un servizio moderno arriva spesso a 3-4 megabyte di JS solo per fare quello che, scritto pulito, starebbe in trenta righe.
+
+L'errore non è usare JS. È accettarlo come un costo invisibile.
+
+Tre interventi che fanno la differenza vera: rimuovere le librerie usate solo per un componente (sostituiscile con codice puro), spostare lo script non critico al fondo del body, usare l'import dinamico per le funzionalità che servono solo su alcune pagine. Insieme tolgono in media il 40-60% del peso JavaScript.
+
+Il sito veloce non si fa togliendo immagini. Si fa togliendo le librerie che nessuno ha mai usato davvero.
+
+Hai un sito che si carica piano? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/2-mar-28-13-pillola-javascript-piombo/out/pillola.png","","","","","","","",""
+"2026-07-28 19:30","Lighthouse è uno strumento utilissimo. Ma il punteggio Lighthouse non è la realtà.
+
+Lighthouse gira in un ambiente controllato: Chrome desktop, rete simulata, CPU rallentata in modo prevedibile, no estensioni, no cookie banner reali. Un 95 lì non significa che il sito è veloce per il visitatore vero — il cinquantenne sull'iPhone della metropolitana, in 4G ballerino, con quattro app aperte in background.
+
+La differenza tra il punteggio e l'esperienza vera la vedo ogni progetto. Siti che hanno Lighthouse 90+ sono lentissimi su mobile in condizioni reali. Siti con Lighthouse 70 sono velocissimi perché ottimizzati per il caso medio reale, non per il test ideale.
+
+Il modo onesto di leggere Lighthouse: è un termometro che ti dice come stai in laboratorio. La realtà è WebPageTest da rete reale, o Search Console che riporta i Core Web Vitals raccolti dai visitatori veri. Quella è la prova.
+
+Punteggio alto è bello da consegnare al cliente. Sito veloce sul telefono di tua madre è quello che paga.
+
+Hai un sito con Lighthouse alto ma sensazione di lentezza? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/2-mar-28-19-reactive-lighthouse-non-realta/out/reactive.png","","","","","","","",""
+"2026-07-29 19:30","Le immagini sono in media il 70% del peso di un sito. È quasi sempre il primo intervento utile sulla velocità — più dello script, più dei font, più del CSS.
+
+Il workflow che uso in ogni progetto Pionio:
+
+Squoosh per la compressione. Drag and drop in browser, niente account, niente upload cloud. Comprimo in AVIF (qualità 65-70) con fallback WebP. Una foto da 800KB diventa 60-80KB senza differenza visibile.
+
+Srcset con tre dimensioni: 480w per mobile, 960w per tablet, 1920w per desktop. Il browser sceglie da solo quella giusta, senza scaricare l'inutile.
+
+Lazy loading per le immagini sotto la piega. Loading=""lazy"" diretto in HTML, niente librerie. Il browser scarica solo quando l'immagine sta per entrare in viewport.
+
+Larghezza e altezza dichiarate sempre. Eviti il layout shift — la pagina che sobbalza mentre carica le immagini è una delle cause più trascurate di un Cumulative Layout Shift cattivo.
+
+Quattro mosse, niente di tecnico che non si possa imparare in mezza giornata. E la pagina passa da 4MB a 600KB.
+
+Hai un sito pesante? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/3-mer-29-19-bts-immagini-pionio/out/bts.png","","","","","","","",""
+"2026-07-30 19:30","Quattro test che faccio prima di consegnare un sito. Sembrano tanti — ognuno dura cinque minuti, e insieme fanno la differenza tra un sito che sembra veloce e un sito che lo è davvero.
+
+PageSpeed Insights, sezione mobile. Lo apro per primo perché su mobile si gioca tutto. Target: 90+ su Performance. Sotto i 90, c'è un problema specifico che si trova subito nei suggerimenti.
+
+Search Console del cliente. Verifico l'indicizzazione, controllo i Core Web Vitals raccolti dai visitatori veri (sezione Esperienza sulla pagina), guardo se ci sono pagine bloccate da robots o errori 404. Cinque minuti che ti evitano due settimane di ""perché non comparo su Google"".
+
+WebPageTest da rete reale. Configuro 3G simulato, Chrome mobile, posizione geografica realistica per il pubblico del cliente. Il test dura un minuto, il report ti dice esattamente cosa rallenta in condizioni vere.
+
+DevTools con CPU 4x slowdown. Aperto su Chrome, ricarico la pagina con throttling. Mi dà il caso pessimistico — utente vecchio smartphone, batteria scarica, mille tab aperti. Se il sito funziona qui, funziona ovunque.
+
+Quattro test, venti minuti, zero scuse al lancio.
+
+Hai un progetto in arrivo? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/4-gio-30-19-metodo-quattro-test/out/metodo.png","","","","","","","",""
+"2026-07-31 08:30","Lentezza.
+
+Il sintomo non è il sito che si carica piano. È quello che apri e chiudi subito.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-08-morning-lentezza/out/morning.png","","","","","","","",""
+"2026-07-31 13:00","Un sito che caricava in 8 secondi è sceso a 1,5. Stesso design, stesso contenuto, zero compromessi visivi. Due settimane di lavoro.
+
+Il caso è didattico — replicabile su qualsiasi sito che parte lento. Ed è uno dei lavori più gratificanti che faccio: zero discussioni sul gusto, solo numeri prima e dopo.
+
+Il metodo è semplice nei passaggi. Audit con DevTools e WebPageTest da 3G simulato per identificare i tre colpevoli reali (di solito: immagini, JS, font). Ottimizzazione delle immagini con AVIF/WebP, srcset e lazy loading — da sola sposta il 60-80% del peso. Riscrittura mirata di componenti pesanti: lo slider della homepage era una libreria da 1,2 MB, l'ho rifatto in 40 righe di JS vanilla. Font puliti, solo i pesi davvero usati. Cache, compressione Brotli, CDN davanti al server.
+
+I numeri: LCP da 8,1s a 1,5s. Peso pagina da 7 MB a 1,5 MB. PageSpeed mobile da 41 a 96. Bounce rate dal 68% al 31% nei trenta giorni successivi.
+
+Il design non si è toccato. È cambiato solo il modo in cui il sito arriva al visitatore.
+
+La velocità non è una caratteristica nascosta del progetto. È la prima cosa che si sente, prima ancora che la prima pagina compaia.
+
+Hai un sito lento? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-01.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-02.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-03.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-04.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-05.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-06.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-07.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-08.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-09.png,https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-13-caso-studio-otto-secondi/out/slide-10.png","","","","","","","",""
+"2026-07-31 19:30","Cinque giorni dentro il tema ""velocità e SEO tecnico"". Tre cose restano.
+
+Prima: tre secondi sono il limite vero, sotto cui un sito esiste. Sopra, esiste solo per chi ha pazienza — e nel 2026 quella pazienza non c'è più. È il numero che vorrei imparassero clienti, designer, project manager. Sotto tre, sopra il niente.
+
+Seconda: le immagini sono il 70% del peso, e quasi sempre il primo intervento utile. Prima ancora di toccare lo script, prima di pensare al server, prima di tutto. AVIF + srcset + lazy loading: tre tecniche, mezza giornata, sito dimezzato.
+
+Terza: Lighthouse è un test, non la realtà mobile. Va guardato come termometro, mai come voto. La verità sta in WebPageTest da rete vera o nei Core Web Vitals di Search Console — raccolti dai visitatori veri, non dal simulatore.
+
+Cinque giorni di velocità. Settimana che chiude la coppia ""design + funzionamento"" — da lunedì si parla di lancio.
+
+Hai un progetto da raccontarmi? Parliamone. pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/5-ven-31-19-riflessione-cinque-giorni-velocita/out/riflessione.png","","","","","","","",""
+"2026-08-01 13:00","Settimana #11, sabato.
+
+Quando un sito si apre subito, il visitatore non lo nota — sente solo che funziona. Quando si apre piano, anche se è bello, qualcosa si rompe. Si rompe la fiducia, si rompe la pazienza, si rompe l'attenzione. Non si rompe in modo drammatico: si crepa, e quella crepa diventa la prima ragione per cui chiudere.
+
+La velocità non è una caratteristica tecnica. È la prima cosa che il sito comunica prima ancora di mostrare un pixel. È la promessa silenziosa che dietro c'è qualcuno che si è preso il tempo.
+
+Per anni ho considerato la performance come ""lavoro di rifinitura"" — qualcosa da fare alla fine, dopo il design. Adesso la considero parte del design dal giorno zero. Decidere quale libreria usare è una decisione di design. Scegliere il formato delle immagini è una decisione di design. Tagliare uno script perché pesa è una decisione di design.
+
+Un sito veloce è il primo segnale che qualcuno ci ha lavorato davvero. Nessuno applaude per i tre secondi risparmiati, ma tutti ne beneficiano. È un investimento silenzioso che paga ogni singola visita.
+
+La velocità è una forma di cura. Forse la più discreta, e la più decisiva.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/6-sab-1-13-mark-velocita-cura/out/mark.png","","","","","","","",""
+"2026-08-01 19:30","Questa settimana ho salvato: Squoosh.
+
+Image compressor in browser di Google Chrome Labs. Drag and drop, niente account, niente upload sul cloud. Tutto avviene localmente sulla macchina di chi lo usa — privacy by design.
+
+Comprime in AVIF, WebP, MozJPEG, OxiPNG. Per ogni formato puoi regolare la qualità in tempo reale e vedere il prima/dopo affiancati. Una foto da 800 KB diventa 60-80 KB senza differenza visibile per l'occhio umano.
+
+Lo uso in ogni progetto Pionio, su ogni foto, prima di metterla online. Non è un'esagerazione: ogni asset visivo del sito passa da qui. È una delle ragioni per cui un sito Pionio di solito pesa un terzo della media del settore.
+
+Gratis, open source, sviluppato da Google. Una rarità nel panorama dei tool web — niente abbonamento, niente limite, niente catch.
+
+→ squoosh.app
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/6-sab-1-19-saved-squoosh/out/saved.png","","","","","","","",""
+"2026-08-02 08:30","Misurare.
+
+Quello che non misuri, non lo migliori.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/7-dom-2-08-morning-misurare/out/morning.png","","","","","","","",""
+"2026-08-02 13:00","Settimana #12, da lunedì.
+
+Il sito è pronto. Pubblicarlo non è la fine — è l'inizio. Entriamo nella settimana del lancio.
+
+Tema della settimana: lanciare bene.
+
+Sette giorni dentro quello che succede tra ""il sito è finito"" e ""il sito funziona davvero"". La checklist di lancio. L'annuncio che non fa cringe. Il debug delle prime 24 ore. L'analytics che si guarda subito e quello che si aspetta tre settimane prima di leggere.
+
+Lanciare un sito non è premere ""deploy"" e mandare un'email. È un mestiere a sé, con regole specifiche, momenti giusti e momenti pessimi (mai venerdì pomeriggio).
+
+Si parte lunedì con cinque cose da fare il giorno del lancio.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/7-dom-2-13-brief-settimana-12/out/brief.png","","","","","","","",""
+"2026-08-02 19:30","Domanda #10.
+
+Pensa all'ultima volta che hai aperto un link e la pagina è rimasta bianca per qualche secondo. Hai aspettato fino in fondo o hai chiuso prima?
+
+Quanti secondi sopporti, in cuor tuo, prima di chiudere? Tre? Cinque? Dieci? Cambia a seconda del sito (Google news vs sito sconosciuto), del dispositivo (computer vs telefono in metro), dell'umore.
+
+Sto raccogliendo i numeri reali per capire quanto siamo diventati intolleranti. Rispondi nei commenti — il numero che ti viene in mente, anche di pancia.
+
+pionio.it","","https://cdn.jsdelivr.net/gh/gittertothemoon/Pionio_Portfolio@d3bacf1384fb49b96f2bc8b3652a7887884e69af/instagram/content/settimana-11-lug-2026/7-dom-2-19-question-secondi-sito-lento/out/question.png","","","","","","","",""
