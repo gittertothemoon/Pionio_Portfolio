@@ -4,7 +4,7 @@ import csv
 import os
 from pathlib import Path
 
-COMMIT = "dabf95d9cbc042221d0cf908f8f1974ad23203eb"
+COMMIT = "5ed9ec6e4bb3e9537f3ec9825ffe4355d2fd6e4a"
 REPO = "gittertothemoon/Pionio_Portfolio"
 WEEK_SLUG = "settimana-09-lug-2026"
 WEEK_DIR = Path(__file__).parent / WEEK_SLUG
