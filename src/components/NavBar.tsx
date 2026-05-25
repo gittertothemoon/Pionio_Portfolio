@@ -8,10 +8,12 @@ import {
     EnvelopeSimple,
     Wrench,
     Article,
+    Gauge,
 } from '@phosphor-icons/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 
 type AnchorItem = {
     name: string;
@@ -27,7 +29,14 @@ type RouteItem = {
     type: 'route';
     tKey: string;
 };
-type NavItem = AnchorItem | RouteItem;
+type ExternalItem = {
+    name: string;
+    href: string;
+    icon: typeof User;
+    type: 'external';
+    tKey: string;
+};
+type NavItem = AnchorItem | RouteItem | ExternalItem;
 
 const navItems: NavItem[] = [
     { name: 'About', hash: 'about', icon: User, type: 'anchor', tKey: 'nav_about' },
@@ -37,10 +46,11 @@ const navItems: NavItem[] = [
     { name: 'Servizi', to: '/servizi', icon: Wrench, type: 'route', tKey: 'nav_servizi' },
     { name: 'Blog', to: '/blog', icon: Article, type: 'route', tKey: 'nav_blog' },
     { name: 'Contatti', to: '/contatti', icon: EnvelopeSimple, type: 'route', tKey: 'nav_contatti' },
+    { name: 'Audit', href: 'https://audit.pionio.it/?from=site_cta', icon: Gauge, type: 'external', tKey: 'nav_audit' },
 ];
 
 export function NavBar() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
     const location = useLocation();
     const navigate = useNavigate();
     const [activeSection, setActiveSection] = useState<string>('');
@@ -134,6 +144,24 @@ export function NavBar() {
                                         href={href}
                                         onClick={(e) => handleAnchorClick(e, item.hash)}
                                         className={itemClasses(isActive)}
+                                        aria-label={label}
+                                        title={label}
+                                    >
+                                        {inner}
+                                    </a>
+                                </li>
+                            );
+                        }
+
+                        if (item.type === 'external') {
+                            return (
+                                <li key={item.name} className="relative">
+                                    <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => track('audit_click', { source: 'navbar', locale })}
+                                        className={itemClasses(false)}
                                         aria-label={label}
                                         title={label}
                                     >

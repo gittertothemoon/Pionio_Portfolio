@@ -4,6 +4,7 @@ import { ArrowUpRight } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
+import { AuditInlineCTA } from '../components/AuditInlineCTA';
 import { services } from '../lib/services';
 
 const url = 'https://pionio.it/servizi';
@@ -126,6 +127,8 @@ export default function ServicesIndex() {
                             </m.div>
                         ))}
                     </section>
+
+                    <AuditInlineCTA source="services_index" />
 
                     <section className="flex flex-col gap-8 p-8 md:p-12 rounded-[2.5rem] border border-forest-500/20 bg-forest-500/5">
                         <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">

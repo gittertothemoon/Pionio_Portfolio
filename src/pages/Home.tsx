@@ -12,6 +12,7 @@ import { WorksBento } from '../components/WorksBento';
 import { Guarantees } from '../components/Guarantees';
 import { Experience } from '../components/Experience';
 import { TechStack } from '../components/TechStack';
+import { AuditCTA } from '../components/AuditCTA';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
 
@@ -117,6 +118,8 @@ export default function Home() {
                 <div id="experience">
                     <Experience />
                 </div>
+
+                <AuditCTA />
 
                 <div id="contact">
                     <ContactCTA />

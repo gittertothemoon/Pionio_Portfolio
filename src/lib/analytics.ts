@@ -15,6 +15,7 @@ type EventMap = {
     scroll_depth: { depth: 25 | 50 | 75 | 100; path: string };
     nav_click: { target: string; locale: string };
     social_click: { network: string; locale: string };
+    audit_click: { source: string; locale: string };
 };
 
 export function track<K extends keyof EventMap>(event: K, props: EventMap[K]): void {

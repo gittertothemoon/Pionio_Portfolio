@@ -107,6 +107,17 @@ export function Footer() {
                                     Contatti
                                 </Link>
                             </li>
+                            <li>
+                                <a
+                                    href="https://audit.pionio.it/?from=site_cta"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => track('audit_click', { source: 'footer', locale })}
+                                    className="text-zinc-300 hover:text-forest-400 font-sans text-sm transition-colors"
+                                >
+                                    {t('audit_cta_button')} →
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 

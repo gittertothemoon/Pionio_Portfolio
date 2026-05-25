@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Check } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
+import { AuditInlineCTA } from '../components/AuditInlineCTA';
 import { getService, services } from '../lib/services';
 import { projectCategory, getProject } from '../lib/projects';
 import { useLanguage } from '../context/LanguageContext';
@@ -200,6 +201,8 @@ export default function ServicePage() {
                             ))}
                         </ul>
                     </section>
+
+                    <AuditInlineCTA source="service_page" />
 
                     <section className="flex flex-col gap-10">
                         <div className="flex items-center gap-4">

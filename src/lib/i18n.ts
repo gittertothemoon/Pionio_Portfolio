@@ -17,6 +17,7 @@ export const dict: Dictionary = {
     nav_servizi: { en: 'Services', it: 'Servizi' },
     nav_blog: { en: 'Blog', it: 'Blog' },
     nav_contatti: { en: 'Contact', it: 'Contatti' },
+    nav_audit: { en: 'Audit', it: 'Audit' },
 
     // Hero — conversion-first, client language
     hero_title: { en: 'Websites\nthat make your\nbusiness grow.', it: 'Siti web\nche fanno crescere\nil tuo business.' },
@@ -36,6 +37,15 @@ export const dict: Dictionary = {
     section_num_garanzie: { en: '05', it: '05' },
     section_num_experience: { en: '06', it: '06' },
     section_num_contact: { en: '07', it: '07' },
+
+    // Audit tool CTA band (links to audit.pionio.it)
+    audit_cta_label: { en: 'Free tool', it: 'Strumento gratuito' },
+    audit_cta_headline: { en: "How's your site really doing?", it: "Com'è messo il tuo sito, davvero?" },
+    audit_cta_description: {
+        en: "Paste your site's address. In a few seconds I'll tell you what's slowing it down and what's costing you visitors — in plain words, not just numbers. No email needed.",
+        it: "Incolla l'indirizzo del tuo sito. In pochi secondi ti dico cosa lo rallenta e cosa ti fa perdere visitatori — in italiano, non in numeri. Niente email.",
+    },
+    audit_cta_button: { en: 'Check your site', it: 'Controlla il tuo sito' },
 
     // TechStack
     techstack_label: { en: 'Tech Stack', it: 'Tech Stack' },
