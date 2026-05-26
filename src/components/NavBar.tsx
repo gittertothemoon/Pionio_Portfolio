@@ -99,7 +99,7 @@ export function NavBar() {
 
     const itemClasses = (isActive: boolean) =>
         cn(
-            'relative px-3 md:px-4 py-3 max-xs:py-2 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
+            'relative px-2 md:px-4 py-3 max-xs:py-2 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
             isActive ? 'text-forest-100' : 'text-zinc-500 hover:text-zinc-300'
         );
 
