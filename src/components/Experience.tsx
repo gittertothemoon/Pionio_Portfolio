@@ -8,24 +8,9 @@ export function Experience() {
     const { t, locale } = useLanguage();
 
     const timeline = [
-        {
-            year: "2023 — Present",
-            role: t('exp_1_role'),
-            company: "PIONIO Studio",
-            description: t('exp_1_desc')
-        },
-        {
-            year: "2020 — 2023",
-            role: t('exp_2_role'),
-            company: "Fintech Global",
-            description: t('exp_2_desc')
-        },
-        {
-            year: "2017 — 2020",
-            role: t('exp_3_role'),
-            company: "Creative Vanguard",
-            description: t('exp_3_desc')
-        }
+        { role: t('exp_1_role'), description: t('exp_1_desc') },
+        { role: t('exp_2_role'), description: t('exp_2_desc') },
+        { role: t('exp_3_role'), description: t('exp_3_desc') },
     ];
 
     return (
@@ -58,15 +43,11 @@ export function Experience() {
                             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className="group flex flex-col gap-6"
                         >
-                            {/* Monospaced Date & Company */}
-                            <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 border-b border-white/5 pb-6">
+                            {/* Step title */}
+                            <div className="border-b border-white/5 pb-6">
                                 <h3 className="text-2xl md:text-4xl font-sans tracking-tight text-white group-hover:text-forest-400 transition-colors duration-500">
                                     {exp.role}
                                 </h3>
-                                <div className="flex flex-col items-start md:items-end gap-1">
-                                    <span className="text-forest-500/80 font-mono text-sm tracking-widest uppercase">{exp.company}</span>
-                                    <span className="text-zinc-600 font-mono text-xs">{exp.year}</span>
-                                </div>
                             </div>
 
                             {/* Description */}
