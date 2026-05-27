@@ -1,7 +1,0 @@
-Saved this week — la pagina Live di Plausible.
-
-Plausible è un analytics tool che ha un sito chiamato /live dove mostra in tempo reale gli analytics del proprio sito. Visitatori attivi adesso, pagine viste oggi, sorgenti di traffico — tutto pubblico, accessibile a chiunque.
-
-È al tempo stesso una demo del prodotto e una dichiarazione di trasparenza: il tool funziona così bene che possono mostrarlo in azione live, e non hanno niente da nascondere.
-
-Hai un'idea? Parliamone. pionio.it

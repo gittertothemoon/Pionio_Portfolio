@@ -1,7 +1,0 @@
-Saved this week — il design system di gov.uk.
-
-Costruito e curato dal Government Digital Service da oltre dieci anni. Niente agenzia che riscrive tutto ogni tre, niente "redesign" sbandierati: solo aggiornamenti continui, ogni pattern documentato in pubblico, testato letteralmente su milioni di cittadini ogni anno.
-
-È l'esempio massimo di "tenere vivo un sito" — fuori dal mondo SaaS e dentro un servizio pubblico, che è il banco di prova più duro. Se vuoi capire come si scrive bene la documentazione di un'evoluzione lenta nel tempo, è la riferimento.
-
-Hai un'idea? Parliamone. pionio.it

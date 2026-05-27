@@ -1,9 +1,0 @@
-Se il sito non si carica in tre secondi, per metà dei visitatori non esiste. Non lo vedono nemmeno aprirsi: vedono uno schermo bianco, mezza secondo di attesa di troppo, e tornano indietro.
-
-Quel comportamento ha un nome tecnico — bounce — e un nome più onesto: chiusura. Il visitatore non ha chiuso il tuo sito perché non gli piaceva. L'ha chiuso perché non lo ha mai visto.
-
-Per anni ho pensato che la velocità fosse una caratteristica tecnica, qualcosa che si "ottimizza dopo". Adesso la considero la prima decisione di design — prima del colore, prima del font, prima della struttura. Un sito lento è un sito che parla solo a chi ha la pazienza di aspettare. E nel 2026, quella pazienza non c'è più.
-
-Tre secondi non è una metafora. È il numero sotto cui la metà del tuo pubblico ti vede esistere. Sopra, no.
-
-Hai un'idea? Parliamone. pionio.it

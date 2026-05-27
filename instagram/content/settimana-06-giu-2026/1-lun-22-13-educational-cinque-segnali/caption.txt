@@ -1,7 +1,0 @@
-C'è un momento in cui aggiornare un sito smette di funzionare. Lo riconosci da 5 segnali messi insieme: lo stack è vecchio, non puoi cambiare nulla da solo, le pagine si sono accumulate, su mobile va a pezzi, il sito non ti rappresenta più.
-
-2 segnali su 5 si patchano. 3 o più, no — è rifacimento.
-
-Spesso il cliente arriva chiedendomi un restyling. Apro il sito e conto. Se sono 3, glielo dico subito: non è un restyling, è un sito nuovo. Costa di più all'inizio. Costa molto meno nei 2 anni dopo.
-
-Hai un sito che mostra questi segnali? Parliamone. pionio.it

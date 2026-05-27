@@ -39,3 +39,16 @@ reels/
 # YouTube OAuth
 .youtube-oauth.json
 .youtube-token.json
+
+# Libreria contenuti → versionata a parte nel repo privato pionio-content
+# (vedi helper /Users/ivanpanto/local/portfolio/pcontent). Qui NON va tracciata.
+# NB: scripts/ resta tracciato (contiene generate-favicons.mjs e generate-og.mjs del sito).
+instagram/
+x/
+youtube/
+og/
+remotion/
+brand-assets/
+design-system/
+public/shorts/
+public/endcard/
