@@ -6,6 +6,7 @@ import ServicePage from './pages/ServicePage';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import ContactPage from './pages/ContactPage';
+import PrivacyPage from './pages/PrivacyPage';
 import ProjectPage from './pages/ProjectPage';
 import { projects } from './lib/projects';
 import { services } from './lib/services';
@@ -47,6 +48,10 @@ export const routes: RouteRecord[] = [
             {
                 path: 'contatti',
                 Component: ContactPage,
+            },
+            {
+                path: 'privacy',
+                Component: PrivacyPage,
             },
         ],
     },

@@ -152,9 +152,17 @@ export function Footer() {
                 </div>
 
                 <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
-                    <p className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-widest text-center md:text-left">
-                        © {new Date().getFullYear()} PIONIO. {t('footer_rights')}
-                    </p>
+                    <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+                        <p className="text-zinc-500 font-mono text-xs md:text-sm uppercase tracking-widest text-center md:text-left">
+                            © {new Date().getFullYear()} PIONIO. {t('footer_rights')}
+                        </p>
+                        <Link
+                            to="/privacy"
+                            className="text-zinc-500 hover:text-forest-400 font-mono text-xs md:text-sm uppercase tracking-widest transition-colors"
+                        >
+                            Privacy
+                        </Link>
+                    </div>
                     <div className="flex items-center gap-6">
                         {socials.map((social) => (
                             <a

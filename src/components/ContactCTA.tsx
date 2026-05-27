@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PaperPlaneRight, CheckCircle, ArrowClockwise } from '@phosphor-icons/react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -340,6 +341,17 @@ export function ContactCTA() {
                                         )}
                                     </m.button>
                                 </div>
+
+                                <p className="text-zinc-600 text-xs leading-relaxed">
+                                    {t('contact_privacy_consent_pre')}{' '}
+                                    <Link
+                                        to="/privacy"
+                                        className="text-zinc-400 hover:text-forest-400 underline underline-offset-2"
+                                    >
+                                        {t('contact_privacy_consent_link')}
+                                    </Link>
+                                    .
+                                </p>
 
                                 {status === 'error' && (
                                     <m.p

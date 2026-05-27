@@ -212,6 +212,8 @@ export const dict: Dictionary = {
     contact_field_optional: { en: 'optional', it: 'opzionale' },
     contact_field_required_hint: { en: '* required', it: '* campi obbligatori' },
     contact_select_placeholder: { en: 'Select an option', it: 'Seleziona un\'opzione' },
+    contact_privacy_consent_pre: { en: 'By sending you accept the', it: 'Inviando accetti l\'' },
+    contact_privacy_consent_link: { en: 'privacy policy', it: 'informativa privacy' },
 
     contact_tipo_web: { en: 'Website / Landing page', it: 'Sito web / Landing page' },
     contact_tipo_ecommerce: { en: 'E-commerce', it: 'E-commerce' },
