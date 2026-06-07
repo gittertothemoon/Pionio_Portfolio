@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- provider + useLanguage hook share one module */
 import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { dict } from '../lib/i18n';

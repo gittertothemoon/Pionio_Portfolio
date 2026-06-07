@@ -5,6 +5,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
 import { MagneticButton } from './MagneticButton';
 
+type ServiceItem = { id: string; title: string; description: string; image: string };
+
 export function Services() {
     const { t, locale } = useLanguage();
 
@@ -82,7 +84,7 @@ export function Services() {
 }
 
 // Extracted internal component to isolate Framer Motion useMotionValue hooks for performance
-function ServiceCard({ service, index }: { service: any, index: number }) {
+function ServiceCard({ service, index }: { service: ServiceItem, index: number }) {
     const ref = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -141,7 +143,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
 
             {/* Top Number */}
             <div style={{ transform: "translateZ(30px)" }} className="relative z-20 text-zinc-600 group-hover:text-forest-400/80 transition-colors duration-500 font-mono text-5xl md:text-6xl font-light tracking-tighter">
-                {service.id || service.number}
+                {service.id}
             </div>
 
             {/* Content */}

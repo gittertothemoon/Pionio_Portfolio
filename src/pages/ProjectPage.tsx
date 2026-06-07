@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- route module exports loader data alongside the page */
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowUpRight, ArrowLeft } from '@phosphor-icons/react';

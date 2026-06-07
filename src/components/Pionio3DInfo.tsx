@@ -20,6 +20,8 @@ type Props = {
 export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
     const [open, setOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
+    // Mount flag to defer client-only 3D UI past SSG hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     useEffect(() => setMounted(true), []);
 
     // Close on ESC

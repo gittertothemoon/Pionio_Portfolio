@@ -12,7 +12,9 @@ export function useIsRestrictedWebView() {
         // Instagram/Facebook on iOS embed "Instagram" or "FBAN/FBAV" in the UA.
         // Android variant includes "Instagram" and "wv" (WebView).
         const match = /Instagram|FBAN|FBAV|FB_IAB|Threads|TikTok/i.test(ua);
-        if (match) setRestricted(true);
+        // Client-only detection after SSG mount: navigator is unavailable at build time.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setRestricted(match);
     }, []);
 
     return restricted;

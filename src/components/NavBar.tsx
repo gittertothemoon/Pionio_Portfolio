@@ -59,6 +59,8 @@ export function NavBar() {
 
     useEffect(() => {
         if (!isHome) {
+            // Reset scrollspy when leaving the single-page home route.
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setActiveSection('');
             return;
         }

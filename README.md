@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# Pionio — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sito portfolio dello studio freelance **Pionio** (web design & sviluppo, Italia).
+Prerenderizzato staticamente (SSG), bilingue IT/EN, con showcase progetti,
+pagine servizi, blog SEO e un form di contatto serverless.
 
-Currently, two official plugins are available:
+🔗 **Live:** https://portfolio-pionio.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Caratteristiche
 
-## React Compiler
+- **SSG** — ogni rotta è prerenderizzata in HTML al build con `vite-react-ssg`
+  (20 pagine: home, 7 case study, 7 servizi, 7 articoli, contatti, privacy).
+- **Bilingue IT/EN** — i18n custom con persistenza su `localStorage` e
+  auto-rilevamento da `navigator.language`.
+- **3D hero** — modello GLTF interattivo via `@google/model-viewer`, mostrato
+  solo dove ha senso (disattivato negli in-app browser di Instagram/TikTok/…
+  per evitare stalli WebGL).
+- **Motion & WebGL** — animazioni `framer-motion` (con `LazyMotion` per il
+  tree-shaking), background aurora con shader WebGL custom, magnetic buttons.
+- **Form contatti serverless** — Vercel Edge Function (`api/contact.ts`) con
+  validazione, escaping HTML, anti header-injection e rate-limiting; invio via
+  Resend.
+- **SEO/a11y forti** — meta + canonical + OG/Twitter per rotta, JSON-LD
+  (Person, WebSite, ProfessionalService), sitemap/robots, skip-link, manifest PWA.
+- **Dark-only** per scelta di design (zinc-950).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+| Ambito | Tecnologia |
+| --- | --- |
+| UI | React 19 + React Router 6 |
+| SSG / build | vite-react-ssg + Vite 7 + TypeScript |
+| Styling | Tailwind CSS v4 (CSS-first), font Geist self-hosted |
+| Animazioni | framer-motion, WebGL shader |
+| Serverless | Vercel Edge Function + Resend |
+| Analytics | Vercel Analytics + Speed Insights |
+| Hosting | Vercel |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Sviluppo
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+cp .env.example .env.local   # RESEND_API_KEY, NOTIFICATION_EMAIL (lato server)
+npm run dev                  # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Script
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Comando | Descrizione |
+| --- | --- |
+| `npm run dev` | Dev server Vite |
+| `npm run build` | Type-check + build SSG (prerender di tutte le rotte) |
+| `npm run lint` | ESLint |
+| `npm run preview` | Anteprima della build |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Struttura
+
 ```
+src/
+├── pages/        # rotte (Home, ProjectPage, ServicePage, BlogPost, Contatti, Privacy)
+├── components/   # sezioni e UI (Hero, WorksBento, AuroraBackground, ...)
+├── lib/          # contenuti dati (projects/services/blog), i18n, analytics
+├── context/      # LanguageContext (IT/EN)
+└── routes.tsx    # definizione rotte per l'SSG
+api/contact.ts    # edge function form contatti (Resend)
+```
+
+I contenuti (progetti, servizi, articoli) sono dati tipizzati in `src/lib/` —
+aggiungere una voce è una modifica a un file, senza CMS.
+
+## Variabili d'ambiente
+
+| Variabile | Scopo |
+| --- | --- |
+| `RESEND_API_KEY` | Invio email dal form contatti (solo edge function) |
+| `NOTIFICATION_EMAIL` | Destinatario delle notifiche |
+
+Nessun segreto è committato: solo `.env.example` con placeholder.
