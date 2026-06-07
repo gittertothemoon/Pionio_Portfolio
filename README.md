@@ -6,7 +6,7 @@ Portfolio site for **Pionio**, a freelance web design & development studio from
 Italy. Statically prerendered (SSG), bilingual IT/EN, with a project showcase,
 service pages, an SEO blog and a serverless contact form.
 
-🔗 **Live:** https://portfolio-pionio.vercel.app
+🔗 **Live:** https://pionio.it
 
 ## Features
 
