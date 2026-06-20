@@ -265,7 +265,7 @@ export default function ProjectPage() {
                         </h2>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                             {projects
-                                .filter((p) => p.slug !== project.slug)
+                                .filter((p) => p.slug !== project.slug && !p.personal)
                                 .slice(0, 4)
                                 .map((p) => (
                                     <Link

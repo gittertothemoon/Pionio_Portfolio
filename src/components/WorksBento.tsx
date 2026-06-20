@@ -27,7 +27,10 @@ export function WorksBento() {
         },
     };
 
-    const hero = projects[0];
+    // Client work only — personal flagships (e.g. Vespero) get their own
+    // dedicated spotlight section, so they're excluded from this grid.
+    const clientProjects = projects.filter((p) => !p.personal);
+    const hero = clientProjects[0];
     const heroLight = hero.theme === 'light';
     const heroContain = hero.imageFit === 'contain';
 
@@ -134,7 +137,7 @@ export function WorksBento() {
                         </Link>
                     </m.div>
 
-                    {projects.slice(1).map((work) => {
+                    {clientProjects.slice(1).map((work) => {
                         const isLight = work.theme === 'light';
                         const isContain = work.imageFit === 'contain';
                         const lightBg = work.bgClass ?? 'bg-[#FAF7F2]';

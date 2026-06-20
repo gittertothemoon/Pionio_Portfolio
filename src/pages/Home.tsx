@@ -9,6 +9,7 @@ import { About } from '../components/About';
 import { useIsRestrictedWebView } from '../lib/ua';
 import { Services } from '../components/Services';
 import { WorksBento } from '../components/WorksBento';
+import { VesperoSpotlight } from '../components/VesperoSpotlight';
 import { Guarantees } from '../components/Guarantees';
 import { Experience } from '../components/Experience';
 import { TechStack } from '../components/TechStack';
@@ -109,6 +110,10 @@ export default function Home() {
 
                 <div id="works">
                     <WorksBento />
+                </div>
+
+                <div id="vespero">
+                    <VesperoSpotlight />
                 </div>
 
                 <div id="garanzie">

@@ -12,6 +12,7 @@ export const dict: Dictionary = {
     nav_about: { en: 'About', it: 'Chi Sono' },
     nav_capabilities: { en: 'What I Do', it: 'Cosa Faccio' },
     nav_works: { en: 'Works', it: 'Progetti' },
+    nav_vespero: { en: 'Vespero', it: 'Vespero' },
     nav_experience: { en: 'Process', it: 'Processo' },
     nav_contact: { en: 'Contact', it: 'Contatti' },
     nav_servizi: { en: 'Services', it: 'Servizi' },
@@ -34,9 +35,10 @@ export const dict: Dictionary = {
     section_num_services: { en: '02', it: '02' },
     section_num_techstack: { en: '03', it: '03' },
     section_num_works: { en: '04', it: '04' },
-    section_num_garanzie: { en: '05', it: '05' },
-    section_num_experience: { en: '06', it: '06' },
-    section_num_contact: { en: '07', it: '07' },
+    section_num_vespero: { en: '05', it: '05' },
+    section_num_garanzie: { en: '06', it: '06' },
+    section_num_experience: { en: '07', it: '07' },
+    section_num_contact: { en: '08', it: '08' },
 
     // Audit tool CTA band (links to audit.pionio.it)
     audit_cta_label: { en: 'Free tool', it: 'Strumento gratuito' },
@@ -158,6 +160,28 @@ export const dict: Dictionary = {
         en: 'Mobile-first landing page for a new Pilates studio near Bologna — built to validate demand and capture real leads before launch.',
         it: 'Landing page mobile-first per un nuovo studio di Pilates vicino Bologna — costruita per validare la domanda e raccogliere lead reali prima del lancio.'
     },
+
+    // Vespero — personal flagship SaaS spotlight (my own product, not client work)
+    vespero_label: { en: 'Personal project', it: 'Progetto personale' },
+    vespero_tagline: { en: 'A warm voice in the night.', it: 'Una voce calda nella notte.' },
+    vespero_body: {
+        en: "Vespero is my own SaaS product — not client work. An AI assistant that answers clients on WhatsApp and Telegram for Italian freelancers, professionals and makers: quotes, follow-ups, briefings and reminders, always in their own voice. I designed and built it end to end, from the interface to the multi-tenant gateway.",
+        it: 'Vespero è il mio prodotto SaaS — non un lavoro su commissione. Un assistente AI che risponde ai clienti su WhatsApp e Telegram per freelance, professionisti e artigiani italiani: preventivi, follow-up, briefing e promemoria, sempre con la loro voce. L\'ho progettato e costruito da zero, dall\'interfaccia al gateway multi-tenant.'
+    },
+    vespero_point_1: { en: 'AI assistant on WhatsApp & Telegram', it: 'Assistente AI su WhatsApp e Telegram' },
+    vespero_point_2: { en: "Replies in the freelancer's own voice", it: 'Risponde con la voce del freelance' },
+    vespero_point_3: { en: '10-minute onboarding, no terminal', it: 'Onboarding in 10 minuti, zero terminale' },
+    vespero_point_4: { en: 'Multi-tenant, Stripe billing, in production', it: 'Multi-tenant, pagamenti Stripe, in produzione' },
+    vespero_cta_visit: { en: 'Visit vespero.ai', it: 'Visita vespero.ai' },
+    vespero_cta_more: { en: 'Explore the project', it: 'Scopri il progetto' },
+    vespero_chat_name: { en: 'Vespero', it: 'Vespero' },
+    vespero_chat_status: { en: 'online', it: 'online' },
+    vespero_chat_in: { en: 'Hi! Can you send me a quote for the website?', it: 'Ciao! Mi fai un preventivo per il sito?' },
+    vespero_chat_out: {
+        en: "Of course. A showcase site starts at €3,500 — I'll put together a tailored proposal and send it over by tomorrow.",
+        it: 'Certo. Un sito vetrina parte da 3.500€ — ti preparo una proposta su misura e te la mando entro domani.'
+    },
+    vespero_chat_caption: { en: 'This is how Vespero replies — in your voice.', it: 'Così risponde Vespero, con la tua voce.' },
 
     // Experience → Process (results-focused, not CV)
     exp_label: { en: 'How We Work Together', it: 'Come Lavoriamo Insieme' },

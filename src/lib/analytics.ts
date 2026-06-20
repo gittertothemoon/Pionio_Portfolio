@@ -7,7 +7,7 @@ type EventMap = {
     cta_contact_click: { source: string; locale: string };
     email_click: { source: string; locale: string };
     whatsapp_click: { source: string; locale: string };
-    project_click: { slug: string; position: 'hero' | 'grid' | 'related'; locale: string };
+    project_click: { slug: string; position: 'hero' | 'grid' | 'related' | 'spotlight'; locale: string };
     project_visit_external: { slug: string; locale: string };
     service_click: { slug: string; source: string; locale: string };
     blog_post_open: { slug: string; locale: string };

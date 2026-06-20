@@ -17,6 +17,9 @@ export type Project = {
     invertLogo?: boolean;
     span: string;
     tech: string[];
+    // Personal flagship products (my own, not client work). Excluded from the
+    // client "Works" grid — they get their own dedicated spotlight instead.
+    personal?: boolean;
 };
 
 export const projects: Project[] = [
@@ -128,6 +131,28 @@ export const projects: Project[] = [
         invertLogo: true,
         span: 'md:col-span-1',
         tech: ['React', 'Tailwind', 'Local SEO'],
+    },
+    {
+        slug: 'vespero',
+        id: 'vespero',
+        title: 'Vespero',
+        category: { en: 'Personal SaaS', it: 'SaaS personale' },
+        year: '2026',
+        image: '/images/vespero-logo.png',
+        description: {
+            en: 'My own product — an AI assistant on WhatsApp and Telegram that answers clients for Italian freelancers, in their own voice.',
+            it: 'Il mio prodotto — un assistente AI su WhatsApp e Telegram che risponde ai clienti per i freelance italiani, con la loro voce.',
+        },
+        longDescription: {
+            en: "Vespero is my own SaaS product, designed and built end to end. It's an AI assistant on WhatsApp and Telegram for Italian freelancers, professionals and makers: it replies to clients when they can't — quotes, follow-ups, after-hours messages, project briefings and reminders — always in the freelancer's own voice. Onboarding takes ten minutes with no terminal: sign up, set your profile and rates, connect WhatsApp with a QR code, pick your skills. Under the hood it's a Next.js 15 dashboard on Supabase, a multi-tenant Node gateway powered by Claude, and Stripe billing — live in production at vespero.ai. A warm voice in the night.",
+            it: 'Vespero è il mio prodotto SaaS, progettato e costruito da zero. È un assistente AI su WhatsApp e Telegram per freelance, professionisti e artigiani italiani: risponde ai clienti quando loro non possono — preventivi, follow-up, messaggi fuori orario, briefing e promemoria — sempre con la voce del freelance. L\'onboarding richiede dieci minuti senza terminale: registrazione, profilo e tariffe, WhatsApp via QR, scelta delle skill. Sotto il cofano è una dashboard Next.js 15 su Supabase, un gateway Node multi-tenant alimentato da Claude e pagamenti Stripe — in produzione su vespero.ai. Una voce calda nella notte.',
+        },
+        url: 'https://vespero.ai',
+        imageFit: 'contain',
+        theme: 'dark',
+        span: 'md:col-span-1',
+        tech: ['Next.js 15', 'TypeScript', 'Supabase', 'Claude AI', 'WhatsApp API', 'Stripe'],
+        personal: true,
     },
 ];
 
