@@ -23,8 +23,8 @@ export const dict: Dictionary = {
     // Hero — conversion-first, client language
     hero_title: { en: 'Websites\nthat make your\nbusiness grow.', it: 'Siti web\nche fanno crescere\nil tuo business.' },
     hero_subtitle: {
-        en: "I'm Ivan from Pionio. I design and hand-code websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers. No templates.",
-        it: 'Sono Ivan di Pionio. Progetto e scrivo a mano siti web per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali. Niente template.'
+        en: "I'm Ivan from Pionio. I design and build websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers. My code, AI where it makes sense. I make the calls.",
+        it: 'Sono Ivan di Pionio. Progetto e costruisco siti web per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali. Codice mio, AI dove ha senso. Le scelte le faccio io.'
     },
     hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
@@ -120,8 +120,8 @@ export const dict: Dictionary = {
     },
     service_2_title: { en: 'Design that earns trust', it: 'Design che ispira fiducia' },
     service_2_desc: {
-        en: 'Smooth animations, refined typography, all hand-coded. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
-        it: 'Animazioni fluide, tipografia curata, tutto scritto a mano. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
+        en: 'Smooth animations, refined typography, nothing left to default. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
+        it: 'Animazioni fluide, tipografia curata, niente lasciato al default. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
     },
     service_3_title: { en: 'Found on Google', it: 'Visibile su Google' },
     service_3_desc: {
@@ -192,8 +192,8 @@ export const dict: Dictionary = {
     },
     exp_2_role: { en: '02 — I design and build', it: '02 — Progetto e sviluppo' },
     exp_2_desc: {
-        en: 'Within 2–4 weeks I deliver a hand-coded, fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
-        it: 'In 2–4 settimane consegno un sito scritto a mano, veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
+        en: 'AI in the flow cuts the time, not the care: within 2–4 weeks I deliver a fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
+        it: 'L\'AI nel flusso accorcia i tempi, non la cura: in 2–4 settimane consegno un sito veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
     },
     exp_3_role: { en: '03 — You go live and grow', it: '03 — Vai online e cresci' },
     exp_3_desc: {
