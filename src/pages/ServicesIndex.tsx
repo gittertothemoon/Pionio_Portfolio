@@ -138,7 +138,7 @@ export default function ServicesIndex() {
                             Iniziamo da una conversazione, non da un preventivo standard.
                         </h2>
                         <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl">
-                            Raccontami il tuo brand, gli obiettivi e i tempi. Ti rispondo entro 48 ore con una
+                            Raccontami il tuo brand, gli obiettivi e i tempi. Ti rispondo entro 24 ore con una
                             stima realistica e i prossimi passi — anche se la risposta giusta è “non sono io la
                             persona giusta per questo progetto”.
                         </p>

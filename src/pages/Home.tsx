@@ -126,7 +126,7 @@ export default function Home() {
 
                 <AuditCTA />
 
-                <div id="contact">
+                <div>
                     <ContactCTA />
                 </div>
             </main>

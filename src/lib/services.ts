@@ -22,9 +22,9 @@ export const services: Service[] = [
         slug: 'web-design',
         title: 'Web Design',
         h1: 'Web design su misura per brand che non vogliono passare inosservati',
-        seoTitle: 'Web Design Freelance Italia — Siti Web Premium su Misura | PIONIO',
+        seoTitle: 'Web Design Freelance Italia — Siti Web su Misura | PIONIO',
         seoDescription:
-            'Web design freelance in Italia: siti web premium su misura per brand, studi e startup. Identità visiva, layout originali, performance e SEO incluse. Richiedi un preventivo.',
+            'Web design freelance in Italia: siti web su misura per brand, studi e startup. Identità visiva, layout originali, performance e SEO incluse. Richiedi un preventivo.',
         keywords: [
             'web design',
             'web designer freelance italia',
@@ -38,7 +38,7 @@ export const services: Service[] = [
             "Il web design non è scegliere un template e cambiare i colori. È costruire un'esperienza visiva coerente con il posizionamento del brand, leggibile su qualsiasi dispositivo e capace di portare risultati misurabili.",
         paragraphs: [
             "Lavoro come web designer freelance in Italia con clienti che hanno bisogno di un sito davvero su misura: brand che vogliono distinguersi, studi professionali che cercano credibilità, startup che devono validare un'idea e farsi prendere sul serio. Ogni progetto parte da una fase di studio del posizionamento e si traduce in un layout originale, mai un copia-e-incolla di un tema.",
-            "La differenza tra un sito web ben disegnato e uno mediocre la si vede nei dettagli: la gerarchia tipografica, lo spazio tra gli elementi, la coerenza dei colori, il modo in cui il sito si comporta quando ci passi il mouse sopra o lo apri da telefono. Tutti questi dettagli, sommati, sono ciò che fa percepire il tuo brand come premium o come amatoriale.",
+            "La differenza tra un sito web ben disegnato e uno mediocre la si vede nei dettagli: la gerarchia tipografica, lo spazio tra gli elementi, la coerenza dei colori, il modo in cui il sito si comporta quando ci passi il mouse sopra o lo apri da telefono. Tutti questi dettagli, sommati, sono ciò che fa percepire il tuo brand come curato o come amatoriale.",
             "Disegno con tre vincoli sempre presenti: deve essere bello, deve caricare velocemente, deve essere indicizzabile da Google. Niente slider pesantissimi che rallentano il sito, niente animazioni gratuite che distraggono dal messaggio. Solo design al servizio della comunicazione.",
         ],
         includes: [
@@ -128,7 +128,7 @@ export const services: Service[] = [
         pricingNote: 'Da 2.500€ per un sito vetrina, da 5.000€ per progetti su più pagine.',
         ctaTitle: "Hai un progetto in mente?",
         ctaCopy:
-            "Raccontami il tuo brand e i tuoi obiettivi. Ti rispondo entro 48 ore con una stima realistica e i prossimi passi.",
+            "Raccontami il tuo brand e i tuoi obiettivi. Ti rispondo entro 24 ore con una stima realistica e i prossimi passi.",
     },
     {
         slug: 'sviluppo-web',

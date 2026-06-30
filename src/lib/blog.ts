@@ -404,7 +404,7 @@ export const posts: BlogPost[] = [
             { type: 'h2', text: '3. Il design comunica posizionamento' },
             {
                 type: 'p',
-                text: "Quando un cliente atterra sul tuo sito, in tre secondi decide se sei premium o low-cost. Non lo fa leggendo i tuoi prezzi: lo fa percependo la qualità del design. Tipografia, spazio, fotografia, microinterazioni. Sono tutti segnali. Un sito amatoriale comunica 'low cost', anche se vendi servizi premium — e questo abbassa il prezzo che i clienti sono disposti a pagare.",
+                text: "Quando un cliente atterra sul tuo sito, in tre secondi decide se sei curato o dozzinale. Non lo fa leggendo i tuoi prezzi: lo fa percependo la qualità del design. Tipografia, spazio, fotografia, microinterazioni. Sono tutti segnali. Un sito amatoriale comunica 'low cost', anche se vendi servizi di fascia alta — e questo abbassa il prezzo che i clienti sono disposti a pagare.",
             },
             { type: 'h2', text: '4. La velocità si traduce in conversioni' },
             {

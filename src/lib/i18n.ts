@@ -23,8 +23,8 @@ export const dict: Dictionary = {
     // Hero — conversion-first, client language
     hero_title: { en: 'Websites\nthat make your\nbusiness grow.', it: 'Siti web\nche fanno crescere\nil tuo business.' },
     hero_subtitle: {
-        en: "I'm PIONIO. I design and build premium websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers.",
-        it: 'Sono PIONIO. Progetto e sviluppo siti web premium per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali.'
+        en: "I'm Ivan from Pionio. I design and hand-code websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers. No templates.",
+        it: 'Sono Ivan di Pionio. Progetto e scrivo a mano siti web per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali. Niente template.'
     },
     hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
@@ -102,8 +102,8 @@ export const dict: Dictionary = {
         it: 'La maggior parte dei siti sono solo bei disegni che nessuno trova e che non portano clienti. I miei sono progettati per fare una cosa: portarti le persone giuste e convincerle a scegliere te.'
     },
     about_p2: {
-        en: 'Premium design, fast loading, mobile-first, optimized for Google. You get a digital storefront that builds trust on the first scroll — without the agency price tag and without the technical headaches.',
-        it: 'Design premium, caricamento veloce, mobile-first, ottimizzato per Google. Ottieni una vetrina digitale che ispira fiducia al primo scroll — senza il costo di un\'agenzia e senza grattacapi tecnici.'
+        en: 'Custom design, fast loading, mobile-first, optimized for Google. You get a digital storefront that builds trust on the first scroll — without the agency price tag and without the technical headaches.',
+        it: 'Design su misura, caricamento veloce, mobile-first, ottimizzato per Google. Ottieni una vetrina digitale che ispira fiducia al primo scroll — senza il costo di un\'agenzia e senza grattacapi tecnici.'
     },
 
     about_cta: { en: 'Start your project', it: 'Inizia il tuo progetto' },
@@ -120,8 +120,8 @@ export const dict: Dictionary = {
     },
     service_2_title: { en: 'Design that earns trust', it: 'Design che ispira fiducia' },
     service_2_desc: {
-        en: 'Smooth animations, refined typography, premium feel. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
-        it: 'Animazioni fluide, tipografia curata, sensazione premium. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
+        en: 'Smooth animations, refined typography, all hand-coded. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
+        it: 'Animazioni fluide, tipografia curata, tutto scritto a mano. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
     },
     service_3_title: { en: 'Found on Google', it: 'Visibile su Google' },
     service_3_desc: {
@@ -142,13 +142,13 @@ export const dict: Dictionary = {
     },
     work_antonela_cat: { en: 'Art Portfolio', it: "Portfolio d'Arte" },
     work_antonela_desc: {
-        en: 'A digital gallery for an emerging painter — quiet, premium, lets the artwork do the talking.',
-        it: "Una galleria digitale per un'artista emergente — silenziosa, premium, lascia parlare le opere."
+        en: 'A digital gallery for an emerging painter — quiet, fast, lets the artwork do the talking.',
+        it: "Una galleria digitale per un'artista emergente — silenziosa, veloce, lascia parlare le opere."
     },
     work_smoky_cat: { en: 'E-commerce', it: 'E-commerce' },
     work_smoky_desc: {
-        en: 'Online shop for an Italian artisan candle brand — short checkout, premium feel, online sales from day one.',
-        it: 'Shop online per un brand italiano di candele artigianali — checkout breve, sensazione premium, vendite dal primo giorno.'
+        en: 'Online shop for an Italian artisan candle brand — short checkout, mobile-first, online sales from day one.',
+        it: 'Shop online per un brand italiano di candele artigianali — checkout breve, mobile-first, vendite dal primo giorno.'
     },
     work_arena_cat: { en: 'Local Business', it: 'Attività Locale' },
     work_arena_desc: {
@@ -178,8 +178,8 @@ export const dict: Dictionary = {
     vespero_chat_status: { en: 'online', it: 'online' },
     vespero_chat_in: { en: 'Hi! Can you send me a quote for the website?', it: 'Ciao! Mi fai un preventivo per il sito?' },
     vespero_chat_out: {
-        en: "Of course. A showcase site starts at €3,500 — I'll put together a tailored proposal and send it over by tomorrow.",
-        it: 'Certo. Un sito vetrina parte da 3.500€ — ti preparo una proposta su misura e te la mando entro domani.'
+        en: "Of course. A showcase site starts at €2,500 — I'll put together a tailored proposal and send it over by tomorrow.",
+        it: 'Certo. Un sito vetrina parte da 2.500€ — ti preparo una proposta su misura e te la mando entro domani.'
     },
     vespero_chat_caption: { en: 'This is how Vespero replies — in your voice.', it: 'Così risponde Vespero, con la tua voce.' },
 
@@ -192,8 +192,8 @@ export const dict: Dictionary = {
     },
     exp_2_role: { en: '02 — I design and build', it: '02 — Progetto e sviluppo' },
     exp_2_desc: {
-        en: 'Within 2–4 weeks I deliver a premium, fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
-        it: 'In 2–4 settimane consegno un sito premium, veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
+        en: 'Within 2–4 weeks I deliver a hand-coded, fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
+        it: 'In 2–4 settimane consegno un sito scritto a mano, veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
     },
     exp_3_role: { en: '03 — You go live and grow', it: '03 — Vai online e cresci' },
     exp_3_desc: {

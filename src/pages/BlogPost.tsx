@@ -256,7 +256,7 @@ export default function BlogPost() {
                         </h2>
                         <p className="text-zinc-300 text-lg leading-relaxed">
                             Se quello che hai letto qui ti convince e cerchi un partner per metterlo in pratica,
-                            parliamone. Ti rispondo entro 48 ore con una stima realistica e i prossimi passi.
+                            parliamone. Ti rispondo entro 24 ore con una stima realistica e i prossimi passi.
                         </p>
                         <div className="flex flex-wrap gap-3">
                             <Link

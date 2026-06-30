@@ -9,7 +9,7 @@ import { track } from '../lib/analytics';
 const url = 'https://pionio.it/contatti';
 const title = 'Contatti — Richiedi un Preventivo o una Consulenza | PIONIO';
 const description =
-    'Contatta PIONIO per un preventivo o una consulenza su web design, sviluppo web, e-commerce, web app o SEO. Risposta entro 48 ore. Sede in Italia, lavoro da remoto.';
+    'Contatta PIONIO per un preventivo o una consulenza su web design, sviluppo web, e-commerce, web app o SEO. Risposta entro 24 ore. Sede in Italia, lavoro da remoto.';
 
 const localBusinessJsonLd = {
     '@context': 'https://schema.org',
@@ -107,7 +107,7 @@ export default function ContactPage() {
                             Iniziamo da una conversazione.
                         </h1>
                         <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light">
-                            Raccontami il tuo progetto, anche solo per linee generali. Ti rispondo entro 48 ore con
+                            Raccontami il tuo progetto, anche solo per linee generali. Ti rispondo entro 24 ore con
                             una valutazione realistica, i prossimi passi e una stima trasparente.
                         </p>
                     </m.section>

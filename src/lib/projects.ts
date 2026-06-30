@@ -52,12 +52,12 @@ export const projects: Project[] = [
         year: '2026',
         image: '/images/flow-logo.png',
         description: {
-            en: 'Mobile-first landing page validating a boutique Pilates Reformer studio in San Giorgio di Piano, Bologna. Premium design with a lead-capture form connected to Supabase.',
-            it: 'Landing page mobile-first per la validazione di uno studio boutique di Pilates Reformer a San Giorgio di Piano, Bologna. Design premium con form di raccolta lead collegato a Supabase.',
+            en: 'Mobile-first landing page validating a boutique Pilates Reformer studio in San Giorgio di Piano, Bologna. Custom design with a lead-capture form connected to Supabase.',
+            it: 'Landing page mobile-first per la validazione di uno studio boutique di Pilates Reformer a San Giorgio di Piano, Bologna. Design su misura con form di raccolta lead collegato a Supabase.',
         },
         longDescription: {
-            en: 'A mobile-first validation landing page for a new boutique Pilates Reformer studio opening in San Giorgio di Piano, near Bologna. The design is intentionally minimal and premium, with a single conversion goal: lead capture. The form is wired to Supabase so the founders can review interest in real time before committing to a full launch.',
-            it: 'Landing page mobile-first per la validazione di un nuovo studio boutique di Pilates Reformer in apertura a San Giorgio di Piano, vicino Bologna. Il design è volutamente minimale e premium, con un unico obiettivo di conversione: la raccolta lead. Il form è collegato a Supabase così che i fondatori possano valutare l\'interesse in tempo reale prima del lancio completo.',
+            en: 'A mobile-first validation landing page for a new boutique Pilates Reformer studio opening in San Giorgio di Piano, near Bologna. The design is intentionally minimal and fast, with a single conversion goal: lead capture. The form is wired to Supabase so the founders can review interest in real time before committing to a full launch.',
+            it: 'Landing page mobile-first per la validazione di un nuovo studio boutique di Pilates Reformer in apertura a San Giorgio di Piano, vicino Bologna. Il design è volutamente minimale e veloce, con un unico obiettivo di conversione: la raccolta lead. Il form è collegato a Supabase così che i fondatori possano valutare l\'interesse in tempo reale prima del lancio completo.',
         },
         url: 'https://flow-pilates-studio-bo.vercel.app',
         imageFit: 'contain',
@@ -100,8 +100,8 @@ export const projects: Project[] = [
             it: 'E-commerce di candele artigianali di soia made in Italy.',
         },
         longDescription: {
-            en: 'An e-commerce storefront for a small Italian maker of artisanal soy candles. The product pages emphasize material, scent and craft over volume, and the checkout is short and frictionless. The whole experience is tuned for trust — exactly what a premium hand-poured product needs.',
-            it: 'E-commerce per un piccolo produttore italiano di candele artigianali in soia. Le schede prodotto valorizzano materia, profumo e artigianalità più che il volume, e il checkout è breve e senza attriti. Tutta l\'esperienza è calibrata per generare fiducia — esattamente ciò che serve a un prodotto premium fatto a mano.',
+            en: 'An e-commerce storefront for a small Italian maker of artisanal soy candles. The product pages emphasize material, scent and craft over volume, and the checkout is short and frictionless. The whole experience is tuned for trust — exactly what a hand-poured product needs.',
+            it: 'E-commerce per un piccolo produttore italiano di candele artigianali in soia. Le schede prodotto valorizzano materia, profumo e artigianalità più che il volume, e il checkout è breve e senza attriti. Tutta l\'esperienza è calibrata per generare fiducia — esattamente ciò che serve a un prodotto fatto a mano.',
         },
         url: 'https://smokycandle.com',
         imageFit: 'contain',
