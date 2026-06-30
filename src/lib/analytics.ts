@@ -5,6 +5,8 @@ type Primitive = string | number | boolean | null;
 type EventMap = {
     lang_switch: { from: 'it' | 'en'; to: 'it' | 'en'; location: string };
     cta_contact_click: { source: string; locale: string };
+    form_start: { source: string; locale: string };
+    lead_submit: { source: string; locale: string };
     email_click: { source: string; locale: string };
     whatsapp_click: { source: string; locale: string };
     project_click: { slug: string; position: 'hero' | 'grid' | 'related' | 'spotlight'; locale: string };

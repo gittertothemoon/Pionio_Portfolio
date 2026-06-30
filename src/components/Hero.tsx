@@ -91,6 +91,7 @@ export function Hero() {
                         <MagneticButton
                             onClick={(e) => {
                                 e.preventDefault();
+                                track('nav_click', { target: 'works', locale });
                                 document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             className="pointer-events-auto bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
@@ -104,6 +105,7 @@ export function Hero() {
                         <MagneticButton
                             onClick={(e) => {
                                 e.preventDefault();
+                                track('cta_contact_click', { source: 'hero', locale });
                                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                             className="pointer-events-auto bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"

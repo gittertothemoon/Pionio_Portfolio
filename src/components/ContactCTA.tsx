@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PaperPlaneRight, CheckCircle, ArrowClockwise } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { track } from '../lib/analytics';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -30,13 +31,21 @@ const inputBase =
 const labelBase = 'text-zinc-400 font-mono text-xs uppercase tracking-widest';
 
 export function ContactCTA() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
     const [form, setForm] = useState<FormState>(EMPTY_FORM);
     const [status, setStatus] = useState<Status>('idle');
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const startedRef = useRef(false);
 
     const update = <K extends keyof FormState>(key: K, value: string) =>
         setForm((prev) => ({ ...prev, [key]: value }));
+
+    // Fires once, on the first field the visitor touches.
+    const handleFormStart = () => {
+        if (startedRef.current) return;
+        startedRef.current = true;
+        track('form_start', { source: 'contact_form', locale });
+    };
 
     const tipoOptions = [
         { value: t('contact_tipo_web'), label: t('contact_tipo_web') },
@@ -87,6 +96,7 @@ export function ContactCTA() {
                 throw new Error(detail?.error || `HTTP ${resp.status}`);
             }
             setStatus('success');
+            track('lead_submit', { source: 'contact_form', locale });
             setForm(EMPTY_FORM);
         } catch (err) {
             setStatus('error');
@@ -184,6 +194,7 @@ export function ContactCTA() {
                             viewport={{ once: true, margin: '-100px' }}
                             transition={{ delay: 0.2 }}
                             onSubmit={handleSubmit}
+                            onFocusCapture={handleFormStart}
                             className="max-w-xl mx-auto flex flex-col gap-5"
                             noValidate
                         >
