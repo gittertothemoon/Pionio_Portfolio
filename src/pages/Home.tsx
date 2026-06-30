@@ -6,6 +6,7 @@ import { Hero } from '../components/Hero';
 import { Hero3D } from '../components/Hero3D';
 import { Pionio3DInfo } from '../components/Pionio3DInfo';
 import { About } from '../components/About';
+import { Founder } from '../components/Founder';
 import { useIsRestrictedWebView } from '../lib/ua';
 import { Services } from '../components/Services';
 import { WorksBento } from '../components/WorksBento';
@@ -100,6 +101,10 @@ export default function Home() {
 
                 <div id="about">
                     <About />
+                </div>
+
+                <div id="chi-sono">
+                    <Founder />
                 </div>
 
                 <div id="services">

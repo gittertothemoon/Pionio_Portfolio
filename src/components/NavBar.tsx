@@ -40,7 +40,7 @@ type ExternalItem = {
 type NavItem = AnchorItem | RouteItem | ExternalItem;
 
 const navItems: NavItem[] = [
-    { name: 'About', hash: 'about', icon: User, type: 'anchor', tKey: 'nav_about' },
+    { name: 'About', hash: 'chi-sono', icon: User, type: 'anchor', tKey: 'nav_about' },
     { name: 'Capabilities', hash: 'services', icon: Lightning, type: 'anchor', tKey: 'nav_capabilities' },
     { name: 'Works', hash: 'works', icon: GridFour, type: 'anchor', tKey: 'nav_works' },
     { name: 'Vespero', hash: 'vespero', icon: Star, type: 'anchor', tKey: 'nav_vespero' },

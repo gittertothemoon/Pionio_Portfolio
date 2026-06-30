@@ -108,6 +108,27 @@ export const dict: Dictionary = {
 
     about_cta: { en: 'Start your project', it: 'Inizia il tuo progetto' },
 
+    // Chi sono — the human behind the studio (only section with a face)
+    chisono_label: { en: 'About me', it: 'Chi sono' },
+    chisono_headline_1: { en: "Behind Pionio there's no agency. There's ", it: "Dietro Pionio non c'è un'agenzia. Ci sono " },
+    chisono_headline_highlight: { en: 'me', it: 'io' },
+    chisono_headline_3: { en: '.', it: '.' },
+    chisono_p1: {
+        en: "I'm Ivan. I design and build websites on my own, one at a time — from the first line of code to the last pixel. No assembly line, no middlemen: you talk to the person who actually makes the site.",
+        it: "Sono Ivan. Progetto e costruisco siti da solo, uno alla volta — dalla prima riga di codice all'ultimo pixel. Niente catena di montaggio, niente intermediari: parli con la persona che il sito lo fa davvero."
+    },
+    chisono_p2_1: {
+        en: "I use AI every day, but I make the calls: it executes, I decide where the project goes. And when I'm not on a client site I build my own things, like ",
+        it: "Uso l'AI ogni giorno, ma le decisioni le prendo io: lei esegue, io scelgo dove portare il progetto. E quando non lavoro su un sito cliente costruisco le mie cose, come "
+    },
+    chisono_p2_2: {
+        en: ". That's how I stay sharp — by never stopping building.",
+        it: ". È così che resto sul pezzo: continuando a costruire."
+    },
+    chisono_name: { en: 'Ivan Panto', it: 'Ivan Panto' },
+    chisono_role: { en: 'Founder · Web designer & developer', it: 'Fondatore · Web designer & developer' },
+    chisono_photo_alt: { en: 'Ivan Panto, founder of Pionio', it: 'Ivan Panto, fondatore di Pionio' },
+
     // Services — translate tech jargon into client benefits
     services_label: { en: 'What I Do', it: 'Cosa Faccio Per Te' },
     services_headline_1: { en: 'Three things, ', it: 'Tre cose, ' },
