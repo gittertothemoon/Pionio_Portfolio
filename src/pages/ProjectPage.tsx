@@ -107,7 +107,6 @@ export default function ProjectPage() {
                 <meta name="keywords" content={`PIONIO, ${project.title}, ${category}, ${project.tech.join(', ')}, sviluppatore web, frontend developer`} />
                 <link rel="canonical" href={url} />
                 <link rel="alternate" hrefLang="it" href={url} />
-                <link rel="alternate" hrefLang="en" href={url} />
                 <link rel="alternate" hrefLang="x-default" href={url} />
 
                 <meta property="og:type" content="article" />
@@ -116,7 +115,7 @@ export default function ProjectPage() {
                 <meta property="og:description" content={seoDesc} />
                 <meta property="og:image" content={imageUrl} />
                 <meta property="og:image:alt" content={`${project.title} — ${category} project by PIONIO`} />
-                <meta property="article:author" content="PIONIO" />
+                <meta property="article:author" content="Ivan Panto" />
                 <meta property="article:published_time" content={`${project.year}-01-01`} />
 
                 <meta name="twitter:card" content="summary_large_image" />

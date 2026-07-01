@@ -74,7 +74,7 @@ export default function BlogPost() {
         dateModified: post.dateModified,
         inLanguage: 'it-IT',
         author: { '@id': 'https://pionio.it/#person' },
-        publisher: { '@id': 'https://pionio.it/#person' },
+        publisher: { '@id': 'https://pionio.it/#org' },
         articleSection: post.category,
         keywords: post.keywords.join(', '),
         url,
@@ -108,7 +108,7 @@ export default function BlogPost() {
                 <meta property="og:image" content="https://pionio.it/og-image-v2.png" />
                 <meta property="article:published_time" content={post.datePublished} />
                 <meta property="article:modified_time" content={post.dateModified} />
-                <meta property="article:author" content="PIONIO" />
+                <meta property="article:author" content="Ivan Panto" />
                 <meta property="article:section" content={post.category} />
                 {post.keywords.map((k) => (
                     <meta key={k} property="article:tag" content={k} />

@@ -34,7 +34,12 @@ const localBusinessJsonLd = {
         'Applicazioni Web',
         'SEO Tecnica',
     ],
-    sameAs: ['https://github.com/gittertothemoon', 'https://www.instagram.com/pionio_dev'],
+    sameAs: [
+        'https://github.com/gittertothemoon',
+        'https://www.instagram.com/pionio_dev',
+        'https://x.com/pionio_dev',
+        'https://audit.pionio.it',
+    ],
     founder: { '@id': 'https://pionio.it/#person' },
     knowsLanguage: ['it', 'en'],
     contactPoint: {

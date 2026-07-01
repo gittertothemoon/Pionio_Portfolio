@@ -26,9 +26,7 @@
   </script>
 
   <!-- Primary Meta Tags (per-route title/description injected by router) -->
-  <meta name="author" content="PIONIO" />
-  <meta name="keywords"
-    content="PIONIO, sviluppatore web, siti web su misura, web design freelance Italia, realizzazione siti web, e-commerce, landing page, sito web piccole imprese, sviluppatore freelance Italia, web designer Italia, Bologna, framer motion, tailwind, typescript" />
+  <meta name="author" content="Ivan Panto" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
   <meta name="format-detection" content="telephone=no" />
@@ -53,13 +51,11 @@
   <meta name="apple-mobile-web-app-title" content="PIONIO" />
   <meta name="mobile-web-app-capable" content="yes" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <!-- Open Graph / Facebook — INVARIANTS ONLY. og:type/url/title/description are
+       injected per-route by each page's <Head> (vite-react-ssg); it does NOT
+       de-dupe against static tags, so keeping variants here would ship duplicate,
+       stale-homepage values on every subpage. -->
   <meta property="og:site_name" content="PIONIO" />
-  <meta property="og:url" content="https://pionio.it/" />
-  <meta property="og:title" content="Pionio · Web Design Studio" />
-  <meta property="og:description"
-    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura." />
   <meta property="og:image" content="https://pionio.it/og-image-v2.png" />
   <meta property="og:image:secure_url" content="https://pionio.it/og-image-v2.png" />
   <meta property="og:image:type" content="image/png" />
@@ -67,14 +63,9 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Pionio · Web Design Studio" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:locale:alternate" content="en_US" />
 
-  <!-- Twitter / X -->
+  <!-- Twitter / X — INVARIANTS ONLY (per-route title/url/description via <Head>). -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://pionio.it/" />
-  <meta name="twitter:title" content="Pionio · Web Design Studio" />
-  <meta name="twitter:description"
-    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura." />
   <meta name="twitter:image" content="https://pionio.it/og-image-v2.png" />
   <meta name="twitter:image:alt" content="Pionio · Web Design Studio" />
   <meta name="twitter:creator" content="@pionio_dev" />
@@ -89,18 +80,18 @@
   <link rel="preload" as="font" type="font/woff2" href="/fonts/Geist-Regular.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/GeistMono-Regular.woff2" crossorigin />
 
-  <!-- JSON-LD: Person -->
+  <!-- JSON-LD: Person (Ivan Panto) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "@id": "https://pionio.it/#person",
-      "name": "PIONIO",
+      "name": "Ivan Panto",
       "alternateName": "Pionio Dev",
       "url": "https://pionio.it/",
       "image": "https://pionio.it/og-image-v2.png",
-      "jobTitle": "Web Designer & Frontend Engineer",
-      "description": "Studio di web design italiano. Lavoro su un sito alla volta: codice mio, AI dove ha senso. Siti web, e-commerce e landing page su misura.",
+      "jobTitle": "Founder · Web designer & developer",
+      "description": "Founder di Pionio, studio di web design italiano a Bologna. Lavoro su un sito alla volta: codice mio, AI dove ha senso. Siti web, e-commerce e landing page su misura.",
       "knowsAbout": [
         "Frontend Architecture",
         "React",
@@ -115,16 +106,42 @@
       ],
       "knowsLanguage": ["it", "en"],
       "nationality": { "@type": "Country", "name": "Italy" },
-      "address": { "@type": "PostalAddress", "addressCountry": "IT" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Bologna", "addressCountry": "IT" },
       "sameAs": [
         "https://github.com/gittertothemoon",
-        "https://www.instagram.com/pionio_dev"
+        "https://www.instagram.com/pionio_dev",
+        "https://x.com/pionio_dev"
       ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "PIONIO",
-        "url": "https://pionio.it/"
-      }
+      "worksFor": { "@id": "https://pionio.it/#org" }
+    }
+  </script>
+
+  <!-- JSON-LD: Organization (Pionio Web Design Studio) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://pionio.it/#org",
+      "name": "Pionio Web Design Studio",
+      "alternateName": "Pionio",
+      "url": "https://pionio.it/",
+      "logo": "https://pionio.it/apple-touch-icon.png",
+      "image": "https://pionio.it/og-image-v2.png",
+      "email": "pionio.dev@gmail.com",
+      "description": "Studio di web design italiano one-man: siti web, e-commerce e applicazioni web su misura per PMI e professionisti. Un progetto alla volta, codice proprietario, AI dove ha senso.",
+      "founder": { "@id": "https://pionio.it/#person" },
+      "foundingDate": "2024",
+      "areaServed": [
+        { "@type": "Country", "name": "Italy" },
+        { "@type": "Place", "name": "Worldwide (remote)" }
+      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Bologna", "addressCountry": "IT" },
+      "sameAs": [
+        "https://github.com/gittertothemoon",
+        "https://www.instagram.com/pionio_dev",
+        "https://x.com/pionio_dev",
+        "https://audit.pionio.it"
+      ]
     }
   </script>
 
@@ -138,7 +155,7 @@
       "name": "PIONIO",
       "description": "Pionio · Web Design Studio — portfolio e lavori.",
       "inLanguage": ["it-IT", "en-US"],
-      "publisher": { "@id": "https://pionio.it/#person" },
+      "publisher": { "@id": "https://pionio.it/#org" },
       "author": { "@id": "https://pionio.it/#person" }
     }
   </script>

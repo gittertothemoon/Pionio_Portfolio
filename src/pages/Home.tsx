@@ -17,6 +17,7 @@ import { TechStack } from '../components/TechStack';
 import { AuditCTA } from '../components/AuditCTA';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
+import { HomeFAQ, homeFaq } from '../components/HomeFAQ';
 
 export default function Home() {
     const { t } = useLanguage();
@@ -25,24 +26,37 @@ export default function Home() {
     return (
         <div className="w-full bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased -webkit-font-smoothing-antialiased">
             <Head>
-                <title>Pionio · Web Design Studio</title>
+                <title>Pionio · Web Designer Freelance a Bologna, Siti su Misura</title>
                 <meta
                     name="description"
                     content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
                 <link rel="canonical" href="https://pionio.it/" />
+                <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://pionio.it/" />
-                <meta property="og:title" content="Pionio · Web Design Studio" />
+                <meta property="og:title" content="Pionio · Web Designer Freelance a Bologna, Siti su Misura" />
                 <meta
                     property="og:description"
                     content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
                 <meta name="twitter:url" content="https://pionio.it/" />
-                <meta name="twitter:title" content="Pionio · Web Design Studio" />
+                <meta name="twitter:title" content="Pionio · Web Designer Freelance a Bologna, Siti su Misura" />
                 <meta
                     name="twitter:description"
                     content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
                 />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'FAQPage',
+                        '@id': 'https://pionio.it/#faq',
+                        mainEntity: homeFaq.map((f) => ({
+                            '@type': 'Question',
+                            name: f.q,
+                            acceptedAnswer: { '@type': 'Answer', text: f.a },
+                        })),
+                    })}
+                </script>
             </Head>
             <a
                 href="#main"
@@ -130,6 +144,8 @@ export default function Home() {
                 </div>
 
                 <AuditCTA />
+
+                <HomeFAQ />
 
                 <div>
                     <ContactCTA />

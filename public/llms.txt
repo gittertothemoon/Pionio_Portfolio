@@ -1,0 +1,28 @@
+# Pionio
+
+> Pionio è uno studio di web design italiano one-man di Ivan Panto, con sede a Bologna. Progetta e sviluppa siti web, e-commerce e applicazioni web su misura per PMI, professionisti e attività italiane — codice proprietario, AI dove ha senso, un progetto alla volta.
+
+## Cosa fa
+- Web design e siti vetrina su misura — da circa 2.500€
+- E-commerce da 4.000€, progetti web multi-pagina (React, TypeScript) da 5.000€, applicazioni web su misura da 8.000€
+- SEO tecnica e ottimizzazione delle performance
+- Risposta a ogni richiesta entro 24 ore, con una stima trasparente
+- Italia + lavoro da remoto
+
+## Chi
+- Founder: Ivan Panto — web designer & developer, Bologna (Italia)
+- Posizionamento: AI-native — l'AI esegue, le scelte le fa Ivan; niente template, codice su misura
+- Contatto: pionio.dev@gmail.com
+
+## Link
+- [Home](https://pionio.it/)
+- [Servizi](https://pionio.it/servizi)
+- [Blog](https://pionio.it/blog)
+- [Contatti](https://pionio.it/contatti)
+- [Privacy](https://pionio.it/privacy)
+- [Audit gratuito del sito](https://audit.pionio.it)
+
+## Profili
+- Instagram: https://www.instagram.com/pionio_dev
+- X: https://x.com/pionio_dev
+- GitHub: https://github.com/gittertothemoon

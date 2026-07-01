@@ -4,11 +4,10 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://pionio.it/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://pionio.it/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/" />
     <image:image>
       <image:loc>https://pionio.it/og-image-v2.png</image:loc>
@@ -18,7 +17,7 @@
 
   <url>
     <loc>https://pionio.it/servizi</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi" />
@@ -26,7 +25,7 @@
   </url>
   <url>
     <loc>https://pionio.it/servizi/web-design</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/web-design" />
@@ -34,7 +33,7 @@
   </url>
   <url>
     <loc>https://pionio.it/servizi/sviluppo-web</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/sviluppo-web" />
@@ -42,7 +41,7 @@
   </url>
   <url>
     <loc>https://pionio.it/servizi/ecommerce</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/ecommerce" />
@@ -50,7 +49,7 @@
   </url>
   <url>
     <loc>https://pionio.it/servizi/applicazioni-web</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/applicazioni-web" />
@@ -58,7 +57,7 @@
   </url>
   <url>
     <loc>https://pionio.it/servizi/seo-ottimizzazione</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/seo-ottimizzazione" />
@@ -67,7 +66,7 @@
 
   <url>
     <loc>https://pionio.it/blog</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog" />
@@ -75,7 +74,7 @@
   </url>
   <url>
     <loc>https://pionio.it/blog/quanto-costa-un-sito-web</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog/quanto-costa-un-sito-web" />
@@ -83,7 +82,7 @@
   </url>
   <url>
     <loc>https://pionio.it/blog/react-vs-wordpress</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog/react-vs-wordpress" />
@@ -91,7 +90,7 @@
   </url>
   <url>
     <loc>https://pionio.it/blog/come-scegliere-web-designer-freelance</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog/come-scegliere-web-designer-freelance" />
@@ -99,7 +98,7 @@
   </url>
   <url>
     <loc>https://pionio.it/blog/perche-investire-in-un-sito-web-professionale</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog/perche-investire-in-un-sito-web-professionale" />
@@ -107,7 +106,7 @@
   </url>
   <url>
     <loc>https://pionio.it/blog/guida-seo-piccole-imprese</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/blog/guida-seo-piccole-imprese" />
@@ -116,7 +115,7 @@
 
   <url>
     <loc>https://pionio.it/contatti</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/contatti" />
@@ -124,8 +123,17 @@
   </url>
 
   <url>
+    <loc>https://pionio.it/privacy</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/privacy" />
+  </url>
+
+  <url>
     <loc>https://pionio.it/projects/where2beach</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/where2beach" />
@@ -137,7 +145,7 @@
   </url>
   <url>
     <loc>https://pionio.it/projects/flow-pilates</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/flow-pilates" />
@@ -149,7 +157,7 @@
   </url>
   <url>
     <loc>https://pionio.it/projects/antonela-paintings</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/antonela-paintings" />
@@ -161,7 +169,7 @@
   </url>
   <url>
     <loc>https://pionio.it/projects/smoky-candle</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/smoky-candle" />
@@ -173,7 +181,7 @@
   </url>
   <url>
     <loc>https://pionio.it/projects/arena-barbershop</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/arena-barbershop" />

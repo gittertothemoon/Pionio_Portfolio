@@ -1,7 +1,7 @@
 {
   "name": "Pionio — Web Design Studio",
   "short_name": "Pionio",
-  "description": "Portfolio di PIONIO, sviluppatore web italiano. Design senza compromessi e architettura frontend robusta in React.",
+  "description": "Pionio — studio di web design di Ivan Panto, a Bologna. Siti web, e-commerce e applicazioni web su misura per PMI e professionisti italiani.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
