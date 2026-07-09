@@ -6,6 +6,7 @@
 - Web design e siti vetrina su misura — da circa 2.500€
 - E-commerce da 4.000€, progetti web multi-pagina (React, TypeScript) da 5.000€, applicazioni web su misura da 8.000€
 - SEO tecnica e ottimizzazione delle performance
+- Rifacimento di siti esistenti (migrazione e redirect inclusi) e siti per settori specifici: guide e attività outdoor, agriturismi e B&B
 - Risposta a ogni richiesta entro 24 ore, con una stima trasparente
 - Italia + lavoro da remoto
 

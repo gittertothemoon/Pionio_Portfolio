@@ -578,6 +578,339 @@ export const services: Service[] = [
         ctaCopy:
             'Mandami il dominio del tuo sito e i tuoi obiettivi. Faccio un controllo iniziale gratuito e ti dico se ha senso lavorare insieme.',
     },
+    {
+        slug: 'rifacimento-sito-bologna',
+        title: 'Rifacimento Siti Web Bologna',
+        h1: 'Rifare il sito web a Bologna senza perdere quello che già funziona',
+        seoTitle: 'Rifacimento Sito Web Bologna — Restyling per PMI e Professionisti | PIONIO',
+        seoDescription:
+            'Rifacimento siti web a Bologna per PMI, studi e professionisti. Sito nuovo, veloce e leggibile da Google, con migrazione dei contenuti e redirect corretti. Da 2.500€, risposta in 24 ore.',
+        keywords: [
+            'rifacimento sito web bologna',
+            'rifare sito web',
+            'restyling sito web bologna',
+            'web designer bologna',
+            'sito web aziendale bologna',
+            'sito web vecchio da rifare',
+        ],
+        intro:
+            "Un sito di otto anni fa oggi lavora contro di te: lento da telefono, invisibile su Google, con informazioni vecchie. Rifarlo non significa buttare tutto — significa tenere ciò che porta contatti e ricostruire il resto.",
+        paragraphs: [
+            "Lavoro da Bologna con PMI, studi e professionisti che hanno già un sito e non ne sono più contenti. Il punto di partenza non è mai la pagina bianca: è capire cosa del sito attuale funziona ancora (pagine posizionate, contenuti letti, contatti che arrivano) e cosa invece frena. Da lì esce un progetto di rifacimento con priorità chiare.",
+            "La parte che quasi tutti sbagliano nel rifare un sito è la migrazione: pagine spostate senza redirect, URL cambiati a caso, mesi di posizionamento Google bruciati in un pomeriggio. Ogni rifacimento che consegno include la mappa dei redirect 301 dal vecchio al nuovo, il controllo dell'indicizzazione dopo il lancio e il passaggio corretto di dominio ed email.",
+            "Essere a Bologna aiuta: se preferisci parlarne di persona davanti a un caffè, si fa. Detto questo, lavoro con clienti in tutta Italia e il processo funziona identico a distanza — call di allineamento, anteprime online a ogni passaggio, feedback diretto sulle pagine.",
+        ],
+        includes: [
+            {
+                title: 'Analisi del sito attuale',
+                description:
+                    'Cosa si posiziona, cosa viene letto, da dove arrivano i contatti. Si ricostruisce sapendo cosa salvare.',
+            },
+            {
+                title: 'Design nuovo, contenuti migrati',
+                description:
+                    'Layout ripensato per il telefono e per chi legge in fretta. Testi e foto buoni si portano di là, il resto si rifà.',
+            },
+            {
+                title: 'Redirect 301 completi',
+                description:
+                    'Ogni vecchio URL punta alla pagina nuova giusta. Il posizionamento Google accumulato non si perde.',
+            },
+            {
+                title: 'Performance da telefono',
+                description:
+                    'Core Web Vitals nel verde, immagini ottimizzate, caricamento sotto i due secondi sulla rete mobile.',
+            },
+            {
+                title: 'SEO on-page rifatta',
+                description:
+                    'Tag title, meta description, struttura dei titoli, sitemap e dati strutturati corretti pagina per pagina.',
+            },
+            {
+                title: 'Dominio, email e accessi in ordine',
+                description:
+                    'Subentro pulito anche se il sito lo ha fatto qualcun altro: recupero accessi, hosting, caselle email.',
+            },
+        ],
+        process: [
+            {
+                step: '01',
+                title: 'Audit del sito esistente',
+                description:
+                    'Crawl completo, dati di traffico se disponibili, lista di ciò che funziona e ciò che va rifatto.',
+            },
+            {
+                step: '02',
+                title: 'Progetto e preventivo',
+                description:
+                    'Mappa delle pagine nuove, cosa si migra e cosa si riscrive, prezzo chiuso e tempi realistici.',
+            },
+            {
+                step: '03',
+                title: 'Design e sviluppo',
+                description:
+                    'Il sito nuovo prende forma su un link di anteprima che puoi aprire quando vuoi, da qualsiasi dispositivo.',
+            },
+            {
+                step: '04',
+                title: 'Migrazione e redirect',
+                description:
+                    'Contenuti trasferiti, redirect 301 attivi, controllo che Google veda il nuovo sito senza scossoni.',
+            },
+            {
+                step: '05',
+                title: 'Lancio e verifica',
+                description:
+                    'Pubblicazione, controllo indicizzazione nelle settimane successive, istruzioni per aggiornare i contenuti.',
+            },
+        ],
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'WordPress', 'Vercel', 'Search Console'],
+        faq: [
+            {
+                q: 'Quanto costa rifare un sito web?',
+                a: 'Il rifacimento di un sito vetrina parte da 2.500€, migrazione e redirect inclusi. Progetti con più pagine o funzionalità particolari vanno da 5.000€ in su. Prezzo chiuso prima di iniziare.',
+            },
+            {
+                q: 'Rifacendo il sito perdo il posizionamento su Google?',
+                a: 'No, se la migrazione è fatta con i redirect 301 corretti e la struttura nuova viene comunicata a Google. È la parte del lavoro che curo di più, perché è quella che nessuno vede finché non va storta.',
+            },
+            {
+                q: 'Il sito attuale lo ha fatto un\'altra agenzia. È un problema?',
+                a: 'No, capita nella maggior parte dei rifacimenti. Recupero accessi a dominio, hosting ed email, e se qualcosa manca si ricostruisce. Il vecchio fornitore non deve fare nulla.',
+            },
+            {
+                q: 'Lavorate solo con aziende di Bologna?',
+                a: 'No. Bologna è la base e per chi è in zona ci si può vedere di persona, ma lavoro con clienti in tutta Italia a distanza, con lo stesso processo.',
+            },
+        ],
+        relatedProjectSlugs: ['arena-barbershop', 'flow-pilates', 'smoky-candle'],
+        pricingNote: 'Da 2.500€ per il rifacimento di un sito vetrina, migrazione e redirect inclusi.',
+        ctaTitle: 'Il tuo sito ha bisogno di essere rifatto?',
+        ctaCopy:
+            'Mandami il link del sito attuale e due righe su cosa non ti convince. Lo guardo e ti rispondo entro 24 ore con un parere onesto: a volte serve rifarlo, a volte basta sistemarlo.',
+    },
+    {
+        slug: 'siti-guide-outdoor',
+        title: 'Siti Web per Guide Outdoor',
+        h1: 'Siti web per guide escursionistiche e attività outdoor',
+        seoTitle: 'Siti Web per Guide Escursionistiche e Attività Outdoor | PIONIO',
+        seoDescription:
+            'Siti web per guide escursionistiche, accompagnatori di media montagna e attività outdoor. Farsi trovare su Google per zona e attività, ricevere richieste anche in alta stagione. Da 2.500€.',
+        keywords: [
+            'sito web guida escursionistica',
+            'sito web guida alpina',
+            'sito accompagnatore media montagna',
+            'sito web attività outdoor',
+            'sito web trekking',
+            'prenotazioni escursioni online',
+        ],
+        intro:
+            'Chi cerca "escursioni guidate" su Google decide in pochi minuti con chi andare. Se il tuo sito non compare per la tua zona, o compare ma non convince, quelle uscite le riempie qualcun altro.',
+        paragraphs: [
+            "Il lavoro di guida ha una stagionalità precisa: le ricerche esplodono in estate e nei ponti, e ogni settimana di invisibilità in alta stagione sono posti vuoti che non tornano. Un sito fatto bene lavora proprio lì — pagine che rispondono alle ricerche vere (\"escursioni guidate\" più la tua zona, ciaspolate, trekking di più giorni) e un calendario chiaro di uscite e disponibilità.",
+            "La maggior parte dei siti di guide che vedo ha lo stesso problema: parla dell'attività in generale, ma non dice dove. Google ragiona per zona: una pagina per area operativa e per tipo di attività — con dislivelli, durate, difficoltà e periodo — intercetta chi sta già cercando esattamente quello. Il blog, se già lo scrivi, diventa un alleato: va solo collegato bene alle pagine che convertono.",
+            "L'altra metà del lavoro è la richiesta: chi arriva sul sito da telefono, magari la sera prima del weekend, deve poterti scrivere in trenta secondi. Form corto, WhatsApp, date visibili senza scaricare PDF. Il sito raccoglie la richiesta, tu confermi — senza commissioni di piattaforme esterne.",
+        ],
+        includes: [
+            {
+                title: 'Pagine per zona e attività',
+                description:
+                    'Una pagina per ogni area e tipo di uscita: escursioni, ciaspolate, e-bike, trekking di più giorni. È quello che Google premia.',
+            },
+            {
+                title: 'Calendario uscite leggibile',
+                description:
+                    'Date, difficoltà, posti disponibili, punto di ritrovo. Aggiornabile da te, senza chiamare nessuno.',
+            },
+            {
+                title: 'Richieste senza attrito',
+                description:
+                    'Form corto e link WhatsApp su ogni pagina. La conferma resta a te, il sito raccoglie i contatti.',
+            },
+            {
+                title: 'Foto che reggono da telefono',
+                description:
+                    'Le tue immagini di uscite vere, ottimizzate per caricare in fretta anche con segnale scarso.',
+            },
+            {
+                title: 'Credenziali in evidenza',
+                description:
+                    'Titoli, collegio o albo di appartenenza, assicurazione: le cose che fanno scegliere una guida certificata.',
+            },
+            {
+                title: 'Blog collegato alle uscite',
+                description:
+                    'Se scrivi già di percorsi e attrezzatura, ogni articolo porta alle pagine di prenotazione giuste.',
+            },
+        ],
+        process: [
+            {
+                step: '01',
+                title: 'Le tue zone e le tue uscite',
+                description:
+                    'Una call per mappare aree operative, attività, stagioni e come arrivano oggi le richieste.',
+            },
+            {
+                step: '02',
+                title: 'Struttura delle pagine',
+                description:
+                    'La mappa del sito costruita sulle ricerche reali della tua zona, non su un menu standard.',
+            },
+            {
+                step: '03',
+                title: 'Design e contenuti',
+                description:
+                    'Layout con le tue foto, testi asciutti che parlano a chi deve scegliere una guida, non a un altro professionista.',
+            },
+            {
+                step: '04',
+                title: 'Sviluppo e prova reale',
+                description:
+                    'Sito costruito e provato da telefono, con richieste di test dal form e da WhatsApp.',
+            },
+            {
+                step: '05',
+                title: 'Lancio prima della stagione',
+                description:
+                    'Pubblicazione con tempi pensati sulla tua stagionalità, indicizzazione verificata su Search Console.',
+            },
+        ],
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel', 'Search Console', 'WhatsApp Business'],
+        faq: [
+            {
+                q: 'Quanto costa un sito per una guida escursionistica?',
+                a: 'Da 2.500€ per un sito con pagine per zona e attività, calendario e richieste via form o WhatsApp. Il prezzo esatto dipende da quante attività e aree copri.',
+            },
+            {
+                q: 'Ho già un sito WordPress di qualche anno fa. Si può recuperare?',
+                a: 'Dipende dallo stato. A volte conviene sistemare quello che c\'è, a volte rifare su base nuova migrando i contenuti con i redirect corretti. Lo guardo e ti dico la mia, gratis.',
+            },
+            {
+                q: 'Serve un sistema di prenotazione con pagamento online?',
+                a: 'Quasi mai, all\'inizio. Per la maggior parte delle guide funziona meglio richiesta dal sito e conferma tua via WhatsApp o email. Il pagamento online si aggiunge quando i volumi lo giustificano.',
+            },
+            {
+                q: 'Posso aggiornare il calendario delle uscite da solo?',
+                a: 'Sì, è il requisito di partenza: date, posti e stati delle uscite si aggiornano da un\'area semplice, dal telefono se serve. Ti lascio anche una guida breve per farlo in autonomia.',
+            },
+        ],
+        relatedProjectSlugs: ['flow-pilates', 'where2beach', 'arena-barbershop'],
+        pricingNote: 'Da 2.500€ per un sito completo di pagine per zona, calendario e contatti diretti.',
+        ctaTitle: 'La prossima stagione si prepara adesso',
+        ctaCopy:
+            'Raccontami dove porti le persone e come arrivano oggi le tue richieste. Ti rispondo entro 24 ore con una proposta e i tempi per essere online prima del picco.',
+    },
+    {
+        slug: 'siti-agriturismi-bb',
+        title: 'Siti Web per Agriturismi e B&B',
+        h1: 'Siti web per agriturismi e B&B: più prenotazioni dirette, meno commissioni',
+        seoTitle: 'Siti Web per Agriturismi e B&B — Prenotazioni Dirette | PIONIO',
+        seoDescription:
+            'Siti web per agriturismi, B&B e case vacanza. Prenotazioni dirette senza commissioni OTA, foto e camere presentate bene, richieste via WhatsApp e form. Da 2.500€, risposta in 24 ore.',
+        keywords: [
+            'sito web agriturismo',
+            'sito web b&b',
+            'sito web bed and breakfast',
+            'prenotazioni dirette agriturismo',
+            'sito casa vacanze',
+            'commissioni booking alternativa',
+        ],
+        intro:
+            'Ogni prenotazione che passa da Booking lascia lì una commissione attorno al 15%. Il sito serve a questo: farti trovare da chi cerca la tua zona e trasformare quella ricerca in una prenotazione diretta.',
+        paragraphs: [
+            "Booking e le altre piattaforme portano ospiti, ed è giusto usarle. Il problema è quando sono l'unico canale: commissioni su ogni soggiorno, ospiti che restano \"di Booking\" e non tuoi, condizioni che cambiano senza che tu possa dire nulla. Un sito fatto bene non sostituisce le piattaforme — ti dà il canale dove i margini restano interi e l'ospite torna da te direttamente.",
+            "Chi cerca un agriturismo lo fa quasi sempre per zona: il paese, la valle, \"agriturismo con piscina\" più la provincia. Il sito va costruito su quelle ricerche, con pagine chiare per camere, prezzi indicativi, cosa si mangia e cosa c'è intorno. E le foto: sono il motivo per cui si prenota, vanno servite grandi, vere e veloci da caricare anche in mobilità.",
+            "La richiesta deve essere immediata: date, persone, un tasto WhatsApp e un form corto. Molti ospiti — soprattutto stranieri — scrivono la sera tardi: il sito raccoglie la richiesta con tutte le informazioni che ti servono, tu rispondi quando puoi. Se usi già un channel manager, il sito ci si collega senza doppio lavoro sul calendario.",
+        ],
+        includes: [
+            {
+                title: 'Pagine camere e ospitalità',
+                description:
+                    'Ogni camera con foto grandi, servizi, prezzi indicativi per stagione. Chiarezza che fa scrivere.',
+            },
+            {
+                title: 'Richiesta diretta in 30 secondi',
+                description:
+                    'Form con date e persone + tasto WhatsApp. La prenotazione si chiude come preferisci tu.',
+            },
+            {
+                title: 'Trovabile per la tua zona',
+                description:
+                    'Pagine e dati strutturati costruiti sulle ricerche locali: il paese, la valle, cosa c\'è da fare intorno.',
+            },
+            {
+                title: 'Foto veloci e vere',
+                description:
+                    'Le immagini della struttura ottimizzate per il telefono, senza slider pesanti che rallentano tutto.',
+            },
+            {
+                title: 'Italiano e inglese',
+                description:
+                    'Doppia lingua dove serve davvero, per gli ospiti stranieri che cercano l\'Italia autentica.',
+            },
+            {
+                title: 'Collegamento al channel manager',
+                description:
+                    'Se gestisci già le disponibilità con un gestionale, il sito ci parla. Niente doppio calendario a mano.',
+            },
+        ],
+        process: [
+            {
+                step: '01',
+                title: 'La struttura e la zona',
+                description:
+                    'Una call per capire camere, stagioni, che ospiti arrivano oggi e da quali canali.',
+            },
+            {
+                step: '02',
+                title: 'Contenuti e foto',
+                description:
+                    'Selezione delle immagini migliori, testi per camere e dintorni, prezzi e condizioni da mostrare.',
+            },
+            {
+                step: '03',
+                title: 'Design e sviluppo',
+                description:
+                    'Il sito prende forma su un link di anteprima: lo guardi dal telefono, come farà l\'ospite.',
+            },
+            {
+                step: '04',
+                title: 'Richieste alla prova',
+                description:
+                    'Test reali di form e WhatsApp, email di notifica che arrivano dove le leggi davvero.',
+            },
+            {
+                step: '05',
+                title: 'Lancio e indicizzazione',
+                description:
+                    'Pubblicazione, invio a Google, controllo che la struttura compaia per le ricerche della zona.',
+            },
+        ],
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel', 'Search Console', 'WhatsApp Business'],
+        faq: [
+            {
+                q: 'Quanto costa un sito per un agriturismo o un B&B?',
+                a: 'Da 2.500€ per un sito completo con pagine camere, richiesta diretta e doppia lingua. Il prezzo dipende dal numero di camere e dalle integrazioni che servono.',
+            },
+            {
+                q: 'Il sito sostituisce Booking?',
+                a: 'No, ci si affianca. Le piattaforme portano visibilità, il sito ti dà il canale diretto senza commissioni. L\'obiettivo realistico è spostare una parte crescente delle prenotazioni sul diretto.',
+            },
+            {
+                q: 'Serve il pagamento online per le prenotazioni?',
+                a: 'Non per forza. Molte strutture chiudono la prenotazione con un acconto via bonifico o link di pagamento inviato su WhatsApp. Il pagamento integrato si aggiunge se i volumi lo giustificano.',
+            },
+            {
+                q: 'Posso aggiornare prezzi e disponibilità da solo?',
+                a: 'Sì. Prezzi e contenuti si aggiornano da un\'area semplice, e se usi un channel manager le disponibilità restano sincronizzate da lì.',
+            },
+        ],
+        relatedProjectSlugs: ['smoky-candle', 'flow-pilates', 'arena-barbershop'],
+        pricingNote: 'Da 2.500€ per un sito completo con richiesta diretta e doppia lingua.',
+        ctaTitle: 'Quanto ti costa Booking ogni anno?',
+        ctaCopy:
+            'Fai il conto delle commissioni dell\'ultima stagione e mandami il link della tua struttura. Ti rispondo entro 24 ore dicendoti cosa può fare un sito diretto per te, con numeri e tempi.',
+    },
 ];
 
 export function getService(slug: string): Service | undefined {

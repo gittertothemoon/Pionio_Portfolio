@@ -63,6 +63,30 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/seo-ottimizzazione" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/servizi/seo-ottimizzazione" />
   </url>
+  <url>
+    <loc>https://pionio.it/servizi/rifacimento-sito-bologna</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/rifacimento-sito-bologna" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/servizi/rifacimento-sito-bologna" />
+  </url>
+  <url>
+    <loc>https://pionio.it/servizi/siti-guide-outdoor</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/siti-guide-outdoor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/servizi/siti-guide-outdoor" />
+  </url>
+  <url>
+    <loc>https://pionio.it/servizi/siti-agriturismi-bb</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/servizi/siti-agriturismi-bb" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/servizi/siti-agriturismi-bb" />
+  </url>
 
   <url>
     <loc>https://pionio.it/blog</loc>
