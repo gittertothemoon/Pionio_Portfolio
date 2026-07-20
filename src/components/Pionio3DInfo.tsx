@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, m } from 'framer-motion';
-import { Info, X } from '@phosphor-icons/react';
+import { DeviceMobile, Info, Lightning, Timer, X } from '@phosphor-icons/react';
 
 type Props = {
     /** Variante del trigger:
@@ -14,8 +14,8 @@ type Props = {
 
 /**
  * Trigger + modal "Quanto pesa la P 3D?".
- * Easter egg di build-in-public: l'utente clicca, scopre 780 KB e i dettagli
- * tecnici delle ottimizzazioni. Coerente con il filone Shorts YouTube.
+ * Piccolo dietro le quinte: traduce il peso del modello in benefici concreti
+ * senza trasformare l'esperienza in una scheda tecnica.
  */
 export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
     const [open, setOpen] = useState(false);
@@ -78,14 +78,14 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                         onClick={() => setOpen(false)}
                         role="dialog"
                         aria-modal="true"
-                        aria-label="Peso della P 3D — dettagli tecnici"
+                        aria-label="Quanto pesa la P 3D"
                     >
                         {/* Backdrop blur scuro */}
                         <div className="absolute inset-0 bg-zinc-950/85 backdrop-blur-md" />
 
                         {/* Card */}
                         <m.div
-                            className="relative z-10 w-full max-w-xl bg-zinc-950/80 border border-forest-500/15 rounded-3xl p-8 md:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.04)] overflow-hidden"
+                            className="relative z-10 w-full max-w-lg bg-zinc-950/80 border border-forest-500/15 rounded-3xl p-6 sm:p-8 md:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.04)] overflow-hidden"
                             initial={{ opacity: 0, scale: 0.92, y: 18 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.96, y: 8 }}
@@ -113,64 +113,66 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                             </button>
 
                             {/* Header */}
-                            <div className="flex items-center gap-3 mb-8">
+                            <div className="flex items-center gap-3 pr-8 mb-7">
                                 <span className="font-mono text-[10px] uppercase tracking-widest text-forest-400">
-                                    P 3D
+                                    Dietro le quinte
                                 </span>
                                 <div className="h-px flex-1 bg-forest-500/20" />
                                 <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                                    pionio.it
+                                    P 3D
                                 </span>
                             </div>
 
+                            <div className="max-w-sm mb-7">
+                                <h2 className="font-sans text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+                                    Leggera sul serio.
+                                </h2>
+                                <p className="mt-2 text-sm sm:text-base leading-relaxed text-zinc-400">
+                                    La P può muoversi e farsi notare senza rallentare la pagina.
+                                </p>
+                            </div>
+
                             {/* Numerone */}
-                            <div className="text-center mb-2">
-                                <p className="font-sans font-bold text-[88px] md:text-[112px] leading-none tracking-[-0.04em] text-forest-200 tabular-nums">
+                            <div className="mb-2">
+                                <p className="font-sans font-bold text-[64px] sm:text-[88px] md:text-[96px] leading-none tracking-[-0.04em] text-forest-200 tabular-nums">
                                     780
-                                    <span className="text-forest-400 ml-3 text-[48px] md:text-[64px] font-medium">
+                                    <span className="text-forest-400 ml-2 sm:ml-3 text-[30px] sm:text-[44px] md:text-[50px] font-medium">
                                         KB
                                     </span>
                                 </p>
                             </div>
 
                             {/* Diff */}
-                            <p className="text-center text-zinc-400 font-sans text-base mb-10">
-                                Da <span className="line-through decoration-zinc-600">8.4 MB</span>{' '}
-                                <span className="text-forest-300 font-medium">−90%</span>
+                            <p className="text-zinc-400 font-sans text-sm sm:text-base mb-8">
+                                Prima erano <span className="line-through decoration-zinc-600">8,4 MB</span>.
+                                Ora pesa il <span className="text-forest-300 font-medium">90% in meno</span>.
                             </p>
 
-                            {/* Dettagli */}
-                            <div className="space-y-3">
+                            {/* Benefici */}
+                            <div>
                                 <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 mb-3">
-                                    Come ci sono arrivato
+                                    In pratica
                                 </p>
-                                <ul className="space-y-2.5 text-zinc-300 font-sans text-[15px] leading-relaxed">
-                                    <li className="flex gap-3">
-                                        <span className="text-forest-500 mt-1">·</span>
-                                        glTF binary + <span className="font-mono text-forest-200">Draco</span> compression
+                                <ul className="divide-y divide-white/[0.06] border-y border-white/[0.06] text-zinc-300 font-sans text-sm sm:text-[15px]">
+                                    <li className="flex items-center gap-3 py-3">
+                                        <Lightning size={18} weight="duotone" className="shrink-0 text-forest-300" />
+                                        Si carica senza rallentare il sito
                                     </li>
-                                    <li className="flex gap-3">
-                                        <span className="text-forest-500 mt-1">·</span>
-                                        <span>
-                                            Mesh simplification con{' '}
-                                            <span className="font-mono text-forest-200">meshoptimizer</span>
-                                        </span>
+                                    <li className="flex items-center gap-3 py-3">
+                                        <DeviceMobile size={18} weight="duotone" className="shrink-0 text-forest-300" />
+                                        Resta fluida anche dal telefono
                                     </li>
-                                    <li className="flex gap-3">
-                                        <span className="text-forest-500 mt-1">·</span>
-                                        Texture esterna JPEG (per iOS Safari)
-                                    </li>
-                                    <li className="flex gap-3">
-                                        <span className="text-forest-500 mt-1">·</span>
-                                        Lazy-load via <span className="font-mono text-forest-200">requestIdleCallback</span>
+                                    <li className="flex items-center gap-3 py-3">
+                                        <Timer size={18} weight="duotone" className="shrink-0 text-forest-300" />
+                                        Entra in scena solo quando serve
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Footer */}
-                            <div className="mt-10 pt-6 border-t border-white/[0.06] flex items-center justify-between">
-                                <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                                    @pionio_dev · build in public
+                            <div className="mt-7 flex items-center justify-between">
+                                <span className="hidden min-[360px]:inline font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                                    Piccolo modello, grande presenza.
                                 </span>
                                 <button
                                     type="button"

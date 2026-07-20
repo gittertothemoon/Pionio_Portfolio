@@ -103,19 +103,19 @@ export function NavBar() {
 
     const itemClasses = (isActive: boolean) =>
         cn(
-            'relative px-2 md:px-4 py-3 max-xs:py-2 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
+            'relative w-full xl:w-auto px-1 md:px-2 xl:px-4 py-3 max-xs:py-2 md:py-2 rounded-full flex items-center justify-center transition-colors duration-300',
             isActive ? 'text-forest-100' : 'text-zinc-500 hover:text-zinc-300'
         );
 
     return (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-full flex justify-center px-4">
+        <div className="fixed bottom-8 inset-x-0 z-50 pointer-events-none flex justify-center px-4">
             <m.nav
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                className="pointer-events-auto flex items-center p-2 max-xs:p-1.5 rounded-full bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] max-w-[95vw] overflow-x-auto"
+                className="pointer-events-auto flex items-center w-[calc(100vw-2rem)] max-w-[560px] xl:w-auto xl:max-w-[calc(100vw-2rem)] p-2 max-xs:p-1.5 rounded-full bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden"
             >
-                <ul className="flex items-center gap-0.5 md:gap-1 relative">
+                <ul className="grid grid-cols-9 xl:flex items-center gap-0.5 md:gap-1 relative w-full xl:w-auto min-w-0">
                     {navItems.map((item) => {
                         const isAnchorActive =
                             item.type === 'anchor' && isHome && activeSection === item.hash;
@@ -125,8 +125,8 @@ export function NavBar() {
                         const label = t(item.tKey);
                         const inner = (
                             <>
-                                <item.icon weight="duotone" className="w-5 h-5 md:hidden relative z-10" />
-                                <span className="hidden md:block text-sm font-mono tracking-wider relative z-10 whitespace-nowrap">
+                                <item.icon weight="duotone" className="w-5 h-5 xl:hidden relative z-10" />
+                                <span className="hidden xl:block text-sm font-mono tracking-wider relative z-10 whitespace-nowrap">
                                     {label}
                                 </span>
                                 {isActive && (
@@ -143,7 +143,7 @@ export function NavBar() {
                         if (item.type === 'anchor') {
                             const href = isHome ? `#${item.hash}` : `/#${item.hash}`;
                             return (
-                                <li key={item.name} className="relative">
+                                <li key={item.name} className="relative min-w-0">
                                     <a
                                         href={href}
                                         onClick={(e) => handleAnchorClick(e, item.hash)}
@@ -159,7 +159,7 @@ export function NavBar() {
 
                         if (item.type === 'external') {
                             return (
-                                <li key={item.name} className="relative">
+                                <li key={item.name} className="relative min-w-0">
                                     <a
                                         href={item.href}
                                         target="_blank"
@@ -176,7 +176,7 @@ export function NavBar() {
                         }
 
                         return (
-                            <li key={item.name} className="relative">
+                            <li key={item.name} className="relative min-w-0">
                                 <Link
                                     to={item.to}
                                     className={itemClasses(isActive)}

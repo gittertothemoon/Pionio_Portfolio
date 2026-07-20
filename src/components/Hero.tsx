@@ -130,16 +130,17 @@ export function Hero() {
                 </m.div>
             </div>
 
-            {/* Desktop: 3D P-mark sits near page center. Wrapper is
-                pointer-events-none so the aurora reacts around the model;
-                only the model-viewer itself catches events for camera
-                drag. Mobile gets its own dedicated section after the hero
-                (see Home.tsx). */}
-            {/* Desktop: 3D positioned absolutely at viewport center; the
-                h1 on the left is capped at max-w-2xl so the model has
-                space without overlap. */}
-            <div className={`${restricted ? 'hidden' : 'hidden xl:flex'} absolute inset-0 items-center justify-center pointer-events-none z-10`}>
-                <div className="pointer-events-auto w-full max-w-[640px] aspect-square relative">
+            {/* Desktop: the P owns the right half of the hero. Its size is
+                bounded by both viewport width and height, while the slight
+                right shift preserves a safe gap from the max-w-2xl copy.
+                Below xl it moves to the dedicated section after the hero. */}
+            <div
+                className={`${restricted ? 'hidden' : 'hidden xl:flex'} absolute inset-y-0 left-1/2 right-0 translate-x-[3vw] items-center justify-center pointer-events-none z-10`}
+            >
+                <div
+                    className="pointer-events-auto aspect-square relative"
+                    style={{ width: 'clamp(390px, min(34vw, 64vh), 560px)' }}
+                >
                     <Hero3D
                         className="w-full h-full"
                         interactive
