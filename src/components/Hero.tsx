@@ -1,8 +1,9 @@
 import { m } from 'framer-motion';
-import { Globe, ArrowDown } from '@phosphor-icons/react';
+import { Globe, ArrowDown, ArrowUpRight, WhatsappLogo } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { useIsRestrictedWebView } from '../lib/ua';
 import { track } from '../lib/analytics';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
 import { Hero3D } from './Hero3D';
@@ -59,7 +60,7 @@ export function Hero() {
             </div>
 
             {/* Left Content Half */}
-            <div className="pointer-events-none flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-48 z-10">
+            <div className="pointer-events-none flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-36 md:pt-40 md:pb-20 lg:pt-32 lg:pb-28 z-10">
                 <m.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -87,14 +88,14 @@ export function Hero() {
                         {t('hero_subtitle')}
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 w-full">
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 w-full">
                         <MagneticButton
                             onClick={(e) => {
                                 e.preventDefault();
                                 track('nav_click', { target: 'works', locale });
                                 document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="pointer-events-auto bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
+                            className="pointer-events-auto px-5 bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
                         >
                             <span className="flex items-center gap-2">
                                 {t('hero_cta_works')}
@@ -108,10 +109,23 @@ export function Hero() {
                                 track('cta_contact_click', { source: 'hero', locale });
                                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="pointer-events-auto bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"
+                            className="pointer-events-auto px-5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"
                         >
                             {t('hero_cta_contact')}
                         </MagneticButton>
+
+                        <m.a
+                            href={getWhatsAppUrl(locale)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => track('whatsapp_click', { source: 'hero', locale })}
+                            whileTap={{ scale: 0.97 }}
+                            className="pointer-events-auto inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full border border-forest-500/30 bg-forest-950/50 text-forest-200 hover:bg-forest-900/70 hover:border-forest-400/50 hover:text-white transition-colors font-sans text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500"
+                        >
+                            <WhatsappLogo size={19} weight="fill" />
+                            {t('hero_cta_whatsapp')}
+                            <ArrowUpRight size={16} weight="bold" />
+                        </m.a>
                     </div>
                 </m.div>
             </div>

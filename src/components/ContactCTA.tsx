@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
-import { PaperPlaneRight, CheckCircle, ArrowClockwise } from '@phosphor-icons/react';
+import { PaperPlaneRight, CheckCircle, ArrowClockwise, ArrowUpRight, WhatsappLogo } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
+import { getWhatsAppUrl } from '../lib/whatsapp';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -159,6 +160,46 @@ export function ContactCTA() {
                 >
                     {t('contact_description')}
                 </m.p>
+
+                <m.a
+                    href={getWhatsAppUrl(locale)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => track('whatsapp_click', { source: 'contact_form', locale })}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="group max-w-xl mx-auto mb-8 flex items-center gap-5 rounded-3xl border border-forest-500/25 bg-forest-950/60 px-6 py-5 hover:border-forest-400/50 hover:bg-forest-900/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500"
+                >
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest-500 text-zinc-950">
+                        <WhatsappLogo size={25} weight="fill" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                        <span className="block text-forest-300 font-mono text-[10px] uppercase tracking-[0.18em] mb-1">
+                            {t('contact_whatsapp_label')}
+                        </span>
+                        <span className="block text-white text-lg font-medium">
+                            {t('contact_whatsapp_title')}
+                        </span>
+                        <span className="block text-zinc-400 text-sm mt-1">
+                            {t('contact_whatsapp_body')}
+                        </span>
+                    </span>
+                    <ArrowUpRight
+                        size={20}
+                        weight="bold"
+                        className="shrink-0 text-forest-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                </m.a>
+
+                <div className="max-w-xl mx-auto mb-8 flex items-center gap-4" aria-hidden="true">
+                    <span className="h-px flex-1 bg-white/10" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-600">
+                        {t('contact_form_alternative')}
+                    </span>
+                    <span className="h-px flex-1 bg-white/10" />
+                </div>
 
                 <AnimatePresence mode="wait">
                     {status === 'success' ? (

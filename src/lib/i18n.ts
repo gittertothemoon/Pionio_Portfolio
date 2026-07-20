@@ -28,6 +28,7 @@ export const dict: Dictionary = {
     },
     hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
+    hero_cta_whatsapp: { en: 'Message me on WhatsApp', it: 'Scrivimi su WhatsApp' },
     hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
 
     // Section numbers (vittoriohalfon-style progressive numbering)
@@ -231,6 +232,13 @@ export const dict: Dictionary = {
         en: 'Tell me about your project in 2 minutes. I reply personally within 24 hours with a clear answer: realistic timeline, transparent quote, no hard sell.',
         it: 'Raccontami il tuo progetto in 2 minuti. Ti rispondo personalmente entro 24 ore con una risposta chiara: tempi realistici, preventivo trasparente, zero pressioni commerciali.'
     },
+    contact_whatsapp_label: { en: 'Quick contact', it: 'Contatto rapido' },
+    contact_whatsapp_title: { en: 'Prefer a message?', it: 'Preferisci un messaggio?' },
+    contact_whatsapp_body: {
+        en: 'Write to me directly on WhatsApp. A few lines are enough to get started.',
+        it: 'Scrivimi direttamente su WhatsApp. Bastano due righe per iniziare.'
+    },
+    contact_form_alternative: { en: 'or tell me everything here', it: 'oppure raccontami tutto qui' },
     contact_form_button_idle: { en: 'Send my request', it: 'Invia la mia richiesta' },
     contact_form_button_loading: { en: 'Sending…', it: 'Invio in corso…' },
     contact_form_success_title: { en: 'Got it — thanks', it: 'Ricevuto — grazie' },

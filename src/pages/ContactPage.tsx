@@ -1,10 +1,12 @@
 import { Head } from 'vite-react-ssg';
 import { m } from 'framer-motion';
-import { EnvelopeSimple, InstagramLogo, GithubLogo } from '@phosphor-icons/react';
+import { EnvelopeSimple, InstagramLogo, WhatsappLogo } from '@phosphor-icons/react';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { ContactCTA } from '../components/ContactCTA';
 import { track } from '../lib/analytics';
+import { useLanguage } from '../context/LanguageContext';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_NUMBER } from '../lib/whatsapp';
 
 const url = 'https://pionio.it/contatti';
 const title = 'Contatti — Richiedi un Preventivo o una Consulenza | PIONIO';
@@ -45,6 +47,7 @@ const localBusinessJsonLd = {
     contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'sales',
+        telephone: WHATSAPP_DISPLAY_NUMBER,
         email: 'pionio.dev@gmail.com',
         availableLanguage: ['Italian', 'English'],
         areaServed: 'IT',
@@ -61,6 +64,8 @@ const breadcrumb = {
 };
 
 export default function ContactPage() {
+    const { locale } = useLanguage();
+
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
             <Head>
@@ -124,8 +129,23 @@ export default function ContactPage() {
                         className="grid md:grid-cols-3 gap-4"
                     >
                         <a
+                            href={getWhatsAppUrl(locale)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => track('whatsapp_click', { source: 'contact_page', locale })}
+                            className="group flex flex-col gap-3 p-6 rounded-2xl border border-forest-500/20 bg-forest-950/50 hover:bg-forest-900/60 hover:border-forest-400/40 transition-all"
+                        >
+                            <WhatsappLogo weight="fill" className="text-forest-400" size={28} />
+                            <span className="text-forest-300 font-mono text-xs uppercase tracking-widest">
+                                WhatsApp
+                            </span>
+                            <span className="text-white font-sans text-lg group-hover:text-forest-100 transition-colors">
+                                {WHATSAPP_DISPLAY_NUMBER}
+                            </span>
+                        </a>
+                        <a
                             href="mailto:pionio.dev@gmail.com"
-                            onClick={() => track('email_click', { source: 'contact_page', locale: document.documentElement.lang || 'it' })}
+                            onClick={() => track('email_click', { source: 'contact_page', locale })}
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <EnvelopeSimple weight="duotone" className="text-forest-400" size={28} />
@@ -138,7 +158,7 @@ export default function ContactPage() {
                             href="https://www.instagram.com/pionio_dev"
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={() => track('social_click', { network: 'instagram', locale: document.documentElement.lang || 'it' })}
+                            onClick={() => track('social_click', { network: 'instagram', locale })}
                             className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                         >
                             <InstagramLogo weight="duotone" className="text-forest-400" size={28} />
@@ -147,19 +167,6 @@ export default function ContactPage() {
                             </span>
                             <span className="text-white font-sans text-lg group-hover:text-forest-100 transition-colors">
                                 @pionio_dev
-                            </span>
-                        </a>
-                        <a
-                            href="https://github.com/gittertothemoon"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => track('social_click', { network: 'github', locale: document.documentElement.lang || 'it' })}
-                            className="group flex flex-col gap-3 p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
-                        >
-                            <GithubLogo weight="duotone" className="text-forest-400" size={28} />
-                            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">GitHub</span>
-                            <span className="text-white font-sans text-lg group-hover:text-forest-100 transition-colors">
-                                gittertothemoon
                             </span>
                         </a>
                     </m.section>
