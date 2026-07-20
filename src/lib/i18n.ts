@@ -32,14 +32,14 @@ export const dict: Dictionary = {
     hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
 
     // Section numbers (vittoriohalfon-style progressive numbering)
-    section_num_about: { en: '01', it: '01' },
-    section_num_services: { en: '02', it: '02' },
-    section_num_techstack: { en: '03', it: '03' },
-    section_num_works: { en: '04', it: '04' },
-    section_num_vespero: { en: '05', it: '05' },
-    section_num_garanzie: { en: '06', it: '06' },
-    section_num_experience: { en: '07', it: '07' },
-    section_num_contact: { en: '08', it: '08' },
+    section_num_works: { en: '01', it: '01' },
+    section_num_about: { en: '02', it: '02' },
+    section_num_services: { en: '03', it: '03' },
+    section_num_techstack: { en: '—', it: '—' },
+    section_num_vespero: { en: '04', it: '04' },
+    section_num_garanzie: { en: '05', it: '05' },
+    section_num_experience: { en: '06', it: '06' },
+    section_num_contact: { en: '07', it: '07' },
 
     // Audit tool CTA band (links to audit.pionio.it)
     audit_cta_label: { en: 'Free tool', it: 'Strumento gratuito' },

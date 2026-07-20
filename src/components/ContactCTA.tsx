@@ -64,15 +64,6 @@ export function ContactCTA() {
         { value: t('contact_budget_tbd'), label: t('contact_budget_tbd') },
     ];
 
-    const trovatoOptions = [
-        { value: t('contact_trovato_instagram'), label: t('contact_trovato_instagram') },
-        { value: t('contact_trovato_linkedin'), label: t('contact_trovato_linkedin') },
-        { value: t('contact_trovato_portfolio'), label: t('contact_trovato_portfolio') },
-        { value: t('contact_trovato_passaparola'), label: t('contact_trovato_passaparola') },
-        { value: t('contact_trovato_google'), label: t('contact_trovato_google') },
-        { value: t('contact_trovato_altro'), label: t('contact_trovato_altro') },
-    ];
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!form.nome.trim() || !form.email.trim()) return;
@@ -113,7 +104,7 @@ export function ContactCTA() {
     return (
         <section
             id="contact"
-            className="w-full py-32 px-6 md:px-12 lg:px-24 bg-zinc-950 relative overflow-hidden"
+            className="w-full pt-24 pb-36 md:pt-28 md:pb-40 px-6 md:px-12 lg:px-24 bg-zinc-950 relative overflow-hidden"
         >
             {/* Mesh Gradient Background */}
             <div className="absolute inset-0 pointer-events-none z-0 opacity-40">
@@ -131,7 +122,7 @@ export function ContactCTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="flex justify-center items-center gap-4 mb-16"
+                    className="flex justify-center items-center gap-4 mb-10"
                 >
                     <div className="h-[1px] w-12 bg-forest-500/50" />
                     <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_contact')}</span>
@@ -146,7 +137,7 @@ export function ContactCTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter text-white mb-12 leading-[1.1] max-w-4xl mx-auto text-center"
+                    className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tighter text-white mb-8 leading-[1.1] max-w-4xl mx-auto text-center"
                 >
                     {t('contact_headline')}
                 </m.h2>
@@ -156,7 +147,7 @@ export function ContactCTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ delay: 0.1 }}
-                    className="text-zinc-400 text-center text-lg md:text-xl max-w-xl mx-auto mb-16 font-sans"
+                    className="text-zinc-300 text-center text-base md:text-lg max-w-xl mx-auto mb-10 font-sans leading-relaxed"
                 >
                     {t('contact_description')}
                 </m.p>
@@ -329,30 +320,6 @@ export function ContactCTA() {
                                     placeholder={t('contact_field_messaggio_placeholder')}
                                     className={`${inputBase} resize-y min-h-[140px]`}
                                 />
-                            </div>
-
-                            {/* Come trovato */}
-                            <div className="flex flex-col gap-2">
-                                <label htmlFor="come_trovato" className={labelBase}>
-                                    {t('contact_field_trovato')}{' '}
-                                    <span className="lowercase text-zinc-600 normal-case">
-                                        ({t('contact_field_optional')})
-                                    </span>
-                                </label>
-                                <select
-                                    id="come_trovato"
-                                    value={form.come_trovato}
-                                    onChange={(e) => update('come_trovato', e.target.value)}
-                                    disabled={status === 'loading'}
-                                    className={`${inputBase} appearance-none cursor-pointer pr-10 bg-[length:14px] bg-no-repeat bg-[right_1.25rem_center] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2371717a%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>')]`}
-                                >
-                                    <option value="">{t('contact_select_placeholder')}</option>
-                                    {trovatoOptions.map((o) => (
-                                        <option key={o.value} value={o.value}>
-                                            {o.label}
-                                        </option>
-                                    ))}
-                                </select>
                             </div>
 
                             {/* Footer: required hint + submit */}

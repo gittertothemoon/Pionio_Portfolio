@@ -31,8 +31,8 @@ export function Services() {
         }
     ];
     return (
-        <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-32">
+        <section className="relative w-full py-24 md:py-36 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-14 md:gap-20">
 
                 {/* Header */}
                 <m.div
@@ -40,22 +40,22 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col gap-8"
+                    className="flex flex-col gap-7"
                 >
-                    <div className="flex items-center gap-4 mb-12">
+                    <div className="flex items-center gap-4">
                         <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_services')}</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('services_label')}</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-white mb-20 leading-[1.1]">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-white leading-[1.1]">
                         {t('services_headline_1')}<br />
                         <span className="text-forest-500 italic font-serif">{t('services_headline_highlight')}</span>{t('services_headline_3')}
                     </h2>
                 </m.div>
 
                 {/* Services List - Parallax Tilt Cards style but clean */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-8">
                     {services.map((service, index) => (
                         <ServiceCard key={index} service={service} index={index} />
                     ))}
@@ -66,7 +66,7 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex justify-center pt-8"
+                    className="flex justify-center pt-2"
                 >
                     <MagneticButton
                         onClick={() => {
@@ -122,7 +122,7 @@ function ServiceCard({ service, index }: { service: ServiceItem, index: number }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative flex flex-col justify-between min-h-[400px] p-8 md:p-12 rounded-[2rem] bg-zinc-900 border border-white/5 overflow-hidden will-change-transform"
+            className="group relative flex flex-col justify-between min-h-[340px] md:min-h-[370px] p-8 md:p-10 rounded-[2rem] bg-zinc-900 border border-white/5 overflow-hidden will-change-transform"
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0 overflow-hidden mix-blend-luminosity opacity-55 md:opacity-30 group-hover:opacity-100 transition-opacity duration-1000 ease-[0.16,1,0.3,1]">
@@ -147,7 +147,7 @@ function ServiceCard({ service, index }: { service: ServiceItem, index: number }
             </div>
 
             {/* Content */}
-            <div style={{ transform: "translateZ(40px)" }} className="relative z-20 flex flex-col gap-6 mt-16">
+            <div style={{ transform: "translateZ(40px)" }} className="relative z-20 flex flex-col gap-5 mt-12">
                 <h3 className="text-2xl md:text-3xl font-sans tracking-tight text-white group-hover:text-forest-300 transition-colors duration-500 drop-shadow-md">
                     {service.title}
                 </h3>

@@ -7,8 +7,8 @@ import { MagneticButton } from './MagneticButton';
 export function About() {
     const { t, locale } = useLanguage();
     return (
-        <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden">
-            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10">
+        <section className="relative w-full py-24 md:py-36 bg-zinc-950 px-6 md:px-12 overflow-hidden">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10">
 
                 {/* Left Column - Minimal Label */}
                 <div className="md:col-span-4 flex flex-col justify-start">
@@ -42,7 +42,7 @@ export function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-16 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 text-zinc-400 text-lg md:text-xl leading-relaxed font-light max-w-3xl"
+                        className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-zinc-300 text-base md:text-lg leading-relaxed font-light max-w-3xl"
                     >
                         <p>{t('about_p1')}</p>
                         <p>{t('about_p2')}</p>
@@ -53,7 +53,7 @@ export function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-20"
+                        className="mt-12"
                     >
                         <MagneticButton
                             onClick={() => {

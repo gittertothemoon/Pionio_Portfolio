@@ -80,7 +80,7 @@ export function Hero() {
                         {t('hero_availability')}
                     </m.div>
 
-                    <h1 className="text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-sans tracking-tighter leading-[0.95] md:leading-[0.9] font-medium text-foreground mb-5 md:mb-6 whitespace-pre-line">
+                    <h1 className="text-[2.5rem] sm:text-5xl md:text-[clamp(4rem,6.2vw,6rem)] font-sans tracking-tighter leading-[0.95] md:leading-[0.9] font-medium text-foreground mb-5 md:mb-6 whitespace-pre-line">
                         {t('hero_title')}
                     </h1>
 
@@ -89,43 +89,32 @@ export function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 w-full">
-                        <MagneticButton
-                            onClick={(e) => {
-                                e.preventDefault();
-                                track('nav_click', { target: 'works', locale });
-                                document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            className="pointer-events-auto px-5 bg-forest-600 hover:bg-forest-500 text-white border border-forest-500/50"
-                        >
-                            <span className="flex items-center gap-2">
-                                {t('hero_cta_works')}
-                                <ArrowDown size={18} weight="bold" />
-                            </span>
-                        </MagneticButton>
-
-                        <MagneticButton
-                            onClick={(e) => {
-                                e.preventDefault();
-                                track('cta_contact_click', { source: 'hero', locale });
-                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            className="pointer-events-auto px-5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-white/10"
-                        >
-                            {t('hero_cta_contact')}
-                        </MagneticButton>
-
                         <m.a
                             href={getWhatsAppUrl(locale)}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => track('whatsapp_click', { source: 'hero', locale })}
                             whileTap={{ scale: 0.97 }}
-                            className="pointer-events-auto inline-flex items-center justify-center gap-2 px-5 py-4 rounded-full border border-forest-500/30 bg-forest-950/50 text-forest-200 hover:bg-forest-900/70 hover:border-forest-400/50 hover:text-white transition-colors font-sans text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500"
+                            className="pointer-events-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-forest-400/50 bg-forest-600 text-white hover:bg-forest-500 hover:border-forest-300/60 transition-colors font-sans text-sm font-medium shadow-[0_14px_40px_-18px_rgba(74,222,128,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-400"
                         >
                             <WhatsappLogo size={19} weight="fill" />
                             {t('hero_cta_whatsapp')}
                             <ArrowUpRight size={16} weight="bold" />
                         </m.a>
+
+                        <MagneticButton
+                            onClick={(e) => {
+                                e.preventDefault();
+                                track('nav_click', { target: 'works', locale });
+                                document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="pointer-events-auto px-6 bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 border border-white/10"
+                        >
+                            <span className="flex items-center gap-2">
+                                {t('hero_cta_works')}
+                                <ArrowDown size={18} weight="bold" />
+                            </span>
+                        </MagneticButton>
                     </div>
                 </m.div>
             </div>
@@ -141,8 +130,12 @@ export function Hero() {
                     className="pointer-events-auto aspect-square relative"
                     style={{ width: 'clamp(390px, min(34vw, 64vh), 560px)' }}
                 >
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-[22%] rounded-full bg-forest-400/15 blur-[70px] pointer-events-none"
+                    />
                     <Hero3D
-                        className="w-full h-full"
+                        className="relative z-10 w-full h-full"
                         interactive
                         tilt
                         float

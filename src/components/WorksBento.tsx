@@ -35,8 +35,8 @@ export function WorksBento() {
     const heroContain = hero.imageFit === 'contain';
 
     return (
-        <section className="w-full py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-zinc-950">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-24">
+        <section className="w-full py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-zinc-950">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-14 md:gap-20">
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export function WorksBento() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, margin: '-100px' }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[300px] md:auto-rows-[400px]"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 auto-rows-[320px] md:auto-rows-[400px]"
                 >
                     <m.div variants={itemVariants} className="md:col-span-2 h-full">
                         <Link
@@ -81,6 +81,17 @@ export function WorksBento() {
                                         : ''
                                 }`}
                             >
+                                {hero.previewImage && (
+                                    <img
+                                        src={hero.previewImage}
+                                        alt=""
+                                        aria-hidden="true"
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="absolute inset-y-0 right-0 w-[62%] h-full object-cover opacity-35 group-hover:opacity-50 group-hover:scale-[1.03] transition-[opacity,transform] duration-1000 ease-out"
+                                    />
+                                )}
+                                <div className="absolute inset-0 bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-zinc-900/20" />
                                 {heroContain ? (
                                     <img
                                         src={hero.image}
@@ -89,7 +100,7 @@ export function WorksBento() {
                                         decoding="async"
                                         width="800"
                                         height="600"
-                                        className={`w-[40%] md:w-[32%] h-auto object-contain ${
+                                        className={`relative z-10 w-[38%] md:w-[28%] h-auto object-contain ${
                                             heroLight ? 'opacity-100' : 'opacity-95'
                                         } ${hero.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                     />
@@ -164,6 +175,25 @@ export function WorksBento() {
                                                 : ''
                                         }`}
                                     >
+                                        {work.previewImage && (
+                                            <img
+                                                src={work.previewImage}
+                                                alt=""
+                                                aria-hidden="true"
+                                                loading="lazy"
+                                                decoding="async"
+                                                className={`absolute inset-0 w-full h-full object-cover ${
+                                                    isLight ? 'opacity-35' : 'opacity-[0.28]'
+                                                } group-hover:opacity-45 group-hover:scale-[1.04] transition-[opacity,transform] duration-1000 ease-out`}
+                                            />
+                                        )}
+                                        <div
+                                            className={`absolute inset-0 ${
+                                                isLight
+                                                    ? 'bg-gradient-to-t from-white/95 via-white/45 to-transparent'
+                                                    : 'bg-gradient-to-t from-zinc-950 via-zinc-950/35 to-transparent'
+                                            }`}
+                                        />
                                         {isContain ? (
                                             <img
                                                 src={work.image}
@@ -172,7 +202,7 @@ export function WorksBento() {
                                                 decoding="async"
                                                 width="600"
                                                 height="600"
-                                                className={`w-[42%] md:w-[60%] h-auto object-contain ${
+                                                className={`relative z-10 w-[38%] md:w-[52%] h-auto object-contain ${
                                                     isLight ? 'opacity-100' : 'opacity-95'
                                                 } ${work.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''} group-hover:scale-105 transition-all duration-1000 ease-out will-change-transform`}
                                             />

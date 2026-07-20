@@ -13,7 +13,6 @@ import { WorksBento } from '../components/WorksBento';
 import { VesperoSpotlight } from '../components/VesperoSpotlight';
 import { Guarantees } from '../components/Guarantees';
 import { Experience } from '../components/Experience';
-import { TechStack } from '../components/TechStack';
 import { AuditCTA } from '../components/AuditCTA';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
@@ -87,16 +86,16 @@ export default function Home() {
                     <Hero />
                 </div>
 
-                {/* Mobile-only: standalone interactive 3D showcase.
+                {/* Compact mobile/tablet signature moment.
                     Skipped inside Instagram / Facebook / Threads / TikTok
                     in-app browsers — model-viewer + WebGL barely run there. */}
-                <section className={`${restricted ? 'hidden' : 'xl:hidden'} w-full bg-zinc-950 pt-20 pb-24 px-6 flex flex-col items-center gap-10`}>
+                <section className={`${restricted ? 'hidden' : 'xl:hidden'} w-full bg-zinc-950 py-14 px-6 flex flex-col items-center gap-6 border-b border-white/5`}>
                     <div className="flex items-center gap-4">
                         <span className="text-forest-500 font-mono text-xs tracking-widest">PIONIO</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">P mark</span>
                     </div>
-                    <div className="w-full h-[380px] max-w-md">
+                    <div className="w-full h-[260px] sm:h-[300px] max-w-sm">
                         <Hero3D
                             className="w-full h-full"
                             interactive
@@ -113,22 +112,20 @@ export default function Home() {
                     </div>
                 </section>
 
-                <div id="about">
-                    <About />
+                <div id="works">
+                    <WorksBento />
                 </div>
 
-                <div id="chi-sono">
-                    <Founder />
+                <div id="about">
+                    <About />
                 </div>
 
                 <div id="services">
                     <Services />
                 </div>
 
-                <TechStack />
-
-                <div id="works">
-                    <WorksBento />
+                <div id="chi-sono">
+                    <Founder />
                 </div>
 
                 <div id="vespero">

@@ -3,6 +3,7 @@ import { m } from 'framer-motion';
 // Entity-anchoring FAQ for the home page: the exact natural-language questions
 // search and AI engines receive about Pionio. Visible on the page AND emitted as
 // FAQPage JSON-LD (built from this same array in Home.tsx) so the two never drift.
+// eslint-disable-next-line react-refresh/only-export-components
 export const homeFaq: { q: string; a: string }[] = [
     {
         q: 'Chi è Pionio?',
@@ -28,7 +29,7 @@ export const homeFaq: { q: string; a: string }[] = [
 
 export function HomeFAQ() {
     return (
-        <section id="faq" className="w-full bg-zinc-950 px-6 md:px-12 lg:px-24 py-24 md:py-32">
+        <section id="faq" className="w-full bg-zinc-950 px-6 md:px-12 lg:px-24 py-20 md:py-24">
             <div className="max-w-[900px] mx-auto flex flex-col gap-10">
                 <div className="flex items-center gap-4">
                     <div className="h-[1px] w-12 bg-forest-500/50" />
@@ -37,7 +38,7 @@ export function HomeFAQ() {
                 <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white leading-[1.05]">
                     Domande frequenti.
                 </h2>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3">
                     {homeFaq.map((f, i) => (
                         <m.details
                             key={i}
@@ -45,7 +46,7 @@ export function HomeFAQ() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-50px' }}
                             transition={{ duration: 0.4, delay: i * 0.04 }}
-                            className="group p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] open:bg-white/[0.04]"
+                            className="group p-5 md:p-6 rounded-2xl border border-white/5 bg-white/[0.02] open:bg-white/[0.04]"
                         >
                             <summary className="cursor-pointer list-none flex justify-between items-start gap-6">
                                 <h3 className="text-white font-sans text-lg md:text-xl">{f.q}</h3>

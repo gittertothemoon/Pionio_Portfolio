@@ -29,8 +29,8 @@ export function Founder() {
     };
 
     return (
-        <section className="relative w-full py-40 md:py-56 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10 items-center">
+        <section className="relative w-full py-24 md:py-36 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
 
                 {/* Left — Portrait: greyscale at rest, colour on hover (the person comes to life) */}
                 <div className="md:col-span-5 flex flex-col gap-6 items-center md:items-start" style={{ perspective: 1000 }}>
@@ -104,7 +104,7 @@ export function Founder() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-100px' }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 text-zinc-400 text-base md:text-lg leading-relaxed font-light"
+                        className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-zinc-300 text-base md:text-lg leading-relaxed font-light"
                     >
                         <p>{t('chisono_p1')}</p>
                         <p>

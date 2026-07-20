@@ -105,12 +105,14 @@ export function Hero3D({
                         src={src}
                         alt="Pionio — P mark in 3D"
                         auto-rotate
-                        auto-rotate-delay="0"
-                        rotation-per-second="14deg"
-                        shadow-intensity="0"
-                        exposure="1.0"
+                        auto-rotate-delay="5000"
+                        rotation-per-second="3deg"
+                        shadow-intensity="0.35"
+                        shadow-softness="0.9"
+                        exposure="1.55"
                         environment-image="neutral"
                         tone-mapping="neutral"
+                        camera-orbit="90deg 75deg 105%"
                         field-of-view="22deg"
                         loading="lazy"
                         reveal="auto"

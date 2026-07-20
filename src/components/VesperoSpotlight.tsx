@@ -26,7 +26,7 @@ export function VesperoSpotlight() {
     };
 
     return (
-        <section className="relative w-full py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-zinc-950 overflow-hidden">
+        <section className="relative w-full py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-zinc-950 overflow-hidden">
             {/* Ambient warmth — a quiet nod to Vespero's identity, "a warm voice in the night",
                 without leaving the portfolio's forest-green palette. */}
             <div
@@ -38,7 +38,7 @@ export function VesperoSpotlight() {
                 className="pointer-events-none absolute -bottom-1/4 left-0 h-[460px] w-[460px] rounded-full bg-forest-600/10 blur-[130px]"
             />
 
-            <div className="relative max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="relative max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 {/* LEFT — copy */}
                 <m.div
                     variants={containerVariants}

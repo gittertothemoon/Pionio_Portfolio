@@ -14,11 +14,11 @@ export function Experience() {
     ];
 
     return (
-        <section className="relative w-full py-40 md:py-48 bg-zinc-950 px-6 md:px-12 border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-10">
+        <section className="relative w-full py-24 md:py-32 bg-zinc-950 px-6 md:px-12 border-t border-white/5">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-10">
 
                 {/* Left Column - Minimal Label */}
-                <div className="md:col-span-4 flex flex-col justify-start mb-16 md:mb-0">
+                <div className="md:col-span-4 flex flex-col justify-start mb-4 md:mb-0">
                     <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -33,7 +33,7 @@ export function Experience() {
                 </div>
 
                 {/* Right Column - Timeline */}
-                <div className="md:col-span-8 md:col-start-5 flex flex-col gap-20 md:gap-32">
+                <div className="md:col-span-8 md:col-start-5 flex flex-col gap-12 md:gap-16">
                     {timeline.map((exp, index) => (
                         <m.div
                             key={index}

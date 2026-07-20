@@ -9,7 +9,7 @@ export function AuditCTA() {
     const { t, locale } = useLanguage();
 
     return (
-        <section className="w-full px-6 md:px-12 lg:px-24 py-20 md:py-28 bg-zinc-950">
+        <section className="w-full px-6 md:px-12 lg:px-24 py-16 md:py-24 bg-zinc-950">
             <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
