@@ -21,9 +21,11 @@ export function Hero3D({
     // Tilt is applied to an INNER wrapper so the outer `className`
     // (translate-x, size, max-w, …) is never clobbered by our JS transform.
     const tiltRef = useRef<HTMLDivElement | null>(null);
+    const slotRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         let mounted = true;
+        let handle = 0;
         // Defer the (~1 MB) @google/model-viewer chunk until the browser
         // is idle so it never competes with first paint / hydration.
         const startImport = () => {
@@ -33,18 +35,36 @@ export function Hero3D({
         };
         type IdleWin = typeof window & {
             requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+            cancelIdleCallback?: (h: number) => void;
         };
         const w = window as IdleWin;
-        const handle =
-            typeof w.requestIdleCallback === 'function'
-                ? w.requestIdleCallback(startImport, { timeout: 2500 })
-                : window.setTimeout(startImport, 200);
+        const whenIdle = () => {
+            handle =
+                typeof w.requestIdleCallback === 'function'
+                    ? w.requestIdleCallback(startImport, { timeout: 2500 })
+                    : window.setTimeout(startImport, 200);
+        };
+        // ...and only once the slot is near the screen. A copy that is display:none
+        // (the desktop model on a phone) never intersects, so it never costs the download.
+        const slot = slotRef.current;
+        const io =
+            slot && 'IntersectionObserver' in window
+                ? new IntersectionObserver(
+                      (entries) => {
+                          if (!entries.some((e) => e.isIntersecting)) return;
+                          io?.disconnect();
+                          whenIdle();
+                      },
+                      { rootMargin: '800px 0px' },
+                  )
+                : null;
+        if (io && slot) io.observe(slot);
+        else whenIdle();
         return () => {
             mounted = false;
-            type IdleCancelWin = typeof window & { cancelIdleCallback?: (h: number) => void };
-            const c = window as IdleCancelWin;
-            if (typeof c.cancelIdleCallback === 'function') c.cancelIdleCallback(handle as number);
-            else window.clearTimeout(handle as number);
+            io?.disconnect();
+            if (typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(handle);
+            else window.clearTimeout(handle);
         };
     }, []);
 
@@ -86,7 +106,7 @@ export function Hero3D({
     }, [tilt, ready]);
 
     if (!ready) {
-        return <div className={className} aria-hidden />;
+        return <div ref={slotRef} className={className} aria-hidden />;
     }
 
     const interactiveProps = interactive

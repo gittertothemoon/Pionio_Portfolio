@@ -168,30 +168,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://pionio.it/projects/flow-pilates</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/flow-pilates" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/flow-pilates" />
-    <image:image>
-      <image:loc>https://pionio.it/images/flow-logo.png</image:loc>
-      <image:title>FLOW Pilates Studio — Landing Page</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pionio.it/projects/antonela-paintings</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/antonela-paintings" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/antonela-paintings" />
-    <image:image>
-      <image:loc>https://pionio.it/images/antonela-logo.png</image:loc>
-      <image:title>Antonela's Paintings — Art Portfolio</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://pionio.it/projects/smoky-candle</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
@@ -201,18 +177,6 @@
     <image:image>
       <image:loc>https://pionio.it/images/smokycandle-logo.png</image:loc>
       <image:title>Smoky Candle — E-commerce</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://pionio.it/projects/arena-barbershop</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/projects/arena-barbershop" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/projects/arena-barbershop" />
-    <image:image>
-      <image:loc>https://pionio.it/images/arena-logo.png</image:loc>
-      <image:title>Arena Barbershop — Local Business</image:title>
     </image:image>
   </url>
 </urlset>

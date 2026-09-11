@@ -12,7 +12,6 @@ export const dict: Dictionary = {
     nav_about: { en: 'About', it: 'Chi Sono' },
     nav_capabilities: { en: 'What I Do', it: 'Cosa Faccio' },
     nav_works: { en: 'Works', it: 'Progetti' },
-    nav_vespero: { en: 'Vespero', it: 'Vespero' },
     nav_experience: { en: 'Process', it: 'Processo' },
     nav_contact: { en: 'Contact', it: 'Contatti' },
     nav_servizi: { en: 'Services', it: 'Servizi' },
@@ -21,25 +20,75 @@ export const dict: Dictionary = {
     nav_audit: { en: 'Audit', it: 'Audit' },
 
     // Hero — conversion-first, client language
-    hero_title: { en: 'Websites\nthat make your\nbusiness grow.', it: 'Siti web\nche fanno crescere\nil tuo business.' },
-    hero_subtitle: {
-        en: "I'm Ivan from Pionio. I design and build websites for entrepreneurs, professionals and brands who want to look serious online — and turn visitors into real customers. My code, AI where it makes sense. I make the calls.",
-        it: 'Sono Ivan di Pionio. Progetto e costruisco siti web per imprenditori, professionisti e brand che vogliono presentarsi in modo serio online — e trasformare i visitatori in clienti reali. Codice mio, AI dove ha senso. Le scelte le faccio io.'
-    },
-    hero_cta_works: { en: 'See real projects', it: 'Vedi i progetti' },
+    hero_title: { en: 'I draw it|first.\nThen I|build it.', it: 'Disegno\nquello|che poi\ncostruisco.' },
+    hero_cta_works: { en: 'See what I make', it: 'Guarda cosa faccio' },
+    pmark_title: { en: 'Go on, turn the P.', it: 'La P si può girare.' },
+    pmark_body: { en: 'It\'s the Pionio mark in three dimensions. Grab it and turn it however you like; leave it alone and after a few seconds it starts turning on its own again.', it: 'È il segno di Pionio in tre dimensioni. Prendila e girala come vuoi; se la lasci stare, dopo qualche secondo riprende a ruotare da sola.' },
+    p3d_trigger: { en: 'How heavy is it?', it: 'Quanto pesa?' },
+    p3d_trigger_aria: { en: 'See how much the 3D P weighs', it: 'Scopri il peso della P 3D' },
+    p3d_dialog_aria: { en: 'How much the 3D P weighs', it: 'Quanto pesa la P 3D' },
+    p3d_close: { en: 'Close', it: 'Chiudi' },
+    p3d_kicker: { en: 'Behind the scenes', it: 'Dietro le quinte' },
+    p3d_title: { en: 'Actually light.', it: 'Leggera sul serio.' },
+    p3d_body: { en: 'The P can move and catch your eye without slowing the page down.', it: 'La P può muoversi e farsi notare senza rallentare la pagina.' },
+    p3d_before: { en: 'It used to be', it: 'Prima erano' },
+    p3d_old: { en: '8.4 MB', it: '8,4 MB' },
+    p3d_now: { en: 'Now it\'s', it: 'Ora pesa il' },
+    p3d_less: { en: '90% lighter', it: '90% in meno' },
+    p3d_practice: { en: 'In practice', it: 'In pratica' },
+    p3d_b1: { en: 'Loads without slowing the site', it: 'Si carica senza rallentare il sito' },
+    p3d_b2: { en: 'Stays smooth on a phone too', it: 'Resta fluida anche dal telefono' },
+    p3d_b3: { en: 'Only shows up once you scroll to it', it: 'Entra in scena solo quando ci arrivi' },
+    p3d_footer: { en: 'Small model, big presence.', it: 'Piccolo modello, grande presenza.' },
     hero_cta_contact: { en: 'Get a free quote', it: 'Richiedi un preventivo' },
     hero_cta_whatsapp: { en: 'Message me on WhatsApp', it: 'Scrivimi su WhatsApp' },
-    hero_availability: { en: 'Available for freelance work', it: 'Disponibile per collaborazioni' },
 
     // Section numbers (vittoriohalfon-style progressive numbering)
-    section_num_works: { en: '01', it: '01' },
+    section_num_crafts: { en: '01', it: '01' },
     section_num_about: { en: '02', it: '02' },
-    section_num_services: { en: '03', it: '03' },
+    section_num_chisono: { en: '03', it: '03' },
+    section_num_services: { en: '04', it: '04' },
     section_num_techstack: { en: '—', it: '—' },
-    section_num_vespero: { en: '04', it: '04' },
     section_num_garanzie: { en: '05', it: '05' },
     section_num_experience: { en: '06', it: '06' },
     section_num_contact: { en: '07', it: '07' },
+
+    // Three crafts — the studio after the 11/09/2026 turn: web, synthetic images, tools
+    crafts_label: { en: 'Three crafts', it: 'Tre mestieri' },
+    crafts_headline: { en: 'Websites, synthetic people, small tools.', it: 'Siti web, persone sintetiche, piccoli strumenti.' },
+    craft_web_title: { en: 'Web', it: 'Web' },
+    craft_web_line: { en: 'I design the site, then I build it, down to the last line. Look closely: the drawing is still under the page.', it: "Disegno il sito e poi lo costruisco, fino all'ultima riga. Guarda bene: sotto la pagina c'è ancora il disegno." },
+    craft_web_alt: { en: 'The smokycandle.com home page; wherever you look, its drawing shows under the page, with blocks and measures', it: 'La home di smokycandle.com; dove guardi, sotto la pagina compare il suo disegno, con blocchi e misure' },
+    craft_synth_line: { en: 'Faces that don\'t exist, built from the bone out. Look closely: the skull is still under the skin.', it: 'Volti che non esistono, costruiti dall\'osso alla pelle. Guarda bene: sotto il volto c\'è ancora il teschio.' },
+    craft_synth_cta: { en: 'Enter Sintetico', it: 'Entra in Sintetico' },
+    craft_synth_alt: { en: 'A crystal head with a human face; wherever you look, the skull shows under the skin', it: 'Una testa di cristallo con un volto umano; dove guardi, sotto la pelle compare il teschio' },
+    craft_tools_title: { en: 'Tools', it: 'Strumenti' },
+    craft_tools_line: { en: 'Small tools I needed and leave open for anyone. The first one checks a site in about twenty seconds and tells you, in plain words, what slows it down and what it\'s missing.', it: 'Piccoli attrezzi che mi sono serviti e che lascio usare a tutti. Il primo controlla un sito in una ventina di secondi e ti dice, a parole semplici, cosa lo rallenta e cosa gli manca.' },
+    craft_tools_label: { en: 'Address of the site to check', it: 'Indirizzo del sito da controllare' },
+    craft_tools_placeholder: { en: 'yoursite.com', it: 'iltuosito.it' },
+    craft_tools_go: { en: 'Check it', it: 'Controlla' },
+    craft_tools_hint: { en: 'The full check opens on audit.pionio.it.', it: 'Il controllo completo si apre su audit.pionio.it.' },
+    // The receipt in the Tools panel: the audit's real report on where2beach.com (11/09/2026)
+    rc_date: { en: '11 Sep 2026', it: '11.09.2026' },
+    rc_phone: { en: 'from a phone', it: 'da telefono' },
+    rc_fcp: { en: 'first content', it: 'primo contenuto' },
+    rc_lcp: { en: 'main content', it: 'contenuto principale' },
+    rc_cls: { en: 'layout shift', it: 'spostamenti' },
+    rc_weight: { en: 'page weight', it: 'peso della pagina' },
+    rc_alt: { en: 'images without alt', it: 'immagini senza alt' },
+    rc_total: { en: 'TOTAL', it: 'TOTALE' },
+    rc_grade: { en: 'SOLID', it: 'SOLIDO' },
+    rc_verdict: { en: 'The site is healthy.', it: 'Il sito è in salute.' },
+
+    // Sintetico band — the label's own room inside Pionio
+    band_label: { en: 'A Pionio label', it: "Un'etichetta di Pionio" },
+    band_body: {
+        en: "People who don't exist, built in layers: images, prompt packs and a lab that turns any photo into a prompt for your own character.",
+        it: 'Persone che non esistono, costruite a strati: immagini, pacchetti di prompt e un laboratorio che trasforma qualsiasi foto in un prompt per il tuo personaggio.'
+    },
+    band_cta: { en: 'Enter Sintetico', it: 'Entra in Sintetico' },
+    sintetico_soon: { en: 'Opening soon', it: 'Apre presto' },
+    band_img_alt: { en: 'Portrait of a woman sculpted in clear glass, with human eyes', it: 'Ritratto di una donna scolpita nel vetro, con occhi umani' },
 
     // Audit tool CTA band (links to audit.pionio.it)
     audit_cta_label: { en: 'Free tool', it: 'Strumento gratuito' },
@@ -55,59 +104,54 @@ export const dict: Dictionary = {
 
     // Garanzie — risk reversal section
     garanzie_label: { en: 'Guarantees', it: 'Garanzie' },
-    garanzie_headline_1: { en: 'The risk ', it: 'Il rischio ' },
-    garanzie_headline_highlight: { en: 'is mine', it: 'è mio' },
-    garanzie_headline_3: { en: '.', it: '.' },
-    garanzie_intro: {
-        en: 'When you choose PIONIO, you don\'t take risks. You see the project before you commit, you know exactly what you\'re paying for, and you\'re never alone after launch.',
-        it: 'Quando scegli PIONIO, non rischi. Vedi il progetto prima di confermare, sai esattamente cosa stai pagando e dopo il lancio non resti mai da solo.'
+    garanzie_title: { en: 'The risk is\u00a0mine.', it: 'Il rischio è\u00a0mio.' },
+    garanzie_intro: { en: 'Three commitments, and I sign them first.', it: 'Tre impegni, e li firmo io per primo.' },
+    garanzie_1_lead: { en: 'See it before you decide.', it: 'Vedi prima, decidi poi.' },
+    garanzie_1_body: {
+        en: 'I show you a real mockup before asking you to commit, then we refine it together until it feels like you.',
+        it: 'Ti mostro un mockup vero prima di chiederti di confermare, poi lo rifiniamo insieme finché ti rappresenta.'
     },
-    garanzie_1_title: { en: 'Free mockup before you commit', it: 'Mockup gratuito prima di confermare' },
-    garanzie_1_desc: {
-        en: 'Before you pay anything, I show you a real preview of your website. If it doesn\'t convince you, you walk away — no costs, no obligations.',
-        it: 'Prima di pagare un euro, ti mostro un\'anteprima reale del tuo sito. Se non ti convince, te ne vai — zero costi, zero obblighi.'
+    garanzie_2_lead: { en: 'A clear price and date.', it: 'Prezzo e data chiari.' },
+    garanzie_2_body: {
+        en: 'Budget and delivery are set before work starts. No hidden costs, no vague deadlines.',
+        it: 'Preventivo e consegna li fissiamo prima di iniziare. Niente costi nascosti, niente scadenze vaghe.'
     },
-    garanzie_2_title: { en: 'Unlimited revisions included', it: 'Revisioni illimitate incluse' },
-    garanzie_2_desc: {
-        en: 'We work together until the result genuinely reflects you. No "extra rounds" charged separately, no surprises on the final invoice.',
-        it: 'Lavoriamo insieme finché il risultato non ti rappresenta davvero. Niente "round extra" fatturati a parte, niente sorprese sulla fattura finale.'
+    garanzie_3_lead: { en: 'Yours, with support.', it: 'Tutto tuo, con supporto.' },
+    garanzie_3_body: {
+        en: 'Code, domain and accounts stay yours. After launch, 30 days of support are included.',
+        it: 'Codice, dominio e account restano a te. Dopo il lancio hai 30 giorni di assistenza inclusa.'
     },
-    garanzie_3_title: { en: 'No hidden costs', it: 'Nessun costo nascosto' },
-    garanzie_3_desc: {
-        en: 'Transparent quote signed before we start. The price you agree on is the price you pay. Period.',
-        it: 'Preventivo trasparente firmato prima di iniziare. Il prezzo concordato è il prezzo che paghi. Punto.'
-    },
-    garanzie_4_title: { en: 'Post-launch support', it: 'Assistenza post-lancio' },
-    garanzie_4_desc: {
-        en: '30 days of free support after going live. Bugs, fixes, small tweaks — all included. Then optional maintenance, never forced.',
-        it: '30 giorni di assistenza gratuita dopo il go-live. Bug, fix, piccoli aggiustamenti — tutto incluso. Dopo, manutenzione opzionale, mai imposta.'
-    },
-    garanzie_5_title: { en: 'You own everything', it: 'Tutto è di tua proprietà' },
-    garanzie_5_desc: {
-        en: 'Code, domain, hosting, accounts: it all stays in your name. No lock-in, no leverage. The website is yours from day one.',
-        it: 'Codice, dominio, hosting, account: tutto resta intestato a te. Nessun lock-in, nessuna leva. Il sito è tuo dal primo giorno.'
-    },
-    garanzie_6_title: { en: 'Fixed delivery date', it: 'Data di consegna fissa' },
-    garanzie_6_desc: {
-        en: 'Agreed timeline written in the contract. If I miss it for reasons that are on me, you get a discount. Simple.',
-        it: 'Tempistica concordata e scritta nel contratto. Se sforo per cause mie, ti riconosco uno sconto. Semplice.'
-    },
+    garanzie_sig_caption: { en: 'Ivan Panto, Pionio', it: 'Ivan Panto, Pionio' },
+    garanzie_sig_alt: { en: "Ivan Panto's signature", it: 'Firma di Ivan Panto' },
 
     // About — speak to the client, not the dev
     about_label: { en: 'Why PIONIO', it: 'Perché PIONIO' },
-    about_headline_1: { en: 'A website should ', it: 'Il tuo sito deve ' },
-    about_headline_highlight: { en: 'work for you', it: 'lavorare per te' },
-    about_headline_3: { en: ', every day.', it: ', ogni giorno.' },
-    about_p1: {
-        en: 'Most websites are pretty pictures that nobody finds and nobody acts on. Mine are designed to do one job: bring you the right clients and convince them to choose you.',
-        it: 'La maggior parte dei siti sono solo bei disegni che nessuno trova e che non portano clienti. I miei sono progettati per fare una cosa: portarti le persone giuste e convincerle a scegliere te.'
+    about_title: { en: 'A default is a choice nobody made.', it: 'Il default è una scelta che nessuno ha fatto.' },
+    about_body: {
+        en: "The typeface that came with it, the theme's colour, whatever spacing happens. Add them up and you get anyone's site. I take them one by one and decide.",
+        it: "Il carattere che c'era già, il colore del tema, lo spazio che capita. Sommati fanno il sito di chiunque. Io li prendo uno per uno e decido."
     },
-    about_p2: {
-        en: 'Custom design, fast loading, mobile-first, optimized for Google. You get a digital storefront that builds trust on the first scroll — without the agency price tag and without the technical headaches.',
-        it: 'Design su misura, caricamento veloce, mobile-first, ottimizzato per Google. Ottieni una vetrina digitale che ispira fiducia al primo scroll — senza il costo di un\'agenzia e senza grattacapi tecnici.'
-    },
-
-    about_cta: { en: 'Start your project', it: 'Inizia il tuo progetto' },
+    // The six decisions of section 02 (About.tsx): what the browser gives by default, what this site uses
+    spec_bg: { en: 'Background', it: 'Sfondo' },
+    spec_bg_from: { en: 'browser white', it: 'bianco del browser' },
+    spec_bg_to: { en: '#09090B', it: '#09090B' },
+    spec_type: { en: 'Typeface', it: 'Carattere' },
+    spec_type_from: { en: 'Times New Roman', it: 'Times New Roman' },
+    spec_type_to: { en: 'Geist', it: 'Geist' },
+    spec_title: { en: 'Title', it: 'Titolo' },
+    spec_title_from: { en: '2em', it: '2em' },
+    spec_title_to: { en: 'fills the column', it: 'riempie la colonna' },
+    spec_margin: { en: 'Margins', it: 'Margini' },
+    spec_margin_from: { en: '8 px', it: '8 px' },
+    spec_margin_to: { en: '96 px', it: '96 px' },
+    spec_colour: { en: 'Colour', it: 'Colore' },
+    spec_colour_from: { en: '#0000EE', it: '#0000EE' },
+    spec_colour_to: { en: '#306B4D', it: '#306B4D' },
+    spec_buttons: { en: 'Buttons', it: 'Bottoni' },
+    spec_buttons_from: { en: 'grey "Submit"', it: '«Invia» grigio' },
+    spec_buttons_to: { en: 'say what they do', it: 'dicono cosa fanno' },
+    spec_btn_default: { en: 'Submit', it: 'Invia' },
+    spec_link_default: { en: 'Click here', it: 'Clicca qui' },
 
     // Chi sono — the human behind the studio (only section with a face)
     chisono_label: { en: 'About me', it: 'Chi sono' },
@@ -115,112 +159,93 @@ export const dict: Dictionary = {
     chisono_headline_highlight: { en: 'me', it: 'io' },
     chisono_headline_3: { en: '.', it: '.' },
     chisono_p1: {
-        en: "I'm Ivan. I design and build websites on my own, one at a time — from the first line of code to the last pixel. No assembly line, no middlemen: you talk to the person who actually makes the site.",
-        it: "Sono Ivan. Progetto e costruisco siti da solo, uno alla volta — dalla prima riga di codice all'ultimo pixel. Niente catena di montaggio, niente intermediari: parli con la persona che il sito lo fa davvero."
+        en: "I'm Ivan. I work across three crafts under one name: websites, synthetic images and small tools. One person from the first idea to the last pixel, so you always talk to whoever is actually making the thing.",
+        it: "Sono Ivan. Lavoro su tre mestieri con un solo nome: siti web, immagini sintetiche e piccoli strumenti. Una persona dalla prima idea all'ultimo pixel: parli sempre con chi la cosa la fa davvero."
     },
-    chisono_p2_1: {
-        en: "I use AI every day, but I make the calls: it executes, I decide where the project goes. And when I'm not on a client site I build my own things, like ",
-        it: "Uso l'AI ogni giorno, ma le decisioni le prendo io: lei esegue, io scelgo dove portare il progetto. E quando non lavoro su un sito cliente costruisco le mie cose, come "
-    },
-    chisono_p2_2: {
-        en: ". That's how I stay sharp — by never stopping building.",
-        it: ". È così che resto sul pezzo: continuando a costruire."
+    chisono_p2: {
+        en: "I use AI every day, but I make the calls: it executes, I decide where the work goes. Sintetico is where I push it furthest, building people who don't exist and keeping them the same from one image to the next.",
+        it: "Uso l'AI ogni giorno, ma le decisioni le prendo io: lei esegue, io scelgo dove portare il lavoro. Sintetico è dove la spingo più lontano: costruisco persone che non esistono e le tengo identiche da un'immagine all'altra."
     },
     chisono_name: { en: 'Ivan Panto', it: 'Ivan Panto' },
-    chisono_role: { en: 'Founder · Web designer & developer', it: 'Fondatore · Web designer & developer' },
+    chisono_role: { en: 'Founder · Designer, developer, image-maker', it: 'Fondatore · Designer, developer, image-maker' },
     chisono_photo_alt: { en: 'Ivan Panto, founder of Pionio', it: 'Ivan Panto, fondatore di Pionio' },
 
-    // Services — translate tech jargon into client benefits
+    // Services (04) — what you can ask me for; the figures come from services.ts
     services_label: { en: 'What I Do', it: 'Cosa Faccio Per Te' },
-    services_headline_1: { en: 'Three things, ', it: 'Tre cose, ' },
-    services_headline_highlight: { en: 'done seriously', it: 'fatte sul serio' },
-    services_headline_3: { en: '.', it: '.' },
-    service_1_title: { en: 'Websites that convert', it: 'Siti web che convertono' },
-    service_1_desc: {
-        en: 'Showcase, e-commerce or landing page — built to load instantly, work flawlessly on every phone, and guide your visitor toward one clear action: contacting you or buying.',
-        it: 'Sito vetrina, e-commerce o landing page — costruito per caricarsi all\'istante, funzionare alla perfezione su ogni telefono e guidare il visitatore verso un\'unica azione chiara: contattarti o comprare.'
+    services_title: { en: 'Tell me what you need.', it: 'Dimmi cosa ti serve.' },
+    services_intro: { en: 'For each one: what goes into it and where the price starts.', it: "Per ognuno trovi cosa c'è dentro e da quanto si parte." },
+    services_tabs_label: { en: 'What you need', it: 'Cosa ti serve' },
+    services_fine: {
+        en: 'These are starting prices. We fix the real one before we start, and it stays put.',
+        it: 'Sono prezzi di partenza. Quello vero lo fissiamo prima di iniziare, e resta quello.'
     },
-    service_2_title: { en: 'Design that earns trust', it: 'Design che ispira fiducia' },
-    service_2_desc: {
-        en: 'Smooth animations, refined typography, nothing left to default. The kind of details that make a visitor think "these people are serious" — before they\'ve read a single word.',
-        it: 'Animazioni fluide, tipografia curata, niente lasciato al default. Quei dettagli che fanno pensare al visitatore "questa gente è seria" — prima ancora di leggere una parola.'
-    },
-    service_3_title: { en: 'Found on Google', it: 'Visibile su Google' },
-    service_3_desc: {
-        en: 'Technical SEO, fast Core Web Vitals, clean structured data. Your website is built to be found by the people already searching for what you offer.',
-        it: 'SEO tecnica, Core Web Vitals veloci, dati strutturati puliti. Il tuo sito è costruito per essere trovato dalle persone che stanno già cercando ciò che offri.'
-    },
+    cm_from: { en: 'From', it: 'Da' },
+    cm_time_label: { en: 'Time', it: 'Tempi' },
+    cm_time_agreed: { en: 'Set together, before we start.', it: 'Li fissiamo insieme, prima di iniziare.' },
+    cm_in_label: { en: "What's in it", it: "Dentro c'è" },
+    cm_example_label: { en: 'Example:', it: 'Esempio:' },
 
-    services_cta: { en: 'Tell me about your project', it: 'Parlami del tuo progetto' },
+    cm_site_name: { en: 'A new website', it: 'Un sito nuovo' },
+    cm_site_url: { en: 'yoursite.com', it: 'iltuosito.it' },
+    cm_site_note: { en: 'From €5,000 with many pages or custom features.', it: 'Da 5.000 € se le pagine sono tante o servono funzioni particolari.' },
+    cm_site_time: { en: '2–4 weeks', it: '2–4 settimane' },
+    cm_site_in_1: { en: 'Design and code, both mine.', it: 'Design e codice, tutti e due miei.' },
+    cm_site_in_2: { en: 'Made for the phone first, then the big screen.', it: 'Pensato prima per il telefono, poi per lo schermo grande.' },
+    cm_site_in_3: { en: 'Readable by Google from launch day.', it: 'Leggibile da Google dal giorno del lancio.' },
+    cm_site_example: { en: 'this one.', it: 'questo sito.' },
+    cm_site_cta: { en: "Let's talk about your site", it: 'Parliamo del tuo sito' },
+    cm_site_msg: { en: 'I need a new website. ', it: 'Mi serve un sito nuovo. ' },
+
+    cm_shop_name: { en: 'An online shop', it: 'Un negozio online' },
+    cm_shop_url: { en: 'yourshop.com', it: 'iltuonegozio.it' },
+    cm_shop_note: { en: 'On Shopify, ready to sell. From €12,000 if I build it from scratch.', it: 'Su Shopify, pronto per vendere. Da 12.000 € se lo costruisco da zero.' },
+    cm_shop_in_1: { en: 'Product pages with photos, details and shipping up front.', it: 'Schede prodotto con foto, dettagli e spedizione in vista.' },
+    cm_shop_in_2: { en: 'Pay by card, Apple Pay, Google Pay or PayPal.', it: 'Si paga con carta, Apple Pay, Google Pay o PayPal.' },
+    cm_shop_in_3: { en: 'Fast on a phone too.', it: 'Veloce anche da telefono.' },
+    cm_shop_cta: { en: "Let's talk about your shop", it: 'Parliamo del tuo negozio' },
+    cm_shop_msg: { en: 'I need an online shop. ', it: 'Mi serve un negozio online. ' },
+
+    cm_redo_name: { en: 'Your site, redone', it: 'Rifare il sito che hai' },
+    cm_redo_url: { en: 'yoursite.com', it: 'iltuosito.it' },
+    cm_redo_note: { en: 'Content migration and redirects included.', it: 'Migrazione dei contenuti e redirect inclusi.' },
+    cm_redo_in_1: { en: 'First I look at what already works, and keep it.', it: 'Prima guardo cosa funziona già, e lo tengo.' },
+    cm_redo_in_2: { en: 'Every old address leads to the right new page.', it: 'Ogni vecchio indirizzo porta alla pagina nuova giusta.' },
+    cm_redo_in_3: { en: 'Domain, email and logins sorted, even if someone else built the site.', it: "Dominio, email e accessi in ordine, anche se il sito l'ha fatto qualcun altro." },
+    cm_redo_cta: { en: "Let's talk about your site", it: 'Parliamo del tuo sito' },
+    cm_redo_msg: { en: "I'd like my site redone. ", it: 'Vorrei rifare il mio sito. ' },
+
+    cm_tool_name: { en: "A tool that doesn't exist yet", it: "Uno strumento che ancora non c'è" },
+    cm_tool_url: { en: 'app.yourwork.com', it: 'app.iltuolavoro.it' },
+    cm_tool_note: { en: 'For a first version people actually use, not a demo.', it: 'Per una prima versione che si usa davvero, non una demo.' },
+    cm_tool_time: { en: '6–12 weeks', it: '6–12 settimane' },
+    cm_tool_in_1: { en: 'I start from what you do by hand today.', it: 'Parto da quello che oggi fai a mano.' },
+    cm_tool_in_2: { en: 'A prototype to try first, then the code.', it: 'Prima un prototipo da provare, poi il codice.' },
+    cm_tool_in_3: { en: 'Logins, database and backups included.', it: 'Accessi, database e backup compresi.' },
+    cm_tool_cta: { en: "Let's talk about your tool", it: 'Parliamo del tuo strumento' },
+    cm_tool_msg: { en: "I need a tool that doesn't exist yet. ", it: "Mi serve uno strumento che ancora non c'è. " },
 
     // Works Bento
-    works_label: { en: 'Real Projects, Real Clients', it: 'Progetti Reali, Clienti Reali' },
-    works_headline: { en: 'Selected work.', it: 'Lavori selezionati.' },
-    works_visit_site: { en: 'Visit site', it: 'Visita il sito' },
-    work_w2b_cat: { en: 'Community App', it: 'App Community' },
-    work_w2b_desc: {
-        en: 'Geolocation app for the Italian coast — live beach reports from a real community of users.',
-        it: 'App di geolocalizzazione per la costa italiana — segnalazioni live delle spiagge da una community di utenti reali.'
-    },
-    work_antonela_cat: { en: 'Art Portfolio', it: "Portfolio d'Arte" },
-    work_antonela_desc: {
-        en: 'A digital gallery for an emerging painter — quiet, fast, lets the artwork do the talking.',
-        it: "Una galleria digitale per un'artista emergente — silenziosa, veloce, lascia parlare le opere."
-    },
-    work_smoky_cat: { en: 'E-commerce', it: 'E-commerce' },
-    work_smoky_desc: {
-        en: 'Online shop for an Italian artisan candle brand — short checkout, mobile-first, online sales from day one.',
-        it: 'Shop online per un brand italiano di candele artigianali — checkout breve, mobile-first, vendite dal primo giorno.'
-    },
-    work_arena_cat: { en: 'Local Business', it: 'Attività Locale' },
-    work_arena_desc: {
-        en: 'Digital presence for a Swiss barbershop — clear info, one-tap booking, instant load on mobile.',
-        it: 'Presenza digitale per un barber shop svizzero — info chiare, prenotazione in un tap, caricamento istantaneo su mobile.'
-    },
-    work_flow_cat: { en: 'Landing Page', it: 'Landing Page' },
-    work_flow_desc: {
-        en: 'Mobile-first landing page for a new Pilates studio near Bologna — built to validate demand and capture real leads before launch.',
-        it: 'Landing page mobile-first per un nuovo studio di Pilates vicino Bologna — costruita per validare la domanda e raccogliere lead reali prima del lancio.'
-    },
-
-    // Vespero — personal flagship SaaS spotlight (my own product, not client work)
-    vespero_label: { en: 'Personal project', it: 'Progetto personale' },
-    vespero_tagline: { en: 'A warm voice in the night.', it: 'Una voce calda nella notte.' },
-    vespero_body: {
-        en: "Vespero is my own SaaS product — not client work. An AI assistant that answers clients on WhatsApp and Telegram for Italian freelancers, professionals and makers: quotes, follow-ups, briefings and reminders, always in their own voice. I designed and built it end to end, from the interface to the multi-tenant gateway.",
-        it: 'Vespero è il mio prodotto SaaS — non un lavoro su commissione. Un assistente AI che risponde ai clienti su WhatsApp e Telegram per freelance, professionisti e artigiani italiani: preventivi, follow-up, briefing e promemoria, sempre con la loro voce. L\'ho progettato e costruito da zero, dall\'interfaccia al gateway multi-tenant.'
-    },
-    vespero_point_1: { en: 'AI assistant on WhatsApp & Telegram', it: 'Assistente AI su WhatsApp e Telegram' },
-    vespero_point_2: { en: "Replies in the freelancer's own voice", it: 'Risponde con la voce del freelance' },
-    vespero_point_3: { en: '10-minute onboarding, no terminal', it: 'Onboarding in 10 minuti, zero terminale' },
-    vespero_point_4: { en: 'Multi-tenant, Stripe billing, in production', it: 'Multi-tenant, pagamenti Stripe, in produzione' },
-    vespero_cta_visit: { en: 'Visit vespero.ai', it: 'Visita vespero.ai' },
-    vespero_cta_more: { en: 'Explore the project', it: 'Scopri il progetto' },
-    vespero_chat_name: { en: 'Vespero', it: 'Vespero' },
-    vespero_chat_status: { en: 'online', it: 'online' },
-    vespero_chat_in: { en: 'Hi! Can you send me a quote for the website?', it: 'Ciao! Mi fai un preventivo per il sito?' },
-    vespero_chat_out: {
-        en: "Of course. A showcase site starts at €2,500 — I'll put together a tailored proposal and send it over by tomorrow.",
-        it: 'Certo. Un sito vetrina parte da 2.500€ — ti preparo una proposta su misura e te la mando entro domani.'
-    },
-    vespero_chat_caption: { en: 'This is how Vespero replies — in your voice.', it: 'Così risponde Vespero, con la tua voce.' },
 
     // Experience → Process (results-focused, not CV)
     exp_label: { en: 'How We Work Together', it: 'Come Lavoriamo Insieme' },
-    exp_1_role: { en: '01 — We talk about your goal', it: '01 — Parliamo del tuo obiettivo' },
-    exp_1_desc: {
-        en: 'A free 30-minute call. You tell me what your business does, who your clients are, and what you want the website to actually achieve. No tech jargon — just clarity.',
-        it: 'Una call gratuita di 30 minuti. Mi racconti cosa fa la tua attività, chi sono i tuoi clienti e cosa vuoi davvero ottenere dal sito. Niente gergo tecnico — solo chiarezza.'
+    exp_title: { en: 'How long it really takes.', it: 'Quanto ci vuole, davvero.' },
+    exp_1_name: { en: 'The call', it: 'La chiamata' },
+    exp_1_meta: { en: '30 minutes, free', it: '30 minuti, gratis' },
+    exp_1_body: {
+        en: 'You tell me what you do, who you want to reach and what has to happen on the site.',
+        it: 'Mi racconti cosa fai, chi vuoi raggiungere e cosa deve succedere sul sito.'
     },
-    exp_2_role: { en: '02 — I design and build', it: '02 — Progetto e sviluppo' },
-    exp_2_desc: {
-        en: 'AI in the flow cuts the time, not the care: within 2–4 weeks I deliver a fast, mobile-first website ready for Google. You see progress in real time and approve every step — no surprises at the end.',
-        it: 'L\'AI nel flusso accorcia i tempi, non la cura: in 2–4 settimane consegno un sito veloce, mobile-first e pronto per Google. Vedi i progressi in tempo reale e approvi ogni step — nessuna sorpresa alla fine.'
+    exp_2_name: { en: 'Design and build', it: 'Progetto e costruzione' },
+    exp_2_meta: { en: '2\u20134 weeks', it: '2\u20134 settimane' },
+    exp_2_body: {
+        en: 'I draw it, show you, we fix it, I build it. You see the progress as it happens, not at the end.',
+        it: 'Disegno, ti faccio vedere, correggiamo, costruisco. I progressi li vedi mentre vanno avanti, non alla fine.'
     },
-    exp_3_role: { en: '03 — You go live and grow', it: '03 — Vai online e cresci' },
-    exp_3_desc: {
-        en: "We launch, I hand over a clean, easy-to-update site, and I'm still there if something needs to evolve. Your website becomes an asset that works for you for years.",
-        it: 'Lanciamo, ti consegno un sito pulito e facile da aggiornare, e resto a disposizione se qualcosa deve evolvere. Il tuo sito diventa un asset che lavora per te per anni.'
+    exp_3_name: { en: 'Live', it: 'Online' },
+    exp_3_meta: { en: '+ 30 days of support', it: '+ 30 giorni di assistenza' },
+    exp_3_body: {
+        en: 'We publish, I hand over the accounts and how to update them. For 30 days after launch I am there.',
+        it: 'Pubblichiamo, ti passo accessi e istruzioni. Per 30 giorni dopo il lancio ci sono.'
     },
 
     exp_cta: { en: "Let's start", it: 'Iniziamo' },

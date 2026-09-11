@@ -124,7 +124,7 @@ export const services: Service[] = [
                 a: 'Curo il sistema visivo digitale e posso lavorare a partire da una brand identity esistente o costruirla insieme a un brand designer di fiducia.',
             },
         ],
-        relatedProjectSlugs: ['where2beach', 'flow-pilates', 'antonela-paintings'],
+        relatedProjectSlugs: ['where2beach'],
         pricingNote: 'Da 2.500€ per un sito vetrina, da 5.000€ per progetti su più pagine.',
         ctaTitle: "Hai un progetto in mente?",
         ctaCopy:
@@ -235,7 +235,7 @@ export const services: Service[] = [
                 a: 'Sì, mi inserisco in team esistenti come consulente frontend o lavoro con designer/backend di fiducia se il progetto lo richiede.',
             },
         ],
-        relatedProjectSlugs: ['where2beach', 'smoky-candle', 'flow-pilates'],
+        relatedProjectSlugs: ['where2beach', 'smoky-candle'],
         pricingNote: 'Tariffa giornaliera o a progetto, in base alla scala. Preventivo trasparente prima di iniziare.',
         ctaTitle: 'Vuoi un confronto tecnico?',
         ctaCopy:
@@ -459,7 +459,7 @@ export const services: Service[] = [
                 a: "Sì, faccio full-stack in React/Node.js per i progetti di scala media. Per progetti più grandi collaboro con backend specialisti dedicati.",
             },
         ],
-        relatedProjectSlugs: ['where2beach', 'flow-pilates'],
+        relatedProjectSlugs: ['where2beach'],
         pricingNote: 'MVP da 8.000€-15.000€. Web app full-stack su misura da 20.000€ in su.',
         ctaTitle: "Hai un'idea di prodotto?",
         ctaCopy:
@@ -572,7 +572,7 @@ export const services: Service[] = [
                 a: 'No, l\'audit SEO funziona su qualsiasi stack — WordPress, Shopify, custom. La parte di implementazione dipende dalle competenze del tuo team o se ti serve che intervenga io.',
             },
         ],
-        relatedProjectSlugs: ['where2beach', 'arena-barbershop'],
+        relatedProjectSlugs: ['where2beach'],
         pricingNote: 'Audit SEO da 800€. Ottimizzazione tecnica con preventivo a progetto.',
         ctaTitle: 'Vuoi capire dove perdi traffico?',
         ctaCopy:
@@ -683,7 +683,7 @@ export const services: Service[] = [
                 a: 'No. Bologna è la base e per chi è in zona ci si può vedere di persona, ma lavoro con clienti in tutta Italia a distanza, con lo stesso processo.',
             },
         ],
-        relatedProjectSlugs: ['arena-barbershop', 'flow-pilates', 'smoky-candle'],
+        relatedProjectSlugs: ['smoky-candle'],
         pricingNote: 'Da 2.500€ per il rifacimento di un sito vetrina, migrazione e redirect inclusi.',
         ctaTitle: 'Il tuo sito ha bisogno di essere rifatto?',
         ctaCopy:
@@ -794,7 +794,7 @@ export const services: Service[] = [
                 a: 'Sì, è il requisito di partenza: date, posti e stati delle uscite si aggiornano da un\'area semplice, dal telefono se serve. Ti lascio anche una guida breve per farlo in autonomia.',
             },
         ],
-        relatedProjectSlugs: ['flow-pilates', 'where2beach', 'arena-barbershop'],
+        relatedProjectSlugs: ['where2beach'],
         pricingNote: 'Da 2.500€ per un sito completo di pagine per zona, calendario e contatti diretti.',
         ctaTitle: 'La prossima stagione si prepara adesso',
         ctaCopy:
@@ -905,7 +905,7 @@ export const services: Service[] = [
                 a: 'Sì. Prezzi e contenuti si aggiornano da un\'area semplice, e se usi un channel manager le disponibilità restano sincronizzate da lì.',
             },
         ],
-        relatedProjectSlugs: ['smoky-candle', 'flow-pilates', 'arena-barbershop'],
+        relatedProjectSlugs: ['smoky-candle'],
         pricingNote: 'Da 2.500€ per un sito completo con richiesta diretta e doppia lingua.',
         ctaTitle: 'Quanto ti costa Booking ogni anno?',
         ctaCopy:

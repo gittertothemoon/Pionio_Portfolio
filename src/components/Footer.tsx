@@ -85,7 +85,7 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    to="/#works"
+                                    to="/#crafts"
                                     className="text-zinc-300 hover:text-forest-400 font-sans text-sm transition-colors"
                                 >
                                     Progetti

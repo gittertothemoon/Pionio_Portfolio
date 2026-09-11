@@ -13,17 +13,19 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    // Try to read from local storage, then browser language, default to Italian (site is .it)
-    const [locale, setLocaleState] = useState<Locale>(() => {
-        if (typeof window !== 'undefined') {
-            const saved = localStorage.getItem('pionio-locale') as Locale;
-            if (saved === 'it' || saved === 'en') return saved;
-            const nav = navigator.language?.toLowerCase() ?? '';
-            if (nav.startsWith('it')) return 'it';
-            if (nav.startsWith('en')) return 'en';
+    // The pre-rendered HTML is Italian, so hydration starts in Italian (starting in English made
+    // React throw away the server markup, error #418). Right after, the saved choice or the
+    // browser language takes over: anyone whose browser isn't Italian gets English.
+    const [locale, setLocaleState] = useState<Locale>('it');
+    useEffect(() => {
+        const saved = localStorage.getItem('pionio-locale');
+        if (saved === 'it' || saved === 'en') {
+            setLocaleState(saved);
+            return;
         }
-        return 'it';
-    });
+        const nav = navigator.language?.toLowerCase() ?? '';
+        setLocaleState(nav.startsWith('it') ? 'it' : 'en');
+    }, []);
 
     useEffect(() => {
         if (typeof document !== 'undefined') {

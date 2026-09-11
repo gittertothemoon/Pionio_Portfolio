@@ -88,7 +88,7 @@ export default function ProjectPage() {
                 '@type': 'ListItem',
                 position: 2,
                 name: locale === 'it' ? 'Lavori' : 'Works',
-                item: 'https://pionio.it/#works',
+                item: 'https://pionio.it/#crafts',
             },
             {
                 '@type': 'ListItem',
@@ -136,11 +136,11 @@ export default function ProjectPage() {
             </a>
 
             <header
-                className="absolute top-0 left-0 w-full p-6 md:px-12 md:py-8 z-50 flex justify-between items-center pointer-events-none"
+                className="absolute top-0 left-0 w-full p-6 md:px-12 md:py-8 lg:px-24 z-50 flex justify-between items-center pointer-events-none"
                 role="banner"
             >
-                <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto">
-                    <Logo className="h-40 md:h-56 lg:h-64 w-auto object-cover object-left-top -mt-10 md:-mt-16 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
+                <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto flex h-[34px] items-center">
+                    <Logo className="h-[27px] w-auto md:h-[38px] lg:h-[43px] drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
                 </Link>
             </header>
 
@@ -152,7 +152,7 @@ export default function ProjectPage() {
                         transition={{ duration: 0.6 }}
                     >
                         <Link
-                            to="/#works"
+                            to="/#crafts"
                             className="inline-flex items-center gap-2 text-zinc-500 hover:text-forest-400 font-mono text-xs uppercase tracking-widest transition-colors duration-300"
                         >
                             <ArrowLeft weight="bold" /> {locale === 'it' ? 'Tutti i progetti' : 'All projects'}

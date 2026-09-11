@@ -84,7 +84,7 @@ export function Founder() {
                         transition={{ duration: 0.8 }}
                         className="flex items-center gap-4"
                     >
-                        <span className="text-forest-500 font-mono text-sm tracking-widest">IP</span>
+                        <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_chisono')}</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
                         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('chisono_label')}</span>
                     </m.div>
@@ -107,20 +107,7 @@ export function Founder() {
                         className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-zinc-300 text-base md:text-lg leading-relaxed font-light"
                     >
                         <p>{t('chisono_p1')}</p>
-                        <p>
-                            {t('chisono_p2_1')}
-                            <a
-                                href="#vespero"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    document.getElementById('vespero')?.scrollIntoView({ behavior: 'smooth' });
-                                }}
-                                className="whitespace-nowrap font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#e0a96d] to-[#c97a54] decoration-[#c97a54]/60 underline-offset-4 hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e0a96d]/60"
-                            >
-                                Vespero
-                            </a>
-                            {t('chisono_p2_2')}
-                        </p>
+                        <p>{t('chisono_p2')}</p>
                     </m.div>
                 </div>
 

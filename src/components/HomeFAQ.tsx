@@ -1,33 +1,71 @@
 import { m } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
-// Entity-anchoring FAQ for the home page: the exact natural-language questions
-// search and AI engines receive about Pionio. Visible on the page AND emitted as
-// FAQPage JSON-LD (built from this same array in Home.tsx) so the two never drift.
+type QA = { q: string; a: string };
+
+// Entity-anchoring FAQ for the home page: the exact natural-language questions search and AI engines
+// receive about Pionio. The Italian list is also the source of the FAQPage JSON-LD (built from this same
+// array in Home.tsx), so the page and the structured data never drift. Figures must match the rest of the
+// page: prices from section 04, times from 06, the 24 hours from the contact form.
 // eslint-disable-next-line react-refresh/only-export-components
-export const homeFaq: { q: string; a: string }[] = [
+export const homeFaq: QA[] = [
     {
         q: 'Chi è Pionio?',
-        a: "Pionio è lo studio di web design di Ivan Panto, un freelance con sede a Bologna. Progetto e sviluppo siti, e-commerce e applicazioni web su misura — un progetto alla volta, codice mio, AI dove ha senso.",
-    },
-    {
-        q: 'Dove ha sede Pionio?',
-        a: 'A Bologna, in Italia. Lavoro con clienti in tutta Italia e da remoto.',
+        a: "Pionio è lo studio di Ivan Panto: siti web, immagini sintetiche e piccoli strumenti per il web. Una persona sola, dal disegno all'ultima riga di codice. La base è Bologna.",
     },
     {
         q: 'Quanto costa un sito con Pionio?',
-        a: 'Un sito vetrina ben fatto parte da circa 2.500€; un progetto più articolato, con più pagine e funzionalità su misura, da 5.000€ in su. Dipende da contenuti, complessità e tempi.',
+        a: 'Un sito vetrina parte da 2.500 €, un progetto con più pagine o funzioni particolari da 5.000 €, un negozio online da 4.000 €. Sono prezzi di partenza: quello vero lo fissiamo prima di iniziare, e resta quello.',
     },
     {
-        q: 'In quanto tempo rispondete a una richiesta?',
-        a: 'Entro 24 ore, con una valutazione realistica del progetto e una stima trasparente dei prossimi passi.',
+        q: 'Quanto ci vuole per andare online?',
+        a: 'Dalla prima chiamata al lancio, di solito 2–4 settimane per un sito. La variabile più grande sei tu: quanto in fretta arrivano contenuti e risposte.',
     },
     {
-        q: 'Lavorate da remoto?',
-        a: 'Sì. Lavoro da remoto con clienti in tutta Italia, e di persona quando ha senso nella zona di Bologna.',
+        q: 'In quanto tempo rispondi a una richiesta?',
+        a: 'Entro 24 ore, con una risposta chiara: tempi realistici, preventivo trasparente, zero pressioni commerciali.',
+    },
+    {
+        q: 'Lavori da remoto?',
+        a: 'Sempre. La base è Bologna, i clienti non devono esserlo.',
+    },
+    {
+        q: 'Cos’è Sintetico?',
+        a: "È l'etichetta con cui firmo il lavoro generativo di Pionio: volti e persone che non esistono, costruiti a strati, con i prompt e gli strumenti per farlo. Apre presto.",
+    },
+];
+
+const homeFaqEn: QA[] = [
+    {
+        q: 'What is Pionio?',
+        a: "Pionio is Ivan Panto's studio: websites, synthetic images and small tools for the web. One person, from the drawing to the last line of code. The base is Bologna, Italy.",
+    },
+    {
+        q: 'What does a website cost with Pionio?',
+        a: 'A showcase site starts at €2,500, a project with more pages or custom features at €5,000, an online shop at €4,000. These are starting prices: we fix the real one before we start, and it stays put.',
+    },
+    {
+        q: 'How long does it take to go live?',
+        a: 'From the first call to launch, usually 2–4 weeks for a website. The biggest variable is you: how fast content and answers come back.',
+    },
+    {
+        q: 'How quickly do you reply?',
+        a: 'Within 24 hours, with a clear answer: realistic timing, a transparent quote, no hard sell.',
+    },
+    {
+        q: 'Do you work remotely?',
+        a: 'Always. The base is Bologna; clients do not have to be.',
+    },
+    {
+        q: 'What is Sintetico?',
+        a: "It's the label I sign Pionio's generative work with: faces and people who don't exist, built in layers, with the prompts and tools to make them. Opening soon.",
     },
 ];
 
 export function HomeFAQ() {
+    const { locale } = useLanguage();
+    const faq = locale === 'it' ? homeFaq : homeFaqEn;
+
     return (
         <section id="faq" className="w-full bg-zinc-950 px-6 md:px-12 lg:px-24 py-20 md:py-24">
             <div className="max-w-[900px] mx-auto flex flex-col gap-10">
@@ -36,10 +74,10 @@ export function HomeFAQ() {
                     <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">FAQ</span>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white leading-[1.05]">
-                    Domande frequenti.
+                    {locale === 'it' ? 'Domande frequenti.' : 'Frequently asked questions.'}
                 </h2>
                 <div className="flex flex-col gap-3">
-                    {homeFaq.map((f, i) => (
+                    {faq.map((f, i) => (
                         <m.details
                             key={i}
                             initial={{ opacity: 0, y: 10 }}

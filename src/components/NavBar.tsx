@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import {
     User,
     Lightning,
-    GridFour,
     Briefcase,
     EnvelopeSimple,
     Article,
@@ -37,8 +36,7 @@ type ExternalItem = {
 type NavItem = AnchorItem | RouteItem | ExternalItem;
 
 const navItems: NavItem[] = [
-    { name: 'Works', hash: 'works', icon: GridFour, type: 'anchor', tKey: 'nav_works' },
-    { name: 'Capabilities', hash: 'services', icon: Lightning, type: 'anchor', tKey: 'nav_capabilities' },
+    { name: 'Capabilities', hash: 'crafts', icon: Lightning, type: 'anchor', tKey: 'nav_capabilities' },
     { name: 'About', hash: 'chi-sono', icon: User, type: 'anchor', tKey: 'nav_about' },
     { name: 'Experience', hash: 'experience', icon: Briefcase, type: 'anchor', tKey: 'nav_experience' },
     { name: 'Blog', to: '/blog', icon: Article, type: 'route', tKey: 'nav_blog' },
@@ -136,7 +134,7 @@ export function NavBar() {
                     isVisible ? 'pointer-events-auto' : 'pointer-events-none'
                 )}
             >
-                <ul className="grid grid-cols-6 xl:flex items-center gap-0.5 xl:gap-1 relative w-full xl:w-auto min-w-0">
+                <ul className="grid grid-cols-5 xl:flex items-center gap-0.5 xl:gap-1 relative w-full xl:w-auto min-w-0">
                     {navItems.map((item) => {
                         const isAnchorActive =
                             item.type === 'anchor' && isHome && activeSection === item.hash;

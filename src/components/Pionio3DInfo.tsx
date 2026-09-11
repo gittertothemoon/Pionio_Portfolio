@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, m } from 'framer-motion';
 import { DeviceMobile, Info, Lightning, Timer, X } from '@phosphor-icons/react';
+import { useLanguage } from '../context/LanguageContext';
 
 type Props = {
     /** Variante del trigger:
      *  - 'pill': pulsante pillola con icona + label (per desktop sotto il 3D)
-     *  - 'inline': solo "ⓘ peso" testuale (per mobile, accanto al caption "Trascina per ruotare")
+     *  - 'inline': solo "ⓘ peso" testuale (per mobile, accanto al caption hero3d_drag)
      */
     variant?: 'pill' | 'inline';
     className?: string;
@@ -18,6 +19,7 @@ type Props = {
  * senza trasformare l'esperienza in una scheda tecnica.
  */
 export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
+    const { t } = useLanguage();
     const [open, setOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     // Mount flag to defer client-only 3D UI past SSG hydration.
@@ -48,20 +50,20 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                     type="button"
                     onClick={() => setOpen(true)}
                     className={`group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-forest-500/30 bg-forest-500/[0.06] hover:bg-forest-500/15 hover:border-forest-500/60 text-forest-300 hover:text-forest-100 font-mono text-[11px] uppercase tracking-widest transition-colors duration-300 cursor-pointer ${className}`}
-                    aria-label="Scopri il peso della P 3D"
+                    aria-label={t('p3d_trigger_aria')}
                 >
                     <Info size={14} weight="duotone" />
-                    Quanto pesa?
+                    {t('p3d_trigger')}
                 </button>
             ) : (
                 <button
                     type="button"
                     onClick={() => setOpen(true)}
                     className={`inline-flex items-center gap-1.5 text-forest-400 hover:text-forest-200 font-mono text-xs uppercase tracking-widest transition-colors duration-300 cursor-pointer ${className}`}
-                    aria-label="Scopri il peso della P 3D"
+                    aria-label={t('p3d_trigger_aria')}
                 >
                     <Info size={12} weight="duotone" />
-                    Quanto pesa?
+                    {t('p3d_trigger')}
                 </button>
             )}
 
@@ -78,7 +80,7 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                         onClick={() => setOpen(false)}
                         role="dialog"
                         aria-modal="true"
-                        aria-label="Quanto pesa la P 3D"
+                        aria-label={t('p3d_dialog_aria')}
                     >
                         {/* Backdrop blur scuro */}
                         <div className="absolute inset-0 bg-zinc-950/85 backdrop-blur-md" />
@@ -107,7 +109,7 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                                 type="button"
                                 onClick={() => setOpen(false)}
                                 className="absolute top-5 right-5 p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/[0.06] transition-colors cursor-pointer"
-                                aria-label="Chiudi"
+                                aria-label={t('p3d_close')}
                             >
                                 <X size={20} weight="bold" />
                             </button>
@@ -115,7 +117,7 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                             {/* Header */}
                             <div className="flex items-center gap-3 pr-8 mb-7">
                                 <span className="font-mono text-[10px] uppercase tracking-widest text-forest-400">
-                                    Dietro le quinte
+                                    {t('p3d_kicker')}
                                 </span>
                                 <div className="h-px flex-1 bg-forest-500/20" />
                                 <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
@@ -125,10 +127,10 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
 
                             <div className="max-w-sm mb-7">
                                 <h2 className="font-sans text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-                                    Leggera sul serio.
+                                    {t('p3d_title')}
                                 </h2>
                                 <p className="mt-2 text-sm sm:text-base leading-relaxed text-zinc-400">
-                                    La P può muoversi e farsi notare senza rallentare la pagina.
+                                    {t('p3d_body')}
                                 </p>
                             </div>
 
@@ -144,27 +146,27 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
 
                             {/* Diff */}
                             <p className="text-zinc-400 font-sans text-sm sm:text-base mb-8">
-                                Prima erano <span className="line-through decoration-zinc-600">8,4 MB</span>.
-                                Ora pesa il <span className="text-forest-300 font-medium">90% in meno</span>.
+                                {t('p3d_before')} <span className="line-through decoration-zinc-600">{t('p3d_old')}</span>.{' '}
+                                {t('p3d_now')} <span className="text-forest-300 font-medium">{t('p3d_less')}</span>.
                             </p>
 
                             {/* Benefici */}
                             <div>
                                 <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 mb-3">
-                                    In pratica
+                                    {t('p3d_practice')}
                                 </p>
                                 <ul className="divide-y divide-white/[0.06] border-y border-white/[0.06] text-zinc-300 font-sans text-sm sm:text-[15px]">
                                     <li className="flex items-center gap-3 py-3">
                                         <Lightning size={18} weight="duotone" className="shrink-0 text-forest-300" />
-                                        Si carica senza rallentare il sito
+                                        {t('p3d_b1')}
                                     </li>
                                     <li className="flex items-center gap-3 py-3">
                                         <DeviceMobile size={18} weight="duotone" className="shrink-0 text-forest-300" />
-                                        Resta fluida anche dal telefono
+                                        {t('p3d_b2')}
                                     </li>
                                     <li className="flex items-center gap-3 py-3">
                                         <Timer size={18} weight="duotone" className="shrink-0 text-forest-300" />
-                                        Entra in scena solo quando serve
+                                        {t('p3d_b3')}
                                     </li>
                                 </ul>
                             </div>
@@ -172,14 +174,14 @@ export function Pionio3DInfo({ variant = 'pill', className = '' }: Props) {
                             {/* Footer */}
                             <div className="mt-7 flex items-center justify-between">
                                 <span className="hidden min-[360px]:inline font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-                                    Piccolo modello, grande presenza.
+                                    {t('p3d_footer')}
                                 </span>
                                 <button
                                     type="button"
                                     onClick={() => setOpen(false)}
                                     className="font-mono text-[11px] uppercase tracking-widest text-forest-300 hover:text-forest-100 transition-colors cursor-pointer"
                                 >
-                                    Chiudi
+                                    {t('p3d_close')}
                                 </button>
                             </div>
                         </m.div>

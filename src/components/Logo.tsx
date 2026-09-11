@@ -1,8 +1,8 @@
 export function Logo({ className }: { className?: string }) {
     return (
         <img
-            src="/logo.svg"
-            alt="PIONIO Logo"
+            src="/logo-wordmark.svg"
+            alt="Pionio"
             className={className}
         />
     );

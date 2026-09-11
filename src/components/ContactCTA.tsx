@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PaperPlaneRight, CheckCircle, ArrowClockwise, ArrowUpRight, WhatsappLogo } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
@@ -37,6 +37,31 @@ export function ContactCTA() {
     const [status, setStatus] = useState<Status>('idle');
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const startedRef = useRef(false);
+
+    // Section 04 hands over what the visitor picked: the project type, and a first line in the
+    // message if they haven't written anything yet (replaced if they pick something else).
+    const starterRef = useRef('');
+    const flashTimer = useRef<number | undefined>(undefined);
+    const [flash, setFlash] = useState(false);
+    useEffect(() => {
+        const onPick = (e: Event) => {
+            const { tipo, message } = (e as CustomEvent<{ tipo: string; message: string }>).detail;
+            setForm((prev) => ({
+                ...prev,
+                tipo_progetto: tipo,
+                messaggio: prev.messaggio.trim() === '' || prev.messaggio === starterRef.current ? message : prev.messaggio,
+            }));
+            starterRef.current = message;
+            setFlash(true);
+            window.clearTimeout(flashTimer.current);
+            flashTimer.current = window.setTimeout(() => setFlash(false), 2200);
+        };
+        window.addEventListener('pionio:commission', onPick);
+        return () => {
+            window.removeEventListener('pionio:commission', onPick);
+            window.clearTimeout(flashTimer.current);
+        };
+    }, []);
 
     const update = <K extends keyof FormState>(key: K, value: string) =>
         setForm((prev) => ({ ...prev, [key]: value }));
@@ -275,7 +300,7 @@ export function ContactCTA() {
                                         value={form.tipo_progetto}
                                         onChange={(e) => update('tipo_progetto', e.target.value)}
                                         disabled={status === 'loading'}
-                                        className={`${inputBase} appearance-none cursor-pointer pr-10 bg-[length:14px] bg-no-repeat bg-[right_1.25rem_center] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2371717a%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>')]`}
+                                        className={`${inputBase}${flash ? ' ring-2 ring-forest-400/50' : ''} appearance-none cursor-pointer pr-10 bg-[length:14px] bg-no-repeat bg-[right_1.25rem_center] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2371717a%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>')]`}
                                     >
                                         <option value="">{t('contact_select_placeholder')}</option>
                                         {tipoOptions.map((o) => (

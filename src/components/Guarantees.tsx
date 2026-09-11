@@ -1,141 +1,73 @@
-import { m } from 'framer-motion';
-import type { Variants } from 'framer-motion';
-import { ShieldCheck, Eye, Key, Calendar } from '@phosphor-icons/react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { SIGNATURE_D, SIGNATURE_VIEWBOX } from '../lib/signature';
 
+const CLAUSES = [1, 2, 3] as const;
+
+// 05. The three commitments as the clauses of a one-page agreement. When the signature line comes into
+// view the signature writes itself, left to right: the outline of the letters first, then the ink.
 export function Guarantees() {
-    const { t, locale } = useLanguage();
+    const { t } = useLanguage();
+    const sigRef = useRef<HTMLDivElement>(null);
+    // Without JavaScript, or with reduced motion, the signature is simply there.
+    const [armed, setArmed] = useState(false);
+    const [signed, setSigned] = useState(false);
 
-    const guarantees =
-        locale === 'it'
-            ? [
-                  {
-                      id: '01',
-                      Icon: Eye,
-                      title: 'Vedi prima, decidi poi',
-                      desc: 'Ti mostro un mockup reale prima di chiederti di confermare. Poi lo rifiniamo insieme finché ti rappresenta.',
-                  },
-                  {
-                      id: '02',
-                      Icon: Calendar,
-                      title: 'Prezzo e data sono chiari',
-                      desc: 'Preventivo e consegna vengono concordati prima di iniziare. Niente costi nascosti o scadenze vaghe.',
-                  },
-                  {
-                      id: '03',
-                      Icon: Key,
-                      title: 'Tutto tuo, con supporto',
-                      desc: 'Codice, dominio e account restano a te. Dopo il lancio hai 30 giorni di assistenza inclusa.',
-                  },
-              ]
-            : [
-                  {
-                      id: '01',
-                      Icon: Eye,
-                      title: 'See it before you decide',
-                      desc: 'I show you a real mockup before asking you to commit. Then we refine it together until it feels right.',
-                  },
-                  {
-                      id: '02',
-                      Icon: Calendar,
-                      title: 'A clear price and date',
-                      desc: 'Budget and delivery are agreed before work starts. No hidden costs or vague deadlines.',
-                  },
-                  {
-                      id: '03',
-                      Icon: Key,
-                      title: 'Yours, with support',
-                      desc: 'Code, domain and accounts stay yours. After launch, 30 days of support are included.',
-                  },
-              ];
-
-    const containerVariants: Variants = {
-        hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.1 } },
-    };
-
-    const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 30 },
-        show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 20 } },
-    };
+    useEffect(() => {
+        const el = sigRef.current;
+        if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        setArmed(true);
+        const io = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) return;
+                setSigned(true);
+                io.disconnect();
+            },
+            { threshold: 0.8 },
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
 
     return (
-        <section className="relative w-full py-24 md:py-36 bg-zinc-950 px-6 md:px-12 overflow-hidden border-t border-white/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-14 md:gap-20">
-                {/* Header */}
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col gap-7"
-                >
+        <section className="relative w-full border-t border-white/5 bg-zinc-950 px-6 py-24 md:px-12 md:py-32" aria-labelledby="garanzie-title">
+            <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+                <div className="lg:col-span-5">
                     <div className="flex items-center gap-4">
-                        <span className="text-forest-500 font-mono text-sm tracking-widest">{t('section_num_garanzie')}</span>
+                        <span className="font-mono text-sm tracking-widest text-forest-500">{t('section_num_garanzie')}</span>
                         <div className="h-[1px] w-8 bg-forest-500/50" />
-                        <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest">{t('garanzie_label')}</span>
+                        <span className="font-mono text-sm uppercase tracking-widest text-zinc-500">{t('garanzie_label')}</span>
                     </div>
-
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tighter text-white leading-[1.05] max-w-5xl">
-                        {t('garanzie_headline_1')}
-                        <span className="text-forest-500 italic font-serif">{t('garanzie_headline_highlight')}</span>
-                        {t('garanzie_headline_3')}
+                    <h2 id="garanzie-title" className="mt-8 text-5xl leading-[1.02] tracking-tight text-white md:text-6xl lg:text-[5.5rem] lg:leading-[0.95]">
+                        {t('garanzie_title')}
                     </h2>
+                    <p className="mt-6 max-w-sm text-base font-light leading-relaxed text-zinc-400 md:text-lg">{t('garanzie_intro')}</p>
+                </div>
 
-                    <p className="text-zinc-300 text-base md:text-lg leading-relaxed font-light max-w-2xl">
-                        {t('garanzie_intro')}
-                    </p>
-                </m.div>
-
-                {/* Three clear commitments, presented as a single editorial list. */}
-                <m.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '-100px' }}
-                    className="grid grid-cols-1 md:grid-cols-3 border-y border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10"
-                >
-                    {guarantees.map((g) => {
-                        const Icon = g.Icon;
-                        return (
-                            <m.div
-                                key={g.id}
-                                variants={itemVariants}
-                                className="group relative flex flex-col gap-7 py-8 md:px-8 first:md:pl-0 last:md:pr-0"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div className="w-12 h-12 rounded-full bg-forest-500/10 border border-forest-500/20 flex items-center justify-center group-hover:bg-forest-500/20 transition-colors duration-500">
-                                        <Icon size={26} weight="duotone" className="text-forest-400" />
+                <div className="lg:col-span-7">
+                    <div className="rounded-2xl border border-white/10 bg-zinc-900/50 p-7 md:p-12">
+                        <ol className="flex flex-col">
+                            {CLAUSES.map((n) => (
+                                <li key={n} className="grid grid-cols-[2rem_1fr] gap-x-3 border-b border-white/10 py-6 first:pt-0 md:grid-cols-[2.5rem_1fr] md:py-7">
+                                    <span className="pt-0.5 font-mono text-sm text-forest-400 md:text-base">{n}.</span>
+                                    <div>
+                                        <p className="text-lg font-medium tracking-tight text-white md:text-xl">{t(`garanzie_${n}_lead`)}</p>
+                                        <p className="mt-2 max-w-xl text-base font-light leading-relaxed text-zinc-400">{t(`garanzie_${n}_body`)}</p>
                                     </div>
-                                    <span className="text-zinc-600 group-hover:text-forest-500/70 font-mono text-sm tracking-widest transition-colors duration-500">
-                                        {g.id}
-                                    </span>
-                                </div>
-
-                                <div className="flex flex-col gap-4">
-                                    <h3 className="text-xl md:text-2xl font-sans tracking-tight text-white leading-tight">
-                                        {g.title}
-                                    </h3>
-                                    <p className="text-zinc-300 text-base leading-relaxed font-light">
-                                        {g.desc}
-                                    </p>
-                                </div>
-                            </m.div>
-                        );
-                    })}
-                </m.div>
-
-                {/* Trust seal footer */}
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.8 }}
-                    className="flex items-center justify-center gap-3 text-zinc-500"
-                >
-                    <ShieldCheck size={20} weight="duotone" className="text-forest-500/70" />
-                    <span className="font-mono text-xs uppercase tracking-widest">PIONIO — {t('garanzie_label')}</span>
-                </m.div>
+                                </li>
+                            ))}
+                        </ol>
+                        <div className="mt-10 flex justify-end">
+                            <div ref={sigRef} className={`sig w-[min(100%,20rem)] ${armed ? 'is-armed' : ''} ${signed ? 'is-signed' : ''}`}>
+                                <svg viewBox={SIGNATURE_VIEWBOX} className="h-auto w-full text-forest-300" role="img" aria-label={t('garanzie_sig_alt')}>
+                                    <path d={SIGNATURE_D} fillRule="evenodd" className="sig-path" />
+                                </svg>
+                                <div className="mt-1 h-px bg-white/25" />
+                                <p className="mt-2 text-right text-sm text-zinc-500">{t('garanzie_sig_caption')}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

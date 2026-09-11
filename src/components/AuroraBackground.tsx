@@ -17,7 +17,11 @@
 //   · The cursor pushes the field outward (a soft repulsive bulge).
 //   · Press AND hold creates a vortex at the cursor that twists the flow.
 //     Drag while held to move the vortex. Release to let it decay (~1.2s).
+//   · On touch screens a tap leaves a vortex where the finger was, and the
+//     page still scrolls through the hero (no pointer capture, touch-action auto).
 //   · No luminous rings, no halos — distortion only.
+//   · Renders at half the device pixels (the field is soft, nobody sees the
+//     difference) and stops drawing while the canvas is off screen.
 //
 // Notes:
 //   · One canvas, one full-screen fragment shader, no dependencies.
@@ -35,6 +39,8 @@ interface AuroraBackgroundProps {
   style?: React.CSSProperties;
   /** Disable pointer interaction (purely ambient background). Default: false. */
   interactive?: boolean;
+  /** Called once, the first time someone touches or presses the field. */
+  onFirstInteract?: () => void;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -138,8 +144,14 @@ export default function AuroraBackground({
   className,
   style,
   interactive = true,
+  onFirstInteract,
 }: AuroraBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  // Kept in a ref so a new callback never tears down and rebuilds the GL context.
+  const firstRef = useRef(onFirstInteract);
+  useEffect(() => {
+    firstRef.current = onFirstInteract;
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -157,7 +169,7 @@ export default function AuroraBackground({
     let teardown = () => {};
     const init = () => {
       if (cancelled) return;
-      teardown = startAurora(canvas, interactive);
+      teardown = startAurora(canvas, interactive, () => firstRef.current?.());
     };
     const handle =
       typeof w.requestIdleCallback === 'function'
@@ -191,7 +203,7 @@ export default function AuroraBackground({
   );
 }
 
-function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => void {
+function startAurora(canvas: HTMLCanvasElement, interactive: boolean, onFirst: () => void): () => void {
     const gl = canvas.getContext('webgl', {
       antialias: false,
       premultipliedAlpha: false,
@@ -203,11 +215,10 @@ function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => voi
     // prefers-reduced-motion enabled. A static frame on mobile was unintended.
     const reduceMotion = false;
 
-    // Disable pointer capture on touch-only devices so the page can scroll
-    // through the hero. Mobile keeps the ambient animation, just no vortex.
+    // Touch screens: no pointer capture and touch-action auto, so a swipe on the
+    // hero still scrolls the page. A tap (or the start of a swipe) stirs the field.
     const hasHover = window.matchMedia('(hover: hover)').matches;
-    const effectiveInteractive = interactive && hasHover;
-    if (!effectiveInteractive) {
+    if (!hasHover) {
       canvas.style.touchAction = 'auto';
       canvas.style.cursor = 'default';
     }
@@ -250,15 +261,22 @@ function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => voi
     const clicks: { x: number; y: number; start: number }[] = []; // decaying after release
     let isDown = false;
     let live: { x: number; y: number } | null = null;
-    const tStart = performance.now();
+    let touched = false;
+    // Time only advances while frames are drawn, so the flow picks up where it
+    // was when the hero scrolls back in (no jump after a long pause).
+    let tNow = 0;
+    let last = performance.now();
     let raf = 0;
+    let running = false;
 
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // The field is all soft gradients: half the device pixels is invisible to
+      // the eye and a quarter of the shader work on a retina screen.
+      const scale = Math.max(0.6, Math.min(window.devicePixelRatio || 1, 2) * 0.5);
       const w = Math.max(1, canvas!.clientWidth);
       const h = Math.max(1, canvas!.clientHeight);
-      canvas!.width = Math.floor(w * dpr);
-      canvas!.height = Math.floor(h * dpr);
+      canvas!.width = Math.floor(w * scale);
+      canvas!.height = Math.floor(h * scale);
       gl!.viewport(0, 0, canvas!.width, canvas!.height);
     }
     // Listen on window.resize instead of ResizeObserver(canvas): on iOS
@@ -286,22 +304,26 @@ function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => voi
       isDown = true;
       live = { x: p.x, y: p.y };
       tmx = p.x; tmy = p.y;
-      try { canvas!.setPointerCapture(e.pointerId); } catch { /* noop */ }
+      if (!touched) { touched = true; onFirst(); }
+      if (e.pointerType === 'mouse') {
+        try { canvas!.setPointerCapture(e.pointerId); } catch { /* noop */ }
+      }
     }
-    function endPress() {
+    function endPress(e?: PointerEvent) {
       if (isDown && live) {
-        const t = (performance.now() - tStart) / 1000;
-        clicks.push({ x: live.x, y: live.y, start: t });
+        clicks.push({ x: live.x, y: live.y, start: tNow });
         while (clicks.length > 7) clicks.shift();
       }
       isDown = false;
       live = null;
+      // A finger leaves no hovering cursor behind: let the bulge relax.
+      if (e && e.pointerType !== 'mouse') { tmx = 0.5; tmy = 0.5; }
     }
     function onLeave() {
       if (!isDown) { tmx = 0.5; tmy = 0.5; }
     }
 
-    if (effectiveInteractive) {
+    if (interactive) {
       canvas.addEventListener('pointermove', onMove, { passive: true });
       canvas.addEventListener('pointerdown', onDown);
       canvas.addEventListener('pointerup', endPress);
@@ -315,7 +337,10 @@ function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => voi
     function frame() {
       mx += (tmx - mx) * 0.12;
       my += (tmy - my) * 0.12;
-      const t = reduceMotion ? 0 : (performance.now() - tStart) / 1000;
+      const now = performance.now();
+      tNow += Math.min(now - last, 100) / 1000;
+      last = now;
+      const t = reduceMotion ? 0 : tNow;
 
       // Prune very old clicks.
       while (clicks.length && t - clicks[0].start > 4) clicks.shift();
@@ -343,13 +368,30 @@ function startAurora(canvas: HTMLCanvasElement, interactive: boolean): () => voi
       gl!.drawArrays(gl!.TRIANGLES, 0, 3);
 
       // When reduced motion is on, draw a single static frame at t=0 and stop.
-      if (reduceMotion) return;
+      if (reduceMotion || !running) return;
       raf = requestAnimationFrame(frame);
     }
-    raf = requestAnimationFrame(frame);
+    function play() {
+      if (running) return;
+      running = true;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+    function pause() {
+      running = false;
+      cancelAnimationFrame(raf);
+    }
+    // Nobody sees the hero once it has scrolled away: stop drawing until it is back.
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((en) => en.isIntersecting)) play();
+      else pause();
+    });
+    io.observe(canvas);
+    play();
 
     return () => {
-      cancelAnimationFrame(raf);
+      pause();
+      io.disconnect();
       window.removeEventListener('resize', resize);
       canvas.removeEventListener('pointermove', onMove);
       canvas.removeEventListener('pointerdown', onDown);

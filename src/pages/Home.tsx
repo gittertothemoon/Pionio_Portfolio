@@ -1,16 +1,13 @@
 import { Head } from 'vite-react-ssg';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
 import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
-import { Hero3D } from '../components/Hero3D';
-import { Pionio3DInfo } from '../components/Pionio3DInfo';
 import { About } from '../components/About';
 import { Founder } from '../components/Founder';
-import { useIsRestrictedWebView } from '../lib/ua';
 import { Services } from '../components/Services';
-import { WorksBento } from '../components/WorksBento';
-import { VesperoSpotlight } from '../components/VesperoSpotlight';
+import { Crafts } from '../components/Crafts';
+import { SinteticoBand } from '../components/SinteticoBand';
+import { PMark } from '../components/PMark';
 import { Guarantees } from '../components/Guarantees';
 import { Experience } from '../components/Experience';
 import { AuditCTA } from '../components/AuditCTA';
@@ -19,30 +16,28 @@ import { Footer } from '../components/Footer';
 import { HomeFAQ, homeFaq } from '../components/HomeFAQ';
 
 export default function Home() {
-    const { t } = useLanguage();
-    const restricted = useIsRestrictedWebView();
 
     return (
         <div className="w-full bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased -webkit-font-smoothing-antialiased">
             <Head>
-                <title>Pionio · Web Designer Freelance a Bologna, Siti su Misura</title>
+                <title>Pionio · Ivan Panto, siti web, immagini sintetiche e strumenti</title>
                 <meta
                     name="description"
-                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
+                    content="Pionio è lo studio di Ivan Panto: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web. L'AI esegue, le scelte sono sue."
                 />
                 <link rel="canonical" href="https://pionio.it/" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://pionio.it/" />
-                <meta property="og:title" content="Pionio · Web Designer Freelance a Bologna, Siti su Misura" />
+                <meta property="og:title" content="Pionio · Ivan Panto, siti web, immagini sintetiche e strumenti" />
                 <meta
                     property="og:description"
-                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
+                    content="Pionio è lo studio di Ivan Panto: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web. L'AI esegue, le scelte sono sue."
                 />
                 <meta name="twitter:url" content="https://pionio.it/" />
-                <meta name="twitter:title" content="Pionio · Web Designer Freelance a Bologna, Siti su Misura" />
+                <meta name="twitter:title" content="Pionio · Ivan Panto, siti web, immagini sintetiche e strumenti" />
                 <meta
                     name="twitter:description"
-                    content="Studio di web design italiano. Faccio siti uno alla volta: codice mio, AI dove ha senso. Veloci, mobile-first, su misura."
+                    content="Pionio è lo studio di Ivan Panto: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web. L'AI esegue, le scelte sono sue."
                 />
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -64,20 +59,13 @@ export default function Home() {
                 Skip to content
             </a>
             <header
-                className="absolute top-0 left-0 w-full p-6 md:px-12 md:py-8 z-50 flex justify-between items-center pointer-events-none"
+                className="absolute top-0 left-0 w-full p-6 md:px-12 md:py-8 lg:px-24 z-50 flex justify-between items-center pointer-events-none"
                 role="banner"
             >
                 <div className="flex items-center gap-3 md:gap-4 lg:gap-5">
-                    <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto">
-                        <Logo className="h-40 md:h-56 lg:h-64 w-auto object-cover object-left-top -mt-10 md:-mt-16 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
+                    <Link to="/" title="PIONIO — Homepage" aria-label="PIONIO — Homepage" className="pointer-events-auto flex h-[34px] items-center">
+                        <Logo className="h-[27px] w-auto md:h-[38px] lg:h-[43px] drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
                     </Link>
-                    <span className="hidden xl:inline-flex pointer-events-auto items-center gap-2 px-3 py-1 xl:-mt-16 rounded-full border border-forest-500/50 bg-forest-900/40 text-forest-200 text-sm font-mono tracking-tight">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-forest-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-forest-500"></span>
-                        </span>
-                        {t('hero_availability')}
-                    </span>
                 </div>
             </header>
 
@@ -86,50 +74,24 @@ export default function Home() {
                     <Hero />
                 </div>
 
-                {/* Compact mobile/tablet signature moment.
-                    Skipped inside Instagram / Facebook / Threads / TikTok
-                    in-app browsers — model-viewer + WebGL barely run there. */}
-                <section className={`${restricted ? 'hidden' : 'xl:hidden'} w-full bg-zinc-950 py-14 px-6 flex flex-col items-center gap-6 border-b border-white/5`}>
-                    <div className="flex items-center gap-4">
-                        <span className="text-forest-500 font-mono text-xs tracking-widest">PIONIO</span>
-                        <div className="h-[1px] w-8 bg-forest-500/50" />
-                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">P mark</span>
-                    </div>
-                    <div className="w-full h-[260px] sm:h-[300px] max-w-sm">
-                        <Hero3D
-                            className="w-full h-full"
-                            interactive
-                            float
-                            src="/models/pionio-3d-mobile.gltf"
-                        />
-                    </div>
-                    <div className="flex items-center gap-4 flex-wrap justify-center">
-                        <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase">
-                            Trascina per ruotare
-                        </p>
-                        <span className="text-zinc-700">·</span>
-                        <Pionio3DInfo variant="inline" />
-                    </div>
-                </section>
-
-                <div id="works">
-                    <WorksBento />
+                <div id="crafts">
+                    <Crafts />
                 </div>
 
                 <div id="about">
                     <About />
                 </div>
 
-                <div id="services">
-                    <Services />
-                </div>
-
                 <div id="chi-sono">
                     <Founder />
                 </div>
 
-                <div id="vespero">
-                    <VesperoSpotlight />
+                <div id="sintetico">
+                    <SinteticoBand />
+                </div>
+
+                <div id="services">
+                    <Services />
                 </div>
 
                 <div id="garanzie">
@@ -138,6 +100,10 @@ export default function Home() {
 
                 <div id="experience">
                     <Experience />
+                </div>
+
+                <div id="p-mark">
+                    <PMark />
                 </div>
 
                 <AuditCTA />
