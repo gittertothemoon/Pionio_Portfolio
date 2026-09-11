@@ -18,7 +18,7 @@ const localBusinessJsonLd = {
     '@type': 'ProfessionalService',
     '@id': 'https://pionio.it/#localbusiness',
     name: 'PIONIO',
-    image: 'https://pionio.it/og-image-v2.png',
+    image: 'https://pionio.it/og-cover.png',
     url: 'https://pionio.it/',
     email: 'mailto:pionio.dev@gmail.com',
     description:
@@ -82,7 +82,7 @@ export default function ContactPage() {
                 <meta property="og:url" content={url} />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={description} />
-                <meta property="og:image" content="https://pionio.it/og-image-v2.png" />
+                <meta property="og:image" content="https://pionio.it/og-cover.png" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={title} />
                 <meta name="twitter:description" content={description} />

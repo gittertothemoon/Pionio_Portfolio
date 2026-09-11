@@ -109,7 +109,7 @@ export default function ServicePage() {
                 <meta property="og:url" content={url} />
                 <meta property="og:title" content={service.seoTitle} />
                 <meta property="og:description" content={service.seoDescription} />
-                <meta property="og:image" content="https://pionio.it/og-image-v2.png" />
+                <meta property="og:image" content="https://pionio.it/og-cover.png" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={service.seoTitle} />
                 <meta name="twitter:description" content={service.seoDescription} />

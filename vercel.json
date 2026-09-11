@@ -155,7 +155,7 @@
       ]
     },
     {
-      "source": "/og-image-v2.png",
+      "source": "/og-cover.png",
       "headers": [
         {
           "key": "Cache-Control",

@@ -10,7 +10,7 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://pionio.it/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pionio.it/" />
     <image:image>
-      <image:loc>https://pionio.it/og-image-v2.png</image:loc>
+      <image:loc>https://pionio.it/og-cover.png</image:loc>
       <image:title>Pionio — Web Design Studio</image:title>
     </image:image>
   </url>

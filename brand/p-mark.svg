@@ -1,0 +1,26 @@
+<!-- Pionio mark, flat-facet version. The P from the 3D mark, rebuilt as flat facets so it survives 16px:
+     one closed shape (outer + counter, evenodd) filled forest green, with four facets clipped
+     to it for the volume. No text, no gradients that collapse into mush when scaled down.
+     Transparent on purpose: scripts/generate-icons.mjs lays the black plate under it, and the
+     social card puts it on the aurora. Content sits inside the middle 76% of the square, so
+     Android's circular crop never bites the icon. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <path id="p-shape" fill-rule="evenodd" d="
+      M 146 86 L 302 86 L 368 136 L 368 228 L 302 278 L 222 278 L 222 426 L 146 426 Z
+      M 222 140 L 292 140 L 322 172 L 322 192 L 292 224 L 222 224 Z" />
+    <clipPath id="p-clip"><use href="#p-shape" /></clipPath>
+  </defs>
+
+  <!-- base -->
+  <use href="#p-shape" fill="#2c6a4c" />
+
+  <!-- facets: light falls from the top right, exactly like the 3D mark -->
+  <g clip-path="url(#p-clip)">
+    <path d="M 184 86 L 222 86 L 222 426 L 184 426 Z" fill="#3f8c66" />
+    <path d="M 146 300 L 184 300 L 184 426 L 146 426 Z" fill="#1f5239" />
+    <path d="M 298 86 L 368 136 L 322 176 Z" fill="#a8e8c6" />
+    <path d="M 368 228 L 302 278 L 322 190 Z" fill="#63bd93" />
+    <path d="M 222 224 L 322 192 L 302 278 L 222 278 Z" fill="#245c40" />
+  </g>
+</svg>

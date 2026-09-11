@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- Source of public/og-cover.png (1200x630, rendered at 2x by scripts/generate-og.mjs).
+     The card says what the site says: the hero line, the mark, the address. No tech stack,
+     no availability pill, no tracked-out labels — the old card had all three and none of them
+     are true of the site any more. -->
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('../../public/fonts/Geist-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Geist';
+            src: url('../../public/fonts/Geist-Medium.woff2') format('woff2');
+            font-weight: 500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1200px;
+            height: 630px;
+            background: #09090b;
+            font-family: 'Geist', sans-serif;
+            color: #fafafa;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* The aurora of the hero, kept to the upper right so the words stay on clean black. */
+        .aurora {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 65% at 78% 18%, rgba(52, 211, 153, 0.20), transparent 62%),
+                radial-gradient(ellipse 60% 55% at 92% 60%, rgba(48, 107, 77, 0.34), transparent 66%),
+                radial-gradient(ellipse 85% 70% at 20% 95%, rgba(9, 9, 11, 0.9), transparent 60%);
+        }
+
+        .mark {
+            position: absolute;
+            right: -108px;
+            bottom: -96px;
+            width: 620px;
+            height: 620px;
+            object-fit: contain;
+            opacity: 0.92;
+            filter: drop-shadow(0 30px 90px rgba(0, 0, 0, 0.75));
+        }
+
+        .stage {
+            position: absolute;
+            inset: 0;
+            padding: 76px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 92px;
+            line-height: 1.02;
+            letter-spacing: -0.045em;
+            max-width: 680px;
+            /* the same three lines as the hero on a phone */
+            white-space: pre-line;
+        }
+
+        .foot {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            font-size: 26px;
+            letter-spacing: -0.01em;
+        }
+
+        .foot .who {
+            color: #fafafa;
+            font-weight: 500;
+        }
+
+        .foot .what {
+            color: #a1a1aa;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aurora"></div>
+    <img class="mark" src="../../brand/p-mark.svg" alt="" />
+    <div class="stage">
+        <h1>Disegno
+quello che poi
+costruisco.</h1>
+        <p class="foot"><span class="who">pionio.it</span><span class="what">Ivan Panto · siti, immagini, strumenti</span></p>
+    </div>
+</body>
+
+</html>
