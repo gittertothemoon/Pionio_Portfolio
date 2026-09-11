@@ -31,7 +31,7 @@ export const homeFaq: QA[] = [
     },
     {
         q: 'Cos’è Sintetico?',
-        a: "È l'etichetta con cui firmo il lavoro generativo di Pionio: volti e persone che non esistono, costruiti a strati, con i prompt e gli strumenti per farlo. Apre presto.",
+        a: "È l'etichetta con cui firmo il lavoro generativo di Pionio: volti e persone che non esistono, costruiti a strati, con i prompt e gli strumenti per farlo. Lo trovi su sintetico.pionio.it.",
     },
 ];
 
@@ -58,7 +58,7 @@ const homeFaqEn: QA[] = [
     },
     {
         q: 'What is Sintetico?',
-        a: "It's the label I sign Pionio's generative work with: faces and people who don't exist, built in layers, with the prompts and tools to make them. Opening soon.",
+        a: "It's the label I sign Pionio's generative work with: faces and people who don't exist, built in layers, with the prompts and tools to make them. You can see it at sintetico.pionio.it.",
     },
 ];
 
