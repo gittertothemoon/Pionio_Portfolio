@@ -1,8 +1,10 @@
-// Every icon the site hands out, from one source: brand/p-mark.svg.
+// Every icon the site hands out, from one source: brand/p-mark-3d.png — the real faceted mark, the
+// same one that signs the Instagram posts. A flat vector redraw was tried first and Ivan turned it
+// down (12/09): the mark has depth, and a flat green P is not it.
 //
-// What the old set got wrong: it rasterised the full lockup — wordmark plus the "WEB DESIGN STUDIO"
+// What the older set got wrong: it rasterised the full lockup — wordmark plus the "WEB DESIGN STUDIO"
 // line — into 16 and 32 pixels, where it became a grey smudge, and into the home-screen icon, where
-// the second line was unreadable. One letter, drawn as facets, survives both.
+// the second line was unreadable. One letter survives both; a lockup never does.
 //
 // The mark is trimmed of its transparent margin first, so the percentages below mean what they say:
 // without the trim the viewBox padding stacks on top of the padding here and the letter lands at 49%
@@ -19,7 +21,8 @@ import pngToIco from 'png-to-ico';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
-const source = resolve(root, 'brand/p-mark.svg');
+const source = resolve(root, 'brand/p-mark-3d.png');
+const silhouetteSource = resolve(root, 'brand/p-mark.svg'); // flat outline, only for Safari's pinned tab
 const outDir = resolve(root, 'public');
 
 const PLATE = { r: 9, g: 9, b: 11, alpha: 1 }; // #09090b, the background of the site
@@ -29,8 +32,7 @@ const mark = await readFile(source);
 async function icon(size, coverage) {
     const inner = Math.round(size * coverage);
     const offset = Math.round((size - inner) / 2);
-    // density high enough that the facets stay clean even for the 512 plates
-    const scaled = await sharp(mark, { density: 1200 })
+    const scaled = await sharp(mark)
         .trim()
         .resize(inner, inner, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .toBuffer();

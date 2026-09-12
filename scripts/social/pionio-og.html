@@ -46,15 +46,20 @@
                 radial-gradient(ellipse 85% 70% at 20% 95%, rgba(9, 9, 11, 0.9), transparent 60%);
         }
 
+        /* The real 3D mark, coming out of the black rather than sitting on top of it: half opacity
+           and a gradient mask, so the right side reads as light and not as a sticker. */
         .mark {
             position: absolute;
-            right: -108px;
-            bottom: -96px;
-            width: 620px;
-            height: 620px;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 760px;
+            height: 760px;
             object-fit: contain;
-            opacity: 0.92;
-            filter: drop-shadow(0 30px 90px rgba(0, 0, 0, 0.75));
+            opacity: 0.5;
+            filter: blur(0.4px) saturate(0.85);
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 45%);
+            mask-image: linear-gradient(90deg, transparent, #000 45%);
         }
 
         .stage {
@@ -98,7 +103,7 @@
 
 <body>
     <div class="aurora"></div>
-    <img class="mark" src="../../brand/p-mark.svg" alt="" />
+    <img class="mark" src="../../brand/p-mark-3d.png" alt="" />
     <div class="stage">
         <h1>Disegno
 quello che poi
