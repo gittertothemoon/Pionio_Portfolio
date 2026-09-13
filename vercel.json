@@ -23,6 +23,16 @@
       "permanent": true
     },
     {
+      "source": "/servizi/siti-guide-outdoor",
+      "destination": "/servizi/web-design",
+      "permanent": true
+    },
+    {
+      "source": "/servizi/siti-agriturismi-bb",
+      "destination": "/servizi/web-design",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
