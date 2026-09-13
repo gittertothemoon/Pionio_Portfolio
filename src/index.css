@@ -251,8 +251,9 @@ article:focus-visible .xray {
    (::after, from data-text) comes in from the left behind a thin green edge (::before), row after row. */
 /* The line fills its column: the longest row ("quello che poi", 5.96em wide in Geist 500 at -0.04em; the English
    rows are 5.82em) spans 95% of it. If the line changes, re-measure the longest row and update --fit. On screens from
-   768px up the size is also capped by height, so three rows, the buttons and the room under the logo fit in one
-   screen (342px = top and bottom padding of the hero + the buttons; 2.64 = three rows at 0.88). */
+   768px up the size is also capped by height, so the rows, the buttons and the room under the logo fit in one
+   screen (342px = top and bottom padding of the hero + the buttons; each row is 0.88 tall). --rows comes from
+   Hero.tsx: three in Italian, two in English, so the English line grows instead of stopping at the Italian size. */
 .hero-title {
   --fit: 4.69;
   font-size: min(calc((100vw - 48px) * 0.95 / var(--fit)), 5.5rem);
@@ -261,13 +262,16 @@ article:focus-visible .xray {
 @media (min-width: 768px) {
   .hero-title {
     --fit: 5.96;
-    font-size: max(3.5rem, min(calc((100vw - 96px) * 0.95 / var(--fit)), calc((100vh - 342px) / 2.64)));
+    font-size: max(3.5rem, min(calc((100vw - 96px) * 0.95 / var(--fit)), calc((100vh - 342px) / (var(--rows, 3) * 0.88))));
     line-height: 0.88;
+  }
+  .hero-title:lang(en) {
+    --fit: 5.82;
   }
 }
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: max(3.5rem, min(calc((100vw - 192px) * 0.95 / var(--fit)), calc((100vh - 342px) / 2.64)));
+    font-size: max(3.5rem, min(calc((100vw - 192px) * 0.95 / var(--fit)), calc((100vh - 342px) / (var(--rows, 3) * 0.88))));
   }
 }
 @property --fill { syntax: '<percentage>'; inherits: false; initial-value: 0%; }

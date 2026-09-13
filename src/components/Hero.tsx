@@ -60,10 +60,16 @@ export function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-1 flex-col md:block"
+                    // On phones the block takes the whole height, so the line can centre between logo and buttons.
+                    // From md up it keeps its own height and justify-end sets it low: two English rows or three
+                    // Italian ones, the buttons land in the same place.
+                    className="flex flex-1 flex-col md:block md:flex-none"
                 >
                     <div className="flex flex-1 items-center md:block">
-                    <h1 className="hero-title font-sans font-medium tracking-[-0.04em] text-foreground">
+                    <h1
+                        className="hero-title font-sans font-medium tracking-[-0.04em] text-foreground"
+                        style={{ '--rows': title.split('\n').length } as CSSProperties}
+                    >
                         {title.split('\n').map((line, i) => (
                             <Fragment key={i}>
                                 {i > 0 && ' '}
