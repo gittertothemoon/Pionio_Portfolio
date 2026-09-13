@@ -254,10 +254,16 @@ article:focus-visible .xray {
    768px up the size is also capped by height, so the rows, the buttons and the room under the logo fit in one
    screen (342px = top and bottom padding of the hero + the buttons; each row is 0.88 tall). --rows comes from
    Hero.tsx: three in Italian, two in English, so the English line grows instead of stopping at the Italian size. */
+/* On phones there is a height cap too, so the four rows, the two stacked buttons and the padding stay one screen
+   tall on small phones (400px = padding + button stack + gap; 3.68 = four rows at 0.92). */
 .hero-title {
   --fit: 4.69;
-  font-size: min(calc((100vw - 48px) * 0.95 / var(--fit)), 5.5rem);
+  font-size: max(2rem, min(calc((100vw - 48px) * 0.95 / var(--fit)), 5.5rem, calc((100svh - 400px) / 3.68)));
   line-height: 0.92;
+}
+/* On phones the English rows are shorter ("build it." is 3.37em), so they get their own measure. */
+.hero-title:lang(en) {
+  --fit: 3.37;
 }
 @media (min-width: 768px) {
   .hero-title {
