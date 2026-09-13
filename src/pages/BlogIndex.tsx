@@ -1,4 +1,4 @@
-import { Head } from 'vite-react-ssg';
+import { Seo } from '../components/Seo';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
@@ -7,19 +7,19 @@ import { Footer } from '../components/Footer';
 import { posts } from '../lib/blog';
 
 const url = 'https://pionio.it/blog';
-const title = 'Blog — Web Design, Sviluppo, SEO per il mercato italiano | PIONIO';
+const title = 'Blog: prezzi, siti web e SEO spiegati semplici | Pionio';
 const description =
-    'Blog di PIONIO: guide pratiche su web design, sviluppo web, e-commerce, web app e SEO. Articoli tecnici e strategici scritti per il mercato italiano, senza fuffa.';
+    'Guide di Ivan Panto su quanto costa un sito, come scegliere chi lo fa e cosa serve per farsi trovare su Google. Numeri veri, niente gergo.';
 
 const itemListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     '@id': `${url}#blog`,
     url,
-    name: 'Blog PIONIO',
+    name: 'Blog di Pionio',
     description,
     author: { '@id': 'https://pionio.it/#person' },
-    publisher: { '@id': 'https://pionio.it/#person' },
+    publisher: { '@id': 'https://pionio.it/#org' },
     blogPost: posts.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.title,
@@ -43,33 +43,16 @@ export default function BlogIndex() {
     const sorted = [...posts].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
-            <Head>
-                <title>{title}</title>
-                <meta name="description" content={description} />
-                <meta
-                    name="keywords"
-                    content="blog web design, blog sviluppo web, blog seo italia, guida web design, guida seo, blog freelance web"
-                />
-                <link rel="canonical" href={url} />
-                <link rel="alternate" hrefLang="it" href={url} />
-                <link rel="alternate" hrefLang="x-default" href={url} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:image" content="https://pionio.it/og-cover.png" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
+            <Seo title={title} description={description}>
                 <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
                 <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-            </Head>
+            </Seo>
 
             <a
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"
             >
-                Skip to content
+                Vai al contenuto
             </a>
 
             <PageHeader />
@@ -77,8 +60,8 @@ export default function BlogIndex() {
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1100px] mx-auto flex flex-col gap-20">
                     <m.section
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ y: 20 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 0.7 }}
                         className="flex flex-col gap-8 max-w-3xl"
                     >

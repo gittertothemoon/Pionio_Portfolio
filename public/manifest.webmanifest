@@ -1,7 +1,7 @@
 {
-  "name": "Pionio — Web Design Studio",
+  "name": "Pionio",
   "short_name": "Pionio",
-  "description": "Pionio — studio di web design di Ivan Panto, a Bologna. Siti web, e-commerce e applicazioni web su misura per PMI e professionisti italiani.",
+  "description": "Pionio è lo studio di Ivan Panto, a Bologna: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

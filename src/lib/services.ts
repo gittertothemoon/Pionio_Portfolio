@@ -1,5 +1,11 @@
+import type { PriceKey } from './prices';
+
+// Italian service pages. Prices are written as {site}, {tool}… and filled from prices.ts when the page
+// renders (withPrices), so a page can never quote a figure the rest of the site doesn't.
 export type Service = {
     slug: string;
+    /** The starting price this page quotes, from prices.ts. */
+    priceKey: PriceKey;
     title: string;
     h1: string;
     seoTitle: string;
@@ -20,11 +26,12 @@ export type Service = {
 export const services: Service[] = [
     {
         slug: 'web-design',
+        priceKey: 'site',
         title: 'Web Design',
-        h1: 'Web design su misura per brand che non vogliono passare inosservati',
-        seoTitle: 'Web Design Freelance Italia — Siti Web su Misura | PIONIO',
+        h1: "Disegno il tuo sito, poi lo costruisco fino all'ultima riga",
+        seoTitle: 'Web designer freelance: siti web da {site} | Pionio',
         seoDescription:
-            'Web design freelance in Italia: siti web su misura per brand, studi e startup. Identità visiva, layout originali, performance e SEO incluse. Richiedi un preventivo.',
+            "Disegno il sito e poi lo scrivo in codice io, fino all'ultima riga. Pensato prima per il telefono, leggibile da Google dal lancio. Online in 2–4 settimane.",
         keywords: [
             'web design',
             'web designer freelance italia',
@@ -35,9 +42,9 @@ export const services: Service[] = [
             'web design Bologna',
         ],
         intro:
-            "Il web design non è scegliere un template e cambiare i colori. È costruire un'esperienza visiva coerente con il posizionamento del brand, leggibile su qualsiasi dispositivo e capace di portare risultati misurabili.",
+            'Disegno il sito sui contenuti che hai davvero, poi lo scrivo in codice. Si legge bene da ogni telefono, e Google lo capisce dal giorno del lancio.',
         paragraphs: [
-            "Lavoro come web designer freelance in Italia con clienti che hanno bisogno di un sito davvero su misura: brand che vogliono distinguersi, studi professionali che cercano credibilità, startup che devono validare un'idea e farsi prendere sul serio. Ogni progetto parte da una fase di studio del posizionamento e si traduce in un layout originale, mai un copia-e-incolla di un tema.",
+            "Lavoro come web designer freelance con chi ha bisogno di un sito disegnato apposta: brand che vogliono distinguersi, studi professionali che cercano credibilità, startup che devono validare un'idea e farsi prendere sul serio. Ogni progetto parte da una fase di studio del posizionamento e si traduce in un layout originale, mai un copia-e-incolla di un tema.",
             "La differenza tra un sito web ben disegnato e uno mediocre la si vede nei dettagli: la gerarchia tipografica, lo spazio tra gli elementi, la coerenza dei colori, il modo in cui il sito si comporta quando ci passi il mouse sopra o lo apri da telefono. Tutti questi dettagli, sommati, sono ciò che fa percepire il tuo brand come curato o come amatoriale.",
             "Disegno con tre vincoli sempre presenti: deve essere bello, deve caricare velocemente, deve essere indicizzabile da Google. Niente slider pesantissimi che rallentano il sito, niente animazioni gratuite che distraggono dal messaggio. Solo design al servizio della comunicazione.",
         ],
@@ -50,7 +57,7 @@ export const services: Service[] = [
             {
                 title: 'Layout originale',
                 description:
-                    'Wireframe e design su misura per i contenuti che hai davvero, non per quelli del template di turno.',
+                    'Wireframe e design costruiti sui contenuti che hai davvero, non su quelli del template di turno.',
             },
             {
                 title: 'Responsive da mobile a desktop',
@@ -109,34 +116,35 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa un sito web disegnato su misura?',
-                a: 'Un sito vetrina ben fatto parte da circa 2.500€, un progetto più articolato con più pagine e funzionalità custom va da 5.000€ in su. Tutto dipende da contenuti, complessità e timeline.',
+                a: 'Un sito vetrina parte da {site}, un progetto con più pagine e funzioni particolari da {largeSite}. Il prezzo esatto dipende da contenuti e complessità, e lo fissiamo prima di iniziare.',
             },
             {
-                q: 'In quanto tempo consegnate il sito?',
-                a: 'Da 3 a 8 settimane per la maggior parte dei progetti, dal kick-off al lancio. La variabile più grande è la velocità con cui ricevo contenuti e feedback.',
+                q: 'In quanto tempo è online il sito?',
+                a: 'Di solito 2–4 settimane dalla prima chiamata al lancio. La variabile più grande è la velocità con cui arrivano contenuti e risposte.',
             },
             {
-                q: 'Lavorate solo a Bologna o anche a distanza?',
-                a: 'Ho clienti in tutta Italia e qualcuno all\'estero. Il 99% del lavoro avviene a distanza, con call di allineamento regolari.',
+                q: 'Lavori solo a Bologna o anche a distanza?',
+                a: 'Sempre a distanza, con una chiamata quando serve. La base è Bologna, i clienti non devono esserlo.',
             },
             {
-                q: 'Disegnate anche il logo?',
+                q: 'Disegni anche il logo?',
                 a: 'Curo il sistema visivo digitale e posso lavorare a partire da una brand identity esistente o costruirla insieme a un brand designer di fiducia.',
             },
         ],
         relatedProjectSlugs: ['where2beach'],
-        pricingNote: 'Da 2.500€ per un sito vetrina, da 5.000€ per progetti su più pagine.',
+        pricingNote: 'Da {site} per un sito vetrina, da {largeSite} per un progetto con più pagine.',
         ctaTitle: "Hai un progetto in mente?",
         ctaCopy:
             "Raccontami il tuo brand e i tuoi obiettivi. Ti rispondo entro 24 ore con una stima realistica e i prossimi passi.",
     },
     {
         slug: 'sviluppo-web',
+        priceKey: 'site',
         title: 'Sviluppo Web',
         h1: 'Sviluppatore web freelance: codice pulito, performance reali, niente sorprese',
-        seoTitle: 'Sviluppatore Web Freelance Italia — React, TypeScript, Performance | PIONIO',
+        seoTitle: 'Sviluppatore web freelance: React e TypeScript | Pionio',
         seoDescription:
-            'Sviluppatore web freelance in Italia. Sviluppo siti e applicazioni in React, TypeScript e Next.js. Codice pulito, performance reali, accessibilità, SEO tecnica. Preventivo gratuito.',
+            'Siti e applicazioni in React e TypeScript, veloci e leggibili da Google. Una persona sola, prezzo fisso concordato prima di iniziare. Base Bologna, da remoto.',
         keywords: [
             'sviluppatore web freelance',
             'programmatore web',
@@ -219,35 +227,36 @@ export const services: Service[] = [
         tech: ['React', 'TypeScript', 'Next.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Supabase', 'Vercel'],
         faq: [
             {
-                q: 'Lavorate solo con React o anche con altri framework?',
+                q: 'Lavori solo con React o anche con altri framework?',
                 a: 'React è quello in cui sono più veloce, ma ho lavorato anche con Vue e con stack più semplici quando il progetto lo richiede.',
             },
             {
-                q: 'Riprendete progetti già iniziati da altri?',
+                q: 'Riprendi progetti iniziati da altri?',
                 a: 'Sì, e capita spesso. Inizio con un audit del codice esistente per capire cosa salvare e cosa rifare.',
             },
             {
-                q: 'Offrite manutenzione dopo il lancio?',
-                a: 'Sì, con piani mensili o a ore. La maggior parte dei clienti sceglie un pacchetto piccolo per avere qualcuno che risponde quando serve.',
+                q: 'Fai manutenzione dopo il lancio?',
+                a: 'Sì. I primi 30 giorni dopo il lancio sono inclusi; dopo ci accordiamo su quello che serve davvero, a ore o a interventi.',
             },
             {
-                q: 'Lavorate in team con altri sviluppatori?',
+                q: 'Lavori in team con altri sviluppatori?',
                 a: 'Sì, mi inserisco in team esistenti come consulente frontend o lavoro con designer/backend di fiducia se il progetto lo richiede.',
             },
         ],
         relatedProjectSlugs: ['where2beach', 'smoky-candle'],
-        pricingNote: 'Tariffa giornaliera o a progetto, in base alla scala. Preventivo trasparente prima di iniziare.',
+        pricingNote: 'Un sito in React e TypeScript parte da {site}, uno strumento da {tool}. Il prezzo lo fissiamo prima di iniziare.',
         ctaTitle: 'Vuoi un confronto tecnico?',
         ctaCopy:
             'Mandami una descrizione del progetto o del problema. Se è nelle mie corde rispondo con una proposta concreta, altrimenti ti dico chi può aiutarti meglio.',
     },
     {
         slug: 'ecommerce',
+        priceKey: 'shopify',
         title: 'E-commerce',
-        h1: "Sviluppo e-commerce: vendi online davvero, non solo “ci sei”",
-        seoTitle: 'Sviluppo E-commerce su Misura — Negozi Online che Vendono | PIONIO',
+        h1: 'Negozi online pronti per vendere, su Shopify o costruiti da zero',
+        seoTitle: 'Negozio online su Shopify da {shopify} | Pionio',
         seoDescription:
-            'Creare un sito e-commerce che converte: sviluppo negozi online su misura con Shopify, Stripe, headless commerce. UX, performance, SEO. Per artigiani, brand e PMI italiane.',
+            'Negozi Shopify pronti per vendere: schede prodotto chiare, carta, Apple Pay, Google Pay e PayPal, veloci da telefono. Costruito da zero: da {shopScratch}.',
         keywords: [
             'creare sito ecommerce',
             'sviluppo ecommerce',
@@ -260,7 +269,7 @@ export const services: Service[] = [
         intro:
             "Un e-commerce non è un catalogo con un bottone “Aggiungi al carrello”. È un percorso pensato per portare uno sconosciuto da una pubblicità o da Google fino al pagamento, con il minor numero possibile di motivi per abbandonare.",
         paragraphs: [
-            "Sviluppo e-commerce per piccoli brand italiani, artigiani e PMI che vogliono vendere online sul serio. La domanda non è mai “che piattaforma usiamo?” ma “qual è la più adatta a quanto vendi, a chi e con che margine?”. Da quella risposta deriva tutto il resto.",
+            "Costruisco negozi online per piccoli brand, artigiani e aziende che vogliono vendere online sul serio. La domanda non è mai “che piattaforma usiamo?” ma “qual è la più adatta a quanto vendi, a chi e con che margine?”. Da quella risposta deriva tutto il resto.",
             "Ho lavorato sia con stack chiavi in mano (Shopify) sia con architetture headless (frontend custom su Next.js o React, commerce engine separato, pagamenti via Stripe). La prima è veloce e robusta per la maggior parte dei progetti; la seconda dà controllo totale su esperienza utente e performance, ma ha senso solo sopra un certo volume.",
             "Quello che curo sempre, indipendentemente dallo stack: schede prodotto convincenti, checkout breve, pagina carrello chiara, gestione corretta di IVA e spedizioni, integrazione con Google Shopping, tracciamento conversioni, performance mobile sotto i due secondi.",
         ],
@@ -332,34 +341,39 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa un e-commerce ben fatto?',
-                a: "Un negozio Shopify chiavi in mano parte da 4.000€. Un e-commerce headless custom da 12.000€ in su. Il prezzo dipende dal numero di prodotti, dalle integrazioni e dalle pagine custom.",
+                a: 'Un negozio su Shopify pronto per vendere parte da {shopify}; costruito da zero, da {shopScratch}. Il prezzo dipende dal numero di prodotti, dalle integrazioni e dalle pagine particolari.',
+            },
+            {
+                q: 'In quanto tempo è online un negozio?',
+                a: 'Un negozio su Shopify di solito in 3–5 settimane dalla prima chiamata. Dipende da quanti prodotti ci sono e da quante integrazioni servono.',
             },
             {
                 q: 'Meglio Shopify o un e-commerce custom?',
                 a: "Shopify è più che sufficiente fino a centinaia di migliaia di euro di fatturato annuo. Custom ha senso quando hai bisogno di un'esperienza non replicabile in tema o quando le commissioni Shopify pesano davvero.",
             },
             {
-                q: 'Migrate da WooCommerce o Magento?',
+                q: 'Fai migrazioni da WooCommerce o Magento?',
                 a: 'Sì, faccio migrazioni con redirect 301 corretti per non perdere il posizionamento Google e con import controllato di prodotti, ordini e clienti.',
             },
             {
-                q: 'Vi occupate anche di marketing?',
+                q: 'Ti occupi anche di marketing?',
                 a: "Mi occupo della parte tecnica (tracking, feed Google Shopping, integrazione email). Per ads e content collaboro con specialisti dedicati.",
             },
         ],
         relatedProjectSlugs: ['smoky-candle'],
-        pricingNote: 'Da 4.000€ per Shopify chiavi in mano. Da 12.000€ per e-commerce headless custom.',
-        ctaTitle: 'Pronti a vendere online sul serio?',
+        pricingNote: 'Da {shopify} per un negozio su Shopify. Da {shopScratch} costruito da zero.',
+        ctaTitle: 'Pronto a vendere online sul serio?',
         ctaCopy:
             "Raccontami cosa vendi e dove vuoi arrivare. Ti propongo lo stack giusto e una roadmap chiara, senza vendere strumenti che non ti servono.",
     },
     {
         slug: 'applicazioni-web',
+        priceKey: 'tool',
         title: 'Applicazioni Web',
-        h1: 'Sviluppo applicazioni web su misura: dal prototipo alla scala',
-        seoTitle: 'Sviluppo Applicazioni Web su Misura — Web App in React | PIONIO',
+        h1: 'Strumenti web che si usano davvero: dal prototipo alla prima versione',
+        seoTitle: 'Web app e strumenti per il lavoro, da {tool} | Pionio',
         seoDescription:
-            'Sviluppo applicazioni web su misura per startup e PMI italiane. Web app in React, dashboard, gestionali, MVP. Dalla discovery al lancio, con performance e accessibilità. Preventivo gratuito.',
+            'Trasformo quello che oggi fai a mano in uno strumento che si usa davvero: prima un prototipo da provare, poi il codice. Accessi, database e backup compresi.',
         keywords: [
             'sviluppo applicazioni web',
             'web app su misura',
@@ -370,7 +384,7 @@ export const services: Service[] = [
             'react app developer italia',
         ],
         intro:
-            "Una web application è uno strumento di lavoro: deve fare risparmiare tempo, ridurre errori, dare visibilità sui dati. Sviluppo applicazioni web su misura per chi ha bisogno di qualcosa che il software off-the-shelf non risolve.",
+            "Una web application è uno strumento di lavoro: deve fare risparmiare tempo, ridurre errori, dare visibilità sui dati. Costruisco applicazioni web per chi ha bisogno di qualcosa che il software già pronto non risolve.",
         paragraphs: [
             "Lavoro su web app di vario tipo: MVP per startup che devono validare un'idea con i primi utenti reali, dashboard interne per aziende che vogliono unificare dati sparsi su mille fogli Excel, gestionali leggeri che sostituiscono software vecchi e poco usati.",
             "La parte difficile non è quasi mai il codice: è capire davvero come lavorano le persone che useranno l'applicazione, quali sono le tre cose che fanno cento volte al giorno e come renderle un click. Per questo ogni progetto inizia con interviste agli utenti finali e finisce con loro che testano il prodotto.",
@@ -444,34 +458,35 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa sviluppare una web app?',
-                a: "Un MVP solido parte da 8.000€-15.000€. Web app più articolate arrivano facilmente a 30.000€+ a seconda di flussi, integrazioni e scala. Preventivo dettagliato dopo la discovery.",
+                a: 'Una prima versione che si usa davvero, con accessi, database e backup, parte da {tool}. Il prezzo esatto lo fisso dopo la prima chiamata, prima di iniziare.',
             },
             {
                 q: 'In quanto tempo si sviluppa un MVP?',
                 a: 'Da 6 a 12 settimane per un MVP serio. Tutto quello sotto le 6 settimane di solito è una landing con un form, non un MVP funzionante.',
             },
             {
-                q: 'Lavorate con team interni esistenti?',
+                q: 'Lavori con team interni?',
                 a: "Sì, mi inserisco volentieri come lead frontend o full-stack in team già strutturati per accelerare un progetto.",
             },
             {
-                q: 'Vi occupate del backend e del database?',
+                q: 'Ti occupi anche di backend e database?',
                 a: "Sì, faccio full-stack in React/Node.js per i progetti di scala media. Per progetti più grandi collaboro con backend specialisti dedicati.",
             },
         ],
         relatedProjectSlugs: ['where2beach'],
-        pricingNote: 'MVP da 8.000€-15.000€. Web app full-stack su misura da 20.000€ in su.',
+        pricingNote: 'Da {tool} per una prima versione che si usa davvero.',
         ctaTitle: "Hai un'idea di prodotto?",
         ctaCopy:
             "Mandami una descrizione anche grezza. Se ha senso, ci facciamo una call e ragioniamo insieme su cosa serve davvero per uscire con un MVP.",
     },
     {
         slug: 'seo-ottimizzazione',
+        priceKey: 'seoAudit',
         title: 'SEO & Ottimizzazione',
         h1: 'SEO tecnica e ottimizzazione: farti trovare su Google senza barare',
-        seoTitle: 'Consulenza SEO Italia — Ottimizzazione SEO Tecnica per Siti Web | PIONIO',
+        seoTitle: 'Audit SEO tecnico da {seoAudit} | Pionio',
         seoDescription:
-            'Consulenza SEO e ottimizzazione tecnica per siti web italiani. Audit, Core Web Vitals, structured data, sitemap, contenuti. Posizionamento Google misurabile. Preventivo trasparente.',
+            'Controllo tecnico del sito: velocità da telefono, indicizzazione, dati strutturati, pagine che Google non legge. Ti dico cosa sistemare e in che ordine.',
         keywords: [
             'ottimizzazione seo',
             'consulenza seo',
@@ -485,7 +500,7 @@ export const services: Service[] = [
         intro:
             'La SEO non è magia ed è ancora meno un trucco. È una disciplina fatta di tecnica, contenuti e pazienza. Mi occupo della parte tecnica — quella che, fatta male, manda in fumo qualsiasi sforzo di contenuto.',
         paragraphs: [
-            "Faccio consulenza SEO tecnica per siti italiani: audit completi, ottimizzazione Core Web Vitals, structured data (JSON-LD), sitemap, hreflang per progetti multilingua, redirect dopo migrazioni, controllo della crawlability. La parte di scrittura dei contenuti la lascio a chi conosce davvero il settore del cliente.",
+            "Faccio consulenza SEO tecnica: audit completi, ottimizzazione Core Web Vitals, structured data (JSON-LD), sitemap, hreflang per progetti multilingua, redirect dopo migrazioni, controllo della crawlability. La parte di scrittura dei contenuti la lascio a chi conosce davvero il settore del cliente.",
             "Il principio di partenza è semplice: prima di provare a posizionarsi meglio, bisogna assicurarsi che Google riesca a leggere il sito. Una SPA renderizzata solo lato client è spesso invisibile ai bot meno sofisticati; una migrazione fatta male brucia mesi di posizionamento; un sito lento perde posizioni anche se ha contenuti ottimi.",
             "Il mio metodo è trasparente: ti dico cosa è realistico ottenere, in quanto tempo e cosa serve. Niente promesse di prima posizione in due settimane, niente keyword stuffing, niente link in pdf di siti finti. Solo lavoro tecnico e di contenuti che, nel medio periodo, sposta davvero il traffico organico.",
         ],
@@ -560,31 +575,32 @@ export const services: Service[] = [
                 a: 'Le ottimizzazioni tecniche danno effetti in 4-8 settimane. Il posizionamento sulle keyword competitive richiede 3-6 mesi minimo, soprattutto per siti nuovi.',
             },
             {
-                q: 'Garantite la prima posizione su Google?',
-                a: 'No, e diffida di chi lo promette. Garantiamo lavoro tecnico fatto bene e una roadmap di contenuti e interventi che, statisticamente, sposta il traffico.',
+                q: 'Garantisci la prima posizione su Google?',
+                a: 'No, e diffida di chi lo promette. Garantisco lavoro tecnico fatto bene e una roadmap di contenuti e interventi che, statisticamente, sposta il traffico.',
             },
             {
-                q: 'Vi occupate anche di link building?',
+                q: 'Ti occupi anche di link building?',
                 a: 'Per progetti dove ha senso, sì. Solo link da siti veri, con un piano editoriale serio. Niente PBN o scambi finti.',
             },
             {
-                q: 'Lavorate solo su siti che avete sviluppato voi?',
+                q: 'Lavori solo su siti fatti da te?',
                 a: 'No, l\'audit SEO funziona su qualsiasi stack — WordPress, Shopify, custom. La parte di implementazione dipende dalle competenze del tuo team o se ti serve che intervenga io.',
             },
         ],
         relatedProjectSlugs: ['where2beach'],
-        pricingNote: 'Audit SEO da 800€. Ottimizzazione tecnica con preventivo a progetto.',
+        pricingNote: 'Audit SEO da {seoAudit}. Ottimizzazione tecnica con prezzo fissato a progetto.',
         ctaTitle: 'Vuoi capire dove perdi traffico?',
         ctaCopy:
             'Mandami il dominio del tuo sito e i tuoi obiettivi. Faccio un controllo iniziale gratuito e ti dico se ha senso lavorare insieme.',
     },
     {
         slug: 'rifacimento-sito-bologna',
+        priceKey: 'redesign',
         title: 'Rifacimento Siti Web Bologna',
         h1: 'Rifare il sito web a Bologna senza perdere quello che già funziona',
-        seoTitle: 'Rifacimento Sito Web Bologna — Restyling per PMI e Professionisti | PIONIO',
+        seoTitle: 'Rifare il sito a Bologna, redirect inclusi | Pionio',
         seoDescription:
-            'Rifacimento siti web a Bologna per PMI, studi e professionisti. Sito nuovo, veloce e leggibile da Google, con migrazione dei contenuti e redirect corretti. Da 2.500€, risposta in 24 ore.',
+            'Rifaccio il sito senza perdere le pagine che Google già conosce: analisi, migrazione dei contenuti, redirect, dominio ed email in ordine. Da {redesign}.',
         keywords: [
             'rifacimento sito web bologna',
             'rifare sito web',
@@ -596,9 +612,9 @@ export const services: Service[] = [
         intro:
             "Un sito di otto anni fa oggi lavora contro di te: lento da telefono, invisibile su Google, con informazioni vecchie. Rifarlo non significa buttare tutto — significa tenere ciò che porta contatti e ricostruire il resto.",
         paragraphs: [
-            "Lavoro da Bologna con PMI, studi e professionisti che hanno già un sito e non ne sono più contenti. Il punto di partenza non è mai la pagina bianca: è capire cosa del sito attuale funziona ancora (pagine posizionate, contenuti letti, contatti che arrivano) e cosa invece frena. Da lì esce un progetto di rifacimento con priorità chiare.",
+            "Lavoro da Bologna con aziende, studi e professionisti che hanno già un sito e non ne sono più contenti. Il punto di partenza non è mai la pagina bianca: è capire cosa del sito attuale funziona ancora (pagine posizionate, contenuti letti, contatti che arrivano) e cosa invece frena. Da lì esce un progetto di rifacimento con priorità chiare.",
             "La parte che quasi tutti sbagliano nel rifare un sito è la migrazione: pagine spostate senza redirect, URL cambiati a caso, mesi di posizionamento Google bruciati in un pomeriggio. Ogni rifacimento che consegno include la mappa dei redirect 301 dal vecchio al nuovo, il controllo dell'indicizzazione dopo il lancio e il passaggio corretto di dominio ed email.",
-            "Essere a Bologna aiuta: se preferisci parlarne di persona davanti a un caffè, si fa. Detto questo, lavoro con clienti in tutta Italia e il processo funziona identico a distanza — call di allineamento, anteprime online a ogni passaggio, feedback diretto sulle pagine.",
+            "Essere a Bologna aiuta: se preferisci parlarne di persona davanti a un caffè, si fa. Detto questo, il processo funziona identico a distanza — call di allineamento, anteprime online a ogni passaggio, feedback diretto sulle pagine.",
         ],
         includes: [
             {
@@ -668,7 +684,7 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa rifare un sito web?',
-                a: 'Il rifacimento di un sito vetrina parte da 2.500€, migrazione e redirect inclusi. Progetti con più pagine o funzionalità particolari vanno da 5.000€ in su. Prezzo chiuso prima di iniziare.',
+                a: 'Il rifacimento di un sito vetrina parte da {redesign}, migrazione e redirect inclusi, e di solito servono 3–5 settimane, secondo la complessità. Con più pagine o funzioni particolari il prezzo sale: lo fisso prima di iniziare.',
             },
             {
                 q: 'Rifacendo il sito perdo il posizionamento su Google?',
@@ -679,23 +695,24 @@ export const services: Service[] = [
                 a: 'No, capita nella maggior parte dei rifacimenti. Recupero accessi a dominio, hosting ed email, e se qualcosa manca si ricostruisce. Il vecchio fornitore non deve fare nulla.',
             },
             {
-                q: 'Lavorate solo con aziende di Bologna?',
-                a: 'No. Bologna è la base e per chi è in zona ci si può vedere di persona, ma lavoro con clienti in tutta Italia a distanza, con lo stesso processo.',
+                q: 'Lavori solo con aziende di Bologna?',
+                a: 'No. Bologna è la base, e chi è in zona può vedermi di persona; con tutti gli altri lavoro a distanza, con lo stesso processo.',
             },
         ],
         relatedProjectSlugs: ['smoky-candle'],
-        pricingNote: 'Da 2.500€ per il rifacimento di un sito vetrina, migrazione e redirect inclusi.',
+        pricingNote: 'Da {redesign} per il rifacimento di un sito vetrina, migrazione e redirect inclusi.',
         ctaTitle: 'Il tuo sito ha bisogno di essere rifatto?',
         ctaCopy:
             'Mandami il link del sito attuale e due righe su cosa non ti convince. Lo guardo e ti rispondo entro 24 ore con un parere onesto: a volte serve rifarlo, a volte basta sistemarlo.',
     },
     {
         slug: 'siti-guide-outdoor',
+        priceKey: 'site',
         title: 'Siti Web per Guide Outdoor',
         h1: 'Siti web per guide escursionistiche e attività outdoor',
-        seoTitle: 'Siti Web per Guide Escursionistiche e Attività Outdoor | PIONIO',
+        seoTitle: 'Siti web per guide escursionistiche e outdoor | Pionio',
         seoDescription:
-            'Siti web per guide escursionistiche, accompagnatori di media montagna e attività outdoor. Farsi trovare su Google per zona e attività, ricevere richieste anche in alta stagione. Da 2.500€.',
+            'Siti per guide escursionistiche e attività outdoor: trovati su Google per zona e attività, con richieste anche in alta stagione. Da {site}.',
         keywords: [
             'sito web guida escursionistica',
             'sito web guida alpina',
@@ -779,7 +796,7 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa un sito per una guida escursionistica?',
-                a: 'Da 2.500€ per un sito con pagine per zona e attività, calendario e richieste via form o WhatsApp. Il prezzo esatto dipende da quante attività e aree copri.',
+                a: 'Da {site} per un sito con pagine per zona e attività, calendario e richieste via form o WhatsApp. Il prezzo esatto dipende da quante attività e aree copri.',
             },
             {
                 q: 'Ho già un sito WordPress di qualche anno fa. Si può recuperare?',
@@ -795,18 +812,19 @@ export const services: Service[] = [
             },
         ],
         relatedProjectSlugs: ['where2beach'],
-        pricingNote: 'Da 2.500€ per un sito completo di pagine per zona, calendario e contatti diretti.',
+        pricingNote: 'Da {site} per un sito completo di pagine per zona, calendario e contatti diretti.',
         ctaTitle: 'La prossima stagione si prepara adesso',
         ctaCopy:
             'Raccontami dove porti le persone e come arrivano oggi le tue richieste. Ti rispondo entro 24 ore con una proposta e i tempi per essere online prima del picco.',
     },
     {
         slug: 'siti-agriturismi-bb',
+        priceKey: 'site',
         title: 'Siti Web per Agriturismi e B&B',
         h1: 'Siti web per agriturismi e B&B: più prenotazioni dirette, meno commissioni',
-        seoTitle: 'Siti Web per Agriturismi e B&B — Prenotazioni Dirette | PIONIO',
+        seoTitle: 'Siti per agriturismi e B&B: prenotazioni dirette | Pionio',
         seoDescription:
-            'Siti web per agriturismi, B&B e case vacanza. Prenotazioni dirette senza commissioni OTA, foto e camere presentate bene, richieste via WhatsApp e form. Da 2.500€, risposta in 24 ore.',
+            'Siti per agriturismi, B&B e case vacanza: prenotazioni dirette senza commissioni, camere e foto presentate bene, richieste via WhatsApp. Da {site}.',
         keywords: [
             'sito web agriturismo',
             'sito web b&b',
@@ -890,7 +908,7 @@ export const services: Service[] = [
         faq: [
             {
                 q: 'Quanto costa un sito per un agriturismo o un B&B?',
-                a: 'Da 2.500€ per un sito completo con pagine camere, richiesta diretta e doppia lingua. Il prezzo dipende dal numero di camere e dalle integrazioni che servono.',
+                a: 'Da {site} per un sito completo con pagine camere, richiesta diretta e doppia lingua. Il prezzo dipende dal numero di camere e dalle integrazioni che servono.',
             },
             {
                 q: 'Il sito sostituisce Booking?',
@@ -906,7 +924,7 @@ export const services: Service[] = [
             },
         ],
         relatedProjectSlugs: ['smoky-candle'],
-        pricingNote: 'Da 2.500€ per un sito completo con richiesta diretta e doppia lingua.',
+        pricingNote: 'Da {site} per un sito completo con richiesta diretta e doppia lingua.',
         ctaTitle: 'Quanto ti costa Booking ogni anno?',
         ctaCopy:
             'Fai il conto delle commissioni dell\'ultima stagione e mandami il link della tua struttura. Ti rispondo entro 24 ore dicendoti cosa può fare un sito diretto per te, con numeri e tempi.',

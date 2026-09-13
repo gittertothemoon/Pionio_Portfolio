@@ -125,7 +125,7 @@ export const dict: Dictionary = {
     garanzie_sig_alt: { en: "Ivan Panto's signature", it: 'Firma di Ivan Panto' },
 
     // About — speak to the client, not the dev
-    about_label: { en: 'Why PIONIO', it: 'Perché PIONIO' },
+    about_label: { en: 'Why Pionio', it: 'Perché Pionio' },
     about_title: { en: 'A default is a choice nobody made.', it: 'Il default è una scelta che nessuno ha fatto.' },
     about_body: {
         en: "The typeface that came with it, the theme's colour, whatever spacing happens. Add them up and you get anyone's site. I take them one by one and decide.",
@@ -176,7 +176,7 @@ export const dict: Dictionary = {
     services_intro: { en: 'For each one: what goes into it and where the price starts.', it: "Per ognuno trovi cosa c'è dentro e da quanto si parte." },
     services_tabs_label: { en: 'What you need', it: 'Cosa ti serve' },
     services_fine: {
-        en: 'These are starting prices. We fix the real one before we start, and it stays put.',
+        en: 'These are starting prices in euro, for clients outside Italy. We fix the real one before we start, and it stays put.',
         it: 'Sono prezzi di partenza. Quello vero lo fissiamo prima di iniziare, e resta quello.'
     },
     cm_from: { en: 'From', it: 'Da' },
@@ -187,7 +187,8 @@ export const dict: Dictionary = {
 
     cm_site_name: { en: 'A new website', it: 'Un sito nuovo' },
     cm_site_url: { en: 'yoursite.com', it: 'iltuosito.it' },
-    cm_site_note: { en: 'From €5,000 with many pages or custom features.', it: 'Da 5.000 € se le pagine sono tante o servono funzioni particolari.' },
+    // {largeSite}, {shopScratch}: filled from prices.ts with the figure for the language (withPrices)
+    cm_site_note: { en: 'From {largeSite} with many pages or custom features.', it: 'Da {largeSite} se le pagine sono tante o servono funzioni particolari.' },
     cm_site_time: { en: '2–4 weeks', it: '2–4 settimane' },
     cm_site_in_1: { en: 'Design and code, both mine.', it: 'Design e codice, tutti e due miei.' },
     cm_site_in_2: { en: 'Made for the phone first, then the big screen.', it: 'Pensato prima per il telefono, poi per lo schermo grande.' },
@@ -198,7 +199,8 @@ export const dict: Dictionary = {
 
     cm_shop_name: { en: 'An online shop', it: 'Un negozio online' },
     cm_shop_url: { en: 'yourshop.com', it: 'iltuonegozio.it' },
-    cm_shop_note: { en: 'On Shopify, ready to sell. From €12,000 if I build it from scratch.', it: 'Su Shopify, pronto per vendere. Da 12.000 € se lo costruisco da zero.' },
+    cm_shop_note: { en: 'On Shopify, ready to sell. From {shopScratch} if I build it from scratch.', it: 'Su Shopify, pronto per vendere. Da {shopScratch} se lo costruisco da zero.' },
+    cm_shop_time: { en: '3–5 weeks, depending on complexity', it: '3–5 settimane, secondo la complessità' },
     cm_shop_in_1: { en: 'Product pages with photos, details and shipping up front.', it: 'Schede prodotto con foto, dettagli e spedizione in vista.' },
     cm_shop_in_2: { en: 'Pay by card, Apple Pay, Google Pay or PayPal.', it: 'Si paga con carta, Apple Pay, Google Pay o PayPal.' },
     cm_shop_in_3: { en: 'Fast on a phone too.', it: 'Veloce anche da telefono.' },
@@ -208,6 +210,7 @@ export const dict: Dictionary = {
     cm_redo_name: { en: 'Your site, redone', it: 'Rifare il sito che hai' },
     cm_redo_url: { en: 'yoursite.com', it: 'iltuosito.it' },
     cm_redo_note: { en: 'Content migration and redirects included.', it: 'Migrazione dei contenuti e redirect inclusi.' },
+    cm_redo_time: { en: '3–5 weeks, depending on complexity', it: '3–5 settimane, secondo la complessità' },
     cm_redo_in_1: { en: 'First I look at what already works, and keep it.', it: 'Prima guardo cosa funziona già, e lo tengo.' },
     cm_redo_in_2: { en: 'Every old address leads to the right new page.', it: 'Ogni vecchio indirizzo porta alla pagina nuova giusta.' },
     cm_redo_in_3: { en: 'Domain, email and logins sorted, even if someone else built the site.', it: "Dominio, email e accessi in ordine, anche se il sito l'ha fatto qualcun altro." },
@@ -236,7 +239,7 @@ export const dict: Dictionary = {
         it: 'Mi racconti cosa fai, chi vuoi raggiungere e cosa deve succedere sul sito.'
     },
     exp_2_name: { en: 'Design and build', it: 'Progetto e costruzione' },
-    exp_2_meta: { en: '2\u20134 weeks', it: '2\u20134 settimane' },
+    exp_2_meta: { en: '2–4 weeks for a website', it: '2–4 settimane per un sito' },
     exp_2_body: {
         en: 'I draw it, show you, we fix it, I build it. You see the progress as it happens, not at the end.',
         it: 'Disegno, ti faccio vedere, correggiamo, costruisco. I progressi li vedi mentre vanno avanti, non alla fine.'
@@ -295,14 +298,14 @@ export const dict: Dictionary = {
 
     contact_tipo_web: { en: 'Website / Landing page', it: 'Sito web / Landing page' },
     contact_tipo_ecommerce: { en: 'E-commerce', it: 'E-commerce' },
-    contact_tipo_app: { en: 'Mobile app', it: 'App mobile' },
-    contact_tipo_branding: { en: 'Branding / Logo', it: 'Branding / Logo' },
+    contact_tipo_redo: { en: 'Website redesign', it: 'Rifacimento del sito' },
+    contact_tipo_tool: { en: 'Web tool / app', it: 'Strumento / web app' },
     contact_tipo_altro: { en: 'Other', it: 'Altro' },
 
-    contact_budget_low: { en: '< €1,000', it: '< €1.000' },
-    contact_budget_mid: { en: '€1,000 – €3,000', it: '€1.000 – €3.000' },
-    contact_budget_high: { en: '€3,000 – €5,000', it: '€3.000 – €5.000' },
-    contact_budget_top: { en: '> €5,000', it: '> €5.000' },
+    // Bands start at the lowest price of each list (prices.ts): no band below what anything costs.
+    contact_budget_low: { en: '€4,000 – €7,500', it: '2.500 – 5.000 €' },
+    contact_budget_mid: { en: '€7,500 – €15,000', it: '5.000 – 10.000 €' },
+    contact_budget_high: { en: 'Over €15,000', it: 'Oltre 10.000 €' },
     contact_budget_tbd: { en: 'To be defined', it: 'Da definire' },
 
     contact_trovato_instagram: { en: 'Instagram', it: 'Instagram' },
@@ -314,4 +317,12 @@ export const dict: Dictionary = {
 
     // Footer
     footer_rights: { en: 'All Rights Reserved.', it: 'Tutti i Diritti Riservati.' },
+    footer_services: { en: 'Services', it: 'Servizi' },
+    footer_all_services: { en: 'Services and prices', it: 'Servizi e prezzi' },
+    footer_all_posts: { en: 'All articles', it: 'Tutti gli articoli' },
+    footer_explore: { en: 'Explore', it: 'Esplora' },
+    footer_work: { en: 'Work', it: 'Progetti' },
+    footer_about: { en: 'About', it: 'Chi sono' },
+    footer_contact: { en: 'Contact', it: 'Contatti' },
+    skip_to_content: { en: 'Skip to content', it: 'Vai al contenuto' },
 };

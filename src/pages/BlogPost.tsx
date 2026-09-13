@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components -- route module exports loader data alongside the page */
-import { Head } from 'vite-react-ssg';
+import { Seo } from '../components/Seo';
+import NotFound from './NotFound';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
@@ -39,26 +40,7 @@ export default function BlogPost() {
         };
     }, [post]);
 
-    if (!post) {
-        return (
-            <div className="min-h-[100dvh] bg-zinc-950 text-zinc-50 flex items-center justify-center px-6">
-                <Head>
-                    <title>Articolo non trovato — PIONIO</title>
-                    <meta name="robots" content="noindex" />
-                </Head>
-                <div className="text-center flex flex-col gap-6 max-w-md">
-                    <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">404</span>
-                    <h1 className="text-4xl md:text-5xl font-sans tracking-tight">Articolo non trovato</h1>
-                    <Link
-                        to="/blog"
-                        className="self-center inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-forest-500/20 text-white font-mono text-xs uppercase tracking-widest transition-colors"
-                    >
-                        <ArrowLeft weight="bold" /> Tutti gli articoli
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+    if (!post) return <NotFound />;
 
     const url = `https://pionio.it/blog/${post.slug}`;
 
@@ -94,38 +76,20 @@ export default function BlogPost() {
 
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
-            <Head>
-                <title>{post.seoTitle}</title>
-                <meta name="description" content={post.seoDescription} />
-                <meta name="keywords" content={post.keywords.join(', ')} />
-                <link rel="canonical" href={url} />
-                <link rel="alternate" hrefLang="it" href={url} />
-                <link rel="alternate" hrefLang="x-default" href={url} />
-                <meta property="og:type" content="article" />
-                <meta property="og:url" content={url} />
-                <meta property="og:title" content={post.seoTitle} />
-                <meta property="og:description" content={post.seoDescription} />
-                <meta property="og:image" content="https://pionio.it/og-cover.png" />
+            <Seo title={post.seoTitle} description={post.seoDescription} type="article">
                 <meta property="article:published_time" content={post.datePublished} />
                 <meta property="article:modified_time" content={post.dateModified} />
                 <meta property="article:author" content="Ivan Panto" />
                 <meta property="article:section" content={post.category} />
-                {post.keywords.map((k) => (
-                    <meta key={k} property="article:tag" content={k} />
-                ))}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={post.seoTitle} />
-                <meta name="twitter:description" content={post.seoDescription} />
-                <meta name="twitter:image" content="https://pionio.it/og-cover.png" />
                 <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
                 <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-            </Head>
+            </Seo>
 
             <a
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"
             >
-                Skip to content
+                Vai al contenuto
             </a>
 
             <PageHeader />
@@ -133,8 +97,8 @@ export default function BlogPost() {
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <article className="max-w-[760px] mx-auto flex flex-col gap-12">
                     <m.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ y: 20 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
                         <Link
@@ -146,8 +110,8 @@ export default function BlogPost() {
                     </m.div>
 
                     <m.header
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ y: 30 }}
+                        animate={{ y: 0 }}
                         transition={{ duration: 0.7, delay: 0.05 }}
                         className="flex flex-col gap-6"
                     >

@@ -25,14 +25,11 @@
     });
   </script>
 
-  <!-- Primary Meta Tags (per-route title/description injected by router) -->
+  <!-- Title, description, robots, canonical, hreflang, Open Graph and structured data come from each page
+       (src/components/Seo.tsx and SiteGraph.tsx): vite-react-ssg doesn't de-duplicate against this template. -->
   <meta name="author" content="Ivan Panto" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="googlebot" content="index, follow" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-  <!-- Canonical & Alternates injected per-route by router -->
 
   <!-- Icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -46,34 +43,11 @@
   <!-- Theme & PWA -->
   <meta name="theme-color" content="#09090b" />
   <meta name="color-scheme" content="dark" />
-  <meta name="application-name" content="PIONIO" />
+  <meta name="application-name" content="Pionio" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="PIONIO" />
+  <meta name="apple-mobile-web-app-title" content="Pionio" />
   <meta name="mobile-web-app-capable" content="yes" />
-
-  <!-- Open Graph / Facebook — INVARIANTS ONLY. og:type/url/title/description are
-       injected per-route by each page's <Head> (vite-react-ssg); it does NOT
-       de-dupe against static tags, so keeping variants here would ship duplicate,
-       stale-homepage values on every subpage. -->
-  <meta property="og:site_name" content="PIONIO" />
-  <meta property="og:image" content="https://pionio.it/og-cover.png" />
-  <meta property="og:image:secure_url" content="https://pionio.it/og-cover.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Disegno quello che poi costruisco. — Pionio" />
-  <meta property="og:locale" content="it_IT" />
-
-  <!-- Twitter / X — INVARIANTS ONLY (per-route title/url/description via <Head>). -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://pionio.it/og-cover.png" />
-  <meta name="twitter:image:alt" content="Disegno quello che poi costruisco. — Pionio" />
-  <meta name="twitter:creator" content="@pionio_dev" />
-  <meta name="twitter:site" content="@pionio_dev" />
-
-  <!-- Performance: Preconnect / DNS-prefetch -->
-  <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
   <!-- Self-hosted fonts (Geist + Geist Mono, WOFF2). Preload the two
        critical weights to unblock LCP. Other weights load on demand
@@ -81,145 +55,6 @@
   <link rel="preload" as="font" type="font/woff2" href="/fonts/Geist-Regular.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/GeistMono-Regular.woff2" crossorigin />
 
-  <!-- JSON-LD: Person (Ivan Panto) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://pionio.it/#person",
-      "name": "Ivan Panto",
-      "alternateName": "Pionio Dev",
-      "url": "https://pionio.it/",
-      "image": "https://pionio.it/og-cover.png",
-      "jobTitle": "Founder · Web designer & developer",
-      "description": "Founder di Pionio, studio di web design italiano a Bologna. Lavoro su un sito alla volta: codice mio, AI dove ha senso. Siti web, e-commerce e landing page su misura.",
-      "knowsAbout": [
-        "Frontend Architecture",
-        "React",
-        "TypeScript",
-        "UI/UX Engineering",
-        "Interaction Design",
-        "Art Direction",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Web Performance",
-        "Accessibility"
-      ],
-      "knowsLanguage": ["it", "en"],
-      "nationality": { "@type": "Country", "name": "Italy" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Bologna", "addressCountry": "IT" },
-      "sameAs": [
-        "https://github.com/gittertothemoon",
-        "https://www.instagram.com/pionio_dev",
-        "https://x.com/pionio_dev"
-      ],
-      "worksFor": { "@id": "https://pionio.it/#org" }
-    }
-  </script>
-
-  <!-- JSON-LD: Organization (Pionio Web Design Studio) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://pionio.it/#org",
-      "name": "Pionio Web Design Studio",
-      "alternateName": "Pionio",
-      "url": "https://pionio.it/",
-      "logo": "https://pionio.it/icon-512.png",
-      "image": "https://pionio.it/og-cover.png",
-      "email": "pionio.dev@gmail.com",
-      "description": "Studio di web design italiano one-man: siti web, e-commerce e applicazioni web su misura per PMI e professionisti. Un progetto alla volta, codice proprietario, AI dove ha senso.",
-      "founder": { "@id": "https://pionio.it/#person" },
-      "foundingDate": "2024",
-      "areaServed": [
-        { "@type": "Country", "name": "Italy" },
-        { "@type": "Place", "name": "Worldwide (remote)" }
-      ],
-      "address": { "@type": "PostalAddress", "addressLocality": "Bologna", "addressCountry": "IT" },
-      "sameAs": [
-        "https://github.com/gittertothemoon",
-        "https://www.instagram.com/pionio_dev",
-        "https://x.com/pionio_dev",
-        "https://audit.pionio.it"
-      ]
-    }
-  </script>
-
-  <!-- JSON-LD: WebSite + SearchAction -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://pionio.it/#website",
-      "url": "https://pionio.it/",
-      "name": "PIONIO",
-      "description": "Pionio · Web Design Studio — portfolio e lavori.",
-      "inLanguage": ["it-IT", "en-US"],
-      "publisher": { "@id": "https://pionio.it/#org" },
-      "author": { "@id": "https://pionio.it/#person" }
-    }
-  </script>
-
-  <!-- JSON-LD: ProfessionalService -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://pionio.it/#service",
-      "name": "Pionio · Web Design Studio",
-      "url": "https://pionio.it/",
-      "image": "https://pionio.it/og-cover.png",
-      "description": "Studio di web design italiano. Siti web, e-commerce e landing page su misura. Un sito alla volta, codice mio, AI dove ha senso.",
-      "areaServed": [
-        { "@type": "Country", "name": "Italy" },
-        { "@type": "Place", "name": "Worldwide (remote)" }
-      ],
-      "provider": { "@id": "https://pionio.it/#person" },
-      "serviceType": [
-        "Frontend Architecture",
-        "Interaction Design",
-        "Art Direction",
-        "Web Development"
-      ]
-    }
-  </script>
-
-  <!-- JSON-LD: Portfolio (CollectionPage with CreativeWork projects) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "@id": "https://pionio.it/#works",
-      "url": "https://pionio.it/#crafts",
-      "name": "Selected Works — PIONIO",
-      "description": "Due lavori: un'app community per le spiagge e un e-commerce di candele artigianali.",
-      "isPartOf": { "@id": "https://pionio.it/#website" },
-      "author": { "@id": "https://pionio.it/#person" },
-      "hasPart": [
-        {
-          "@type": "CreativeWork",
-          "name": "Where2Beach",
-          "url": "https://pionio.it/projects/where2beach",
-          "sameAs": "https://www.where2beach.com",
-          "image": "https://pionio.it/images/w2b-logo.png",
-          "dateCreated": "2025",
-          "creator": { "@id": "https://pionio.it/#person" },
-          "about": "Community App — geolocalizzazione spiagge e segnalazione affollamento e qualità dell'acqua."
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Smoky Candle",
-          "url": "https://pionio.it/projects/smoky-candle",
-          "sameAs": "https://smokycandle.com",
-          "image": "https://pionio.it/images/smokycandle-logo.png",
-          "dateCreated": "2024",
-          "creator": { "@id": "https://pionio.it/#person" },
-          "about": "E-commerce di candele artigianali di soia made in Italy."
-        }
-      ]
-    }
-  </script>
 </head>
 
 <body>

@@ -6,11 +6,13 @@ import {
     Briefcase,
     EnvelopeSimple,
     Article,
+    Tag,
 } from '@phosphor-icons/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
+import { homeAnchor, pagePath } from '../lib/paths';
 
 type AnchorItem = {
     name: string;
@@ -43,6 +45,9 @@ const navItems: NavItem[] = [
     { name: 'Contatti', hash: 'contact', icon: EnvelopeSimple, type: 'anchor', tKey: 'nav_contatti' },
 ];
 
+// The English site has no blog yet: there, the fourth button leads to services and prices instead.
+const servicesItemEn: RouteItem = { name: 'Services', to: '/en/services', icon: Tag, type: 'route', tKey: 'nav_servizi' };
+
 export function NavBar() {
     const { t, locale } = useLanguage();
     const location = useLocation();
@@ -50,7 +55,8 @@ export function NavBar() {
     const [activeSection, setActiveSection] = useState<string>('');
     const [isVisible, setIsVisible] = useState(true);
 
-    const isHome = location.pathname === '/';
+    const isHome = location.pathname === pagePath('home', locale);
+    const items = locale === 'en' ? navItems.map((i) => (i.type === 'route' ? servicesItemEn : i)) : navItems;
 
     useEffect(() => {
         if (!isHome) {
@@ -112,7 +118,7 @@ export function NavBar() {
             }
         } else {
             e.preventDefault();
-            navigate(`/#${hash}`);
+            navigate(homeAnchor(hash, locale));
         }
     };
 
@@ -135,7 +141,7 @@ export function NavBar() {
                 )}
             >
                 <ul className="grid grid-cols-5 xl:flex items-center gap-0.5 xl:gap-1 relative w-full xl:w-auto min-w-0">
-                    {navItems.map((item) => {
+                    {items.map((item) => {
                         const isAnchorActive =
                             item.type === 'anchor' && isHome && activeSection === item.hash;
                         const isRouteActive =
@@ -160,7 +166,7 @@ export function NavBar() {
                         );
 
                         if (item.type === 'anchor') {
-                            const href = isHome ? `#${item.hash}` : `/#${item.hash}`;
+                            const href = isHome ? `#${item.hash}` : homeAnchor(item.hash, locale);
                             return (
                                 <li key={item.name} className="relative min-w-0">
                                     <a

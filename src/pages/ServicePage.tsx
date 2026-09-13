@@ -1,14 +1,19 @@
 /* eslint-disable react-refresh/only-export-components -- route module exports loader data alongside the page */
-import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, Check } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
+import { Seo } from '../components/Seo';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
 import { AuditInlineCTA } from '../components/AuditInlineCTA';
+import NotFound from './NotFound';
 import { getService, services } from '../lib/services';
+import { servicesEn } from '../lib/services-en';
 import { projectCategory, getProject } from '../lib/projects';
 import { useLanguage } from '../context/LanguageContext';
+import { breadcrumbs, IDS } from '../lib/graph';
+import { absoluteUrl, itServiceSlug, pagePath, projectPath, servicePath } from '../lib/paths';
+import { PRICES, withPrices } from '../lib/prices';
 
 export function getStaticPaths() {
     return services.map((s) => `servizi/${s.slug}`);
@@ -18,148 +23,148 @@ export function Component() {
     return <ServicePage />;
 }
 
+const LABELS = {
+    it: {
+        home: 'Home',
+        services: 'Servizi',
+        all: 'Tutti i servizi',
+        included: 'Cosa è incluso',
+        includedTitle: 'Tutto quello che serve, niente di superfluo.',
+        process: 'Processo',
+        processTitle: 'Come lavoriamo insieme.',
+        recent: 'Progetti recenti',
+        recentTitle: 'Cosa è uscito da questo lavoro.',
+        faqTitle: 'Domande frequenti.',
+        next: 'Prossimi passi',
+        quote: 'Richiedi un preventivo',
+        skip: 'Vai al contenuto',
+    },
+    en: {
+        home: 'Home',
+        services: 'Services',
+        all: 'All services',
+        included: "What's included",
+        includedTitle: 'What it takes, and nothing more.',
+        process: 'Process',
+        processTitle: 'How we work together.',
+        recent: 'Recent work',
+        recentTitle: 'What came out of this kind of work.',
+        faqTitle: 'Frequently asked questions.',
+        next: 'Next steps',
+        quote: 'Ask for a quote',
+        skip: 'Skip to content',
+    },
+};
+
 export default function ServicePage() {
-    const { slug } = useParams<{ slug: string }>();
+    const { slug = '' } = useParams<{ slug: string }>();
     const { locale } = useLanguage();
-    const service = slug ? getService(slug) : undefined;
+    const itSlug = locale === 'en' ? itServiceSlug(slug) : slug;
+    const base = itSlug ? getService(itSlug) : undefined;
+    const copy = base && (locale === 'en' ? servicesEn[base.slug] : base);
 
-    if (!service) {
-        return (
-            <div className="min-h-[100dvh] bg-zinc-950 text-zinc-50 flex items-center justify-center px-6">
-                <Head>
-                    <title>Servizio non trovato — PIONIO</title>
-                    <meta name="robots" content="noindex" />
-                </Head>
-                <div className="text-center flex flex-col gap-6 max-w-md">
-                    <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">404</span>
-                    <h1 className="text-4xl md:text-5xl font-sans tracking-tight">Servizio non trovato</h1>
-                    <Link
-                        to="/servizi"
-                        className="self-center inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-forest-500/20 text-white font-mono text-xs uppercase tracking-widest transition-colors"
-                    >
-                        <ArrowLeft weight="bold" /> Tutti i servizi
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+    if (!base || !copy) return <NotFound />;
 
-    const url = `https://pionio.it/servizi/${service.slug}`;
+    const L = LABELS[locale];
+    // Italian copy writes prices as {site}, {tool}…; English copy has them written out. Both go through here.
+    const fill = (text: string) => withPrices(text, locale);
+    const path = servicePath(base.slug, locale);
+    const url = absoluteUrl(path);
 
     const serviceJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Service',
         '@id': `${url}#service`,
-        name: service.title,
+        name: copy.title,
+        serviceType: copy.title,
+        description: fill(copy.seoDescription),
         url,
-        provider: { '@id': 'https://pionio.it/#person' },
-        areaServed: { '@type': 'Country', name: 'Italy' },
-        serviceType: service.title,
-        description: service.seoDescription,
+        provider: { '@id': IDS.org },
+        areaServed: locale === 'it' ? { '@type': 'Country', name: 'Italy' } : 'Worldwide',
+        availableLanguage: [locale],
         offers: {
             '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
+            url,
             priceCurrency: 'EUR',
-            description: service.pricingNote,
+            priceSpecification: {
+                '@type': 'PriceSpecification',
+                minPrice: PRICES[base.priceKey][locale],
+                priceCurrency: 'EUR',
+            },
+            // Each page marks only the list it shows: Italian prices for Italy, English ones for everyone else.
+            ...(locale === 'it'
+                ? { eligibleRegion: { '@type': 'Country', name: 'IT' } }
+                : { ineligibleRegion: { '@type': 'Country', name: 'IT' } }),
+            description: fill(copy.pricingNote),
         },
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: service.title,
-            itemListElement: service.includes.map((i) => ({
-                '@type': 'Offer',
-                itemOffered: { '@type': 'Service', name: i.title, description: i.description },
-            })),
-        },
-    };
-
-    const breadcrumb = {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pionio.it/' },
-            { '@type': 'ListItem', position: 2, name: 'Servizi', item: 'https://pionio.it/servizi' },
-            { '@type': 'ListItem', position: 3, name: service.title, item: url },
-        ],
     };
 
     const faqJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: service.faq.map((f) => ({
+        '@id': `${url}#faq`,
+        inLanguage: locale,
+        mainEntity: copy.faq.map((f) => ({
             '@type': 'Question',
             name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
+            acceptedAnswer: { '@type': 'Answer', text: fill(f.a) },
         })),
     };
 
-    const relatedProjects = service.relatedProjectSlugs
+    const crumbs = breadcrumbs([
+        { name: L.home, path: pagePath('home', locale) },
+        { name: L.services, path: pagePath('services', locale) },
+        { name: copy.title, path },
+    ]);
+
+    const relatedProjects = base.relatedProjectSlugs
         .map((s) => getProject(s))
         .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
-            <Head>
-                <title>{service.seoTitle}</title>
-                <meta name="description" content={service.seoDescription} />
-                <meta name="keywords" content={service.keywords.join(', ')} />
-                <link rel="canonical" href={url} />
-                <link rel="alternate" hrefLang="it" href={url} />
-                <link rel="alternate" hrefLang="x-default" href={url} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta property="og:title" content={service.seoTitle} />
-                <meta property="og:description" content={service.seoDescription} />
-                <meta property="og:image" content="https://pionio.it/og-cover.png" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={service.seoTitle} />
-                <meta name="twitter:description" content={service.seoDescription} />
+            <Seo title={fill(copy.seoTitle)} description={fill(copy.seoDescription)}>
                 <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
-                <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
                 <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-            </Head>
+                <script type="application/ld+json">{JSON.stringify(crumbs)}</script>
+            </Seo>
 
             <a
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"
             >
-                Skip to content
+                {L.skip}
             </a>
 
             <PageHeader />
 
             <main id="main" className="pt-40 md:pt-48 pb-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-[1100px] mx-auto flex flex-col gap-20">
-                    <m.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <div>
                         <Link
-                            to="/servizi"
+                            to={pagePath('services', locale)}
                             className="inline-flex items-center gap-2 text-zinc-500 hover:text-forest-400 font-mono text-xs uppercase tracking-widest transition-colors"
                         >
-                            <ArrowLeft weight="bold" /> Tutti i servizi
+                            <ArrowLeft weight="bold" /> {L.all}
                         </Link>
-                    </m.div>
+                    </div>
 
+                    {/* Visible in the pre-rendered page: only the movement is animated, never the opacity. */}
                     <m.section
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.05 }}
+                        initial={{ y: 24 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                         className="flex flex-col gap-8"
                     >
                         <div className="flex items-center gap-4">
                             <div className="h-[1px] w-12 bg-forest-500/50" />
-                            <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">
-                                {service.title}
-                            </span>
+                            <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">{copy.title}</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-white leading-[1.05]">
-                            {service.h1}
+                            {copy.h1}
                         </h1>
-                        <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light max-w-3xl">
-                            {service.intro}
-                        </p>
+                        <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light max-w-3xl">{fill(copy.intro)}</p>
+                        <p className="text-zinc-500 font-mono text-sm">{fill(copy.pricingNote)}</p>
                     </m.section>
 
                     <m.section
@@ -169,24 +174,18 @@ export default function ServicePage() {
                         transition={{ duration: 0.6 }}
                         className="flex flex-col gap-6 max-w-3xl"
                     >
-                        {service.paragraphs.map((p, i) => (
+                        {copy.paragraphs.map((p, i) => (
                             <p key={i} className="text-zinc-400 text-lg leading-relaxed font-light">
-                                {p}
+                                {fill(p)}
                             </p>
                         ))}
                     </m.section>
 
                     <section className="flex flex-col gap-10">
-                        <div className="flex items-center gap-4">
-                            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">
-                                Cosa è incluso
-                            </span>
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">
-                            Tutto quello che serve, niente di superfluo.
-                        </h2>
+                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{L.included}</span>
+                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">{L.includedTitle}</h2>
                         <ul className="grid md:grid-cols-2 gap-6">
-                            {service.includes.map((item, i) => (
+                            {copy.includes.map((item, i) => (
                                 <m.li
                                     key={i}
                                     initial={{ opacity: 0, y: 20 }}
@@ -197,7 +196,7 @@ export default function ServicePage() {
                                 >
                                     <Check weight="bold" className="text-forest-400" size={20} />
                                     <h3 className="text-white font-sans text-xl">{item.title}</h3>
-                                    <p className="text-zinc-400 leading-relaxed">{item.description}</p>
+                                    <p className="text-zinc-400 leading-relaxed">{fill(item.description)}</p>
                                 </m.li>
                             ))}
                         </ul>
@@ -206,16 +205,10 @@ export default function ServicePage() {
                     <AuditInlineCTA source="service_page" />
 
                     <section className="flex flex-col gap-10">
-                        <div className="flex items-center gap-4">
-                            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">
-                                Processo
-                            </span>
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">
-                            Come lavoriamo insieme.
-                        </h2>
+                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{L.process}</span>
+                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">{L.processTitle}</h2>
                         <ol className="flex flex-col gap-6">
-                            {service.process.map((step, i) => (
+                            {copy.process.map((step, i) => (
                                 <m.li
                                     key={i}
                                     initial={{ opacity: 0, x: -20 }}
@@ -227,7 +220,7 @@ export default function ServicePage() {
                                     <span className="text-forest-400 font-mono text-sm md:text-base">{step.step}</span>
                                     <div className="flex flex-col gap-2 flex-1">
                                         <h3 className="text-white font-sans text-xl md:text-2xl">{step.title}</h3>
-                                        <p className="text-zinc-400 leading-relaxed">{step.description}</p>
+                                        <p className="text-zinc-400 leading-relaxed">{fill(step.description)}</p>
                                     </div>
                                 </m.li>
                             ))}
@@ -237,11 +230,8 @@ export default function ServicePage() {
                     <section className="flex flex-col gap-6">
                         <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Stack</span>
                         <ul className="flex flex-wrap gap-2">
-                            {service.tech.map((t) => (
-                                <li
-                                    key={t}
-                                    className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300 font-mono text-xs"
-                                >
+                            {base.tech.map((t) => (
+                                <li key={t} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-zinc-300 font-mono text-xs">
                                     {t}
                                 </li>
                             ))}
@@ -250,41 +240,27 @@ export default function ServicePage() {
 
                     {relatedProjects.length > 0 && (
                         <section className="flex flex-col gap-10">
-                            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">
-                                Progetti recenti
-                            </span>
-                            <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">
-                                Cosa è uscito da questo lavoro.
-                            </h2>
+                            <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{L.recent}</span>
+                            <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">{L.recentTitle}</h2>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {relatedProjects.map((p) => (
                                     <Link
                                         key={p.slug}
-                                        to={`/projects/${p.slug}`}
+                                        to={projectPath(p.slug, locale)}
                                         className="group flex flex-col gap-3 p-4 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                                     >
-                                        <div
-                                            className={`aspect-square w-full rounded-xl overflow-hidden flex items-center justify-center ${
-                                                p.bgClass ?? 'bg-zinc-900'
-                                            }`}
-                                        >
+                                        <div className={`aspect-square w-full rounded-xl overflow-hidden flex items-center justify-center ${p.bgClass ?? 'bg-zinc-900'}`}>
                                             <img
                                                 src={p.image}
                                                 alt={p.title}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className={`w-[60%] h-auto object-contain ${
-                                                    p.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''
-                                                }`}
+                                                className={`w-[60%] h-auto object-contain ${p.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''}`}
                                             />
                                         </div>
                                         <div className="flex flex-col gap-1">
-                                            <span className="text-white font-sans text-sm group-hover:text-forest-100 transition-colors">
-                                                {p.title}
-                                            </span>
-                                            <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
-                                                {projectCategory(p, locale)}
-                                            </span>
+                                            <span className="text-white font-sans text-sm group-hover:text-forest-100 transition-colors">{p.title}</span>
+                                            <span className="text-zinc-500 font-mono text-[10px] uppercase tracking-widest">{projectCategory(p, locale)}</span>
                                         </div>
                                     </Link>
                                 ))}
@@ -294,11 +270,9 @@ export default function ServicePage() {
 
                     <section className="flex flex-col gap-10">
                         <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">FAQ</span>
-                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">
-                            Domande frequenti.
-                        </h2>
+                        <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white">{L.faqTitle}</h2>
                         <div className="flex flex-col gap-4">
-                            {service.faq.map((f, i) => (
+                            {copy.faq.map((f, i) => (
                                 <m.details
                                     key={i}
                                     initial={{ opacity: 0, y: 10 }}
@@ -309,11 +283,9 @@ export default function ServicePage() {
                                 >
                                     <summary className="cursor-pointer list-none flex justify-between items-start gap-6">
                                         <h3 className="text-white font-sans text-lg md:text-xl">{f.q}</h3>
-                                        <span className="text-forest-400 font-mono text-xl shrink-0 group-open:rotate-45 transition-transform">
-                                            +
-                                        </span>
+                                        <span className="text-forest-400 font-mono text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
                                     </summary>
-                                    <p className="text-zinc-400 leading-relaxed mt-4">{f.a}</p>
+                                    <p className="text-zinc-400 leading-relaxed mt-4">{fill(f.a)}</p>
                                 </m.details>
                             ))}
                         </div>
@@ -321,27 +293,23 @@ export default function ServicePage() {
 
                     <section className="flex flex-col gap-8 p-8 md:p-12 rounded-[2.5rem] border border-forest-500/20 bg-forest-500/5">
                         <div className="flex flex-col gap-4">
-                            <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">
-                                Prossimi passi
-                            </span>
-                            <h2 className="text-3xl md:text-4xl font-sans tracking-tight text-white">
-                                {service.ctaTitle}
-                            </h2>
-                            <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl">{service.ctaCopy}</p>
-                            <p className="text-zinc-500 font-mono text-sm">{service.pricingNote}</p>
+                            <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">{L.next}</span>
+                            <h2 className="text-3xl md:text-4xl font-sans tracking-tight text-white">{copy.ctaTitle}</h2>
+                            <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl">{fill(copy.ctaCopy)}</p>
+                            <p className="text-zinc-500 font-mono text-sm">{fill(copy.pricingNote)}</p>
                         </div>
                         <div className="flex flex-wrap gap-3">
                             <Link
-                                to="/contatti"
+                                to={pagePath('contact', locale)}
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-500/20 border border-forest-500/40 text-forest-100 hover:bg-forest-500/30 font-mono text-xs uppercase tracking-widest transition-colors"
                             >
-                                Richiedi un preventivo <ArrowUpRight weight="bold" />
+                                {L.quote} <ArrowUpRight weight="bold" />
                             </Link>
                             <Link
-                                to="/servizi"
+                                to={pagePath('services', locale)}
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 font-mono text-xs uppercase tracking-widest transition-colors"
                             >
-                                Tutti i servizi
+                                {L.all}
                             </Link>
                         </div>
                     </section>

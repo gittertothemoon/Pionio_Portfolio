@@ -6,15 +6,19 @@ import { LanguageProvider } from './context/LanguageContext';
 import { NavBar } from './components/NavBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { ScrollDepthTracker } from './components/ScrollDepthTracker';
+import { SiteGraph } from './components/SiteGraph';
+import { LanguageHint } from './components/LanguageHint';
 
 export default function Layout() {
     return (
         <LanguageProvider>
             <LazyMotion features={domAnimation} strict>
+                <SiteGraph />
                 <ScrollToTop />
                 <ScrollDepthTracker />
                 <Outlet />
                 <NavBar />
+                <LanguageHint />
                 <Analytics />
                 <SpeedInsights />
             </LazyMotion>

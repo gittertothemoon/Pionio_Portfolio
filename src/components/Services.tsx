@@ -4,6 +4,8 @@ import { ArrowRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
 import { getProject } from '../lib/projects';
+import { projectPath } from '../lib/paths';
+import { PRICES, eur, withPrices, type PriceKey } from '../lib/prices';
 import { MagneticButton } from './MagneticButton';
 
 type CommissionId = 'site' | 'shop' | 'redo' | 'tool';
@@ -13,19 +15,18 @@ type Radius = 'none' | 'sm' | 'md' | 'full';
 // degrees, o: 0 when a layout doesn't use it (it fades out where it stands).
 type Block = { x: number; y: number; w: number; h: number; tone: Tone; rad: Radius; r?: number; o?: 0 };
 
-// What you can ask me for. Starting prices are the ones on the service pages (services.ts);
-// timelines only where they're already written down: 2–4 weeks for a site (06 Process), 6–12 for a first app.
+// What you can ask me for. The starting price comes from prices.ts in the language of the page (the
+// English list is for clients outside Italy); every commission now has its timing written down.
 const COMMISSIONS: {
     id: CommissionId;
-    price: number;
-    timed: boolean;
-    tipo: 'web' | 'ecommerce' | 'altro';
+    priceKey: PriceKey;
+    tipo: 'web' | 'ecommerce' | 'redo' | 'tool';
     example?: string;
 }[] = [
-    { id: 'site', price: 2500, timed: true, tipo: 'web' },
-    { id: 'shop', price: 4000, timed: false, tipo: 'ecommerce', example: 'smoky-candle' },
-    { id: 'redo', price: 2500, timed: false, tipo: 'web' },
-    { id: 'tool', price: 8000, timed: true, tipo: 'altro', example: 'where2beach' },
+    { id: 'site', priceKey: 'site', tipo: 'web' },
+    { id: 'shop', priceKey: 'shopify', tipo: 'ecommerce', example: 'smoky-candle' },
+    { id: 'redo', priceKey: 'redesign', tipo: 'redo' },
+    { id: 'tool', priceKey: 'tool', tipo: 'tool', example: 'where2beach' },
 ];
 
 const TONE: Record<Tone, string> = {
@@ -142,15 +143,22 @@ const LAYOUTS: Record<CommissionId, Block[]> = { site: SITE, shop: SHOP, redo: R
 const BLANK: Block[] = SITE.map((b) => ({ ...b, w: 0, o: 0 as const }));
 const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-// The price rolls to the new figure like a mechanical counter, one wheel per digit.
+// The price rolls to the new figure like a mechanical counter, one wheel per digit. Always five wheels,
+// because the tool starts at five digits; the leading ones fold away when the figure is shorter, so
+// switching from 10.000 to 2.500 still rolls instead of jumping.
 function Odometer({ value, sep }: { value: number; sep: string }) {
-    const digits = String(value).padStart(4, '0').split('').map(Number);
+    const digits = String(value).padStart(5, '0').split('').map(Number);
+    const lead = 5 - String(value).length;
     return (
         <>
             {digits.map((d, i) => (
                 <Fragment key={i}>
-                    {i === 1 && <span>{sep}</span>}
-                    <span className="inline-block h-[1.1em] overflow-hidden">
+                    {i === 2 && <span>{sep}</span>}
+                    <span
+                        className={`inline-block h-[1.1em] overflow-hidden transition-[max-width] duration-500 ${
+                            i < lead ? 'max-w-0' : 'max-w-[1ch]'
+                        }`}
+                    >
                         <span className="odo-col block" style={{ transform: `translateY(-${d * 10}%)`, transitionDelay: `${i * 70}ms` }}>
                             {DIGITS.map((n) => (
                                 <span key={n} className="block h-[1.1em]">
@@ -242,8 +250,8 @@ export function Services() {
 
     const c = COMMISSIONS.find((x) => x.id === active) ?? COMMISSIONS[0];
     const sep = locale === 'it' ? '.' : ',';
-    const figure = `${Math.floor(c.price / 1000)}${sep}${String(c.price % 1000).padStart(3, '0')}`;
-    const priceLabel = locale === 'it' ? `${t('cm_from')} ${figure} €` : `${t('cm_from')} €${figure}`;
+    const amount = PRICES[c.priceKey][locale];
+    const priceLabel = `${t('cm_from')} ${eur(amount, locale)}`;
     const example = c.example ? getProject(c.example) : undefined;
     const layout = phase === 'blank' ? BLANK : phase === 'mess' && active === 'redo' ? MESS : LAYOUTS[active];
 
@@ -363,17 +371,17 @@ export function Services() {
                                         className="inline-flex text-5xl font-medium leading-[1.1em] tracking-tight text-white tabular-nums md:text-6xl"
                                     >
                                         {locale === 'en' && <span>€</span>}
-                                        <Odometer value={c.price} sep={sep} />
+                                        <Odometer value={amount} sep={sep} />
                                         {locale === 'it' && <span className="ml-[0.2em]">€</span>}
                                     </span>
                                     <span className="sr-only">{priceLabel}</span>
                                 </div>
                                 <p key={`note-${active}`} className="cm-in mt-3 max-w-xs text-sm leading-relaxed text-zinc-500">
-                                    {t(`cm_${active}_note`)}
+                                    {withPrices(t(`cm_${active}_note`), locale)}
                                 </p>
                                 <div key={`time-${active}`} className="cm-in mt-6">
                                     <p className="text-sm text-zinc-500">{t('cm_time_label')}</p>
-                                    <p className="mt-1 text-lg text-zinc-200">{c.timed ? t(`cm_${active}_time`) : t('cm_time_agreed')}</p>
+                                    <p className="mt-1 text-lg text-zinc-200">{t(`cm_${active}_time`)}</p>
                                 </div>
                             </div>
                             <div key={`in-${active}`} className="cm-in">
@@ -391,7 +399,7 @@ export function Services() {
                                         {t('cm_example_label')}{' '}
                                         {example ? (
                                             <Link
-                                                to={`/projects/${example.slug}`}
+                                                to={projectPath(example.slug, locale)}
                                                 onClick={() => track('nav_click', { target: `project_${example.slug}`, locale })}
                                                 className="text-zinc-200 underline decoration-forest-500/60 underline-offset-4 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-400"
                                             >

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { pagePath } from '../lib/paths';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -76,8 +77,8 @@ export function ContactCTA() {
     const tipoOptions = [
         { value: t('contact_tipo_web'), label: t('contact_tipo_web') },
         { value: t('contact_tipo_ecommerce'), label: t('contact_tipo_ecommerce') },
-        { value: t('contact_tipo_app'), label: t('contact_tipo_app') },
-        { value: t('contact_tipo_branding'), label: t('contact_tipo_branding') },
+        { value: t('contact_tipo_redo'), label: t('contact_tipo_redo') },
+        { value: t('contact_tipo_tool'), label: t('contact_tipo_tool') },
         { value: t('contact_tipo_altro'), label: t('contact_tipo_altro') },
     ];
 
@@ -85,7 +86,6 @@ export function ContactCTA() {
         { value: t('contact_budget_low'), label: t('contact_budget_low') },
         { value: t('contact_budget_mid'), label: t('contact_budget_mid') },
         { value: t('contact_budget_high'), label: t('contact_budget_high') },
-        { value: t('contact_budget_top'), label: t('contact_budget_top') },
         { value: t('contact_budget_tbd'), label: t('contact_budget_tbd') },
     ];
 
@@ -389,7 +389,7 @@ export function ContactCTA() {
                                 <p className="text-zinc-600 text-xs leading-relaxed">
                                     {t('contact_privacy_consent_pre')}{' '}
                                     <Link
-                                        to="/privacy"
+                                        to={pagePath('privacy', locale)}
                                         className="text-zinc-400 hover:text-forest-400 underline underline-offset-2"
                                     >
                                         {t('contact_privacy_consent_link')}

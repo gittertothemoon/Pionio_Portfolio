@@ -1,10 +1,12 @@
 import { Fragment, type CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import { Globe, ArrowDown, ArrowUpRight, WhatsappLogo } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { useIsRestrictedWebView } from '../lib/ua';
 import { track } from '../lib/analytics';
 import { getWhatsAppUrl } from '../lib/whatsapp';
+import { pagePath } from '../lib/paths';
 import { MagneticButton } from './MagneticButton';
 import AuroraBackground from './AuroraBackground';
 
@@ -13,17 +15,15 @@ import AuroraBackground from './AuroraBackground';
 // it is drawn first, in outline, then built, row by row (see .hero-row in index.css). The words are in
 // the page once, as the outline; the fill and the green edge are drawn from data-text by CSS.
 export function Hero() {
-    const { t, locale, setLocale } = useLanguage();
+    const { t, locale } = useLanguage();
     // Instagram/Facebook/Threads/TikTok in-app browsers: skip the WebGL aurora.
     // 100svh instead of 100dvh stabilizes the hero against the collapsing nav bar.
     const restricted = useIsRestrictedWebView();
     const title = t('hero_title');
 
-    const toggleLanguage = () => {
-        const next = locale === 'en' ? 'it' : 'en';
-        track('lang_switch', { from: locale, to: next, location: 'hero' });
-        setLocale(next);
-    };
+    // The language switch is a real link to the home page in the other language, so crawlers follow it
+    // from one version to the other.
+    const other = locale === 'en' ? 'it' : 'en';
 
     return (
         <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-background md:min-h-[100dvh]">
@@ -46,19 +46,26 @@ export function Hero() {
             </div>
 
             <div className="pointer-events-none absolute top-6 right-6 md:top-8 md:right-12 lg:right-24 z-50 flex flex-col items-end gap-5">
-                <button
-                    onClick={toggleLanguage}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-zinc-400 hover:text-white transition-colors duration-300 pointer-events-auto"
+                <Link
+                    to={pagePath('home', other)}
+                    hrefLang={other}
+                    onClick={() => track('lang_switch', { from: locale, to: other, location: 'hero' })}
+                    aria-label={locale === 'it' ? 'English version' : 'Versione italiana'}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-zinc-400 hover:text-white transition-colors duration-300 pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-400"
                 >
                     <Globe size={16} weight="duotone" />
-                    <span className="font-mono text-xs font-medium tracking-widest">{locale.toUpperCase()}</span>
-                </button>
+                    <span className="font-mono text-xs font-medium tracking-widest">
+                        <span className={locale === 'it' ? 'text-white' : undefined}>IT</span>
+                        <span className="mx-1.5 text-zinc-600">/</span>
+                        <span className={locale === 'en' ? 'text-white' : undefined}>EN</span>
+                    </span>
+                </Link>
             </div>
 
             <div className="pointer-events-none relative z-10 flex flex-1 flex-col justify-end px-6 pt-24 pb-28 md:px-12 md:pt-36 md:pb-24 lg:px-24">
                 <m.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ y: 30 }}
+                    animate={{ y: 0 }}
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                     // On phones the block takes the whole height, so the line can centre between logo and buttons.
                     // From md up it keeps its own height and justify-end sets it low: two English rows or three

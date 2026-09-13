@@ -4,6 +4,7 @@ import { ArrowUpRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
 import { AUDIT_URL, SINTETICO_URL } from '../lib/links';
 import { getProject, projectCategory, type Project } from '../lib/projects';
+import { projectPath } from '../lib/paths';
 import { track } from '../lib/analytics';
 
 type CraftId = 'web' | 'synth' | 'tools';
@@ -294,7 +295,7 @@ export function Crafts() {
                             }`}
                         >
                             <Link
-                                to="/projects/smoky-candle"
+                                to={projectPath('smoky-candle', locale)}
                                 onClick={() => track('nav_click', { target: 'project_smoky-candle', locale })}
                                 className={`relative block w-full max-w-[680px] overflow-hidden rounded-xl border border-white/10 bg-zinc-900 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.85)] transition-[scale] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-400 ${
                                     open('web') ? 'scale-100' : 'scale-90'
@@ -332,7 +333,7 @@ export function Crafts() {
                                 <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
                                     {works.map((p) => (
                                         <li key={p.slug} className="flex items-baseline gap-2">
-                                            <Link to={`/projects/${p.slug}`} className="text-sm font-medium text-forest-300 underline decoration-forest-500/40 underline-offset-4 hover:text-white">
+                                            <Link to={projectPath(p.slug, locale)} className="text-sm font-medium text-forest-300 underline decoration-forest-500/40 underline-offset-4 hover:text-white">
                                                 {p.title}
                                             </Link>
                                             <span className="text-xs text-zinc-500">{projectCategory(p, locale)}</span>

@@ -1,11 +1,9 @@
 # https://pionio.it/robots.txt
-# All crawlers — including AI answer engines (ChatGPT, Perplexity, Gemini,
-# Google AI Overviews, GPTBot, ClaudeBot, CCBot) — may read the whole site; only
-# /api/ is off-limits. Named bots inherit this group, so no per-bot exceptions
-# are needed. To opt an engine out, add a group for it with Disallow: /.
+# Open to every crawler, AI search and training bots included: for a small studio, being known is worth more
+# than the alternative. Only /api/ is off-limits. No per-bot groups on purpose: a group for one bot replaces
+# this one for that bot, and would silently drop the /api/ rule.
 User-agent: *
 Allow: /
 Disallow: /api/
 
 Sitemap: https://pionio.it/sitemap.xml
-Host: https://pionio.it

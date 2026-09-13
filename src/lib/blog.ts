@@ -25,7 +25,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'quanto-costa-un-sito-web',
         title: 'Quanto costa un sito web nel 2026? Guida ai prezzi reali in Italia',
-        seoTitle: 'Quanto Costa un Sito Web nel 2026 — Prezzi Reali in Italia | PIONIO',
+        seoTitle: 'Quanto Costa un Sito Web nel 2026 — Prezzi Reali in Italia | Pionio',
         seoDescription:
             'Quanto costa davvero un sito web in Italia nel 2026? Guida ai prezzi di sito vetrina, e-commerce e web app, con range realistici, voci di costo e cosa evitare.',
         excerpt:
@@ -164,7 +164,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'react-vs-wordpress',
         title: 'React vs WordPress: quale scegliere per il tuo prossimo sito?',
-        seoTitle: 'React vs WordPress — Quale Scegliere nel 2026 | PIONIO',
+        seoTitle: 'React vs WordPress — Quale Scegliere nel 2026 | Pionio',
         seoDescription:
             'React o WordPress per il tuo prossimo sito? Differenze reali su performance, SEO, costi, manutenzione e scalabilità. Una guida senza partigianerie per scegliere bene.',
         excerpt:
@@ -270,7 +270,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'come-scegliere-web-designer-freelance',
         title: 'Come scegliere un web designer freelance: 9 segnali da osservare',
-        seoTitle: 'Come Scegliere un Web Designer Freelance Affidabile | PIONIO',
+        seoTitle: 'Come Scegliere un Web Designer Freelance Affidabile | Pionio',
         seoDescription:
             'Scegliere un web designer freelance senza pentirsene: 9 segnali concreti per valutare portfolio, processo, contratto e prezzi. Domande da fare prima di firmare.',
         excerpt:
@@ -370,7 +370,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'perche-investire-in-un-sito-web-professionale',
         title: 'Perché investire in un sito web professionale (e non in un fai-da-te)',
-        seoTitle: 'Perché Investire in un Sito Web Professionale nel 2026 | PIONIO',
+        seoTitle: 'Perché Investire in un Sito Web Professionale nel 2026 | Pionio',
         seoDescription:
             'Quanto costa davvero un sito fai-da-te in opportunità mancate? 6 motivi concreti per investire in un sito web professionale e quando invece il fai-da-te ha senso.',
         excerpt:
@@ -459,7 +459,7 @@ export const posts: BlogPost[] = [
     {
         slug: 'guida-seo-piccole-imprese',
         title: 'Guida SEO per piccole imprese: 10 azioni concrete per il 2026',
-        seoTitle: 'Guida SEO per Piccole Imprese 2026 — 10 Azioni Concrete | PIONIO',
+        seoTitle: 'Guida SEO per Piccole Imprese 2026 — 10 Azioni Concrete | Pionio',
         seoDescription:
             'Guida SEO per piccole imprese italiane: 10 azioni concrete che puoi mettere in pratica subito per posizionarti su Google senza investire migliaia di euro in agenzie.',
         excerpt:
