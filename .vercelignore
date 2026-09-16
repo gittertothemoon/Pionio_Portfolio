@@ -23,3 +23,6 @@ youtube/
 
 public/endcard/
 public/shorts/
+
+# I siti demo sono progetti Vercel separati: il build del portfolio non li tocca.
+demos/

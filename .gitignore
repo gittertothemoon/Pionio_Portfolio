@@ -52,3 +52,6 @@ brand-assets/
 design-system/
 public/shorts/
 public/endcard/
+
+# Build info dei progetti demo
+demos/*/tsconfig.tsbuildinfo
