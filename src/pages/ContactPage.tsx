@@ -21,7 +21,7 @@ const COPY = {
         skip: 'Vai al contenuto',
     },
     en: {
-        title: `Contact Ivan Panto: reply within ${FACTS.replyWithinHours} hours | Pionio`,
+        title: `Contact Ivan Pantò: reply within ${FACTS.replyWithinHours} hours | Pionio`,
         description: `Message me on WhatsApp, by email or through the form: two lines about your project are enough. I reply myself within ${FACTS.replyWithinHours} hours, with timing and a price.`,
         label: 'Contact',
         h1: "Let's start with a conversation.",

@@ -6,6 +6,7 @@ import ServicePage from './pages/ServicePage';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ProjectPage from './pages/ProjectPage';
 import NotFound from './pages/NotFound';
@@ -41,6 +42,7 @@ export const routes: RouteRecord[] = [
                 Component: BlogPost,
                 getStaticPaths: () => posts.map((p) => `blog/${p.slug}`),
             },
+            { path: 'chi-sono', Component: AboutPage },
             { path: 'contatti', Component: ContactPage },
             { path: 'privacy', Component: PrivacyPage },
             // Built as dist/404.html, which Vercel serves for addresses that don't exist.
@@ -65,6 +67,7 @@ export const routes: RouteRecord[] = [
                 Component: ProjectPage,
                 getStaticPaths: () => projects.map((p) => `projects/${p.slug}`),
             },
+            { path: 'about', Component: AboutPage },
             { path: 'contact', Component: ContactPage },
             { path: 'privacy', Component: PrivacyPage },
             { path: '*', Component: NotFound },

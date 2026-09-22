@@ -19,7 +19,7 @@ export function homeFaq(locale: Locale): QA[] {
         return [
             {
                 q: 'Chi è Pionio?',
-                a: "Pionio è lo studio di Ivan Panto: siti web, immagini sintetiche e piccoli strumenti per il web. Una persona sola, dal disegno all'ultima riga di codice. La base è Bologna.",
+                a: "Pionio è lo studio di Ivan Pantò: siti web, immagini sintetiche e piccoli strumenti per il web. Una persona sola, dal disegno all'ultima riga di codice. La base è Bologna.",
             },
             {
                 q: 'Quanto costa un sito con Pionio?',
@@ -51,7 +51,7 @@ export function homeFaq(locale: Locale): QA[] {
     return [
         {
             q: 'What is Pionio?',
-            a: "Pionio is Ivan Panto's studio: websites, synthetic images and small tools for the web. One person, from the drawing to the last line of code, based in Bologna, Italy.",
+            a: "Pionio is Ivan Pantò's studio: websites, synthetic images and small tools for the web. One person, from the drawing to the last line of code, based in Bologna, Italy.",
         },
         {
             q: 'What does a website cost with Pionio?',

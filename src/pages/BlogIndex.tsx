@@ -9,7 +9,7 @@ import { posts } from '../lib/blog';
 const url = 'https://pionio.it/blog';
 const title = 'Blog: prezzi, siti web e SEO spiegati semplici | Pionio';
 const description =
-    'Guide di Ivan Panto su quanto costa un sito, come scegliere chi lo fa e cosa serve per farsi trovare su Google. Numeri veri, niente gergo.';
+    'Guide di Ivan Pantò su quanto costa un sito, come scegliere chi lo fa e cosa serve per farsi trovare su Google. Numeri veri, niente gergo.';
 
 const itemListJsonLd = {
     '@context': 'https://schema.org',

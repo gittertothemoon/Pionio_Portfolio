@@ -81,7 +81,7 @@ export function siteGraph(locale: Locale) {
                 '@type': 'Person',
                 '@id': IDS.person,
                 name: FACTS.founder.name,
-                url: absoluteUrl(pagePath('home', locale)),
+                url: absoluteUrl(pagePath('about', locale)),
                 image: `${SITE_URL}${FACTS.founder.photo}`,
                 jobTitle: FACTS.founder.role[locale],
                 worksFor: { '@id': IDS.org },

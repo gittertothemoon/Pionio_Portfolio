@@ -27,12 +27,12 @@ export default function Home() {
 
     const title =
         locale === 'it'
-            ? 'Pionio · Ivan Panto: siti web, immagini sintetiche e strumenti'
-            : 'Pionio · Ivan Panto: websites, synthetic images and tools';
+            ? 'Pionio · Ivan Pantò: siti web, immagini sintetiche e strumenti'
+            : 'Pionio · Ivan Pantò: websites, synthetic images and tools';
     const description =
         locale === 'it'
-            ? `Sono Ivan Panto, base Bologna. Disegno e costruisco siti web, creo persone sintetiche con Sintetico e piccoli strumenti. Siti da ${eur(PRICES.site.it, 'it')}, rispondo entro ${FACTS.replyWithinHours} ore.`
-            : `I'm Ivan Panto, an independent designer and developer in Bologna, Italy. I design and build websites for clients abroad, from ${eur(PRICES.site.en, 'en')}, and reply within ${FACTS.replyWithinHours} hours.`;
+            ? `Sono Ivan Pantò, base Bologna. Disegno e costruisco siti web, creo persone sintetiche con Sintetico e piccoli strumenti. Siti da ${eur(PRICES.site.it, 'it')}, rispondo entro ${FACTS.replyWithinHours} ore.`
+            : `I'm Ivan Pantò, an independent designer and developer in Bologna, Italy. I design and build websites for clients abroad, from ${eur(PRICES.site.en, 'en')}, and reply within ${FACTS.replyWithinHours} hours.`;
 
     const webPage = {
         '@context': 'https://schema.org',

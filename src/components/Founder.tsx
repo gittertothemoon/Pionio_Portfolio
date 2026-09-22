@@ -1,13 +1,15 @@
 import { m, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { pagePath } from '../lib/paths';
 
 // Subtle film grain so the portrait reads as atmosphere, not a flat cutout.
 const NOISE =
     "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 export function Founder() {
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
 
     // Light 3D tilt on the portrait — same mechanic as the service cards.
     const ref = useRef<HTMLDivElement>(null);
@@ -109,6 +111,13 @@ export function Founder() {
                         <p>{t('chisono_p1')}</p>
                         <p>{t('chisono_p2')}</p>
                     </m.div>
+
+                    <Link
+                        to={pagePath('about', locale)}
+                        className="mt-10 self-start text-forest-400 hover:text-forest-300 underline decoration-forest-500/40 underline-offset-4 hover:decoration-forest-300 transition-colors text-base md:text-lg"
+                    >
+                        {t('chisono_more')}
+                    </Link>
                 </div>
 
             </div>

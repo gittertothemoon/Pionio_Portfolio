@@ -121,8 +121,8 @@ export const dict: Dictionary = {
         en: 'Code, domain and accounts stay yours. After launch, 30 days of support are included.',
         it: 'Codice, dominio e account restano a te. Dopo il lancio hai 30 giorni di assistenza inclusa.'
     },
-    garanzie_sig_caption: { en: 'Ivan Panto, Pionio', it: 'Ivan Panto, Pionio' },
-    garanzie_sig_alt: { en: "Ivan Panto's signature", it: 'Firma di Ivan Panto' },
+    garanzie_sig_caption: { en: 'Ivan Pantò, Pionio', it: 'Ivan Pantò, Pionio' },
+    garanzie_sig_alt: { en: "Ivan Pantò's signature", it: 'Firma di Ivan Pantò' },
 
     // About — speak to the client, not the dev
     about_label: { en: 'Why Pionio', it: 'Perché Pionio' },
@@ -166,9 +166,10 @@ export const dict: Dictionary = {
         en: "I use AI every day, but I make the calls: it executes, I decide where the work goes. Sintetico is where I push it furthest, building people who don't exist and keeping them the same from one image to the next.",
         it: "Uso l'AI ogni giorno, ma le decisioni le prendo io: lei esegue, io scelgo dove portare il lavoro. Sintetico è dove la spingo più lontano: costruisco persone che non esistono e le tengo identiche da un'immagine all'altra."
     },
-    chisono_name: { en: 'Ivan Panto', it: 'Ivan Panto' },
+    chisono_name: { en: 'Ivan Pantò', it: 'Ivan Pantò' },
     chisono_role: { en: 'Founder · Designer, developer, image-maker', it: 'Fondatore · Designer, developer, image-maker' },
-    chisono_photo_alt: { en: 'Ivan Panto, founder of Pionio', it: 'Ivan Panto, fondatore di Pionio' },
+    chisono_more: { en: 'More about me', it: 'Di più su di me' },
+    chisono_photo_alt: { en: 'Ivan Pantò, founder of Pionio', it: 'Ivan Pantò, fondatore di Pionio' },
 
     // Services (04) — what you can ask me for; the figures come from services.ts
     services_label: { en: 'What I Do', it: 'Cosa Faccio Per Te' },

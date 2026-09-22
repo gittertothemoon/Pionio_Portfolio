@@ -6,6 +6,7 @@ import { SITE_URL } from './facts';
 const PAGES = {
     home: { it: '/', en: '/en' },
     services: { it: '/servizi', en: '/en/services' },
+    about: { it: '/chi-sono', en: '/en/about' },
     contact: { it: '/contatti', en: '/en/contact' },
     privacy: { it: '/privacy', en: '/en/privacy' },
     blog: { it: '/blog', en: null },

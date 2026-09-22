@@ -7,7 +7,7 @@ export const SITE_URL = 'https://pionio.it';
 export const FACTS = {
     name: 'Pionio',
     founder: {
-        name: 'Ivan Panto',
+        name: 'Ivan Pantò',
         photo: '/images/ivan.webp',
         role: { it: 'Designer, developer e image-maker', en: 'Designer, developer and image-maker' },
     },
@@ -32,7 +32,7 @@ export const FACTS = {
     sintetico: { url: 'https://sintetico.pionio.it/', instagram: 'https://www.instagram.com/sintetico.lab' },
     audit: { url: 'https://audit.pionio.it/' },
     oneLiner: {
-        it: 'Pionio è lo studio di Ivan Panto, a Bologna: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web. Una persona sola, dal disegno al codice.',
-        en: "Pionio is Ivan Panto's one-person studio in Bologna, Italy: websites, synthetic images with Sintetico and small tools for the web. One person, from the drawing to the code.",
+        it: 'Pionio è lo studio di Ivan Pantò, a Bologna: siti web, immagini sintetiche con Sintetico e piccoli strumenti per il web. Una persona sola, dal disegno al codice.',
+        en: "Pionio is Ivan Pantò's one-person studio in Bologna, Italy: websites, synthetic images with Sintetico and small tools for the web. One person, from the drawing to the code.",
     },
 } as const;

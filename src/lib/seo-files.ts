@@ -10,6 +10,7 @@ import { absoluteUrl, SERVICE_EN_SLUG } from './paths';
 // use. The hand-written ones had stopped at July and still described a web design studio for Italian SMEs.
 
 const UPDATED = '2026-09-13';
+const ABOUT_UPDATED = '2026-09-22';
 
 // If a service's English slug in paths.ts and in services-en.ts ever disagree, the build stops here
 // instead of shipping hreflang pairs that point at pages that don't exist.
@@ -29,6 +30,7 @@ function entries(): Entry[] {
             en: SERVICE_EN_SLUG[s.slug] ? `/en/services/${SERVICE_EN_SLUG[s.slug]}` : undefined,
             lastmod: UPDATED,
         })),
+        { it: '/chi-sono', en: '/en/about', lastmod: ABOUT_UPDATED },
         { it: '/contatti', en: '/en/contact', lastmod: UPDATED },
         ...projects.map((p) => ({ it: `/projects/${p.slug}`, en: `/en/projects/${p.slug}`, lastmod: UPDATED })),
         { it: '/blog', lastmod: latestPost },
@@ -120,6 +122,9 @@ export function llmsTxt(): string {
         '',
         '## Profiles',
         ...FACTS.profiles.map((url) => `- ${url}`),
+        '',
+        '## About',
+        `- [Who Ivan is, Italian](${SITE_URL}/chi-sono) · [English](${SITE_URL}/en/about)`,
         '',
         '## Optional',
         `- [Contact, Italian](${SITE_URL}/contatti) · [English](${SITE_URL}/en/contact)`,

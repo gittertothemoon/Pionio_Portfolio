@@ -79,7 +79,7 @@ export default function BlogPost() {
             <Seo title={post.seoTitle} description={post.seoDescription} type="article">
                 <meta property="article:published_time" content={post.datePublished} />
                 <meta property="article:modified_time" content={post.dateModified} />
-                <meta property="article:author" content="Ivan Panto" />
+                <meta property="article:author" content="Ivan Pantò" />
                 <meta property="article:section" content={post.category} />
                 <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
                 <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>

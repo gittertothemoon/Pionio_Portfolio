@@ -83,7 +83,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={homeAnchor('chi-sono', locale)} className={linkClass}>
+                                <Link to={pagePath('about', locale)} className={linkClass}>
                                     {t('footer_about')}
                                 </Link>
                             </li>
