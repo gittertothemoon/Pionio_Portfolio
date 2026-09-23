@@ -322,8 +322,9 @@ export function Crafts() {
                                 </div>
                                 <div ref={pageRef} onPointerMove={follow(pageRef)} onPointerLeave={leave(pageRef)} className="page-xray relative aspect-[16/10]">
                                     <img
-                                        src="/images/crafts/smoky-home.webp"
-                                        srcSet="/images/crafts/smoky-home-800.webp 800w, /images/crafts/smoky-home.webp 1440w"
+                                        // il nome cambia a ogni nuova schermata: i browser tengono le immagini in cache per una settimana
+                                        src="/images/crafts/smoky-home-2609.webp"
+                                        srcSet="/images/crafts/smoky-home-2609-800.webp 800w, /images/crafts/smoky-home-2609.webp 1440w"
                                         sizes="(min-width: 768px) 680px, 90vw"
                                         alt={t('craft_web_alt')}
                                         width={1440}
