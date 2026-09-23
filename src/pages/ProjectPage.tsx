@@ -7,7 +7,7 @@ import { Logo } from '../components/Logo';
 import { Footer } from '../components/Footer';
 import { Seo } from '../components/Seo';
 import NotFound from './NotFound';
-import { getProject, projects, projectCategory, projectLongDescription } from '../lib/projects';
+import { getProject, projects, projectCategory, projectLongDescription, type CasoStudio } from '../lib/projects';
 import { track } from '../lib/analytics';
 import { SITE_URL } from '../lib/facts';
 import { breadcrumbs, IDS } from '../lib/graph';
@@ -25,14 +25,14 @@ export function Component() {
 const SEO: Record<string, { it: { title: string; description: string }; en: { title: string; description: string } }> = {
     'smoky-candle': {
         it: {
-            title: 'Smoky Candle: negozio online di candele di soia | Pionio',
+            title: 'Smoky Candle: caso studio, e-commerce con una candela 3D | Pionio',
             description:
-                'Il negozio online di un piccolo produttore italiano di candele di soia: schede che raccontano materia e profumo, checkout breve. Progetto del 2024.',
+                'Il mio marchio di candele di soia: il negozio rifatto attorno a una candela 3D che si apre, si accende e si spegne, con pagamento su Stripe. Settembre 2026.',
         },
         en: {
-            title: 'Smoky Candle: online shop for soy candles | Pionio',
+            title: 'Smoky Candle: case study, an e-commerce with a 3D candle | Pionio',
             description:
-                'The online shop of a small Italian maker of soy candles: product pages about material and scent, a short checkout. Built in 2024.',
+                'My own soy candle brand: the shop rebuilt around a 3D candle you open, light and blow out, with Stripe checkout. September 2026.',
         },
     },
     where2beach: {
@@ -49,6 +49,120 @@ const SEO: Record<string, { it: { title: string; description: string }; en: { ti
     },
 };
 
+/* Un titolo con una parola in corsivo verde: nei dati la parola sta tra asterischi, *così* */
+function TitoloCaso({ testo, className }: { testo: string; className: string }) {
+    const parti = testo.split(/\*([^*]+)\*/);
+    return (
+        <h2 className={className}>
+            {parti.map((p, i) =>
+                i % 2 === 1 ? (
+                    <span key={i} className="text-forest-500 italic font-serif">
+                        {p}
+                    </span>
+                ) : (
+                    p
+                )
+            )}
+        </h2>
+    );
+}
+
+function Caso({ caso, locale }: { caso: CasoStudio; locale: 'it' | 'en' }) {
+    const eyebrow = 'text-forest-400 font-mono text-xs uppercase tracking-widest';
+    const titolo = 'text-3xl md:text-5xl font-sans tracking-tight text-white leading-[1.05] max-w-[22ch]';
+    const n = (i: number) => String(i + 1).padStart(2, '0');
+    return (
+        <div className="flex flex-col gap-24 md:gap-32 mt-8">
+            {caso.sezioni.map((sez, i) => (
+                <section key={sez.etichetta} className="grid md:grid-cols-12 gap-6 md:gap-12">
+                    <span className={`${eyebrow} md:col-span-3 md:pt-3`}>
+                        {n(i)} — {sez.etichetta}
+                    </span>
+                    <div className="md:col-span-9 flex flex-col gap-6">
+                        <TitoloCaso testo={sez.titolo} className={titolo} />
+                        {sez.testo?.map((t) => (
+                            <p key={t} className="text-zinc-300 text-lg md:text-xl leading-relaxed font-light max-w-[62ch]">
+                                {t}
+                            </p>
+                        ))}
+                        {sez.punti && (
+                            <ul className="flex flex-col border-t border-white/5">
+                                {sez.punti.map((t) => (
+                                    <li key={t} className="py-5 border-b border-white/5 text-zinc-300 text-base md:text-lg leading-relaxed font-light max-w-[68ch]">
+                                        {t}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {/* dopo "cosa ho costruito": il telefono e il cofanetto, visti davvero */}
+                        {i === 2 && (
+                            <div className="mt-6 flex flex-col gap-6">
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                                    {caso.immagini.telefono.map((img) => (
+                                        <img
+                                            key={img.src}
+                                            src={img.src}
+                                            alt={img.alt}
+                                            width="600"
+                                            height="1298"
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="w-full h-auto rounded-[1.4rem] border border-white/10 bg-zinc-900"
+                                        />
+                                    ))}
+                                </div>
+                                <img
+                                    src={caso.immagini.desktop.src}
+                                    alt={caso.immagini.desktop.alt}
+                                    width="1600"
+                                    height="1000"
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="w-full h-auto rounded-[1.6rem] border border-white/10 bg-zinc-900"
+                                />
+                            </div>
+                        )}
+                    </div>
+                </section>
+            ))}
+
+            <section className="grid md:grid-cols-12 gap-6 md:gap-12">
+                <span className={`${eyebrow} md:col-span-3 md:pt-3`}>
+                    {n(caso.sezioni.length)} — {locale === 'it' ? 'I numeri' : 'Numbers'}
+                </span>
+                <div className="md:col-span-9 flex flex-col gap-8">
+                    <dl className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5">
+                        {caso.numeri.map((x) => (
+                            <div key={x.etichetta} className="bg-zinc-950 p-5 md:p-6 flex flex-col gap-2">
+                                <dt className="text-zinc-500 font-mono text-[11px] uppercase tracking-widest">{x.etichetta}</dt>
+                                <dd className="text-white font-sans text-4xl md:text-5xl tracking-tight">{x.valore}</dd>
+                                {x.prima && x.prima !== x.valore && (
+                                    <dd className="text-zinc-500 font-mono text-xs">
+                                        {locale === 'it' ? 'prima' : 'before'} {x.prima}
+                                    </dd>
+                                )}
+                            </div>
+                        ))}
+                    </dl>
+                    <p className="text-zinc-400 text-base leading-relaxed max-w-[68ch]">{caso.notaNumeri}</p>
+                </div>
+            </section>
+
+            <section className="flex flex-col items-start gap-6 border-t border-white/5 pt-16">
+                <TitoloCaso testo={caso.cta.titolo} className={titolo} />
+                <p className="text-zinc-300 text-lg md:text-xl leading-relaxed font-light">{caso.cta.testo}</p>
+                <Link
+                    to={pagePath('contact', locale)}
+                    onClick={() => track('cta_contact_click', { source: 'case_study', locale })}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-600 hover:bg-forest-500 text-white font-mono text-xs uppercase tracking-widest transition-colors duration-300"
+                >
+                    {caso.cta.bottone} <ArrowUpRight weight="bold" />
+                </Link>
+            </section>
+        </div>
+    );
+}
+
 export default function ProjectPage() {
     const { slug } = useParams<{ slug: string }>();
     const { locale } = useLanguage();
@@ -58,12 +172,13 @@ export default function ProjectPage() {
 
     const path = projectPath(project.slug, locale);
     const url = absoluteUrl(path);
-    const imageUrl = `${SITE_URL}${project.image}`;
+    const imageUrl = `${SITE_URL}${project.caso ? project.caso[locale].immagini.hero.src : project.image}`;
     const category = projectCategory(project, locale);
     const longDesc = projectLongDescription(project, locale);
     const shortDesc = project.description[locale];
     const lightBg = project.bgClass ?? 'bg-[#FAF7F2]';
     const isLight = project.theme === 'light';
+    const caso = project.caso?.[locale];
     const seo = SEO[project.slug]?.[locale] ?? {
         title: `${project.title}: ${category} (${project.year}) | Pionio`,
         description: shortDesc.length > 155 ? `${shortDesc.slice(0, 152)}…` : shortDesc,
@@ -136,6 +251,7 @@ export default function ProjectPage() {
                             <span className="text-zinc-500 font-mono text-xs md:text-sm">{project.year}</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight text-white leading-[0.95]">{project.title}</h1>
+                        {caso && <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light max-w-[40ch]">{caso.lead}</p>}
                     </m.div>
 
                     <div
@@ -143,22 +259,26 @@ export default function ProjectPage() {
                             isLight ? `${lightBg} border-zinc-200/60` : 'bg-zinc-900 border-white/5'
                         } shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]`}
                     >
-                        <img
-                            src={project.image}
-                            alt={alt}
-                            width="1600"
-                            height="1000"
-                            decoding="async"
-                            className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-12 md:p-20' : 'object-cover'} ${
-                                project.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''
-                            }`}
-                        />
+                        {caso ? (
+                            <img src={caso.immagini.hero.src} alt={caso.immagini.hero.alt} width="1600" height="1000" decoding="async" className="w-full h-full object-cover" />
+                        ) : (
+                            <img
+                                src={project.image}
+                                alt={alt}
+                                width="1600"
+                                height="1000"
+                                decoding="async"
+                                className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain p-12 md:p-20' : 'object-cover'} ${
+                                    project.invertLogo ? '[filter:brightness(0)_invert(1)]' : ''
+                                }`}
+                            />
+                        )}
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-12 md:gap-16 mt-4">
                         <div className="md:col-span-2 flex flex-col gap-6">
                             <h2 className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{locale === 'it' ? 'Il progetto' : 'About the project'}</h2>
-                            <p className="text-zinc-300 text-lg md:text-xl leading-relaxed font-light">{longDesc}</p>
+                            <p className="text-zinc-300 text-lg md:text-xl leading-relaxed font-light">{caso ? shortDesc : longDesc}</p>
                             {project.url && (
                                 <a
                                     href={project.url}
@@ -181,6 +301,18 @@ export default function ProjectPage() {
                                 <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{locale === 'it' ? 'Categoria' : 'Category'}</span>
                                 <span className="text-white font-sans text-xl">{category}</span>
                             </div>
+                            {caso && (
+                                <>
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{locale === 'it' ? 'Ruolo' : 'Role'}</span>
+                                        <span className="text-white font-sans text-xl">{caso.ruolo}</span>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{locale === 'it' ? 'Quando' : 'When'}</span>
+                                        <span className="text-white font-sans text-base leading-snug">{caso.quando}</span>
+                                    </div>
+                                </>
+                            )}
                             <div className="flex flex-col gap-2">
                                 <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Stack</span>
                                 <ul className="flex flex-wrap gap-2">
@@ -193,6 +325,8 @@ export default function ProjectPage() {
                             </div>
                         </aside>
                     </div>
+
+                    {caso && <Caso caso={caso} locale={locale} />}
 
                     <section className="mt-16 pt-16 border-t border-white/5 flex flex-col gap-8">
                         <h2 className="text-zinc-500 font-mono text-xs uppercase tracking-widest">{locale === 'it' ? 'Altri progetti' : 'Other projects'}</h2>

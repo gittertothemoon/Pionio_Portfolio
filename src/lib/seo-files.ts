@@ -32,7 +32,7 @@ function entries(): Entry[] {
         })),
         { it: '/chi-sono', en: '/en/about', lastmod: ABOUT_UPDATED },
         { it: '/contatti', en: '/en/contact', lastmod: UPDATED },
-        ...projects.map((p) => ({ it: `/projects/${p.slug}`, en: `/en/projects/${p.slug}`, lastmod: UPDATED })),
+        ...projects.map((p) => ({ it: `/projects/${p.slug}`, en: `/en/projects/${p.slug}`, lastmod: p.aggiornato ?? UPDATED })),
         { it: '/blog', lastmod: latestPost },
         ...posts.map((p) => ({ it: `/blog/${p.slug}`, lastmod: p.dateModified })),
         { it: '/privacy', en: '/en/privacy', lastmod: UPDATED },
