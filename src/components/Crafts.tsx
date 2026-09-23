@@ -59,7 +59,7 @@ function Spine({ open, children }: { open: boolean; children: ReactNode }) {
 }
 
 // The drawing under the Smoky Candle home page: blocks, text lines and measures of the live page
-// (smokycandle.com at 1440x900, measured on 11/09/2026), in the same coordinates as the screenshot above it.
+// (smokycandle.com at 1440x900, measured on 23/09/2026 with the candle lit), in the same coordinates as the screenshot above it.
 const INK = 'rgba(145, 196, 168, 0.85)';
 const GUIDE = 'rgba(145, 196, 168, 0.28)';
 const ink = { stroke: INK, strokeWidth: 1.4, fill: 'none', vectorEffect: 'non-scaling-stroke' } as const;
@@ -99,43 +99,56 @@ function SmokyDrawing() {
             {/* Drawing paper: dark green with a dot grid, so the lens reads as another sheet, not the photo */}
             <rect width="1440" height="900" fill="#0d1813" />
             <rect width="1440" height="900" fill="url(#drawing-dots)" />
-            {/* The photo behind everything, marked the way drawings mark an image; margins and header line */}
-            <path d="M0 0L1440 900M1440 0L0 900" {...guide} />
-            <path d="M104 0V900M1336 0V900M0 152H1440" {...guide} />
-            <text x="1336" y="186" textAnchor="end" {...label}>header · 152</text>
-            <text x="1336" y="874" textAnchor="end" {...label}>img · 1440×900 · cover</text>
+            {/* Margins and header line */}
+            <path d="M100 0V900M1340 0V900M0 96H1440" {...guide} />
+            <text x="1340" y="126" textAnchor="end" {...label}>header · 96</text>
 
             {/* Header: logo, menu, cart */}
-            <rect x="104" y="20" width="112" height="112" {...ink} />
-            <path d="M104 20L216 132M216 20L104 132" {...ink} strokeOpacity={0.45} />
-            <text x="232" y="46" {...label}>logo · 112</text>
-            <text x="619" y="52" {...label}>nav · 14px</text>
-            <rect x="619" y="66" width="66" height="20" rx="2" {...ink} />
-            <rect x="717" y="66" width="76" height="20" rx="2" {...ink} />
-            <rect x="826" y="66" width="53" height="20" rx="2" {...ink} />
-            <rect x="1282" y="57" width="54" height="38" rx="19" {...ink} />
+            <rect x="100" y="18" width="88" height="60" {...ink} />
+            <path d="M100 18L188 78M188 18L100 78" {...ink} strokeOpacity={0.45} />
+            <text x="204" y="54" {...label}>logo · 60</text>
+            <rect x="605" y="40" width="68" height="16" rx="2" {...ink} />
+            <rect x="705" y="40" width="63" height="16" rx="2" {...ink} />
+            <rect x="800" y="40" width="80" height="16" rx="2" {...ink} />
+            <text x="896" y="54" {...label}>nav · 15px</text>
+            <rect x="1296" y="26" width="44" height="44" rx="22" {...ink} />
 
-            {/* Hero copy: eyebrow, the two lines of the h1, the paragraph, the two buttons */}
-            <rect x="104" y="258" width="424" height="10" {...ink} />
-            <text x="544" y="272" {...label}>p · 14px</text>
-            <rect x="104" y="300" width="258" height="52" {...ink} />
-            <rect x="104" y="372" width="486" height="52" {...ink} />
-            <text x="792" y="312" {...label}>h1 · 72/72</text>
-            <rect x="104" y="466" width="546" height="14" {...ink} />
-            <rect x="104" y="495" width="564" height="14" {...ink} />
-            <rect x="104" y="525" width="56" height="14" {...ink} />
-            <text x="792" y="482" {...label}>p · 18/29</text>
-            <rect x="104" y="585" width="210" height="62" rx="31" {...ink} />
-            <rect x="330" y="585" width="216" height="62" rx="31" {...ink} />
-            <text x="209" y="624" textAnchor="middle" {...label}>210 × 62</text>
-            <text x="438" y="624" textAnchor="middle" {...label}>216 × 62</text>
+            {/* Hero copy: the three lines of the h1, the paragraph, the buttons, the scent switch */}
+            <rect x="100" y="104" width="372" height="66" {...ink} />
+            <rect x="100" y="191" width="405" height="66" {...ink} />
+            <rect x="100" y="279" width="350" height="66" {...ink} />
+            <text x="520" y="148" {...label}>h1 · 92/87</text>
+            <rect x="100" y="394" width="405" height="13" {...ink} />
+            <rect x="100" y="423" width="409" height="13" {...ink} />
+            <rect x="100" y="453" width="326" height="13" {...ink} />
+            <text x="524" y="410" {...label}>p · 18/29</text>
+            <rect x="100" y="510" width="183" height="48" rx="24" {...ink} />
+            <path d="M307 544H428" {...ink} />
+            <text x="444" y="541" {...label}>183 × 48</text>
+            <rect x="100" y="585" width="22" height="22" rx="4" {...ink} />
+            <rect x="134" y="590" width="216" height="12" {...ink} />
+            {/* the burn counter and the hint, shown while the candle is lit */}
+            <rect x="100" y="636" width="70" height="11" {...ink} />
+            <rect x="100" y="659" width="344" height="11" {...ink} />
+            <rect x="100" y="681" width="176" height="11" {...ink} />
+            <rect x="100" y="727" width="112" height="10" {...ink} />
+            <rect x="100" y="754" width="214" height="54" rx="27" {...ink} />
+            <text x="330" y="788" {...label}>214 × 54</text>
+            <rect x="100" y="827" width="333" height="14" {...ink} />
+
+            {/* The arch of the logo, and the 3D candle drawn on a canvas inside it */}
+            <rect x="732" y="183" width="608" height="575" {...guide} />
+            <path d="M852 758V470A184 184 0 0 1 1220 470V758" {...ink} strokeOpacity={0.6} />
+            <text x="1340" y="782" textAnchor="end" {...label}>portone · 608 × 575</text>
+            <rect x="946" y="410" width="180" height="290" rx="22" {...ink} />
+            <path d="M946 410L1126 700M1126 410L946 700" {...ink} strokeOpacity={0.45} />
+            <text x="1036" y="394" textAnchor="middle" {...label}>canvas 3D</text>
 
             {/* The measures: space between the blocks, the column, the margin */}
-            <DimV x={84} y1={273} y2={289} text="16" />
-            <DimV x={84} y1={433} y2={457} text="24" />
-            <DimV x={84} y1={545} y2={585} text="40" />
-            <DimH x1={104} x2={776} y={704} text="672" />
-            <DimH x1={0} x2={104} y={780} text="104" />
+            <DimV x={80} y1={466} y2={510} text="44" />
+            <DimV x={80} y1={558} y2={574} text="16" />
+            <DimH x1={100} x2={603} y={886} text="503" />
+            <DimH x1={0} x2={100} y={886} text="100" />
         </svg>
     );
 }
