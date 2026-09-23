@@ -100,7 +100,7 @@ export const projects: Project[] = [
                         titolo: 'A real product, in a *garage*.',
                         testo: [
                             'Soy wax, a wooden wick, two scents: Butter and Berry. We sold about thirty candles by hand, to people we could look in the eye.',
-                            'A department store chain liked them. Then the budget got in the way. The stock is still real, and it sits in my garage.',
+                            'Coin, the Italian department store chain, saw them and liked them. Then the budget got in the way. The stock is still real, and it sits in my garage.',
                         ],
                     },
                     {
@@ -167,7 +167,7 @@ export const projects: Project[] = [
                         titolo: 'Un prodotto vero, in un *garage*.',
                         testo: [
                             'Cera di soia, stoppino in legno, due fragranze: Butter e Berry. Ne abbiamo vendute una trentina a mano, a persone che potevamo guardare in faccia.',
-                            'Una catena di grandi magazzini le ha volute vedere. Poi il budget si è messo di mezzo. Lo stock è vero, ed è nel mio garage.',
+                            'Coin, la catena di grandi magazzini, le ha viste e le sono piaciute. Poi il budget si è messo di mezzo. Lo stock è vero, ed è nel mio garage.',
                         ],
                     },
                     {
