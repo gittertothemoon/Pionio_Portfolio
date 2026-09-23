@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent, type ReactNode, type RefObject } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type FormEvent, type PointerEvent, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -201,16 +201,20 @@ function Receipt({ run, armed }: { run: number; armed: boolean }) {
     );
 }
 
+const nessunaIscrizione = () => () => {};
+
 // Where you point, the lens follows: its position is written on the element as % of its size.
-const follow = (ref: RefObject<HTMLDivElement | null>) => (e: PointerEvent<HTMLDivElement>) => {
-    const el = ref.current;
+// The element with the lens is the one marked data-lens: the one the pointer is on, or inside it.
+const lensOf = (host: HTMLElement): HTMLElement | null => (host.matches('[data-lens]') ? host : host.querySelector('[data-lens]'));
+const follow = (e: PointerEvent<HTMLDivElement>) => {
+    const el = lensOf(e.currentTarget);
     if (!el || e.pointerType !== 'mouse') return;
     const r = el.getBoundingClientRect();
     el.style.setProperty('--lx', `${((e.clientX - r.left) / r.width) * 100}%`);
     el.style.setProperty('--ly', `${((e.clientY - r.top) / r.height) * 100}%`);
     el.classList.add('is-looking');
 };
-const leave = (ref: RefObject<HTMLDivElement | null>) => () => ref.current?.classList.remove('is-looking');
+const leave = (e: PointerEvent<HTMLDivElement>) => lensOf(e.currentTarget)?.classList.remove('is-looking');
 
 // Three crafts, one person. On desktop the panel you point at opens up and the section's light moves
 // under it; the others close into spines. Each craft shows what lies under its surface: Web a real page
@@ -221,13 +225,11 @@ export function Crafts() {
     const [active, setActive] = useState<CraftId>('web');
     const [site, setSite] = useState('');
     const [printRun, setPrintRun] = useState(0);
-    const [armed, setArmed] = useState(false);
     const toolsRef = useRef<HTMLElement>(null);
-    const headRef = useRef<HTMLDivElement>(null);
-    const pageRef = useRef<HTMLDivElement>(null);
 
-    // Once the page runs, the receipt waits inside the printer until its first print.
-    useEffect(() => setArmed(true), []);
+    // Once the page runs in the browser, the receipt waits inside the printer until its first print.
+    // (false in the static HTML, true after hydration: no state set inside an effect)
+    const armed = useSyncExternalStore(nessunaIscrizione, () => true, () => false);
 
     // Phones have no hover: the receipt prints once when the tools panel scrolls into view.
     useEffect(() => {
@@ -320,7 +322,7 @@ export function Crafts() {
                                     <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
                                     <span className="ml-2 truncate font-mono text-[10px] text-zinc-500">smokycandle.com</span>
                                 </div>
-                                <div ref={pageRef} onPointerMove={follow(pageRef)} onPointerLeave={leave(pageRef)} className="page-xray relative aspect-[16/10]">
+                                <div data-lens onPointerMove={follow} onPointerLeave={leave} className="page-xray relative aspect-[16/10]">
                                     <img
                                         // il nome cambia a ogni nuova schermata: i browser tengono le immagini in cache per una settimana
                                         src="/images/crafts/smoky-home-2609.webp"
@@ -372,12 +374,12 @@ export function Crafts() {
                             <span className="font-bodoni text-6xl tracking-[-0.01em] text-[#ede6da]">Sintetico</span>
                         </Spine>
                         <div
-                            onPointerMove={follow(headRef)}
-                            onPointerLeave={leave(headRef)}
+                            onPointerMove={follow}
+                            onPointerLeave={leave}
                             className="absolute inset-x-0 top-6 bottom-[250px] flex items-center justify-center md:bottom-28"
                         >
                             <div
-                                ref={headRef}
+                                data-lens
                                 className={`synth-stage xray relative aspect-square h-full max-w-full ${
                                     open('synth') ? 'scale-100' : 'scale-90'
                                 }`}

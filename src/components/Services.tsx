@@ -192,10 +192,13 @@ export function Services() {
         reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const el = stageRef.current;
         if (!el || reduced.current || el.getBoundingClientRect().top < window.innerHeight) return;
-        setPhase('blank');
+        // la prima risposta dell'osservatore arriva subito: fuori schermo la pagina si cancella, e si disegna entrando
         const io = new IntersectionObserver(
             ([entry]) => {
-                if (!entry.isIntersecting) return;
+                if (!entry.isIntersecting) {
+                    setPhase('blank');
+                    return;
+                }
                 setPhase('drawn');
                 io.disconnect();
             },

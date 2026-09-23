@@ -1,4 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+
+// "Less motion" as the browser says it, followed live; in the static HTML it counts as yes (the signature is just there).
+const MENO_MOVIMENTO = '(prefers-reduced-motion: reduce)';
+const ascoltaMovimento = (avvisa: () => void) => {
+    const mq = window.matchMedia(MENO_MOVIMENTO);
+    mq.addEventListener('change', avvisa);
+    return () => mq.removeEventListener('change', avvisa);
+};
 import { useLanguage } from '../context/LanguageContext';
 import { SIGNATURE_D, SIGNATURE_VIEWBOX } from '../lib/signature';
 
@@ -10,13 +18,12 @@ export function Guarantees() {
     const { t } = useLanguage();
     const sigRef = useRef<HTMLDivElement>(null);
     // Without JavaScript, or with reduced motion, the signature is simply there.
-    const [armed, setArmed] = useState(false);
+    const armed = useSyncExternalStore(ascoltaMovimento, () => !window.matchMedia(MENO_MOVIMENTO).matches, () => false);
     const [signed, setSigned] = useState(false);
 
     useEffect(() => {
         const el = sigRef.current;
-        if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        setArmed(true);
+        if (!el || !armed) return;
         const io = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
@@ -27,7 +34,7 @@ export function Guarantees() {
         );
         io.observe(el);
         return () => io.disconnect();
-    }, []);
+    }, [armed]);
 
     return (
         <section className="relative w-full border-t border-white/5 bg-zinc-950 px-6 py-24 md:px-12 md:py-32" aria-labelledby="garanzie-title">
