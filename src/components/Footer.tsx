@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { track } from '../lib/analytics';
 import { services } from '../lib/services';
 import { servicesEn } from '../lib/services-en';
-import { posts } from '../lib/blog';
+import { postPath, postsFor } from '../lib/blog';
 import { homeAnchor, pagePath, servicePath } from '../lib/paths';
 
 // The same three profiles the structured data lists (facts.ts).
@@ -20,8 +20,9 @@ const headClass = 'text-zinc-500 font-mono text-[10px] uppercase tracking-widest
 
 export function Footer() {
     const { t, locale } = useLanguage();
-    const recentPosts = [...posts].sort((a, b) => b.datePublished.localeCompare(a.datePublished)).slice(0, 4);
-    // English pages list only the services that have an English page; the blog is Italian for now.
+    // Each language shows its own articles: the English ones are written for clients outside Italy.
+    const recentPosts = [...postsFor(locale)].sort((a, b) => b.datePublished.localeCompare(a.datePublished)).slice(0, 4);
+    // English pages list only the services that have an English page.
     const serviceLinks =
         locale === 'it'
             ? services.map((s) => ({ key: s.slug, title: s.title }))
@@ -30,7 +31,7 @@ export function Footer() {
     return (
         <footer className="relative w-full bg-zinc-950 pt-24 pb-56 md:pb-52 px-6 md:px-12 overflow-hidden border-t border-white/5">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-16">
-                <div className={`grid grid-cols-2 gap-10 md:gap-12 ${locale === 'it' ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+                <div className="grid grid-cols-2 gap-10 md:gap-12 md:grid-cols-4">
                     <nav aria-label={t('footer_services')} className="flex flex-col gap-4">
                         <span className={headClass}>{t('footer_services')}</span>
                         <ul className="flex flex-col gap-2">
@@ -49,7 +50,7 @@ export function Footer() {
                         </ul>
                     </nav>
 
-                    {locale === 'it' && (
+                    {recentPosts.length > 0 && (
                         <nav aria-label="Blog" className="flex flex-col gap-4">
                             <span className={headClass}>Blog</span>
                             <ul className="flex flex-col gap-2">
@@ -60,7 +61,7 @@ export function Footer() {
                                 </li>
                                 {recentPosts.map((p) => (
                                     <li key={p.slug}>
-                                        <Link to={`/blog/${p.slug}`} className={`${linkClass} line-clamp-2`}>
+                                        <Link to={postPath(p.slug, locale)} className={`${linkClass} line-clamp-2`}>
                                             {p.title}
                                         </Link>
                                     </li>

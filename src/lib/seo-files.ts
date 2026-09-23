@@ -3,6 +3,7 @@ import { eur, PRICES, type PriceKey } from './prices';
 import { services } from './services';
 import { servicesEn } from './services-en';
 import { posts } from './blog';
+import { postsEn } from './blog-en';
 import { projects } from './projects';
 import { absoluteUrl, SERVICE_EN_SLUG } from './paths';
 
@@ -33,8 +34,9 @@ function entries(): Entry[] {
         { it: '/chi-sono', en: '/en/about', lastmod: ABOUT_UPDATED },
         { it: '/contatti', en: '/en/contact', lastmod: UPDATED },
         ...projects.map((p) => ({ it: `/projects/${p.slug}`, en: `/en/projects/${p.slug}`, lastmod: p.aggiornato ?? UPDATED })),
-        { it: '/blog', lastmod: latestPost },
+        { it: '/blog', en: '/en/blog', lastmod: [latestPost, ...postsEn.map((p) => p.dateModified)].sort().at(-1) ?? latestPost },
         ...posts.map((p) => ({ it: `/blog/${p.slug}`, lastmod: p.dateModified })),
+        ...postsEn.map((p) => ({ en: `/en/blog/${p.slug}`, lastmod: p.dateModified })),
         { it: '/privacy', en: '/en/privacy', lastmod: UPDATED },
     ];
 }
@@ -119,6 +121,7 @@ export function llmsTxt(): string {
         '',
         '## Articles (Italian)',
         ...posts.map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug})`),
+        ...postsEn.map((p) => `- [${p.title}](${SITE_URL}/en/blog/${p.slug}) (English)`),
         '',
         '## Profiles',
         ...FACTS.profiles.map((url) => `- ${url}`),

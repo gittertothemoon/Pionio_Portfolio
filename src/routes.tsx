@@ -3,6 +3,7 @@ import type { RouteRecord } from 'vite-react-ssg';
 import Layout from './Layout';
 import Home from './pages/Home';
 import { projects } from './lib/projects';
+import { postsEn } from './lib/blog-en';
 import { services } from './lib/services';
 import { posts } from './lib/blog';
 import { SERVICE_EN_SLUG } from './lib/paths';
@@ -64,6 +65,12 @@ export const routes: RouteRecord[] = [
                 path: 'projects/:slug',
                 lazy: () => import('./pages/ProjectPage').then(asRoute),
                 getStaticPaths: () => projects.map((p) => `projects/${p.slug}`),
+            },
+            { path: 'blog', lazy: () => import('./pages/BlogIndex').then(asRoute) },
+            {
+                path: 'blog/:slug',
+                lazy: () => import('./pages/BlogPost').then(asRoute),
+                getStaticPaths: () => postsEn.map((p) => `blog/${p.slug}`),
             },
             { path: 'about', lazy: () => import('./pages/AboutPage').then(asRoute) },
             { path: 'contact', lazy: () => import('./pages/ContactPage').then(asRoute) },

@@ -1,3 +1,6 @@
+import type { Locale } from './i18n';
+import { postsEn } from './blog-en';
+
 export type BlogSection =
     | { type: 'h2'; text: string }
     | { type: 'h3'; text: string }
@@ -573,6 +576,11 @@ export const posts: BlogPost[] = [
     },
 ];
 
-export function getPost(slug: string): BlogPost | undefined {
-    return posts.find((p) => p.slug === slug);
+// The Italian posts and the English ones are different articles, not translations of each other.
+export const postsFor = (locale: Locale): BlogPost[] => (locale === 'en' ? postsEn : posts);
+
+export const postPath = (slug: string, locale: Locale): string => (locale === 'en' ? `/en/blog/${slug}` : `/blog/${slug}`);
+
+export function getPost(slug: string, locale: Locale = 'it'): BlogPost | undefined {
+    return postsFor(locale).find((p) => p.slug === slug);
 }

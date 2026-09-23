@@ -4,46 +4,74 @@ import { ArrowUpRight } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
-import { posts } from '../lib/blog';
+import { postPath, postsFor } from '../lib/blog';
+import { useLanguage } from '../context/LanguageContext';
+import { absoluteUrl, pagePath } from '../lib/paths';
 
-const url = 'https://pionio.it/blog';
-const title = 'Blog: prezzi, siti web e SEO spiegati semplici | Pionio';
-const description =
-    'Guide di Ivan Pantò su quanto costa un sito, come scegliere chi lo fa e cosa serve per farsi trovare su Google. Numeri veri, niente gergo.';
-
-const itemListJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    '@id': `${url}#blog`,
-    url,
-    name: 'Blog di Pionio',
-    description,
-    author: { '@id': 'https://pionio.it/#person' },
-    publisher: { '@id': 'https://pionio.it/#org' },
-    blogPost: posts.map((p) => ({
-        '@type': 'BlogPosting',
-        headline: p.title,
-        url: `${url}/${p.slug}`,
-        datePublished: p.datePublished,
-        dateModified: p.dateModified,
-        author: { '@id': 'https://pionio.it/#person' },
-    })),
-};
-
-const breadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pionio.it/' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: url },
-    ],
-};
+// The two blogs are different: the Italian one for the Italian market, the English one for clients abroad.
+const COPY = {
+    it: {
+        title: 'Blog: prezzi, siti web e SEO spiegati semplici | Pionio',
+        description:
+            'Guide di Ivan Pantò su quanto costa un sito, come scegliere chi lo fa e cosa serve per farsi trovare su Google. Numeri veri, niente gergo.',
+        name: 'Blog di Pionio',
+        h1: 'Idee chiare su web, design e SEO.',
+        lead: 'Guide pratiche, opinioni argomentate e numeri reali sul mestiere di costruire siti e applicazioni web. Scritto per il mercato italiano, senza fuffa.',
+        skip: 'Vai al contenuto',
+        minutes: 'min di lettura',
+        read: "Leggi l'articolo",
+        date: 'it-IT',
+    },
+    en: {
+        title: 'Blog: websites, pricing and 3D on the web, from Italy | Pionio',
+        description:
+            'Notes by Ivan Pantò, a web designer in Italy: what a site costs, how the work runs with a client abroad, and what I learn building them.',
+        name: 'Pionio blog',
+        h1: 'Notes from the workshop.',
+        lead: 'Prices, process and what I learn building websites. Written in English for clients outside Italy.',
+        skip: 'Skip to content',
+        minutes: 'min read',
+        read: 'Read the article',
+        date: 'en-GB',
+    },
+} as const;
 
 export default function BlogIndex() {
+    const { locale } = useLanguage();
+    const c = COPY[locale];
+    const posts = postsFor(locale);
+    const url = absoluteUrl(pagePath('blog', locale));
+    const itemListJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${url}#blog`,
+        url,
+        name: c.name,
+        description: c.description,
+        inLanguage: locale,
+        author: { '@id': 'https://pionio.it/#person' },
+        publisher: { '@id': 'https://pionio.it/#org' },
+        blogPost: posts.map((p) => ({
+            '@type': 'BlogPosting',
+            headline: p.title,
+            url: absoluteUrl(postPath(p.slug, locale)),
+            datePublished: p.datePublished,
+            dateModified: p.dateModified,
+            author: { '@id': 'https://pionio.it/#person' },
+        })),
+    };
+    const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl(pagePath('home', locale)) },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: url },
+        ],
+    };
     const sorted = [...posts].sort((a, b) => b.datePublished.localeCompare(a.datePublished));
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
-            <Seo title={title} description={description}>
+            <Seo title={c.title} description={c.description}>
                 <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
                 <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
             </Seo>
@@ -52,7 +80,7 @@ export default function BlogIndex() {
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"
             >
-                Vai al contenuto
+                {c.skip}
             </a>
 
             <PageHeader />
@@ -70,11 +98,10 @@ export default function BlogIndex() {
                             <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">Blog</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-sans tracking-tight text-white leading-[1.05]">
-                            Idee chiare su web, design e SEO.
+                            {c.h1}
                         </h1>
                         <p className="text-zinc-300 text-xl md:text-2xl leading-relaxed font-light">
-                            Guide pratiche, opinioni argomentate e numeri reali sul mestiere di costruire siti e
-                            applicazioni web. Scritto per il mercato italiano, senza fuffa.
+                            {c.lead}
                         </p>
                     </m.section>
 
@@ -88,7 +115,7 @@ export default function BlogIndex() {
                                 transition={{ duration: 0.5, delay: i * 0.04 }}
                             >
                                 <Link
-                                    to={`/blog/${post.slug}`}
+                                    to={postPath(post.slug, locale)}
                                     className="group block p-8 md:p-10 rounded-[2rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-forest-500/20 transition-all"
                                 >
                                     <div className="flex flex-col gap-6">
@@ -96,14 +123,14 @@ export default function BlogIndex() {
                                             <span className="text-forest-400">{post.category}</span>
                                             <span>•</span>
                                             <time dateTime={post.datePublished}>
-                                                {new Date(post.datePublished).toLocaleDateString('it-IT', {
+                                                {new Date(post.datePublished).toLocaleDateString(c.date, {
                                                     year: 'numeric',
                                                     month: 'long',
                                                     day: 'numeric',
                                                 })}
                                             </time>
                                             <span>•</span>
-                                            <span>{post.readingMinutes} min di lettura</span>
+                                            <span>{post.readingMinutes} {c.minutes}</span>
                                         </div>
                                         <h2 className="text-2xl md:text-4xl font-sans tracking-tight text-white group-hover:text-forest-100 transition-colors leading-[1.15]">
                                             {post.title}
@@ -112,7 +139,7 @@ export default function BlogIndex() {
                                             {post.excerpt}
                                         </p>
                                         <div className="flex items-center gap-2 text-zinc-500 group-hover:text-forest-400 font-mono text-xs uppercase tracking-widest transition-colors">
-                                            Leggi l'articolo <ArrowUpRight weight="bold" />
+                                            {c.read} <ArrowUpRight weight="bold" />
                                         </div>
                                     </div>
                                 </Link>

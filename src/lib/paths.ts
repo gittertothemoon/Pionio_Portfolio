@@ -9,7 +9,7 @@ const PAGES = {
     about: { it: '/chi-sono', en: '/en/about' },
     contact: { it: '/contatti', en: '/en/contact' },
     privacy: { it: '/privacy', en: '/en/privacy' },
-    blog: { it: '/blog', en: null },
+    blog: { it: '/blog', en: '/en/blog' },
 } as const;
 
 export type PageKey = keyof typeof PAGES;

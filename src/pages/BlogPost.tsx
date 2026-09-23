@@ -7,7 +7,9 @@ import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
 import { m } from 'framer-motion';
 import { PageHeader } from '../components/PageHeader';
 import { Footer } from '../components/Footer';
-import { getPost, posts } from '../lib/blog';
+import { getPost, postPath, posts, postsFor } from '../lib/blog';
+import { useLanguage } from '../context/LanguageContext';
+import { absoluteUrl, pagePath } from '../lib/paths';
 import { track } from '../lib/analytics';
 
 export function getStaticPaths() {
@@ -18,9 +20,40 @@ export function Component() {
     return <BlogPost />;
 }
 
+// The words around the article, in the language of the page
+const COPY = {
+    it: {
+        skip: 'Vai al contenuto',
+        all: 'Tutti gli articoli',
+        minutes: 'min di lettura',
+        date: 'it-IT',
+        ctaEyebrow: 'Hai un progetto in mente?',
+        ctaTitle: 'Trasformiamo queste idee nel tuo prossimo sito.',
+        ctaText:
+            'Se quello che hai letto qui ti convince e vuoi metterlo in pratica, parliamone. Ti rispondo entro 24 ore con una stima realistica e i prossimi passi.',
+        ctaQuote: 'Richiedi un preventivo',
+        ctaServices: 'Esplora i servizi',
+        more: 'Continua a leggere',
+    },
+    en: {
+        skip: 'Skip to content',
+        all: 'All articles',
+        minutes: 'min read',
+        date: 'en-GB',
+        ctaEyebrow: 'Have a project in mind?',
+        ctaTitle: 'Tell me what you are building.',
+        ctaText: 'I reply within 24 hours with a realistic estimate and the next steps.',
+        ctaQuote: 'Ask for a quote',
+        ctaServices: 'Services and prices',
+        more: 'Keep reading',
+    },
+} as const;
+
 export default function BlogPost() {
     const { slug } = useParams<{ slug: string }>();
-    const post = slug ? getPost(slug) : undefined;
+    const { locale } = useLanguage();
+    const c = COPY[locale];
+    const post = slug ? getPost(slug, locale) : undefined;
 
     useEffect(() => {
         if (!post || typeof window === 'undefined') return;
@@ -42,7 +75,7 @@ export default function BlogPost() {
 
     if (!post) return <NotFound />;
 
-    const url = `https://pionio.it/blog/${post.slug}`;
+    const url = absoluteUrl(postPath(post.slug, locale));
 
     const articleJsonLd = {
         '@context': 'https://schema.org',
@@ -54,7 +87,7 @@ export default function BlogPost() {
         image: 'https://pionio.it/og-cover.png',
         datePublished: post.datePublished,
         dateModified: post.dateModified,
-        inLanguage: 'it-IT',
+        inLanguage: locale === 'en' ? 'en' : 'it-IT',
         author: { '@id': 'https://pionio.it/#person' },
         publisher: { '@id': 'https://pionio.it/#org' },
         articleSection: post.category,
@@ -66,13 +99,13 @@ export default function BlogPost() {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pionio.it/' },
-            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://pionio.it/blog' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl(pagePath('home', locale)) },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: absoluteUrl(pagePath('blog', locale)) },
             { '@type': 'ListItem', position: 3, name: post.title, item: url },
         ],
     };
 
-    const otherPosts = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+    const otherPosts = postsFor(locale).filter((p) => p.slug !== post.slug).slice(0, 3);
 
     return (
         <div className="w-full min-h-[100dvh] bg-zinc-950 text-zinc-50 font-sans selection:bg-forest-500/30 selection:text-forest-100 antialiased">
@@ -89,7 +122,7 @@ export default function BlogPost() {
                 href="#main"
                 className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-forest-600 focus:text-white focus:rounded-md"
             >
-                Vai al contenuto
+                {c.skip}
             </a>
 
             <PageHeader />
@@ -102,10 +135,10 @@ export default function BlogPost() {
                         transition={{ duration: 0.6 }}
                     >
                         <Link
-                            to="/blog"
+                            to={pagePath('blog', locale)}
                             className="inline-flex items-center gap-2 text-zinc-500 hover:text-forest-400 font-mono text-xs uppercase tracking-widest transition-colors"
                         >
-                            <ArrowLeft weight="bold" /> Tutti gli articoli
+                            <ArrowLeft weight="bold" /> {c.all}
                         </Link>
                     </m.div>
 
@@ -119,14 +152,14 @@ export default function BlogPost() {
                             <span className="text-forest-400">{post.category}</span>
                             <span>•</span>
                             <time dateTime={post.datePublished}>
-                                {new Date(post.datePublished).toLocaleDateString('it-IT', {
+                                {new Date(post.datePublished).toLocaleDateString(c.date, {
                                     year: 'numeric',
                                     month: 'long',
                                     day: 'numeric',
                                 })}
                             </time>
                             <span>•</span>
-                            <span>{post.readingMinutes} min di lettura</span>
+                            <span>{post.readingMinutes} {c.minutes}</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-sans tracking-tight text-white leading-[1.05]">
                             {post.title}
@@ -213,27 +246,26 @@ export default function BlogPost() {
                         className="mt-12 p-8 md:p-12 rounded-[2.5rem] border border-forest-500/20 bg-forest-500/5 flex flex-col gap-6"
                     >
                         <span className="text-forest-400 font-mono text-xs uppercase tracking-widest">
-                            Hai un progetto in mente?
+                            {c.ctaEyebrow}
                         </span>
                         <h2 className="text-2xl md:text-3xl font-sans tracking-tight text-white">
-                            Trasformiamo queste idee nel tuo prossimo sito.
+                            {c.ctaTitle}
                         </h2>
                         <p className="text-zinc-300 text-lg leading-relaxed">
-                            Se quello che hai letto qui ti convince e cerchi un partner per metterlo in pratica,
-                            parliamone. Ti rispondo entro 24 ore con una stima realistica e i prossimi passi.
+                            {c.ctaText}
                         </p>
                         <div className="flex flex-wrap gap-3">
                             <Link
-                                to="/contatti"
+                                to={pagePath('contact', locale)}
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-500/20 border border-forest-500/40 text-forest-100 hover:bg-forest-500/30 font-mono text-xs uppercase tracking-widest transition-colors"
                             >
-                                Richiedi un preventivo <ArrowUpRight weight="bold" />
+                                {c.ctaQuote} <ArrowUpRight weight="bold" />
                             </Link>
                             <Link
-                                to="/servizi"
+                                to={pagePath('services', locale)}
                                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 font-mono text-xs uppercase tracking-widest transition-colors"
                             >
-                                Esplora i servizi
+                                {c.ctaServices}
                             </Link>
                         </div>
                     </m.section>
@@ -247,13 +279,13 @@ export default function BlogPost() {
                             className="mt-12 pt-12 border-t border-white/5 flex flex-col gap-8"
                         >
                             <h2 className="text-zinc-500 font-mono text-xs uppercase tracking-widest">
-                                Continua a leggere
+                                {c.more}
                             </h2>
                             <div className="grid md:grid-cols-3 gap-4">
                                 {otherPosts.map((p) => (
                                     <Link
                                         key={p.slug}
-                                        to={`/blog/${p.slug}`}
+                                        to={postPath(p.slug, locale)}
                                         className="group flex flex-col gap-3 p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-forest-500/20 transition-all"
                                     >
                                         <span className="text-forest-400 font-mono text-[10px] uppercase tracking-widest">
