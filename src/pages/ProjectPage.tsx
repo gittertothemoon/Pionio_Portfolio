@@ -47,6 +47,18 @@ const SEO: Record<string, { it: { title: string; description: string }; en: { ti
                 'A community app with a live map of Italian beaches, where people report crowds, water quality and cleanliness in real time. Built in 2025.',
         },
     },
+    soffio: {
+        it: {
+            title: 'soffio: immagini AI e pagina prodotto da un solo packshot | Pionio',
+            description:
+                'Un brand di cuscini inventato: tutte le immagini di un e-commerce generate con l\'AI da una sola foto prodotto, più la pagina prodotto che le usa. 2026.',
+        },
+        en: {
+            title: 'soffio: AI product images and a product page from one packshot | Pionio',
+            description:
+                'A fictional pillow brand: every image of an e-commerce store generated with AI from a single packshot, plus the product page that uses them. 2026.',
+        },
+    },
 };
 
 /* Un titolo con una parola in corsivo verde: nei dati la parola sta tra asterischi, *così* */
