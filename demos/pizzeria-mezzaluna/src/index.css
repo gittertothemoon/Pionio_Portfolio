@@ -1,0 +1,113 @@
+/* I caratteri arrivano da npm e restano sul nostro dominio: nessuna
+   richiesta a Google, nessun consenso da chiedere. */
+@import '@fontsource-variable/bodoni-moda/opsz.css';
+@import '@fontsource-variable/inter-tight/index.css';
+
+@import 'tailwindcss';
+
+@theme {
+    /* Il nero non è nero: è la parete del forno dopo cinquant'anni di fuoco. */
+    --color-pece: #0b0908;
+    --color-cenere: #171210;
+    --color-fuligg: #2a201b;
+    --color-crema: #f3e9da;
+    --color-crema-fioca: #cdbfae;
+    --color-brace: #c6472a;
+    --color-brace-viva: #e4622f;
+    --color-oro: #e3b15c;
+
+    --font-display: 'Bodoni Moda Variable', ui-serif, Georgia, serif;
+    --font-sans: 'Inter Tight Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--color-pece);
+        color: var(--color-crema);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+        font-synthesis-weight: none;
+    }
+
+    ::selection {
+        background: var(--color-brace);
+        color: var(--color-crema);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-oro);
+        outline-offset: 4px;
+    }
+
+    /* Il cursore disegnato prende il posto di quello di sistema solo dove c'è un
+       mouse vero: sul telefono resta tutto com'è. */
+    @media (hover: hover) and (pointer: fine) {
+        body[data-cursore='on'],
+        body[data-cursore='on'] * {
+            cursor: none;
+        }
+    }
+}
+
+@layer components {
+    .bordo {
+        width: 100%;
+        max-width: 92rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .bordo {
+            padding-inline: 3rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .bordo {
+            padding-inline: 4.5rem;
+        }
+    }
+
+    .etichetta {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--color-crema-fioca);
+    }
+
+    /* Titolone: il display ha bisogno di stare stretto, il testo corrente no. */
+    .titolone {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 0.84;
+        letter-spacing: -0.035em;
+    }
+
+    .filetto {
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgb(243 233 218 / 0.28) 12%,
+            rgb(243 233 218 / 0.28) 88%,
+            transparent
+        );
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

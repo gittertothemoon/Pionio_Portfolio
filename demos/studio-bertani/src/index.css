@@ -1,0 +1,115 @@
+/* I caratteri arrivano da npm e restano sul nostro dominio: nessuna
+   richiesta a Google, nessun consenso da chiedere. */
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+@import '@fontsource-variable/inter-tight/index.css';
+
+@import 'tailwindcss';
+
+@theme {
+    /* Carta ingiallita, inchiostro, ottone. Nessun grigio di sistema. */
+    --color-carta: #f4f1ea;
+    --color-carta-cupa: #e9e4d8;
+    --color-inchiostro: #14243a;
+    --color-inchiostro-fondo: #0e1b2c;
+    --color-tenue: #4e5a6b;
+    --color-ottone: #9a7a44;
+    --color-ottone-vivo: #c2a469;
+
+    --font-display: 'Newsreader Variable', ui-serif, Georgia, serif;
+    --font-sans: 'Inter Tight Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--color-carta);
+        color: var(--color-inchiostro);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+        font-synthesis-weight: none;
+    }
+
+    ::selection {
+        background: var(--color-inchiostro);
+        color: var(--color-carta);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-ottone);
+        outline-offset: 4px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        body[data-cursore='on'],
+        body[data-cursore='on'] * {
+            cursor: none;
+        }
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+@layer components {
+    .bordo {
+        width: 100%;
+        max-width: 88rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .bordo {
+            padding-inline: 3rem;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .bordo {
+            padding-inline: 4rem;
+        }
+    }
+
+    /* Numerazione di sezione: un capolettera in ottone e una regola sottile. */
+    .rubrica {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.85rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--color-ottone);
+    }
+
+    .rubrica::after {
+        content: '';
+        width: 2.5rem;
+        height: 1px;
+        background-color: currentColor;
+        opacity: 0.55;
+    }
+
+    .titolone {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 0.96;
+        letter-spacing: -0.028em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
