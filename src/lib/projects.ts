@@ -226,6 +226,28 @@ export const projects: Project[] = [
             },
         },
     },
+    {
+        slug: 'soffio',
+        id: 'soffio',
+        title: 'soffio',
+        category: { en: 'AI images · Product page · Concept', it: 'Immagini AI · Pagina prodotto · Concept' },
+        year: '2026',
+        image: '/images/soffio.webp',
+        description: {
+            en: 'A fictional pillow brand built to show a method: every image of an e-commerce store generated from a single packshot, with the product identical in every scene. Plus the product page that uses them, designed and built by me.',
+            it: 'Un brand di cuscini inventato per mostrare un metodo: da una sola foto prodotto, tutte le immagini di un e-commerce, con il prodotto identico in ogni scena. Più la pagina prodotto che le usa, disegnata e sviluppata da me.',
+        },
+        longDescription: {
+            en: 'soffio is a fictional pillow brand, built to show a method. From a single packshot, AI generates every image an e-commerce store needs: scenes, macro shots of the materials, a cutaway of the product. The label is checked in every image and the errors are corrected, so the product stays identical from scene to scene. The images feed a responsive product page, designed and built by me, with different crops for desktop and mobile, and an ads set with 4 different ideas in the 4:5 and 9:16 formats.',
+            it: 'soffio è un brand di cuscini inventato per mostrare un metodo. Da un solo packshot, l\'AI genera tutte le immagini che servono a un e-commerce: scene, macro dei materiali, spaccato del prodotto. L\'etichetta viene controllata in ogni immagine e gli errori corretti, così il prodotto resta identico da una scena all\'altra. Le immagini vivono in una pagina prodotto responsive, disegnata e sviluppata da me, con tagli diversi per desktop e mobile, e in un set di ads con 4 idee diverse, nei formati 4:5 e 9:16.',
+        },
+        url: 'https://soffio.pionio.it/',
+        imageFit: 'cover',
+        theme: 'dark',
+        span: 'md:col-span-1',
+        tech: ['AI imagery', 'HTML', 'CSS', 'JavaScript'],
+        aggiornato: '2026-09-29',
+    },
 ];
 
 export function getProject(slug: string): Project | undefined {

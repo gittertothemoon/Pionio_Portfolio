@@ -9,8 +9,8 @@ import { track } from '../lib/analytics';
 
 type CraftId = 'web' | 'synth' | 'tools';
 
-// The two works that stay in the portfolio, linked under the Web panel.
-const works = ['smoky-candle', 'where2beach'].map(getProject).filter((p): p is Project => Boolean(p));
+// The works that stay in the portfolio, linked under the Web panel.
+const works = ['smoky-candle', 'where2beach', 'soffio'].map(getProject).filter((p): p is Project => Boolean(p));
 
 // Same head, same pose, two layers of the Sintetico anatomy: skin on top, skull underneath.
 const SKIN = '/images/sintetico/anatomy-skin.webp';
